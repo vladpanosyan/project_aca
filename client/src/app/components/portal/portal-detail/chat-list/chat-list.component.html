@@ -1,0 +1,37 @@
+<!-- <div class="wrapper"> -->
+    <div class="ch_list_header">
+        <h4>Answer To Questions</h4>
+    </div>
+    <!-- {{ portalData | json}} -->
+    <div class="list scrollbar scrollbar-near-moon">
+        <ul class="">
+            <div class="force-overflow"></div>
+            <li *ngFor="let item of answers">
+                <!-- {{item | json}} -->
+                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->
+                <div class="item">
+                    <div class="question d-flex flex-column">
+                        <div class="q_data d-flex">
+                            <span><img [src]="item.answerToQuestion.nickss.image" alt=""></span>
+                            <span>{{ item.answerToQuestion.nickss.name }}</span>
+                        </div>
+                        <div class="q_q d-flex">
+                            <div class="current_question">{{ item.answerToQuestion.question }}</div>
+                        </div>
+                    </div>
+                    <div class="answer">
+                        <div class="a_data d-flex">
+                            <span><img [src]="inUserPortal ? userData.img : nickData.image " alt=""></span>
+                            <span *ngIf="inUserPortal">{{ userData.firstName }}</span>
+                            <span *ngIf="!inUserPortal">{{ nickData.name }}</span>
+                        </div>
+                        <div class="current_answer d-flex flex-column">
+                            {{ item.answer }}
+                        </div>
+                        <span>{{ item.time | date: 'medium' }}</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+<!-- </div> -->

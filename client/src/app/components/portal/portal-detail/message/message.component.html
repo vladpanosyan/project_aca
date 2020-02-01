@@ -1,0 +1,15 @@
+<div class="text_container d-flex">
+    <div class="reciever">
+        <div class="rec_wrap"  *ngIf="currTop10Nick?.id">
+            <!-- {{ currTop10Nick|json }} -->
+            <img [src]="currTop10Nick.nickss.image" alt="">
+            <h4>{{ currTop10Nick.nickss.name }}</h4>
+        </div>
+    </div>
+    <div class="txt_area">
+        <textarea [disabled]="!currTop10Nick && isUserInSelfPortal" class="form-control form-rounded msg" rows="3" #msg [(ngModel)]="message" [placeholder]="(!currTop10Nick && isUserInSelfPortal) ? '... Choose the one you need to answer the question': ''"></textarea>
+    </div>
+    <div class="sendbtn">
+        <button [disabled]="!currTop10Nick && isUserInSelfPortal" class="btn btn-dark" (click)="isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)">Send</button>
+    </div>
+</div>

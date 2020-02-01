@@ -1,0 +1,33 @@
+.text_container {
+    margin: 10px;
+}
+
+body {margin:2rem;}
+
+.form-rounded {
+border-radius: 1rem;
+}
+
+.reciever {
+    width: 15%;
+}
+.txt_area {
+    width: 65%;
+}
+.sendbtn {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+.msg {
+    resize: none;
+    width: 100%;
+}
+.rec_wrap > img {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+

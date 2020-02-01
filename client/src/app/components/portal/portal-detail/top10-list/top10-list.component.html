@@ -1,0 +1,26 @@
+<div class="top_10header">
+    <h4 class="">Top 10 Liked Questions</h4>
+</div>
+<div class="wrapper scrollbar-near-moon">
+    <ul>
+        <div class="force-overflow"></div>
+        <li *ngFor="let item of top10data; let i=index">
+            <div class="scope d-flex flex-column">
+                <div class="data d-flex" (click)="inUserPortal && prepForAnswer(item)">
+                    <div class="rait">{{ i+1 }}</div>
+                    <div class="img">
+                        <img [src]="item.nickss.image" alt="" class="is-active">
+                    </div>
+                    <div class="name">{{ item.nickss.name }}</div>
+                </div>
+                <div class="question d-flex flex-column">
+                    <div class="q_q d-flex">
+                        <div class="msg_cotainer">{{ item.question }}</div>
+                    </div>
+                    <!-- <div class=""></div> -->
+                    <div class="like likes ml-auto d-flex align-items-center is-active">{{ item.likeTotal }}</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
