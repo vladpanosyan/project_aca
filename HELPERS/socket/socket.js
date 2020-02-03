@@ -52,5 +52,13 @@ module.exports = async (socketIo) => {
            }
         })
 
+        socket.on("fin_portal", async portalId => {
+            const { Portals } = SERVICES;
+            const isFinished = await Portals.finishPortal(portalId);
+            if (isFinished) {
+                socketIo.emit("portal_end", isFinished)
+            }
+        })
+
     })
 }

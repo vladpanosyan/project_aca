@@ -62,12 +62,6 @@ export class NickNameService {
 
   changeAvatar(data): Observable<any> {
     return this.http
-    .put("api/nicknames/changeAvatar", data)
-    .pipe(
-      map(nick => {
-        this.nickDataSubject.next(nick);
-        return nick;
-      })
-    )
+    .put("api/nicknames/changeAvatar", data);
   }
 }

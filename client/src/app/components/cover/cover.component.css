@@ -1,4 +1,77 @@
-a.disabled {
-    pointer-events: none;
-    cursor: default;
-} 
+* {
+  margin: 0;
+  padding: 0;
+  background-origin: padding-box;
+  list-style: none;
+}
+
+li {
+    cursor: pointer;
+}
+li.disabled {
+  /* pointer-events: none; */
+  cursor: default;
+  
+}
+.list-type5 {
+  /* width: 410px; */
+  margin: 30px;
+
+}
+.list-type5 ol {
+  list-style-type: none;
+  margin: 0;
+  margin-left: 1em;
+  padding: 0;
+  /* counter-reset: li-counter; */
+}
+.list-type5 ol li {
+  position: relative;
+  margin-bottom: 1.5em;
+  padding: 0.5em;
+  background-color: #f0d756;
+  padding-left: 58px;
+  transition: box-shadow 0.4s;
+  -webkit-transition: box-shadow 0.4s; /* For Safari 3.1 to 6.0 */
+}
+
+.list-type5 ol li span:first-child {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+}
+
+.list-type5 li:hover {
+  box-shadow: inset -90em 0 #93C775;
+}
+.list-type5 li.disabled:hover {
+  box-shadow: inset -90em 0 #fc7470;
+}
+
+.list-type5 ol li i {
+  position: absolute;
+  top: -0.3em;
+  left: -0.5em;
+  width: 1.8em;
+  height: 1.8em;
+  font-size: 2em;
+  border-radius: 50%;
+  border: 2px solid #93C775;
+  line-height: 1.5;
+  font-weight: bold;
+  text-align: center;
+  color: #93C775;
+  background-color: #555555;
+  transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  z-index: 99;
+  overflow: hidden;
+  /* content: counter(li-counter); */
+  /* counter-increment: li-counter; */
+}
+.list-type5 ol li.disabled i {
+    border: 2px solid #fc7470;
+    color: fc7470;
+}

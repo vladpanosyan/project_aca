@@ -4,3 +4,8 @@
 .table > thead > tr > th {
     text-align: center;
 }
+.ni_active {
+    pointer-events: none;
+    cursor: default;
+    background-color: red;
+}

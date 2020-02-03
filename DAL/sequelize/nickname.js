@@ -112,7 +112,7 @@ module.exports = class Nickname {
             portalId: data.portalId
             }
         })
-            console.log(isUpdated, 523);
+            console.log(isUpdated, 6666666666666);
         if (isUpdated[0]) return true;
         return;
     }

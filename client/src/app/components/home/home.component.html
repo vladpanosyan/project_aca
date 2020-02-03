@@ -9,7 +9,7 @@
         <th scope="col">Tittle</th>
         <th scope="col">Start</th>
         <th scope="col">link</th>
-        <th scope="col">Left</th>
+        <th scope="col">Status</th>
         <th scope="col">Share</th>
         <th scope="col">GO</th>
         <th scope="col">Remove</th>
@@ -21,9 +21,12 @@
         <td>{{ item.name }}</td>
         <td>{{ item.start }}</td>
         <td>{{ portalUrlPath+item.token }}</td>
-        <td>{{(item.counter | async)}}</td>
-        <td><button><app-send-mail-modal [url]="portalUrlPath+item.token"></app-send-mail-modal></button></td>
-        <td><button [disabled]="item.isStarted" class="btn btn-success" (click)="startEvent(item.id, item.token)">Start</button></td>
+        <td *ngIf="(item.counter | async) as timeOfStart">{{ timeOfStart }}</td>
+        <td *ngIf="!item.isFinished && !(item.counter | async) as timeOfStart">Started</td>
+        <td *ngIf="item.isFinished && !(item.counter | async) as timeOfStart">Finished</td>
+        <!-- <td *ngIf="item.isFinished">Finished</td> -->
+        <td><button [ngClass]="{'ni_active':item.isFinished}"><app-send-mail-modal [url]="portalUrlPath+item.token"></app-send-mail-modal></button></td>
+        <td><button [disabled]="(item.counter | async) || item.isStarted" class="btn btn-success" (click)="startEvent(item.id, item.token)">Start</button></td>
         <td><button class="btn btn-danger" [attr.data-portal]="item.id">Remove</button></td>
       </tr>
     </tbody>

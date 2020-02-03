@@ -24,6 +24,9 @@ export class PortalService {
 
   currentUserPortals: BehaviorSubject<any>;
 
+  portalFinishedSubject: Subject<boolean>;
+  portalFinished: Observable<boolean>;
+
   // isPortalOfUser: BehaviorSubject<boolean>;
 
   constructor(private http: HttpClient) {
@@ -37,6 +40,9 @@ export class PortalService {
     this.currentPortalSubject = new BehaviorSubject({});
 
     this.currentUserPortals = new BehaviorSubject([]);
+
+    this.portalFinishedSubject = new Subject();
+    this.portalFinished = this.portalFinishedSubject.asObservable();
 
     // this.isPortalOfUser = new BehaviorSubject(false);
   }
@@ -60,7 +66,10 @@ export class PortalService {
   addPortal(data: any): Observable<any> {
     return this.http
       .post<any>("api/portals/addPortal", data)
-      .pipe(map(portal => this.portalSubject.next(portal)));
+      .pipe(map(portal => {
+        this.portalSubject.next(portal);
+        this.currentPortalIdSubject.next(portal.id);
+      }));
   }
   startEvent(id, token): Observable<any> {
     return this.http

@@ -19,7 +19,11 @@ module.exports = class Portal {
     }
 
     async getAll() {
-        let portals = await this.model.findAll()
+        let portals = await this.model.findAll({
+            where: {
+                isFinished: 0
+            }
+        })
         return portals;
     }
 
@@ -78,5 +82,13 @@ module.exports = class Portal {
         }
         return;
         // console.log(portalStatus, 8888888888);
+    }
+
+    async finishPortal(portalId) {
+        const isFInished = await this.model.update(
+        {isFinished: 1},
+        { where: {id: portalId}}
+        );
+        return isFInished[0];
     }
 }

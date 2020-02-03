@@ -6,8 +6,8 @@
         <div class="force-overflow"></div>
         <li *ngFor="let item of top10data; let i=index">
             <div class="scope d-flex flex-column">
+                <div class="rait d-flex"><span>{{ i+1 }}</span><i class="fas fa-star"></i></div>
                 <div class="data d-flex" (click)="inUserPortal && prepForAnswer(item)">
-                    <div class="rait">{{ i+1 }}</div>
                     <div class="img">
                         <img [src]="item.nickss.image" alt="" class="is-active">
                     </div>

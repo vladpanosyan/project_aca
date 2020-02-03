@@ -84,6 +84,11 @@ class Portals {
         }
         throw new Error("No Portal Portal POrtal .........");
     }
+    //
+    async finishPortal(portalId) {
+        const isFinished = await this.portalDal.finishPortal(portalId)
+        return isFinished;
+    }
 }
 
 module.exports = Portals

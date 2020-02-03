@@ -5,8 +5,9 @@ import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { PortalService } from "src/app/services/portal/portal.service";
 import { QuestionService } from "src/app/services/question/question.service";
 
-import { Subject, Observable} from "rxjs";
+import { Subject, Observable } from "rxjs";
 import { takeUntil, map } from "rxjs/operators";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-portal-detail",
@@ -23,7 +24,7 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
   inUserPortal = false;
   token = "";
 
-kkk = 1;
+  kkk = 1;
 
   constructor(
     private nickService: NickNameService,
@@ -31,9 +32,14 @@ kkk = 1;
     private chatService: ChatService,
     private portalService: PortalService,
     private questionService: QuestionService,
-
+    private router: Router,
   ) {
     this.nickService.currentNickToken.subscribe(token => (this.token = token));
+  }
+
+  ChangedAvatar(avatar: string) {
+    this.nickData.image = avatar;
+    this.questionService.changeAvatarSubject.next({avatar, nickId: this.nickData.id});
   }
 
   ngOnInit() {
@@ -53,6 +59,13 @@ kkk = 1;
         .subscribe(answer => {
           this.answer.next(answer);
         });
+      this.chatService.message
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(message => {
+          // this.messages.push(message);
+          this.questionService.msg.next(message);
+          console.log(this.messages);
+        });
     } else {
       this.inUserPortal = false;
       this.chatService.message
@@ -63,6 +76,14 @@ kkk = 1;
           console.log(this.messages);
         });
     }
+
+    this.portalService.portalFinished.subscribe(res => {
+      if (this.inUserPortal) {
+        this.router.navigate(["/api/users/home"]);
+      } else {
+        this.router.navigate(["/"]);
+      }
+    });
 
     // check subscriber authorization
     // this.nickService.isSubscriberAuth()

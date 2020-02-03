@@ -78,7 +78,7 @@ class Nicknames {
             const nickData = await this.nicknameDal.getNickData1(nickId, portalId.id);
             return nickData;
         } catch (error) {
-            console.log(error.message, 555555);
+            console.log(error.message, 55555577);
             return;
         }
     }

@@ -14,6 +14,7 @@ export class ChatService {
   answerQuestion = this.socket.fromEvent("answ_message");
   refreshPortals = this.socket.fromEvent("showPortals");
   TOP10 = this.socket.fromEvent("show_top_10");
+  endOfPortal = this.socket.fromEvent("portal_end");
 
   constructor(
     private socket: Socket
@@ -41,5 +42,9 @@ export class ChatService {
 
   answQuestion(answerData) {
     this.socket.emit("send_question", answerData);
+  }
+
+  finishPortal(portalId) {
+    this.socket.emit("fin_portal", portalId);
   }
 }

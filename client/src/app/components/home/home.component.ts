@@ -13,6 +13,7 @@ import { UserAuthService } from 'src/app/services/auth/user-auth.service';
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  timeOfStart: any;
   started: boolean;
   portal;
   timetoStart = false;
@@ -74,13 +75,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     const timer1 = interval(1000).pipe(
       map(_ => {
         const t = this.foo(time);
-        if (!(t || this.started)) {
-          this.started = true;
-          return "Started";
+        if (!t) {
+          // this.started = true;
+          return ;
         }
         return t;
       }),
-      filter(item => !!item),
+      // filter(item => !!item),
       takeUntil(this.destroy$),
     );
     return timer1;
@@ -92,6 +93,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   startEvent(id, token) {
+    this.portalService.currentPortalIdSubject.next(id);
     this.portalService.startEvent(id, token)
     .subscribe(resp => {
       if (resp) {
@@ -108,6 +110,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.portalService.getUserPortals(userId).subscribe(portals => {
       const StartTime = this.extractStartDate(portals);
       this.portalData = this.setupTimes(portals, StartTime);
+      console.log(this.portalData);
     });
   }
 

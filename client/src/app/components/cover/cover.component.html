@@ -1,8 +1,15 @@
-<p>cover works!</p>
-<div>
-    <ul *ngFor="let item of portalData">
-        <li *ngIf="item.name && !item.private"><a [ngClass]="{disabled: !item.isStarted}" (click)="openModal(item, false)">{{ item.name }}</a>{{item.private ? '-private' : '-public'}} ------ {{ item.userId }}</li>
-        <li *ngIf="item.name && item.private"><a [ngClass]="{disabled: !item.isStarted}" (click)="openModal(item, true)">{{ item.name }}</a>{{item.private ? '-private' : '-public'}}  ------ {{ item.userId }}</li>
-    </ul>
-    <span></span>
+<div class="list-type5">
+    <!-- <pre>{{ portalData | json }}</pre> -->
+    <ol *ngFor="let item of portalData">
+        <li *ngIf="item.private" (click)="item.isStarted && openModal(item, true)" [ngClass]="{disabled: !item.isStarted}" class="d-flex">
+            <span >{{ item.name }}</span>
+            <i class="fas fa-lock"></i>
+            <!-- {{item.private ? '-private' : '-public'}} ------ {{ item.userId }} -->
+        </li>
+        <li *ngIf="!item.private" (click)="item.isStarted && openModal(item, false)" [ngClass]="{disabled: !item.isStarted}" class="d-flex">
+            <span>{{ item.name }}</span>
+            <i class="fas fa-lock-open"></i>
+            <!-- {{item.private ? '-private' : '-public'}}  ------ {{ item.userId }} -->
+        </li>
+    </ol>
 </div>

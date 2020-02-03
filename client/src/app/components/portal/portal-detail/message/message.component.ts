@@ -27,19 +27,24 @@ export class MessageComponent implements OnInit {
 
   //  for subscriber
   sendMessage(message) {
-    const nickDataClone = { ...this.nickData };
-    nickDataClone.message = message;
-    nickDataClone.time = new Date();
-    this.chatService.sendMessage(nickDataClone);
-    this.message = "";
+    if (message.trim()) {
+      const nickDataClone = { ...this.nickData };
+      nickDataClone.message = message;
+      nickDataClone.time = new Date();
+      this.chatService.sendMessage(nickDataClone);
+      this.message = "";
+    }
   }
-
+  
   // for user
   sendMessgeQuestion(answer) {
-    const userId = this.userData.id;
-    const questionId = this.currTop10Nick.id;
-    this.chatService.answQuestion({userId, questionId, answer} );
-    this.message = "";
+    console.log(answer.trim(), 555);
+    if (answer.trim()) {
+      const userId = this.userData.id;
+      const questionId = this.currTop10Nick.id;
+      this.chatService.answQuestion({userId, questionId, answer} );
+      this.message = "";
+    }
   }
 
   ngOnInit() {

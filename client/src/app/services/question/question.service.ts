@@ -3,9 +3,16 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, Subject } from "rxjs";
 
 
+interface IchAvatar {
+  nickId: number;
+  avatar: string;
+}
+
 @Injectable({
   providedIn: "root"
 })
+
+
 export class QuestionService {
 
   // for new create message
@@ -13,12 +20,16 @@ export class QuestionService {
   msg = new Subject();
   getMsg: Observable<any>;
 
+  changeAvatarSubject = new Subject<IchAvatar>();
+  changeAvatar: Observable<IchAvatar>;
+
   recivierSubject = new Subject();
   recivierAns: Observable<any>;
 
   constructor(private http: HttpClient) {
     this.getMsg = this.msg.asObservable();
     this.recivierAns = this.recivierSubject.asObservable();
+    this.changeAvatar = this.changeAvatarSubject.asObservable();
   }
 
   getAllQuestions(portalToken): Observable<any> {
@@ -31,3 +42,4 @@ export class QuestionService {
     .get(`api/questions/getTOP10/${portalId}`);
   }
 }
+

@@ -66,6 +66,7 @@ class NicknameController {
         // const io = request.app.get("io");   
         const changesData = request.body;
         const data = await this.nicknameService.changeAvatar(changesData);
+        console.log(data, 77777777777)
         if (data) {
             response.json(data);
         } else {

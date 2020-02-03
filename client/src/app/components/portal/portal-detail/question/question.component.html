@@ -1,4 +1,5 @@
-<!-- <pre *ngIf="inUserPortal">{{ userData | json}}</pre> -->
+<!-- <pre>{{ userData | json}}</pre> -->
+<!-- <pre>{{ nickData | json}}</pre> -->
 
 <div class="comp_container">
     <div class="card-header">
@@ -11,6 +12,7 @@
                 <span>Chat with {{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>
                 <p>1767 Messages</p>
             </div>
+             <i *ngIf="inUserPortal" (click)="finishPortal()" class="finish far fa-stop-circle"></i>
         </div>
     </div>
     <div class="msg_cont ">
@@ -33,10 +35,7 @@
                     <div class="metta d-flex">
                         <span class="msg_time">{{ item.time | date: 'medium' }}</span>
                         <span [class.is-active]="item.isLiked || isNickLiked(item)" class="like-btn" (click)="action(item, i)"></span>
-                        <!-- <span class="like_count"
-                            style="color:#FAD00E">{{item.likes ? item.likes : item.questionManyLikes ? item.questionManyLikes[0]?.likeTotal : null}}</span> -->
-                        <span class="like_count"
-                            style="color:#FAD00E">{{ item.likes ? item.likes : item.likes !== null ? item.questionManyLikes : null }}</span>
+                        <span class="like_count" style="color:#FAD00E">{{ item.likes ? item.likes : item.likes === undefined ? item.questionManyLikes : null }}</span>
                     </div>
                 </div>
             </li>
