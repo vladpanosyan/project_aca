@@ -39,7 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // app.use(cookieParser());
 
-// app.use(express.static(path.join(__dirname, 'public1'))); use verjum
+// app.use(express.static(path.join(__dirname, 'public1')));
 
 module.exports = (async (message) => {
   if (message) {

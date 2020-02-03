@@ -1,6 +1,6 @@
 <!-- <pre>{{ userData | json}}</pre> -->
 <!-- <pre>{{ nickData | json}}</pre> -->
-
+<!-- <pre>{{ inUserPortal }}</pre> -->
 <div class="comp_container">
     <div class="card-header">
         <div class="d-flex bd-highlight">
@@ -17,7 +17,7 @@
     </div>
     <div class="msg_cont ">
         <!-- <h1>{{ ggg() }}</h1> -->
-        <ul class="card-body msg_card_body scrollbar scrollbar-near-moon">
+        <ul class="card-body msg_card_body scrollbar scrollbar-near-moon" #scrollMe>
             <div class="force-overflow"></div>
             <li *ngFor="let item of questions; let i=index"
                 class="d-flex justify-content-start mb-4 flex-column">

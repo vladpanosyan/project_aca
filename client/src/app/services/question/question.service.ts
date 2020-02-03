@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, Subject } from "rxjs";
+import { Observable, Subject, BehaviorSubject } from "rxjs";
 
 
 interface IchAvatar {
@@ -26,10 +26,16 @@ export class QuestionService {
   recivierSubject = new Subject();
   recivierAns: Observable<any>;
 
+  canScrollSubject = new BehaviorSubject<boolean>(true);
+
   constructor(private http: HttpClient) {
     this.getMsg = this.msg.asObservable();
     this.recivierAns = this.recivierSubject.asObservable();
     this.changeAvatar = this.changeAvatarSubject.asObservable();
+  }
+
+  get scrollStatus() {
+    return this.canScrollSubject.value;
   }
 
   getAllQuestions(portalToken): Observable<any> {

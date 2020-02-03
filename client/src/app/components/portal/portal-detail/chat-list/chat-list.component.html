@@ -3,7 +3,7 @@
         <h4>Answer To Questions</h4>
     </div>
     <!-- {{ portalData | json}} -->
-    <div class="list scrollbar scrollbar-near-moon">
+    <div class="list scrollbar scrollbar-near-moon" #scrollMe>
         <ul class="">
             <div class="force-overflow"></div>
             <li *ngFor="let item of answers">
@@ -22,8 +22,7 @@
                     <div class="answer">
                         <div class="a_data d-flex">
                             <span><img [src]="inUserPortal ? userData.img : nickData.image " alt=""></span>
-                            <span *ngIf="inUserPortal">{{ userData.firstName }}</span>
-                            <span *ngIf="!inUserPortal">{{ nickData.name }}</span>
+                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>
                         </div>
                         <div class="current_answer d-flex flex-column">
                             {{ item.answer }}

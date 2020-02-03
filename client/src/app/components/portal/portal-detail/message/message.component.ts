@@ -27,6 +27,7 @@ export class MessageComponent implements OnInit {
 
   //  for subscriber
   sendMessage(message) {
+    this.questionService.canScrollSubject.next(true);
     if (message.trim()) {
       const nickDataClone = { ...this.nickData };
       nickDataClone.message = message;
@@ -39,6 +40,7 @@ export class MessageComponent implements OnInit {
   // for user
   sendMessgeQuestion(answer) {
     console.log(answer.trim(), 555);
+    this.questionService.canScrollSubject.next(true);
     if (answer.trim()) {
       const userId = this.userData.id;
       const questionId = this.currTop10Nick.id;

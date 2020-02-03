@@ -67,6 +67,7 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
           console.log(this.messages);
         });
     } else {
+      alert(10);
       this.inUserPortal = false;
       this.chatService.message
         .pipe(takeUntil(this.unsubscribe$))
@@ -77,7 +78,9 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
         });
     }
 
-    this.portalService.portalFinished.subscribe(res => {
+    this.portalService.portalFinished
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe(res => {
       if (this.inUserPortal) {
         this.router.navigate(["/api/users/home"]);
       } else {
