@@ -42,9 +42,10 @@ class Portals {
         } 
     }
 
-    async getActivePortal() {
-        const activePortal = await this.portalDal.getActivePortal();
+    async getActivePortal(userId) {
+        const activePortal = await this.portalDal.getActivePortal(userId);
         if(activePortal) {
+            console.log(activePortal, 22222222)
             return activePortal;
         } 
         return {

@@ -60,7 +60,9 @@
     // active
     async getActivePortal(request, response) {
         try {
-            const activePortal = await this.portalService.getActivePortal();
+            const userId = request.params.userId;
+            console.log(userId, 6666666)
+            const activePortal = await this.portalService.getActivePortal(userId);
             response.json(activePortal)
         } catch (error) {
             response.status(500).json({error: error.message})

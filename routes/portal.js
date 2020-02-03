@@ -4,7 +4,7 @@ const router = express.Router();
 module.exports = async (portalController) => {
     // const { portalController } = await require('../controllers/portalController')()
     router.get('/getAll', portalController.getAll.bind(portalController));
-    router.get('/active', portalController.getActivePortal.bind(portalController));
+    router.get('/active/:userId', portalController.getActivePortal.bind(portalController));// ste jwt middle ara
 
     router.put('/:token', portalController.startPortal.bind(portalController));
 

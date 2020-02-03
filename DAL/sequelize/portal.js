@@ -36,15 +36,18 @@ module.exports = class Portal {
         return portals;
     }
 
-    async getActivePortal() { // ste usumnasiri te vorna active portal
+    async getActivePortal(userId) { // ste usumnasiri te vorna active portal
+        console.log(userId, 5555555555)
         const activePortal = await this.model.findAll({
+            raw: true,
             where: {
                 isStarted: 1,
-                isFinished: 0
+                isFinished: 0,
+                userId
             }
         });
         // console.log(t, 636363)
-        return activePortal[0];
+        return activePortal;
     }
 
     async checkToken(data) {

@@ -97,9 +97,9 @@ export class PortalService {
     );
   }
 
-  getActivePortal() {
+  getActivePortal(currentUserId): Observable<any> {
     return this.http
-    .get("api/portals/active");
+    .get(`api/portals/active/${currentUserId}`);
   }
   //
   chekPortalStatus(token): Observable<any> {

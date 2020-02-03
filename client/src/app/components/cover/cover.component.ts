@@ -136,6 +136,7 @@ export class CoverComponent implements OnInit {
     //
     this.portalService.getAll().subscribe(portals => {
       this.portalData = portals;
+      console.log(this.portalData, 8899)
     });
     //
     this.userAuthService.isAuthenticated().then(result => {

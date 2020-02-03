@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PortalService } from "src/app/services/portal/portal.service";
+import { UserAuthService } from 'src/app/services/auth/user-auth.service';
 
 @Component({
   selector: "app-portal",
@@ -8,16 +9,18 @@ import { PortalService } from "src/app/services/portal/portal.service";
 })
 export class PortalComponent implements OnInit {
 
-  portal;
+  portals: any[];
   constructor(
-    private portalService: PortalService
+    private portalService: PortalService,
+    private userAuthService: UserAuthService
   ) {}
 
   ngOnInit() {
-    this.portalService.getActivePortal()
+    const currentUserId = this.userAuthService.currentUserValue.id;
+    this.portalService.getActivePortal(currentUserId)
     .subscribe(portal => {
-      this.portal = portal;
-      console.log(portal);
+      this.portals = portal;
+      console.log(this.portals);
     });
   }
 }

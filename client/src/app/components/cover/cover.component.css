@@ -75,3 +75,7 @@ li.disabled {
     border: 2px solid #fc7470;
     color: fc7470;
 }
+
+ol li > *{
+  flex: 1 1 20em;
+}
