@@ -12,6 +12,7 @@
         }
         catch(e) {
             console.log(e.message, 7777777) /// amena lav error handlingi tex@
+            next(e.message);
         }
     }
 
@@ -23,7 +24,8 @@
             response.json(portals);
         }
         catch(e) {
-            console.log(e.message, 2525252525252525) 
+            console.log(e.message, 2525252525252525) ;
+            next(e.message);
         } 
     }
 

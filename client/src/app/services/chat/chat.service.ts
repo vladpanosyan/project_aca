@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Socket } from "ngx-socket-io";
+import { Socket, } from "ngx-socket-io";
 import { Subject, Observable } from "rxjs";
 
 
@@ -10,18 +10,31 @@ export class ChatService {
   likeCountSubject: Subject<any>;
   likeCountSubscrbtion: Observable<any>;
 
-  message = this.socket.fromEvent("message");
+  message        = this.socket.fromEvent("message");
   answerQuestion = this.socket.fromEvent("answ_message");
   refreshPortals = this.socket.fromEvent("showPortals");
-  TOP10 = this.socket.fromEvent("show_top_10");
-  endOfPortal = this.socket.fromEvent("portal_end");
+  TOP10          = this.socket.fromEvent("show_top_10");
+  endOfPortal    = this.socket.fromEvent("portal_end");
+  addToOnline    = this.socket.fromEvent("add_to_online");
+  removeToOnline = this.socket.fromEvent("remove_to_online");
 
   constructor(
     private socket: Socket
     ) {
-    // this.socket.connect();
     this.likeCountSubject = new Subject();
     this.likeCountSubscrbtion = this.likeCountSubject.asObservable();
+  }
+
+  socketConnect(nickData) {
+    // this.socket.on("connect", () => {
+      // alert(50);
+      // console.log()
+      this.socket.emit("connected", nickData);
+    // });
+  }
+
+  socketDisconnect(nickData) {
+    this.socket.emit("disconected", nickData);
   }
 
   addLikeCount() {

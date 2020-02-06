@@ -40,11 +40,16 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 
 // app.use(express.static(path.join(__dirname, 'public1')));
+// app.get('/*', (req, res) => {
+//   // console.log(path.join(__dirname, 'public/index.html'), 6161616161)
+//   res.sendFile(path.join(__dirname, 'public1/index.html'))
+// })
 
 module.exports = (async (message) => {
   if (message) {
     // res.status(500).status
     app.get('/*', (req, res) => {
+      console.log(message, 111111444444)
       res.render('error', {message})
     })
     return app;

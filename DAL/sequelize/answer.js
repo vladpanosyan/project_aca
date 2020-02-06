@@ -48,7 +48,7 @@ module.exports = class Answer {
                 }]
             }]
         })
-        console.log(JSON.stringify(answers, null, 2), 9999999999)
+        // console.log(JSON.stringify(answers, null, 2), 9999999999)
         return answers;
     }
     async deleteAnswers(id) {

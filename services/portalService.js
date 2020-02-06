@@ -72,7 +72,7 @@ class Portals {
             };
         } else {
             return {
-                ok: null,
+                ok: null, 
                 textContent: 'Wrong Token'
             }
         }
@@ -87,8 +87,18 @@ class Portals {
     }
     //
     async finishPortal(portalId) {
-        const isFinished = await this.portalDal.finishPortal(portalId)
+        const isFinished = await this.portalDal.finishPortal(portalId);
         return isFinished;
+    }
+    //
+    async addToOnline(portalId) {
+        const isAdded = await this.portalDal.addToOnline(portalId);
+        return isAdded;
+    }
+
+   async AddToOutline(portalId) {
+        const isRemoved = await this.portalDal.AddToOutline(portalId);
+        return isRemoved;
     }
 }
 

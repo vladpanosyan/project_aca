@@ -32,7 +32,7 @@ export class SubscriberGuard implements CanActivate {
       return this.userAuthService.isAuthforGuard().pipe(
         map(result => {
           if (result) {
-            console.log(result, 9999999);
+            // console.log(result, 9999999);
             return true;
           }
           return false;

@@ -174,5 +174,16 @@ export class CoverComponent implements OnInit {
       });
     }
     // console.log(this.userAuthService.UserLoggedStatus);
+    //
+    this.chatService.addToOnline.subscribe( portalId => {
+      this.portalData.find(item => item.id === portalId && (item.onlineSub += 1));
+      // console.log(t, 262626262);
+      // let subscribersCount = currPortal.onlineSub;
+      // subscribersCount++;
+    });
+
+    this.chatService.removeToOnline.subscribe(portalId => {
+      this.portalData.find(item => item.id === portalId && (item.onlineSub -= 1));
+    });
   }
 }

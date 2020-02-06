@@ -25,7 +25,8 @@
 
 .avatars ul li {
     cursor: pointer;
-    margin: 1px;
+    margin: 3px;
+    border-radius: 1px;
 }
 
 .col {

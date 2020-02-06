@@ -4,6 +4,33 @@ module.exports = async (socketIo) => {
     // console.log(socketIo, 9999)
     socketIo.on('connection', socket => {
 
+        // socket.on('disconnect', (i) => {
+        //     console.log(i, 23232323237)
+        // })
+
+        socket.on('connected', async (nickData) => {
+            console.log(nickData, 99991111)
+            const { Portals } = SERVICES;
+            const isAdded = await Portals.addToOnline(nickData.portalId);
+            if (isAdded) {
+                socketIo.emit('add_to_online', nickData.portalId)
+            }
+        })
+
+        socket.on('disconected', async (nickData) => {
+            const { Portals } = SERVICES;
+            const isRemoved = await Portals.AddToOutline(nickData.portalId);
+            if (isRemoved) {
+                console.log(7777777555)
+                socketIo.emit('remove_to_online', nickData.portalId)
+            }
+        })
+
+        socket.on('curr_nick', (nickName) => {
+            console.log(nickName, 88888888)
+        })
+
+
         socket.on('send_message', async (nickData) => {
             const { Questions } = SERVICES;
             const questionData = {
@@ -26,7 +53,7 @@ module.exports = async (socketIo) => {
 
             delete questionResponseData['portalId'];
             delete questionResponseData['nicknameId'];
-            const nickResponseMessage = {...questionResponseData, nickss: nickData}
+            const nickResponseMessage = { ...questionResponseData, nickss: nickData }
             socketIo.emit('message', nickResponseMessage)
 
         })
@@ -44,12 +71,12 @@ module.exports = async (socketIo) => {
         socket.on("get_likes_count", (data, action) => {
             console.log(data, action, 5555555)
             socketIo.emit("sendLikesCount", data);
-           const { Nick_likes } = SERVICES;
-           if (action === "plus") {
-               Nick_likes.addLike(data.nicknameId, data.questionId)
-           } else {
-            Nick_likes.deleteLike(data.nicknameId, data.questionId)
-           }
+            const { Nick_likes } = SERVICES;
+            if (action === "plus") {
+                Nick_likes.addLike(data.nicknameId, data.questionId)
+            } else {
+                Nick_likes.deleteLike(data.nicknameId, data.questionId)
+            }
         })
 
         socket.on("fin_portal", async portalId => {
@@ -59,6 +86,5 @@ module.exports = async (socketIo) => {
                 socketIo.emit("portal_end", isFinished)
             }
         })
-
     })
 }

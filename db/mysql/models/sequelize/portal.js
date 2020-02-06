@@ -30,6 +30,10 @@ module.exports = (sequelize, Sequelize) => {
         private: {
             type: Sequelize.BOOLEAN,
             defaultValue: 0
+        },
+        onlineSub: {
+            type: Sequelize.INTEGER,
+            defaultValue: 0
         }
     }, {
         timestamps: false,

@@ -114,6 +114,9 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngOnInit() {
+
+    this.chatServise.socketConnect(this.nickData);
+
     this.questionService
       .getAllQuestions(this.portalToken)
       .pipe(takeUntil(this.destroy$))
@@ -126,7 +129,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.chatServise.likeCountSubscrbtion
     .pipe(takeUntil(this.destroy$))
     .subscribe(data => {
-      console.log(data, 555222111);
+      console.log(data, 555222111); 
       this.questions[data.index].likes = data.likes;
     });
     this.questionService.getMsg
@@ -156,6 +159,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngOnDestroy() {
+    this.chatServise.socketDisconnect(this.nickData);
     this.destroy$.next(true);
     this.destroy$.complete();
   }

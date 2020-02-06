@@ -10,10 +10,10 @@ module.exports = class Portal {
 
     async startPortal(id, token) {
         let portalStarted = await this.model.update(
-            {isStarted: 1},
-            {where: {id, token}}
-            )
-            console.log(portalStarted, 523);
+            { isStarted: 1 },
+            { where: { id, token } }
+        )
+        console.log(portalStarted, 523);
         if (portalStarted[0]) return true;
         return;
     }
@@ -89,9 +89,39 @@ module.exports = class Portal {
 
     async finishPortal(portalId) {
         const isFInished = await this.model.update(
-        {isFinished: 1},
-        { where: {id: portalId}}
+            { isFinished: 1 },
+            { where: { id: portalId } }
         );
         return isFInished[0];
+    }
+
+    async addToOnline(portalId) {
+        // this.model.update({}, {});
+        const a = await this.model.increment("onlineSub", {
+            where: {
+                id: portalId
+            },
+            raw: true,
+            returning: true
+        });
+        // console.log(await this.model.findOne({where: {id: portalId}, raw: true}), 3131313)
+        if (a[0][1]) {
+            return a;
+        }
+        return;
+    }
+    async AddToOutline(portalId) {
+        const r = await this.model.decrement("onlineSub", {
+            where: {
+                id: portalId
+            },
+            raw: true,
+            returning: true
+        })
+        // console.log(await this.model.findOne({where: {id: portalId}, raw: true}), 3131313)
+        if (r[0][1]) {
+            return r;
+        }
+        return;
     }
 }
