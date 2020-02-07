@@ -45,3 +45,24 @@ form > div > div {
 .is_valid i {
     color: green
 }
+
+.card-body {
+    position: relative;
+}
+.error {
+    position: absolute;
+    width: 90%;
+    height: 31%;
+    display: flex;
+    align-items: center;
+    background: e07272;
+    opacity: .5;
+    z-index: 5;
+    margin-top: 50%;
+    justify-content: center;
+    border-radius: 5px
+}
+.error > p {
+    font-size: 18px;
+    color: #fff
+}

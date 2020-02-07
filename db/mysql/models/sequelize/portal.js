@@ -53,7 +53,8 @@ module.exports = (sequelize, Sequelize) => {
             foreignKey: 'portalId'
         })
         Portal.hasMany(models.Questions, {
-            foreignKey: 'portalId'
+            foreignKey: 'portalId',
+            as: 'portalManyQuestion'
         })
     };
 

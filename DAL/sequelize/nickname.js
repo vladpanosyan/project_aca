@@ -56,18 +56,26 @@ module.exports = class Nickname {
     async getNickData1(nickId, portalId) {
         return this.model.findOne({
             // raw: true,
-            attributes: ["id", "name", "image", "portalId"],
+            required: true,
             where: {
                 id: nickId,
                 portalId
             },
+            attributes: ['id', 'name', 'image', 'portalId', [sequelize.fn('count', sequelize.col(`Nicknames.portalId`)), 'questionsInPortal']],
             include: [{
+                required: true,
                 as: 'nickToPortal',
                 model: this.models.Portals,
                 include: [{
+                    required: true,
                     model: this.models.Users,
                     as: "portalToUser",
-                    attributes: ['firstName', 'img']
+                    attributes: ['firstName', 'img'] 
+                }, {
+                    as: 'portalManyQuestion',
+                    model: this.models.Questions,
+                    required: true,
+                    attributes: []
                 }]
             }]
             // required: true,

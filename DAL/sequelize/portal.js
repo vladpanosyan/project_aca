@@ -1,6 +1,7 @@
 module.exports = class Portal {
-    constructor(model) {
-        this.model = model
+    constructor(model, models) {
+        this.model  = model,
+        this.models = models
     }
 
     async createPortal(data) {
@@ -22,7 +23,20 @@ module.exports = class Portal {
         let portals = await this.model.findAll({
             where: {
                 isFinished: 0
-            }
+            },
+            // required: true,
+            include: [{
+                model: this.models.Users,
+                as: 'portalToUser',
+                attributes: ['firstName', 'lastName', 'img']
+            }, {
+                attributes: [[sequelize.fn('count', sequelize.col(`Portals.id`)), 'questionsInPortal']],
+                as: 'portalManyQuestion',
+                model: this.models.Questions,
+                // required: true,
+                // attributes: []
+            }],
+            group: ['Portals.id']
         })
         return portals;
     }
@@ -44,7 +58,12 @@ module.exports = class Portal {
                 isStarted: 1,
                 isFinished: 0,
                 userId
-            }
+            },
+            // include: [{
+            //     model: this.models.Users,
+            //     as: 'portalToUser',
+            //     attributes: ['firstName', 'lastName', 'img']
+            // }]
         });
         // console.log(t, 636363)
         return activePortal;

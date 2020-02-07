@@ -61,7 +61,10 @@ class UserController {
                    throw new Error('invalid login data') 
                 }
             } else {
-                response.json({
+                console.log(21098912)
+                response
+                .status(401)
+                .json({
                     loginData: 'Not Valid'
                 })
             }

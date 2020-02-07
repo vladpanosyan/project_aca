@@ -90,7 +90,7 @@ module.exports = class Question {
             }],
             group: ['Questions.id'],
             order: sequelize.literal('likeTotal DESC'),
-            limit: 3,
+            limit: 10,
             subQuery: false
         });
         // console.log(JSON.stringify(getTop10, null, 2), 8888888888888);

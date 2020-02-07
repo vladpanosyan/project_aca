@@ -32,6 +32,7 @@ module.exports = async (socketIo) => {
 
 
         socket.on('send_message', async (nickData) => {
+            console.log(nickData, 777777777)
             const { Questions } = SERVICES;
             const questionData = {
                 question: nickData.message,

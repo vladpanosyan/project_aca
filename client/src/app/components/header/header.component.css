@@ -1,6 +1,6 @@
 * {
-    -webkit-box-sizing: border-box!important; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box!important;    /* Firefox, other Gecko */
+    -webkit-box-sizing: border-box!important; 
+    -moz-box-sizing: border-box!important;    
     box-sizing: border-box!important;
 }
 ul > li {

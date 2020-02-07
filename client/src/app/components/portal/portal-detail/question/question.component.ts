@@ -33,6 +33,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   @Input() userData: any;
   @Input() inUserPortal: boolean;
   @Input() portalId: number;
+  @Input() portalData: any;
 
 // keep scroll in bottom
   @ViewChild("scrollMe", { static: false })
@@ -65,11 +66,8 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
     if (item.isLiked) {
       item.isLiked = false;
       item.isClicked = true;
-      console.log("click-Minus");
       const t = extractLikes(item);
-      // console.log(t, 777);
       item.likes = t - 1;
-      console.log(item.likes, 8888);
       this.chatServise.sendLikeCount(
         { index: i, likes: t - 1, nicknameId: us_erID, questionId: item.id },
         "minus"
@@ -79,8 +77,6 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
       item.isClicked = false;
       const t = extractLikes(item);
       item.likes = t + 1;
-      console.log(item.likes, 9999);
-      console.log("click-Plus");
       this.chatServise.sendLikeCount(
         { index: i, likes: t + 1, nicknameId: us_erID, questionId: item.id },
         "plus"
@@ -96,7 +92,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
           return item === us_erID;
         })
       : false;
-    //   // console.log(questionItem.isLiked, 5566);
+    // 
     if (value && !questionItem.isClicked) {
       questionItem.isLiked = true;
       return value;
@@ -116,33 +112,33 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   ngOnInit() {
 
     this.chatServise.socketConnect(this.nickData);
-
+    //
     this.questionService
       .getAllQuestions(this.portalToken)
       .pipe(takeUntil(this.destroy$))
       .subscribe(questions => {
         console.log(questions, 210989);
         this.questions = questions;
-        // this.questions.concat(this.question);
       });
     this.chatServise.addLikeCount();
+    //
     this.chatServise.likeCountSubscrbtion
     .pipe(takeUntil(this.destroy$))
     .subscribe(data => {
-      console.log(data, 555222111); 
       this.questions[data.index].likes = data.likes;
     });
+    //
     this.questionService.getMsg
     .pipe(takeUntil(this.destroy$))
     .subscribe(message => {
+      this.nickData.questionsInPortal = message.nickss.questionsInPortal;
+      this.portalData.portalManyQuestion[0].questionsInPortal = message.nickss.questionsInPortal;
       this.questions.push(message);
     });
     //
     this.questionService.changeAvatar
     .pipe(takeUntil(this.destroy$))
     .subscribe(result => {
-      // console.log(result, 33322211);
-      // console.log(this.questions);
       this.questions.forEach((item, index) => {
         if (item.nickss.id === result.nickId) {
           item.nickss.image = result.avatar;
@@ -153,7 +149,6 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.chatServise.endOfPortal
     .pipe(takeUntil(this.destroy$))
     .subscribe((isFinished: boolean) => {
-      // alert(isFinished)
       this.portalService.portalFinishedSubject.next(!!isFinished);
     });
   }
@@ -164,5 +159,3 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.destroy$.complete();
   }
 }
-
-// partadir destroy ara bolor subscribtion unsub anelu hamar

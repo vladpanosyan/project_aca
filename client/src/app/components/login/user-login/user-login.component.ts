@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class UserLoginComponent implements OnInit {
   loginForm: FormGroup;
   submited: false;
-
+  error = "";
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -20,18 +20,25 @@ export class UserLoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group(
-      {
-        email: ["", [Validators.required, Validators.email]],
-        password: ["", [Validators.required, Validators.minLength(6)]],
-      }
-    );
+    this.loginForm = this.formBuilder.group({
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(6)]]
+    });
   }
 
   userLogin() {
-    const {email, password } = this.loginForm.value;
-    this.userAuthService.login(email, password)
-    .subscribe(user => this.router.navigate(["api/users/profile", user.id]));
+    const { email, password } = this.loginForm.value;
+    this.userAuthService.login(email, password).subscribe(
+      user => this.router.navigate(["api/users/profile", user.id]),
+      error => {
+        // alert(JSON.stringify(error.statusCode, null, 2));
+        
+        if (error.status) {
+          alert( error.error.loginData)
+          this.error = error.error.loginData;
+        }
+      }
+    );
   }
 
   detectClass(field) {
@@ -46,5 +53,9 @@ export class UserLoginComponent implements OnInit {
     ) {
       return "is_valid";
     }
+  }
+
+  resetErrorLoginMessage() {
+    this.error = '';
   }
 }

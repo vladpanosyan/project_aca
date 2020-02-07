@@ -53,7 +53,6 @@ export class NickNameService {
       .pipe(
         map(nick => {
           this.currentNickSubjectToken.next(nick["token"]);
-          console.log(nick, 889977)
           this.nickDataSubject.next(nick);
           return nick;
         })

@@ -18,14 +18,15 @@ export class InterceptorService implements HttpInterceptor {
 
   handleError(error: HttpErrorResponse) {
     console.log(error);
-    if (error.status === 501) {
+    // if (error.status === 501) {
 
       // return throwError(this.user.execption());
       //     oR
-    return throwError(error.error);
-    }
-    const err = error.error.message || error.statusText;
-    return throwError(err);
+    console.log(error, 444);
+    return throwError(error);
+    // }
+    // const err = error.error.message || error.statusText;
+    // return throwError(err);
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {

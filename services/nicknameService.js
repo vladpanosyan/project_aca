@@ -60,7 +60,6 @@ class Nicknames {
                 }
             } else {
                 const nickData = await this.nicknameDal.getNickData(currentNicId);
-                // console.log
                 nickData.currentNicId = !!currentNicId;
                 return nickData;
             }
@@ -76,6 +75,7 @@ class Nicknames {
             const portalId = await this.nicknameDal.getPortalId(portalToken);
             const nickId = payload.datas[portalId.id];
             const nickData = await this.nicknameDal.getNickData1(nickId, portalId.id);
+            console.log(JSON.stringify(nickData, null, 2), 22222222222222)
             return nickData;
         } catch (error) {
             console.log(error.message, 55555577);

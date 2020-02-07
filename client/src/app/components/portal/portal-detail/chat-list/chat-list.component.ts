@@ -18,6 +18,7 @@ export class ChatListComponent implements OnInit, AfterViewChecked  {
   @Input() inUserPortal: boolean;
   @Input() userData: any;
   @Input() nickData: any;
+  @Input() portalData: any;
   // @Input() portalData: any;
 
   // keep scroll in bottom
@@ -39,7 +40,10 @@ export class ChatListComponent implements OnInit, AfterViewChecked  {
   ngOnInit() {
     const portalId = this.portalService.getPortalId;
     this.answerService.getAnswers(portalId)
-    .subscribe(answers => this.answers = answers);
+    .subscribe(answers => {
+      console.log(answers, 1414114);
+      this.answers = answers;
+    });
 
     this.answer.subscribe(answer => this.answers.push(answer));
   }

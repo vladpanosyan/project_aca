@@ -50,6 +50,7 @@ export class ChatService {
 
   sendMessage(nickData) {
     delete nickData.nickToPortal;
+    nickData.questionsInPortal += 1;
     this.socket.emit("send_message", nickData);
   }
 

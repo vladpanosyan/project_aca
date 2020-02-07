@@ -9,10 +9,15 @@
     width: 100%;
     height: 100%;
 } */
+
+.p_d {
+    height: 90vh;
+    width: 97vw;
+}
 .wrapper {
     margin: 15px;
     width: 100%;
-    height: 90vh;
+    height: 90%;
 }
 .messages {
     width: 70%;
@@ -52,9 +57,22 @@
 .nick_data {
     padding-left: 50px
 }
+.nick_data > h4, .nick_data > img {
+    align-self: center;
+}
+.nick_data > h4 {
+    color: #4E6486;
+}
+.nick_header {
+    margin-top: 10px;
+}
 .portal_data {
     margin-left: 15%;
 }
+.portal_data > h3 {
+    color: #4E6486;
+}
+
 /* scrollbar question */
 .scrollbar-near-moon::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);

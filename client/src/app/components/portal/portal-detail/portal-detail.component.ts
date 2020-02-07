@@ -43,11 +43,12 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.portalData = this.portalService.getCurrentPortal;
+    this.portalData = this.portalService.getCurrentPortal; 
 
     this.nickService.nickData.subscribe(data => (this.nickData = data));
 
     this.userData = this.userAuthService.currentUserValue;
+    // alert(JSON.stringify(this.userData, null, 2))
 
     if (
       this.userAuthService.UserLoggedStatus &&
@@ -64,7 +65,6 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
         .subscribe(message => {
           // this.messages.push(message);
           this.questionService.msg.next(message);
-          console.log(this.messages);
         });
     } else {
       this.inUserPortal = false;
@@ -73,7 +73,6 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
         .subscribe(message => {
           // this.messages.push(message);
           this.questionService.msg.next(message);
-          console.log(this.messages);
         });
     }
 

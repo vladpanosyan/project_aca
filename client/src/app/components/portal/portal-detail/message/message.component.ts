@@ -36,10 +36,8 @@ export class MessageComponent implements OnInit {
       this.message = "";
     }
   }
-  
   // for user
   sendMessgeQuestion(answer) {
-    console.log(answer.trim(), 555);
     this.questionService.canScrollSubject.next(true);
     if (answer.trim()) {
       const userId = this.userData.id;

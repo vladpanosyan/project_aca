@@ -10,7 +10,8 @@
             </div>
             <div class="user_info">
                 <span>Chat with {{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>
-                <p>1767 Messages</p>
+                <p *ngIf="inUserPortal">{{ portalData.portalManyQuestion[0].questionsInPortal ? portalData.portalManyQuestion[0].questionsInPortal : "ko yet " }} Questions</p>
+                <p *ngIf="!inUserPortal">{{ nickData.questionsInPortal ? nickData.questionsInPortal : "no " }} Questions</p>
             </div>
              <i *ngIf="inUserPortal" (click)="finishPortal()" class="finish far fa-stop-circle"></i>
         </div>
