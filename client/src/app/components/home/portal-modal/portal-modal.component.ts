@@ -46,6 +46,7 @@ export class PortalModalComponent implements OnInit {
     }
     this.isValidEventData = true;
     return true;
+    
   }
 
   open(content) {
