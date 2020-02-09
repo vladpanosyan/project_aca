@@ -1,7 +1,8 @@
 <h1>Active Portals</h1>
 <!-- <pre>{{ portals | json }}</pre> -->
 <!-- <ng-container class="text-center" *ngIf="portals?.length"> -->
-    <div *ngFor="let item of portals"> 
+    <!-- <pre>{{ portals | json }}</pre> -->
+    <div *ngFor="let item of portals" class="p_items"> 
         <span (click)="goToPortal(item)">{{ item.name }}</span>
     </div>
 <!-- </ng-container> -->

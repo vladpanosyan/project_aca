@@ -26,13 +26,14 @@ export class SubscriberGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
+    console.log(this.portalService.getPortalId, 111)
     if (this.userAuthService.UserLoggedStatus &&
       !this.nickService.getNickToken ||
       this.portalService.isPortalisMakeUser(this.portalService.getPortalId)) {
       return this.userAuthService.isAuthforGuard().pipe(
         map(result => {
           if (result) {
-            // console.log(result, 9999999);
+            console.log(result, 9999999);
             return true;
           }
           return false;

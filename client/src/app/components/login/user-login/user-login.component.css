@@ -66,3 +66,12 @@ form > div > div {
     font-size: 18px;
     color: #fff
 }
+
+a:not([href]):not([tabindex]) {
+    color: #fff!important;
+    cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):hover {
+    color: #fff!important
+}

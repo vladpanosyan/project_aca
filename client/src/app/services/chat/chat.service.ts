@@ -12,11 +12,14 @@ export class ChatService {
 
   message        = this.socket.fromEvent("message");
   answerQuestion = this.socket.fromEvent("answ_message");
+  updateAvatarS: any  = this.socket.fromEvent("upadateAvatar");
   refreshPortals = this.socket.fromEvent("showPortals");
   TOP10          = this.socket.fromEvent("show_top_10");
   endOfPortal    = this.socket.fromEvent("portal_end");
   addToOnline    = this.socket.fromEvent("add_to_online");
   removeToOnline = this.socket.fromEvent("remove_to_online");
+  refreshActivePortals = this.socket.fromEvent("startedCurrentPortal");
+  // removePortal   = this.socket.fromEvent("removePortal");
 
   constructor(
     private socket: Socket
@@ -61,4 +64,16 @@ export class ChatService {
   finishPortal(portalId) {
     this.socket.emit("fin_portal", portalId);
   }
+
+  updateAvatar(data) {
+    this.socket.emit("apdateAvatars", data);
+  }
+
+  refreshPortalsActivity(portalId) {
+    this.socket.emit("refreshStartedPortal", portalId);
+  }
+
+  // removePortalAfterEvent(portalId) {
+  //   this.socket.emit("removePortalAfterEvent", portalId);
+  // }
 }

@@ -4,6 +4,12 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+.card-body {
+    padding: 0;
+}
+.card-title {
+    margin: 0;
+}
 .divider-text span {
     padding: 7px;
     font-size: 12px;

@@ -13,7 +13,7 @@ import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
-// import { PortalRowDirective } from './directives/portal-row.directive';
+import { PortalRowDirective } from './directives/portal-row.directive';
 // import { HomeComponent } from "./components/home/home.component";
 
 const socketConfig: SocketIoConfig = { url: "http://localhost:3000", options: {} };
@@ -32,6 +32,7 @@ export function provideConfig() {
   declarations: [
     AppComponent,
     HeaderComponent,
+    PortalRowDirective,
   ],
   imports: [
     BrowserModule,

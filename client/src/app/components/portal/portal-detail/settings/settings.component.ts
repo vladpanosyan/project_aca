@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Input, Output } from "@angular/core";
 import { NickNameService } from "src/app/services/nickName/nick-name.service";
 import { PortalService } from "src/app/services/portal/portal.service";
+import { ChatService } from 'src/app/services/chat/chat.service';
 // import { QuestionService } from 'src/app/services/question/question.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private nickNameService: NickNameService,
-    private portalService: PortalService,
+    private chatService: ChatService,
     // private questionService: QuestionService
   ) {}
 
@@ -37,6 +38,7 @@ export class SettingsComponent implements OnInit {
       .subscribe(response => {
         if (response) {
           this.ChangedAvatar.emit(avatar);
+          this.chatService.updateAvatar({avatar, id: this.nickDataId});
         }
       });
   }

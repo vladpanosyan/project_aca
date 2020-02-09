@@ -31,7 +31,7 @@ module.exports = async (socketIo) => {
         })
 
 
-        socket.on('send_message', async (nickData) => {
+        socket.on('send_message', async (nickData) => { 
             console.log(nickData, 777777777)
             const { Questions } = SERVICES;
             const questionData = {
@@ -84,8 +84,20 @@ module.exports = async (socketIo) => {
             const { Portals } = SERVICES;
             const isFinished = await Portals.finishPortal(portalId);
             if (isFinished) {
-                socketIo.emit("portal_end", isFinished)
+                socketIo.emit("portal_end", { isFinished, portalId })
             }
         })
+
+        socket.on('apdateAvatars', data => {
+            socket.broadcast.emit('upadateAvatar', data)
+        })
+
+        socket.on('refreshStartedPortal', portalId => {
+            socket.broadcast.emit('startedCurrentPortal', portalId)
+        })
+
+        // socket.on("removePortalAfterEvent", portalId => {
+        //     this.socket.broadcast.emit('removePortal', portalId)
+        // })
     })
 }

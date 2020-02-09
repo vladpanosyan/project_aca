@@ -22,6 +22,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
     private questionService: QuestionService,
     private chatServise: ChatService,
     private portalService: PortalService,
+    private chatService: ChatService,
     private route: ActivatedRoute
   ) {
     const portalToken = this.route.snapshot.paramMap.get("token");
@@ -132,7 +133,11 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
     .pipe(takeUntil(this.destroy$))
     .subscribe(message => {
       this.nickData.questionsInPortal = message.nickss.questionsInPortal;
-      this.portalData.portalManyQuestion[0].questionsInPortal = message.nickss.questionsInPortal;
+      if (!this.portalData.portalManyQuestion.length) {
+        this.portalData.portalManyQuestion.push({questionsInPortal: 1});
+      } else {
+        this.portalData.portalManyQuestion[0].questionsInPortal = message.nickss.questionsInPortal;
+      }
       this.questions.push(message);
     });
     //
@@ -146,10 +151,17 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
       });
     });
     //
+    this.chatService.updateAvatarS.subscribe(
+      data => {
+        console.log(this.questions, 120)
+        this.questions.find(item => item.nickss.id === data.id && ( item.nickss.image = data.avatar));
+      }
+    );
+    //
     this.chatServise.endOfPortal
     .pipe(takeUntil(this.destroy$))
-    .subscribe((isFinished: boolean) => {
-      this.portalService.portalFinishedSubject.next(!!isFinished);
+    .subscribe((data: any) => {
+      this.portalService.portalFinishedSubject.next(!!data.isFinished);
     });
   }
 

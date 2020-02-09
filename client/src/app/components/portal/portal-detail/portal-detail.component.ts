@@ -7,7 +7,7 @@ import { QuestionService } from "src/app/services/question/question.service";
 
 import { Subject, Observable } from "rxjs";
 import { takeUntil, map } from "rxjs/operators";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-portal-detail",
@@ -32,19 +32,22 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
     private chatService: ChatService,
     private portalService: PortalService,
     private questionService: QuestionService,
-    private router: Router,
+    private router: Router
   ) {
     this.nickService.currentNickToken.subscribe(token => (this.token = token));
   }
 
   ChangedAvatar(avatar: string) {
     this.nickData.image = avatar;
-    this.questionService.changeAvatarSubject.next({avatar, nickId: this.nickData.id});
+    this.questionService.changeAvatarSubject.next({
+      avatar,
+      nickId: this.nickData.id
+    });
   }
 
   ngOnInit() {
-    this.portalData = this.portalService.getCurrentPortal; 
-
+    this.portalData = this.portalService.getCurrentPortal;
+    alert(JSON.stringify(this.portalData))
     this.nickService.nickData.subscribe(data => (this.nickData = data));
 
     this.userData = this.userAuthService.currentUserValue;
@@ -55,36 +58,31 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
       this.portalService.isPortalisMakeUser(this.portalService.getPortalId)
     ) {
       this.inUserPortal = true;
-      this.chatService.answerQuestion
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(answer => {
-          this.answer.next(answer);
-        });
-      this.chatService.message
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(message => {
-          // this.messages.push(message);
-          this.questionService.msg.next(message);
-        });
     } else {
       this.inUserPortal = false;
-      this.chatService.message
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(message => {
-          // this.messages.push(message);
-          this.questionService.msg.next(message);
-        });
     }
+    //
+    this.chatService.answerQuestion
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(answer => {
+        this.answer.next(answer);
+      });
+    this.chatService.message
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(message => {
+        this.questionService.msg.next(message);
+      });
+    //
 
     this.portalService.portalFinished
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe(res => {
-      if (this.inUserPortal) {
-        this.router.navigate(["/api/users/home"]);
-      } else {
-        this.router.navigate(["/"]);
-      }
-    });
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(res => {
+        if (this.inUserPortal) {
+          this.router.navigate(["/api/users/home"]);
+        } else {
+          this.router.navigate(["/"]);
+        }
+      });
 
     // check subscriber authorization
     // this.nickService.isSubscriberAuth()

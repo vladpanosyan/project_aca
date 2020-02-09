@@ -39,8 +39,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // app.use(cookieParser());
 
-// app.use(express.static(path.join(__dirname, 'public1')));
-// app.get('/*', (req, res) => {
+app.use(express.static(path.join(__dirname, 'public1')));
+// app.get('/api/*', (req, res) => {
 //   // console.log(path.join(__dirname, 'public/index.html'), 6161616161)
 //   res.sendFile(path.join(__dirname, 'public1/index.html'))
 // })

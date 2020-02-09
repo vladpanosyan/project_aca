@@ -6,6 +6,7 @@ import { map, filter, takeUntil } from "rxjs/operators";
 // import { formattedError } from '@angular/compiler';
 import { timer } from "src/app/HELPERS/backwardTimer";
 import { UserAuthService } from 'src/app/services/auth/user-auth.service';
+import { ChatService } from 'src/app/services/chat/chat.service';
 
 @Component({
   selector: "app-home",
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private portalService: PortalService,
     private userAuthService: UserAuthService,
+    private chatService: ChatService,
     private router: Router,
     ) {
     this.portalData = [];
@@ -92,12 +94,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     return timer(countDownDate);
   }
 
-  startEvent(id, token) {
-    this.portalService.currentPortalIdSubject.next(id);
-    this.portalService.startEvent(id, token)
+  startEvent({ counter, ...portal }) {
+    alert(9999)
+    this.portalService.currentPortalIdSubject.next(portal.id);
+    console.log(portal, 88888);
+    this.portalService.currentPortalSubject.next(portal);
+    this.portalService.startEvent(portal.id, portal.token)
     .subscribe(resp => {
       if (resp) {
-        this.router.navigate([`api/portals`, token]);
+        this.chatService.refreshPortalsActivity(portal.id);
+        this.router.navigate([`api/portals`, portal.token]);
       }
     });
   }
@@ -110,7 +116,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.portalService.getUserPortals(userId).subscribe(portals => {
       const StartTime = this.extractStartDate(portals);
       this.portalData = this.setupTimes(portals, StartTime);
-      console.log(this.portalData);
+      console.log(this.portalData, 44444);
     });
   }
 

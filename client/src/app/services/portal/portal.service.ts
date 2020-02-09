@@ -67,8 +67,8 @@ export class PortalService {
     return this.http
       .post<any>("api/portals/addPortal", data)
       .pipe(map(portal => {
-        this.portalSubject.next(portal);
-        this.currentPortalIdSubject.next(portal.id);
+        portal.portalManyQuestion = [];
+        return portal;
       }));
   }
   startEvent(id, token): Observable<any> {

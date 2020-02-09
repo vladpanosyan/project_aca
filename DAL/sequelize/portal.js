@@ -45,25 +45,33 @@ module.exports = class Portal {
         let portals = await this.model.findAll({
             where: {
                 userId
-            }
+            }, 
+              include: [{
+                attributes: [[sequelize.fn('count', sequelize.col(`Portals.id`)), 'questionsInPortal']],
+                as: 'portalManyQuestion',
+                model: this.models.Questions,
+            }],
+            group: ['Portals.id']
         })
+        console.log(JSON.stringify(portals, null, 2), 59595959)
         return portals;
     }
 
     async getActivePortal(userId) { // ste usumnasiri te vorna active portal
         console.log(userId, 5555555555)
         const activePortal = await this.model.findAll({
-            raw: true,
+            // raw: true,
             where: {
                 isStarted: 1,
                 isFinished: 0,
                 userId
             },
-            // include: [{
-            //     model: this.models.Users,
-            //     as: 'portalToUser',
-            //     attributes: ['firstName', 'lastName', 'img']
-            // }]
+            include: [{
+                attributes: [[sequelize.fn('count', sequelize.col(`Portals.id`)), 'questionsInPortal']],
+                as: 'portalManyQuestion',
+                model: this.models.Questions,
+            }],
+            group: ['Portals.id']
         });
         // console.log(t, 636363)
         return activePortal;

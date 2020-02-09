@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"list-type5\">\n    <!-- <pre>{{ portalData | json }}</pre> -->\n    <ol *ngFor=\"let item of portalData\">\n        <li *ngIf=\"item.private\" (click)=\"item.isStarted && openModal(item, true)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\n            <span >{{ item.name }}</span>\n            <i class=\"fas fa-lock\"></i>\n            <span style=\" color: azure;\"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\n            <!-- {{item.private ? '-private' : '-public'}} ------ {{ item.userId }} -->\n        </li>\n        <li *ngIf=\"!item.private\" (click)=\"item.isStarted && openModal(item, false)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\n            <span>{{ item.name }}</span>\n            <i class=\"fas fa-lock-open\"></i>\n            <span style=\"color: azure;\">{{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\n            <!-- {{item.private ? '-private' : '-public'}}  ------ {{ item.userId }} -->\n        </li>\n    </ol>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"list-type5\">\n    <!-- <pre>{{ portalData | json }}</pre> -->\n    <ol *ngFor=\"let item of portalData\">\n        <li *ngIf=\"item.private\" (click)=\"item.isStarted && openModal(item, true)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\n            <!-- <p>{{ item|json }}</p> -->\n            <span >{{ item.name }}</span>\n            <i class=\"fas fa-lock\"></i>\n            <span style=\" color: azure;\"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\n\n            <!-- {{item.private ? '-private' : '-public'}} ------ {{ item.userId }} -->\n        </li>\n        <li *ngIf=\"!item.private\" (click)=\"item.isStarted && openModal(item, false)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\n            <!-- <p>{{ item|json }}</p> -->\n            <span>{{ item.name }}</span>\n            <i class=\"fas fa-lock-open\"></i>\n            <span style=\"color: azure;\">{{ item.isStarted ? 'In Process ' : 'Started at ' + (item.start | date: 'medium')}}</span>\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\n\n            <!-- {{item.private ? '-private' : '-public'}}  ------ {{ item.userId }} -->\n        </li>\n    </ol>\n</div>  ";
     /***/
   },
 
@@ -91,7 +91,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n  \n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent d-flex justify-content-end\">\n      <ul class=\"navbar-nav mr-auto\">\n        <li class=\"nav-item active\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"/\"><span class=\"sr-only\">(current)</span>Main</a>\n        </li>\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a *ngIf=\"isLoggedIn\" class=\"nav-link\" routerLink=\"/api/users/home\">Home</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" [routerLink]=\"['/api/users/profile', currentUser.id]\">MyProfile</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"api/portals\">Portals</a>\n        </li>\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a *ngIf=\"!isLoggedIn\" class=\"nav-link\" routerLink=\"api/users/register\">Registration</a>\n        </li>\n       \n        <li *ngIf=\"!isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"api/users/login\">Login</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\">\n          <a class=\"nav-link\" (click)=\"logout()\" href=\"#\">LogOut</a>\n        </li>\n         <li>\n          <a class=\"nav-link\" [routerLink]=\"['/api/portals/active']\">TEST</a> \n        </li>\n         <li *ngIf=\"isLoggedIn\" class=\"d-flex align-items-center\">\n          <!-- <a class=\"nav-link\" [routerLink]=\"['/api/users/profile', '40']\">TEST</a> -->\n          <img [src]=\"currentUser?.img\" alt=\"\" width=\"30\" height=\"30\" class=\"rounded\">\n        </li>\n      </ul>\n    </div>\n  </nav>";
+    __webpack_exports__["default"] = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n  \n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item active\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"/\"><span class=\"sr-only\">(current)</span>Main</a>\n        </li>\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a *ngIf=\"isLoggedIn\" class=\"nav-link\" routerLink=\"/api/users/home\">Home</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" [routerLink]=\"['/api/users/profile', currentUser.id]\">MyProfile</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"api/portals\">Portals</a>\n        </li>\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a *ngIf=\"!isLoggedIn\" class=\"nav-link\" routerLink=\"api/users/register\">Registration</a>\n        </li>\n       \n        <li *ngIf=\"!isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"api/users/login\">Login</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\">\n          <a class=\"nav-link\" (click)=\"logout()\" href=\"#\">LogOut</a>\n        </li>\n         <li>\n          <a class=\"nav-link\" [routerLink]=\"['/api/portals/active']\">TEST</a> \n        </li>\n         <li *ngIf=\"isLoggedIn\" class=\"d-flex align-items-center\">\n          <img [src]=\"currentUser?.img\" alt=\"\" width=\"30\" height=\"30\" class=\"rounded\">\n        </li>\n      </ul>\n    </div>\n  </nav>\n";
     /***/
   },
 
@@ -111,7 +111,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <h2>To add Portal Click here</h2> -->\n<!-- <ngbd-datepicker-popup></ngbd-datepicker-popup> -->\n<app-portal-modal></app-portal-modal>\n<!-- <app-send-mail-modal></app-send-mail-modal> -->\n<table class=\"table\">\n    <thead class=\"thead-dark\">\n      <tr>\n        <th scope=\"col\">#</th>\n        <th scope=\"col\">Tittle</th>\n        <th scope=\"col\">Start</th>\n        <th scope=\"col\">link</th>\n        <th scope=\"col\">Status</th>\n        <th scope=\"col\">Share</th>\n        <th scope=\"col\">GO</th>\n        <th scope=\"col\">Remove</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let item of portalData; let i = index;\" [ngClass]=\"\">\n        <th scope=\"row\">{{ i + 1 }}</th>\n        <td>{{ item.name }}</td>\n        <td>{{ item.start }}</td>\n        <td>{{ portalUrlPath+item.token }}</td>\n        <td *ngIf=\"(item.counter | async) as timeOfStart\">{{ timeOfStart }}</td>\n        <td *ngIf=\"!item.isFinished && !(item.counter | async) as timeOfStart\">Started</td>\n        <td *ngIf=\"item.isFinished && !(item.counter | async) as timeOfStart\">Finished</td>\n        <!-- <td *ngIf=\"item.isFinished\">Finished</td> -->\n        <td><button [ngClass]=\"{'ni_active':item.isFinished}\"><app-send-mail-modal [url]=\"portalUrlPath+item.token\"></app-send-mail-modal></button></td>\n        <td><button [disabled]=\"(item.counter | async) || item.isStarted\" class=\"btn btn-success\" (click)=\"startEvent(item.id, item.token)\">Start</button></td>\n        <td><button class=\"btn btn-danger\" [attr.data-portal]=\"item.id\">Remove</button></td>\n      </tr>\n    </tbody>\n  </table>\n\n\n";
+    __webpack_exports__["default"] = "<!-- <h2>To add Portal Click here</h2> -->\n<!-- <ngbd-datepicker-popup></ngbd-datepicker-popup> -->\n<app-portal-modal></app-portal-modal>\n<!-- <app-send-mail-modal></app-send-mail-modal> -->\n<table class=\"table\">\n    <thead class=\"thead-dark\">\n      <tr>\n        <th scope=\"col\">#</th>\n        <th scope=\"col\">Tittle</th>\n        <th scope=\"col\">Start</th>\n        <th scope=\"col\">link</th>\n        <th scope=\"col\">Status</th>\n        <th scope=\"col\">Share</th>\n        <th scope=\"col\">GO</th>\n        <th scope=\"col\">Remove</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let item of portalData; let i = index;\" [ngClass]=\"\">\n        <th scope=\"row\">{{ i + 1 }}</th>\n        <td>{{ item.name }}</td>\n        <td>{{ item.start }}</td>\n        <td>{{ portalUrlPath+item.token }}</td>\n        <td *ngIf=\"(item.counter | async) as timeOfStart\">{{ timeOfStart }}</td>\n        <td *ngIf=\"!item.isFinished && !(item.counter | async) as timeOfStart\">Started</td>\n        <td *ngIf=\"item.isFinished && !(item.counter | async) as timeOfStart\">Finished</td>\n        <!-- <td *ngIf=\"item.isFinished\">Finished</td> -->\n        <td><button [ngClass]=\"{'ni_active':item.isFinished}\"><app-send-mail-modal [url]=\"portalUrlPath+item.token\"></app-send-mail-modal></button></td>\n        <td><button [disabled]=\"(item.counter | async) || item.isStarted\" class=\"btn btn-success\" (click)=\"startEvent(item)\">Start</button></td>\n        <td><button class=\"btn btn-danger\" [attr.data-portal]=\"item.id\">Remove</button></td>\n      </tr>\n    </tbody>\n  </table>\n\n\n";
     /***/
   },
 
@@ -131,7 +131,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ng-template #content let-modal>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Profile update</h4>\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <form [formGroup]=\"portalForm\">\n      <!-- tittle -->\n      <div class=\"form-group\">\n        <label for=\"portalTitle\">Title</label>\n        <div class=\"input-group\">\n          <input id=\"portalTitle\" class=\"form-control\" formControlName=\"title\" name=\"title\" type=\"text\" #title>\n          <!-- <div class=\"input-group-append\">\n            <button class=\"btn btn-outline-secondary calendar\" type=\"button\"></button>\n          </div> -->\n        </div>\n        <!-- date -->\n        <label for=\"dateOfStart\">Date of start</label>\n        <ngbd-datepicker-popup [formControl]=\"portalForm.controls['date']\"></ngbd-datepicker-popup>\n        <!-- <div class=\"input-group\">\n          <input id=\"dateOfStart\" class=\"form-control\" formControlName=\"date\" name=\"dp\" type=\"date\" #dp>\n        </div> -->\n        <!-- time -->\n        <label for=\"timeOfStart\">Time of start</label>\n        <div class=\"input-group\">\n          <input id=\"timeOfStart\" class=\"form-control\" formControlName=\"time\" name=\"time\" type=\"time\" #time>\n        </div>\n        <!-- private -->\n        <label for=\"timeOfStart\">Create Private Event</label>\n        <div class=\"input-group\">\n          <input id=\"checkPrivate\" class=\"\" formControlName=\"private\" name=\"private\" type=\"checkbox\" #prcheck>\n        </div>\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"modal.close(portalForm)\">Save</button>\n  </div>\n</ng-template>\n<div class=\"d-flex justify-content-center mt-3\">\n  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add Portal</button>\n</div>\n\n<hr>\n\n<pre>{{closeResult}}</pre>";
+    __webpack_exports__["default"] = "<ng-template #content let-modal>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Create Your Portal</h4>\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <form [formGroup]=\"portalForm\">\n      <!-- tittle -->\n      <div class=\"form-group\">\n        <label for=\"portalTitle\">Title</label>\n        <div class=\"input-group\">\n          <input id=\"portalTitle\" class=\"form-control\" formControlName=\"title\" name=\"title\" type=\"text\" #title>\n          <!-- <div class=\"input-group-append\">\n            <button class=\"btn btn-outline-secondary calendar\" type=\"button\"></button>\n          </div> -->\n        </div>\n        <!-- date -->\n        <label for=\"dateOfStart\">Date of start</label>\n        <ngbd-datepicker-popup [formControl]=\"portalForm.controls['date']\"></ngbd-datepicker-popup>\n        <!-- <div class=\"input-group\">\n          <input id=\"dateOfStart\" class=\"form-control\" formControlName=\"date\" name=\"dp\" type=\"date\" #dp>\n        </div> -->\n        <!-- time -->\n        <label for=\"timeOfStart\">Time of start</label>\n        <div class=\"input-group\">\n          <input id=\"timeOfStart\" class=\"form-control\" formControlName=\"time\" name=\"time\" type=\"time\" #time>\n        </div>\n        <!-- private -->\n        <label for=\"timeOfStart\">Create Private Event</label>\n        <div class=\"input-group\">\n          <input id=\"checkPrivate\" class=\"\" formControlName=\"private\" name=\"private\" type=\"checkbox\" #prcheck>\n        </div>\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"modal.close(portalForm)\">Save</button>\n  </div>\n</ng-template>\n<div class=\"d-flex justify-content-center mt-3\">\n  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add Portal</button>\n</div>\n\n<hr>\n\n<pre>{{closeResult}}</pre>";
     /***/
   },
 
@@ -171,7 +171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\">\n    <hr>\n    <div class=\"card bg-light\">\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\n            <p class=\"text-center\">Get started with your free account</p>\n            <p>\n                <a href=\"\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\n                <a href=\"\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a>\n            </p>\n            <p class=\"divider-text\">\n                <span class=\"bg-light\">OR</span>\n            </p>\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"userLogin()\"> \n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\">\n                </div> \n\n                <!-- form-group end.// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" >\n                </div>\n                <div class=\"form-group\">\n                    <button class=\"btn btn-primary btn-block\"> LogIn </button>\n                </div> <!-- form-group// -->\n               \n            </form>\n        </article>\n    </div> <!-- card.// -->\n\n</div>";
+    __webpack_exports__["default"] = "<div class=\"container\" (click)=\"resetErrorLoginMessage()\">\n    <hr>\n    <div class=\"card bg-light\">\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\n            <div *ngIf=\"error\" class=\"error\">\n                <p>{{ error }}</p>\n            </div>\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\n            <p class=\"text-center\">Get started with your free account</p>\n            <p>\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\n                <a class=\"btn btn-block btn-facebook\" (click)=\"signInWithFB()\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a>\n            </p>\n            <p class=\"divider-text\">\n                <span class=\"bg-light\">OR</span>\n            </p>\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"userLogin()\"> \n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\">\n                </div> \n\n                <!-- form-group end.// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" >\n                </div>\n                <div class=\"form-group\">\n                    <button class=\"btn btn-primary btn-block\"> LogIn </button>\n                </div> <!-- form-group// -->\n               \n            </form>\n        </article>\n    </div> <!-- card.// -->\n\n</div>";
     /***/
   },
 
@@ -191,7 +191,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"form-group\">\r\n    <div class=\"input-group\">\r\n      <input class=\"form-control\" placeholder=\"Choose Date Of Start Event\" [(ngModel)]=\"value\"\r\n      (ngModelChange)=\"bsValueChange($event)\"\r\n             name=\"dp\" ngbDatepicker #d=\"ngbDatepicker\">\r\n      <div class=\"input-group-append\">\r\n        <button class=\"btn btn-outline-secondary calendar\" (click)=\"d.toggle()\" type=\"button\"></button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"form-group\">\r\n    <div class=\"input-group\">\r\n      <input class=\"form-control\" placeholder=\"Choose Date Of Start Event\" [(ngModel)]=\"value\"\r\n      (ngModelChange)=\"bsValueChange($event)\"\r\n             name=\"dp\" ngbDatepicker #d=\"ngbDatepicker\">\r\n      <div class=\"input-group-append\">\r\n        <button class=\"btn btn-outline-secondary calendar\" (click)=\"d.toggle()\" type=\"button\"><i class=\"far fa-calendar-alt\"></i></button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n";
     /***/
   },
 
@@ -211,7 +211,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <div class=\"wrapper\"> -->\n    <div class=\"ch_list_header\">\n        <h4>Answer To Questions</h4>\n    </div>\n    <!-- {{ portalData | json}} -->\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\n        <ul class=\"\">\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of answers\">\n                <!-- {{item | json}} -->\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\n                <div class=\"item\">\n                    <div class=\"question d-flex flex-column\">\n                        <div class=\"q_data d-flex\">\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\n                        </div>\n                        <div class=\"q_q d-flex\">\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\n                        </div>\n                    </div>\n                    <div class=\"answer\">\n                        <div class=\"a_data d-flex\">\n                            <span><img [src]=\"inUserPortal ? userData.img : nickData.image \" alt=\"\"></span>\n                            <span *ngIf=\"inUserPortal\">{{ userData.firstName }}</span>\n                            <span *ngIf=\"!inUserPortal\">{{ nickData.name }}</span>\n                        </div>\n                        <div class=\"current_answer d-flex flex-column\">\n                            {{ item.answer }}\n                        </div>\n                        <span>{{ item.time | date: 'medium' }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n<!-- </div> -->\n";
+    __webpack_exports__["default"] = "<!-- <div class=\"wrapper\"> -->\n    <div class=\"ch_list_header\">\n        <h4>Answer To Questions</h4>\n    </div>\n    <!-- {{ portalData | json}} -->\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\n        <ul class=\"\">\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of answers\">\n                <!-- {{item | json}} -->\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\n                <div class=\"item\">\n                    <div class=\"question d-flex flex-column\">\n                        <div class=\"q_data d-flex\">\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\n                        </div>\n                        <div class=\"q_q d-flex\">\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\n                        </div>\n                    </div>\n                    <div class=\"answer\">\n                        <div class=\"a_data d-flex\">\n                            <span><img [src]=\"inUserPortal ? userData.img : portalData.portalToUser.img \" alt=\"\"></span>\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\n                        </div>\n                        <div class=\"current_answer d-flex flex-column\">\n                            {{ item.answer }}\n                        </div> \n                        <span>{{ item.time | date: 'medium' }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n<!-- </div> -->\n";
     /***/
   },
 
@@ -231,7 +231,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"text_container d-flex\">\n    <div class=\"reciever\">\n        <div class=\"rec_wrap\"  *ngIf=\"currTop10Nick?.id\">\n            <!-- {{ currTop10Nick|json }} -->\n            <img [src]=\"currTop10Nick.nickss.image\" alt=\"\">\n            <h4>{{ currTop10Nick.nickss.name }}</h4>\n        </div>\n    </div>\n    <div class=\"txt_area\">\n        <textarea [disabled]=\"!currTop10Nick && isUserInSelfPortal\" (keydown.enter)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\" class=\"form-control form-rounded msg\" rows=\"3\" #msg [(ngModel)]=\"message\" [placeholder]=\"(!currTop10Nick && isUserInSelfPortal) ? '... Choose the one you need to answer the question': ''\"></textarea>\n    </div>\n    <div class=\"sendbtn\">\n        <button [disabled]=\"!currTop10Nick && isUserInSelfPortal\" class=\"btn btn-dark\" (click)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\">Send</button>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"text_container d-flex\">\n    <div class=\"reciever\">\n        <div class=\"rec_wrap\"  *ngIf=\"currTop10Nick?.id\">\n            <!-- {{ currTop10Nick|json }} -->\n            <img [src]=\"currTop10Nick.nickss.image\" alt=\"\">\n            <h4>{{ currTop10Nick.nickss.name }}</h4>\n        </div>\n    </div>\n    <div class=\"txt_area\">\n        <textarea [disabled]=\"!currTop10Nick && isUserInSelfPortal\" (keydown.enter)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\" class=\"form-control form-rounded msg\" rows=\"3\" #msg [(ngModel)]=\"message\" [placeholder]=\"(!currTop10Nick && isUserInSelfPortal) ? '... Choose the one if you need to answer the question': ''\"></textarea>\n    </div>\n    <div class=\"sendbtn\">\n        <button [disabled]=\"!currTop10Nick && isUserInSelfPortal\" class=\"btn btn-dark\" (click)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\">Send</button>\n    </div>\n</div>";
     /***/
   },
 
@@ -251,7 +251,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = " <!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre>  -->\n <!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\n <!-- <pre *ngIf=\"userData?.id\">{{ portalData | json}}</pre> -->\n<!-- <p>{{ token }}</p> -->\n<div class=\"nick_header d-flex\">\n    <div class=\"nick_data d-flex\">\n        <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\n        <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\n    </div>\n    <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\" [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\n    <div class=\"portal_data\"><h1>{{ portalData.name }}</h1></div>\n</div>\n<div class=\"wrapper d-flex\">\n    <div class=\"messages d-flex\">\n        <div class=\"top d-flex\">\n            <div class=\"chat_list\">\n                <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\" [nickData]=\"nickData\"></app-chat-list>\n            </div>\n            <div class=\"top10_list\">\n                <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\n            </div>\n        </div>\n        <div class=\"wrote_messages\">\n            <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\n        </div>\n    </div>\n    <!-- #scrollMe [scrollTop]=\"scrollMe.scrollHeight\" -->\n\n    <!-- <div class=\"questions scrollbar scrollbar-near-moon\">\n        <div class=\"force-overflow\"></div> -->\n    <div class=\"questions\">\n        <!-- <div class=\"force-overflow\"></div> -->\n        <!-- [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\" -->\n        <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\"></app-question>\n    </div>       \n</div>";
+    __webpack_exports__["default"] = "<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre>  -->\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\n<!-- <pre>{{ portalData | json}}</pre>4 -->\n<!-- <p>{{ token }}</p> -->\n\n<div class=\"p_d\">\n\n    <div class=\"nick_header d-flex\">\n        <div class=\"nick_data d-flex\">\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\n        </div>\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\n        <div class=\"portal_data\">\n            <h3>{{ portalData.name }}</h3>\n        </div>\n    </div>\n    <div class=\"wrapper d-flex\">\n        <div class=\"messages d-flex\">\n            <div class=\"top d-flex\">\n                <div class=\"chat_list\">\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\n                </div>\n                <div class=\"top10_list\">\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\n                </div>\n            </div>\n            <div class=\"wrote_messages\">\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\n            </div>\n        </div>\n        <div class=\"questions\">\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -271,7 +271,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <pre>{{ userData | json}}</pre> -->\n<!-- <pre>{{ nickData | json}}</pre> -->\n\n<div class=\"comp_container\">\n    <div class=\"card-header\">\n        <div class=\"d-flex bd-highlight\">\n            <div class=\"img_cont\">\n                <img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img\" class=\"rounded-circle user_img\">\n                <span class=\"online_icon\"></span>\n            </div>\n            <div class=\"user_info\">\n                <span>Chat with {{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\n                <p>1767 Messages</p>\n            </div>\n             <i *ngIf=\"inUserPortal\" (click)=\"finishPortal()\" class=\"finish far fa-stop-circle\"></i>\n        </div>\n    </div>\n    <div class=\"msg_cont \">\n        <!-- <h1>{{ ggg() }}</h1> -->\n        <ul class=\"card-body msg_card_body scrollbar scrollbar-near-moon\" #scrollMe>\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of questions; let i=index\"\n                class=\"d-flex justify-content-start mb-4 flex-column\">\n                <!-- {{ item | json }}  -->\n                <div class=\"name\" style=\"color: #AAB8C2\">{{ item.nickss.name }}</div>\n                <div class=\"img_name d-flex flex-column\">\n                    <div class=\"img_msg_wrap d-flex\">\n                        <div class=\"img_cont_msg\">\n                            <img [src]=\"item.nickss.image\" alt=\"\" class=\"rounded-circle user_img_msg\">\n                        </div>\n                        <div class=\"msg_cotainer\">\n                            {{ item.question }}\n                        </div>\n                    </div>\n                    <div class=\"metta d-flex\">\n                        <span class=\"msg_time\">{{ item.time | date: 'medium' }}</span>\n                        <span [class.is-active]=\"item.isLiked || isNickLiked(item)\" class=\"like-btn\" (click)=\"action(item, i)\"></span>\n                        <span class=\"like_count\" style=\"color:#FAD00E\">{{ item.likes ? item.likes : item.likes === undefined ? item.questionManyLikes : null }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<!-- <pre>{{ userData | json}}</pre> -->\n<!-- <pre>{{ nickData | json}}</pre> -->\n<!-- <pre>{{ inUserPortal }}</pre> -->\n<div class=\"comp_container\">\n    <div class=\"card-header\">\n        <div class=\"d-flex bd-highlight\">\n            <div class=\"img_cont\">\n                <img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img\" class=\"rounded-circle user_img\">\n                <span class=\"online_icon\"></span>\n            </div>\n            <div class=\"user_info\">\n                <span>Chat with {{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\n                <p *ngIf=\"inUserPortal\">{{ portalData.portalManyQuestion[0]?.questionsInPortal ? portalData.portalManyQuestion[0].questionsInPortal : \"ko yet \" }} Questions</p>\n                <p *ngIf=\"!inUserPortal\">{{ nickData.questionsInPortal ? nickData.questionsInPortal : \"no \" }} Questions</p>\n            </div>\n             <i *ngIf=\"inUserPortal\" (click)=\"finishPortal()\" class=\"finish far fa-stop-circle\"></i>\n        </div>\n    </div>\n    <div class=\"msg_cont \">\n        <!-- <h1>{{ ggg() }}</h1> -->\n        <ul class=\"card-body msg_card_body scrollbar scrollbar-near-moon\" #scrollMe>\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of questions; let i=index\"\n                class=\"d-flex justify-content-start mb-4 flex-column\">\n                <!-- {{ item | json }}  -->\n                <div class=\"name\" style=\"color: #AAB8C2\">{{ item.nickss.name }}</div>\n                <div class=\"img_name d-flex flex-column\">\n                    <div class=\"img_msg_wrap d-flex\">\n                        <div class=\"img_cont_msg\">\n                            <img [src]=\"item.nickss.image\" alt=\"\" class=\"rounded-circle user_img_msg\">\n                        </div>\n                        <div class=\"msg_cotainer\">\n                            {{ item.question }}\n                        </div>\n                    </div>\n                    <div class=\"metta d-flex\">\n                        <span class=\"msg_time\">{{ item.time | date: 'medium' }}</span>\n                        <span [class.is-active]=\"item.isLiked || isNickLiked(item)\" class=\"like-btn\" (click)=\"action(item, i)\"></span>\n                        <span class=\"like_count\" style=\"color:#FAD00E\">{{ item.likes ? item.likes : item.likes === undefined ? item.questionManyLikes : null }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>";
     /***/
   },
 
@@ -291,7 +291,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col\">\n        <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Set Avatar</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"avatars\">\n                <ul>\n                    <button>\n                        <li *ngFor=\"let item of avatars\" (click)=\"updateAvatar(item)\">\n                            <img [src]=\"item\" alt=\"\">\n                        </li>\n                    </button>\n                </ul>\n                <!-- <button ngbDropdownItem>Action - 1</button>\n                <button ngbDropdownItem>Another Action</button>\n                <button ngbDropdownItem>Something else is here</button> -->\n            </div>\n        </div>\n    </div>\n    <!-- <div class=\"col\">\n        <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic2\" ngbDropdownToggle>Set Avatar</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\n                <button ngbDropdownItem>Action - 1</button>\n                <button ngbDropdownItem>Another Action</button>\n                <button ngbDropdownItem>Something else is here</button>\n            </div>\n        </div>\n    </div>\n</div> -->";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col\">\n        <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Set Avatar</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"avatars\">\n                <ul>\n                    <!-- <button> -->\n                        <li *ngFor=\"let item of avatars\" (click)=\"updateAvatar(item)\">\n                            <img [src]=\"item\" alt=\"\">\n                        </li>\n                    <!-- </button> -->\n                </ul>\n                <!-- <button ngbDropdownItem>Action - 1</button>\n                <button ngbDropdownItem>Another Action</button>\n                <button ngbDropdownItem>Something else is here</button> -->\n            </div>\n        </div>\n    </div>\n    <!-- <div class=\"col\">\n        <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic2\" ngbDropdownToggle>Set Avatar</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\n                <button ngbDropdownItem>Action - 1</button>\n                <button ngbDropdownItem>Another Action</button>\n                <button ngbDropdownItem>Something else is here</button>\n            </div>\n        </div>\n    </div>\n</div> -->";
     /***/
   },
 
@@ -311,7 +311,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"top_10header\">\n    <h4 class=\"\">Top 10 Liked Questions</h4>\n</div>\n<div class=\"wrapper scrollbar-near-moon\">\n    <ul>\n        <div class=\"force-overflow\"></div>\n        <li *ngFor=\"let item of top10data; let i=index\">\n            <div class=\"scope d-flex flex-column\">\n                <div class=\"rait d-flex\"><span>{{ i+1 }}</span><i class=\"fas fa-star\"></i></div>\n                <div class=\"data d-flex\" (click)=\"inUserPortal && prepForAnswer(item)\">\n                    <div class=\"img\">\n                        <img [src]=\"item.nickss.image\" alt=\"\" class=\"is-active\">\n                    </div>\n                    <div class=\"name\">{{ item.nickss.name }}</div>\n                </div>\n                <div class=\"question d-flex flex-column\">\n                    <div class=\"q_q d-flex\">\n                        <div class=\"msg_cotainer\">{{ item.question }}</div>\n                    </div>\n                    <!-- <div class=\"\"></div> -->\n                    <div class=\"like likes ml-auto d-flex align-items-center is-active\">{{ item.likeTotal }}</div>\n                </div>\n            </div>\n        </li>\n    </ul>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"top_10header\">\n    <h4 class=\"\">Top 10 Liked Questions</h4>\n</div>\n<div class=\"wrapper scrollbar-near-moon\">\n    <ul>\n        <div class=\"force-overflow\"></div>\n        <li *ngFor=\"let item of top10data; let i=index\">\n            <div class=\"scope d-flex flex-column\">\n                <div class=\"rait d-flex\"><span>{{ i+1 }}</span><i class=\"fas fa-star\"></i></div>\n                <div class=\"data d-flex\" (click)=\"inUserPortal && prepForAnswer(item)\">\n                    <div class=\"img\">\n                        <img [src]=\"item.nickss.image\" alt=\"\" class=\"is-active\">\n                    </div>\n                    <div class=\"name\">{{ item.nickss.name }}</div>\n                </div>\n                <div class=\"question d-flex flex-column\">\n                    <div class=\"q_q d-flex\">\n                        <div class=\"msg_cotainer\">{{ item.question }}</div>\n                    </div>\n                    <!-- <div class=\"\"></div> --> \n                    <div class=\"like likes ml-auto d-flex align-items-center is-active\">{{ item.likeTotal }}</div>\n                </div>\n            </div>\n        </li>\n    </ul>\n</div>\n";
     /***/
   },
 
@@ -331,7 +331,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h1>Active Portals</h1>\n<!-- <pre>{{ portals | json }}</pre> -->\n<!-- <ng-container class=\"text-center\" *ngIf=\"portals?.length\"> -->\n    <div *ngFor=\"let item of portals\"> \n        <span (click)=\"goToPortal(item)\">{{ item.name }}</span>\n    </div>\n<!-- </ng-container> -->\n";
+    __webpack_exports__["default"] = "<h1>Active Portals</h1>\n<!-- <pre>{{ portals | json }}</pre> -->\n<!-- <ng-container class=\"text-center\" *ngIf=\"portals?.length\"> -->\n    <!-- <pre>{{ portals | json }}</pre> -->\n    <div *ngFor=\"let item of portals\" class=\"p_items\"> \n        <span (click)=\"goToPortal(item)\">{{ item.name }}</span>\n    </div>\n<!-- </ng-container> -->\n";
     /***/
   },
 
@@ -371,7 +371,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\">\n    <h1 *ngIf=\"user\">{{user.name}}</h1>\n\n    <hr>\n    <div class=\"card bg-light\">\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\n            <p class=\"text-center\">Get started with your free account</p>\n            <p>\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\n                <a (click)=\"signInWithFB()\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a>\n                <!-- <a href=\"api/users/auth/facebook\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a> -->\n            </p>\n            <p class=\"divider-text\">\n                <span class=\"bg-light\">OR</span>\n            </p>\n            <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\"> \n                <!-- form-group// -->\n                <div class=\"form-group input-group\">\n                    <div class=\"input-group-prepend\" [ngClass]=\"detectClass('firstName')\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\" ></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"firstName\" placeholder=\"First name\" type=\"text\">\n                </div>\n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('lastName')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"lastName\" placeholder=\"Last name\" type=\"text\">\n                </div>\n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\" type=\"email\">\n                </div> \n\n                <!-- form-group end.// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" type=\"password\">\n                </div>\n\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('confPassword')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"confPassword\" placeholder=\"Repeat password\" type=\"password\">\n                </div> <!-- form-group// -->\n                <div class=\"form-group\">\n                    <button [disabled]=\"registerForm.invalid\" class=\"btn btn-primary btn-block\"> Create Account </button>\n                </div> <!-- form-group// -->\n                <p class=\"text-center\">Have an account? <a href=\"\">Log In</a> </p>\n            </form>\n        </article>\n    </div> <!-- card.// -->\n\n</div>\n<!--container end.//-->\n<p>{{ user }}</p>";
+    __webpack_exports__["default"] = "<div class=\"container\">\n    <h1 *ngIf=\"user\">{{user.name}}</h1>\n\n    <hr>\n    <div class=\"card bg-light\">\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\n            <p class=\"text-center\">Get started with your free account</p>\n            <p>\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\n                <a (click)=\"signInWithFB()\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a>\n                <!-- <a href=\"api/users/auth/facebook\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a> -->\n            </p>\n            <p class=\"divider-text\">\n                <span class=\"bg-light\">OR</span>\n            </p>\n            <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\"> \n                <!-- form-group// -->\n                <div class=\"form-group input-group\">\n                    <div class=\"input-group-prepend\" [ngClass]=\"detectClass('firstName')\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\" ></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"firstName\" placeholder=\"First name\" type=\"text\">\n                </div>\n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('lastName')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"lastName\" placeholder=\"Last name\" type=\"text\">\n                </div>\n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\" type=\"email\">\n                </div> \n\n                <!-- form-group end.// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" type=\"password\">\n                </div>\n\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('confPassword')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"confPassword\" placeholder=\"Repeat password\" type=\"password\">\n                </div> <!-- form-group// -->\n                <div class=\"form-group\">\n                    <button [disabled]=\"registerForm.invalid\" class=\"btn btn-primary btn-block\"> Create Account </button>\n                </div> <!-- form-group// -->\n            </form>\n        </article>\n    </div> <!-- card.// -->\n\n</div>\n<!--container end.//-->\n<p>{{ user }}</p>";
     /***/
   },
 
@@ -1595,9 +1595,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _components_header_header_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./components/header/header.component */
-    "./src/app/components/header/header.component.ts"); // Import social login module
+    "./src/app/components/header/header.component.ts");
+    /* harmony import */
+
+
+    var _directives_portal_row_directive__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./directives/portal-row.directive */
+    "./src/app/directives/portal-row.directive.ts"); // Import social login module
     // Import login providers
-    // import { PortalRowDirective } from './directives/portal-row.directive';
     // import { HomeComponent } from "./components/home/home.component";
 
 
@@ -1619,7 +1624,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _components_header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _components_header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"], _directives_portal_row_directive__WEBPACK_IMPORTED_MODULE_10__["PortalRowDirective"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _sweetalert2_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_7__["SweetAlert2Module"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"], angularx_social_login__WEBPACK_IMPORTED_MODULE_5__["SocialLoginModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__["SocketIoModule"].forRoot(socketConfig)],
       providers: [{
         provide: angularx_social_login__WEBPACK_IMPORTED_MODULE_5__["AuthServiceConfig"],
@@ -1987,8 +1992,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.portalService.getUserPortals(userId).subscribe(function (portals) {
               _this3.currentUserPortals = portals;
             });
-          } // console.log(this.userAuthService.UserLoggedStatus);
+          } //
 
+
+          this.chatService.addToOnline.subscribe(function (portalId) {
+            _this3.portalData.find(function (item) {
+              return item.id === portalId && (item.onlineSub += 1);
+            });
+          });
+          this.chatService.removeToOnline.subscribe(function (portalId) {
+            _this3.portalData.find(function (item) {
+              return item.id === portalId && (item.onlineSub -= 1);
+            });
+          }); //
+
+          this.chatService.refreshActivePortals.subscribe(function (portalId) {
+            _this3.portalData.find(function (portal) {
+              return portal.id === portalId && (portal.isStarted = 1);
+            });
+          });
+          this.chatService.endOfPortal.subscribe(function (data) {
+            alert('in cover.ts');
+
+            _this3.portalData.find(function (portal, index, portalData) {
+              return portal.id === data.portalId && portalData.splice(index, 1);
+            });
+          });
         }
       }]);
 
@@ -2038,7 +2067,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "* { /* Safari/Chrome, other WebKit */    /* Firefox, other Gecko */\n    box-sizing: border-box!important;\n}\nul > li {\n    margin-right: 5px;\n}\n.is-active {\n    border-bottom: 3px solid #333333;\n    padding: 0;\n    margin: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsSUFDOEMsZ0NBQWdDLEtBQ2hDLHlCQUF5QjtJQUNuRSxnQ0FBZ0M7QUFDcEM7QUFDQTtJQUNJLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksZ0NBQWdDO0lBQ2hDLFVBQVU7SUFDVixTQUFTO0FBQ2IiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xuICAgIC13ZWJraXQtYm94LXNpemluZzogYm9yZGVyLWJveCFpbXBvcnRhbnQ7IC8qIFNhZmFyaS9DaHJvbWUsIG90aGVyIFdlYktpdCAqL1xuICAgIC1tb3otYm94LXNpemluZzogYm9yZGVyLWJveCFpbXBvcnRhbnQ7ICAgIC8qIEZpcmVmb3gsIG90aGVyIEdlY2tvICovXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveCFpbXBvcnRhbnQ7XG59XG51bCA+IGxpIHtcbiAgICBtYXJnaW4tcmlnaHQ6IDVweDtcbn1cbi5pcy1hY3RpdmUge1xuICAgIGJvcmRlci1ib3R0b206IDNweCBzb2xpZCAjMzMzMzMzO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgbWFyZ2luOiAwO1xufSJdfQ== */";
+    __webpack_exports__["default"] = "* {    \n    box-sizing: border-box!important;\n}\nul > li {\n    margin-right: 5px;\n}\n.is-active {\n    border-bottom: 3px solid #333333;\n    padding: 0;\n    margin: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFHSSxnQ0FBZ0M7QUFDcEM7QUFDQTtJQUNJLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksZ0NBQWdDO0lBQ2hDLFVBQVU7SUFDVixTQUFTO0FBQ2IiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xuICAgIC13ZWJraXQtYm94LXNpemluZzogYm9yZGVyLWJveCFpbXBvcnRhbnQ7IFxuICAgIC1tb3otYm94LXNpemluZzogYm9yZGVyLWJveCFpbXBvcnRhbnQ7ICAgIFxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3ghaW1wb3J0YW50O1xufVxudWwgPiBsaSB7XG4gICAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uaXMtYWN0aXZlIHtcbiAgICBib3JkZXItYm90dG9tOiAzcHggc29saWQgIzMzMzMzMztcbiAgICBwYWRkaW5nOiAwO1xuICAgIG1hcmdpbjogMDtcbn0iXX0= */";
     /***/
   },
 
@@ -2228,19 +2257,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/services/auth/user-auth.service */
-    "./src/app/services/auth/user-auth.service.ts"); // import { formattedError } from '@angular/compiler';
+    "./src/app/services/auth/user-auth.service.ts");
+    /* harmony import */
+
+
+    var src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/services/chat/chat.service */
+    "./src/app/services/chat/chat.service.ts"); // import { formattedError } from '@angular/compiler';
 
 
     var HomeComponent =
     /*#__PURE__*/
     function () {
-      function HomeComponent(portalService, userAuthService, router) {
+      function HomeComponent(portalService, userAuthService, chatService, router) {
         var _this5 = this;
 
         _classCallCheck(this, HomeComponent);
 
         this.portalService = portalService;
         this.userAuthService = userAuthService;
+        this.chatService = chatService;
         this.router = router;
         this.timetoStart = false;
         this.portalUrlPath = "http://localhost:3000/api/portals/";
@@ -2327,13 +2363,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "startEvent",
-        value: function startEvent(id, token) {
+        value: function startEvent(portal) {
           var _this8 = this;
 
-          this.portalService.currentPortalIdSubject.next(id);
-          this.portalService.startEvent(id, token).subscribe(function (resp) {
+          console.log(portal, 88888);
+          this.portalService.currentPortalIdSubject.next(portal.id);
+          delete portal.counetr;
+          this.portalService.currentPortalSubject.next(portal);
+          this.portalService.startEvent(portal.id, portal.token).subscribe(function (resp) {
             if (resp) {
-              _this8.router.navigate(["api/portals", token]);
+              _this8.chatService.refreshPortalsActivity(portal.id);
+
+              _this8.router.navigate(["api/portals", portal.token]);
             }
           });
         }
@@ -2370,6 +2411,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_3__["PortalService"]
       }, {
         type: src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_7__["UserAuthService"]
+      }, {
+        type: src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_8__["ChatService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }];
@@ -2501,12 +2544,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             ariaLabelledBy: "modal-basic-title"
           }).result.then(function (result) {
             // this.closeResult = `Closed with: ${result}`;
-            console.log(result, 999);
-
-            if (result.invalid || !Object(src_app_HELPERS_portalTimeCreator__WEBPACK_IMPORTED_MODULE_5__["isValidDate"])(result.value.date, result.value.time)) {
-              console.log(89101);
-              return;
-            }
+            console.log(result, 999); // if (result.invalid || !isValidDate(result.value.date, result.value.time)) {
+            //   console.log(89101);
+            //   return;
+            // }
 
             var portalData = result.value;
             var userId = _this11.currentUser.id;
@@ -2761,7 +2802,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".divider-text {\n    position: relative;\n    text-align: center;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.divider-text span {\n    padding: 7px;\n    font-size: 12px;\n    position: relative;   \n    z-index: 2;\n}\n.divider-text:after {\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    border-bottom: 1px solid #ddd;\n    top: 55%;\n    left: 0;\n    z-index: 1;\n}\n.btn-facebook {\n    background-color: #405D9D;\n    color: #fff;\n}\n.btn-twitter {\n    background-color: #42AEEC;\n    color: #fff;\n}\n/*  */\n/* form>div>div {\n    order: -1;\n} */\nform > div {\n    display: flex;\n}\nform > div > div {\n    order: -1;\n}\n.no_valid i {\n    color: red\n}\n.is_valid i {\n    color: green\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dpbi91c2VyLWxvZ2luL3VzZXItbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsVUFBVTtBQUNkO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCw2QkFBNkI7SUFDN0IsUUFBUTtJQUNSLE9BQU87SUFDUCxVQUFVO0FBQ2Q7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQSxLQUFLO0FBQ0w7O0dBRUc7QUFDSDtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLFNBQVM7QUFDYjtBQUVBO0lBQ0k7QUFDSjtBQUNBO0lBQ0k7QUFDSiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbG9naW4vdXNlci1sb2dpbi91c2VyLWxvZ2luLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZGl2aWRlci10ZXh0IHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIG1hcmdpbi10b3A6IDE1cHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMTVweDtcbn1cbi5kaXZpZGVyLXRleHQgc3BhbiB7XG4gICAgcGFkZGluZzogN3B4O1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7ICAgXG4gICAgei1pbmRleDogMjtcbn1cbi5kaXZpZGVyLXRleHQ6YWZ0ZXIge1xuICAgIGNvbnRlbnQ6IFwiXCI7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGRkO1xuICAgIHRvcDogNTUlO1xuICAgIGxlZnQ6IDA7XG4gICAgei1pbmRleDogMTtcbn1cblxuLmJ0bi1mYWNlYm9vayB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQwNUQ5RDtcbiAgICBjb2xvcjogI2ZmZjtcbn1cbi5idG4tdHdpdHRlciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQyQUVFQztcbiAgICBjb2xvcjogI2ZmZjtcbn1cbi8qICAqL1xuLyogZm9ybT5kaXY+ZGl2IHtcbiAgICBvcmRlcjogLTE7XG59ICovXG5mb3JtID4gZGl2IHtcbiAgICBkaXNwbGF5OiBmbGV4O1xufVxuZm9ybSA+IGRpdiA+IGRpdiB7XG4gICAgb3JkZXI6IC0xO1xufVxuXG4ubm9fdmFsaWQgaSB7XG4gICAgY29sb3I6IHJlZFxufVxuLmlzX3ZhbGlkIGkge1xuICAgIGNvbG9yOiBncmVlblxufSJdfQ== */";
+    __webpack_exports__["default"] = ".divider-text {\n    position: relative;\n    text-align: center;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.divider-text span {\n    padding: 7px;\n    font-size: 12px;\n    position: relative;   \n    z-index: 2;\n}\n.divider-text:after {\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    border-bottom: 1px solid #ddd;\n    top: 55%;\n    left: 0;\n    z-index: 1;\n}\n.btn-facebook {\n    background-color: #405D9D;\n    color: #fff;\n}\n.btn-twitter {\n    background-color: #42AEEC;\n    color: #fff;\n}\n/*  */\n/* form>div>div {\n    order: -1;\n} */\nform > div {\n    display: flex;\n}\nform > div > div {\n    order: -1;\n}\n.no_valid i {\n    color: red\n}\n.is_valid i {\n    color: green\n}\n.card-body {\n    position: relative;\n}\n.error {\n    position: absolute;\n    width: 90%;\n    height: 31%;\n    display: flex;\n    align-items: center;\n    background: e07272;\n    opacity: .5;\n    z-index: 5;\n    margin-top: 50%;\n    justify-content: center;\n    border-radius: 5px\n}\n.error > p {\n    font-size: 18px;\n    color: #fff\n}\na:not([href]):not([tabindex]) {\n    color: #fff!important;\n    cursor: pointer;\n}\na:not([href]):not([tabindex]):hover {\n    color: #fff!important\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dpbi91c2VyLWxvZ2luL3VzZXItbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsVUFBVTtBQUNkO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCw2QkFBNkI7SUFDN0IsUUFBUTtJQUNSLE9BQU87SUFDUCxVQUFVO0FBQ2Q7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQSxLQUFLO0FBQ0w7O0dBRUc7QUFDSDtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLFNBQVM7QUFDYjtBQUVBO0lBQ0k7QUFDSjtBQUNBO0lBQ0k7QUFDSjtBQUVBO0lBQ0ksa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsVUFBVTtJQUNWLFdBQVc7SUFDWCxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsVUFBVTtJQUNWLGVBQWU7SUFDZix1QkFBdUI7SUFDdkI7QUFDSjtBQUNBO0lBQ0ksZUFBZTtJQUNmO0FBQ0o7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25CO0FBRUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9sb2dpbi91c2VyLWxvZ2luL3VzZXItbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaXZpZGVyLXRleHQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMTVweDtcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuLmRpdmlkZXItdGV4dCBzcGFuIHtcbiAgICBwYWRkaW5nOiA3cHg7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsgICBcbiAgICB6LWluZGV4OiAyO1xufVxuLmRpdmlkZXItdGV4dDphZnRlciB7XG4gICAgY29udGVudDogXCJcIjtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZGQ7XG4gICAgdG9wOiA1NSU7XG4gICAgbGVmdDogMDtcbiAgICB6LWluZGV4OiAxO1xufVxuXG4uYnRuLWZhY2Vib29rIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDA1RDlEO1xuICAgIGNvbG9yOiAjZmZmO1xufVxuLmJ0bi10d2l0dGVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDJBRUVDO1xuICAgIGNvbG9yOiAjZmZmO1xufVxuLyogICovXG4vKiBmb3JtPmRpdj5kaXYge1xuICAgIG9yZGVyOiAtMTtcbn0gKi9cbmZvcm0gPiBkaXYge1xuICAgIGRpc3BsYXk6IGZsZXg7XG59XG5mb3JtID4gZGl2ID4gZGl2IHtcbiAgICBvcmRlcjogLTE7XG59XG5cbi5ub192YWxpZCBpIHtcbiAgICBjb2xvcjogcmVkXG59XG4uaXNfdmFsaWQgaSB7XG4gICAgY29sb3I6IGdyZWVuXG59XG5cbi5jYXJkLWJvZHkge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbi5lcnJvciB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHdpZHRoOiA5MCU7XG4gICAgaGVpZ2h0OiAzMSU7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGJhY2tncm91bmQ6IGUwNzI3MjtcbiAgICBvcGFjaXR5OiAuNTtcbiAgICB6LWluZGV4OiA1O1xuICAgIG1hcmdpbi10b3A6IDUwJTtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBib3JkZXItcmFkaXVzOiA1cHhcbn1cbi5lcnJvciA+IHAge1xuICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICBjb2xvcjogI2ZmZlxufVxuXG5hOm5vdChbaHJlZl0pOm5vdChbdGFiaW5kZXhdKSB7XG4gICAgY29sb3I6ICNmZmYhaW1wb3J0YW50O1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuYTpub3QoW2hyZWZdKTpub3QoW3RhYmluZGV4XSk6aG92ZXIge1xuICAgIGNvbG9yOiAjZmZmIWltcG9ydGFudFxufSJdfQ== */";
     /***/
   },
 
@@ -2825,6 +2866,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.router = router;
         this.formBuilder = formBuilder;
         this.userAuthService = userAuthService;
+        this.error = "";
       }
 
       _createClass(UserLoginComponent, [{
@@ -2833,7 +2875,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.loginForm = this.formBuilder.group({
             email: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].email]],
             password: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(6)]]
-          });
+          }); // init social login actions
+
+          this.userAuthService.socialStateCheck();
         }
       }, {
         key: "userLogin",
@@ -2845,7 +2889,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               password = _this$loginForm$value.password;
           this.userAuthService.login(email, password).subscribe(function (user) {
             return _this13.router.navigate(["api/users/profile", user.id]);
+          }, function (error) {
+            // alert(JSON.stringify(error.statusCode, null, 2));
+            if (error.status) {
+              alert(error.error.loginData);
+              _this13.error = error.error.loginData;
+            }
           });
+        }
+      }, {
+        key: "signInWithFB",
+        value: function signInWithFB() {
+          this.userAuthService.signInWithFB();
         }
       }, {
         key: "detectClass",
@@ -2855,6 +2910,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else if (this.loginForm.controls[field].dirty && this.loginForm.controls[field].valid) {
             return "is_valid";
           }
+        }
+      }, {
+        key: "resetErrorLoginMessage",
+        value: function resetErrorLoginMessage() {
+          this.error = '';
         }
       }]);
 
@@ -3050,15 +3110,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/services/portal/portal.service */
     "./src/app/services/portal/portal.service.ts");
+    /* harmony import */
+
+
+    var src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/services/chat/chat.service */
+    "./src/app/services/chat/chat.service.ts");
+    /* harmony import */
+
+
+    var src_app_services_question_question_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/services/question/question.service */
+    "./src/app/services/question/question.service.ts");
 
     var ChatListComponent =
     /*#__PURE__*/
     function () {
-      function ChatListComponent(answerService, portalService) {
+      function ChatListComponent(answerService, portalService, questionService, chatService) {
         _classCallCheck(this, ChatListComponent);
 
         this.answerService = answerService;
         this.portalService = portalService;
+        this.questionService = questionService;
+        this.chatService = chatService;
       }
 
       _createClass(ChatListComponent, [{
@@ -3082,10 +3156,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var portalId = this.portalService.getPortalId;
           this.answerService.getAnswers(portalId).subscribe(function (answers) {
-            return _this14.answers = answers;
+            _this14.answers = answers;
           });
           this.answer.subscribe(function (answer) {
             return _this14.answers.push(answer);
+          }); //
+
+          this.chatService.updateAvatarS.subscribe(function (data) {
+            console.log(_this14.answers, 120);
+
+            _this14.answers.find(function (item) {
+              return item.answerToQuestion.nickss.id === data.id && (item.answerToQuestion.nickss.image = data.avatar);
+            }); // alert(JSON.stringify(data, null, 2));
+
+          }); //
+          //
+
+          this.questionService.changeAvatar // .pipe(takeUntil(this.destroy$))
+          .subscribe(function (result) {
+            _this14.answers.find(function (item, index) {
+              if (item.answerToQuestion.nickss.id === result.nickId) {
+                item.answerToQuestion.nickss.image = result.avatar;
+                return true;
+              }
+
+              return;
+            });
           });
         }
       }]);
@@ -3098,6 +3194,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: src_app_services_answer_answer_service__WEBPACK_IMPORTED_MODULE_2__["AnswerService"]
       }, {
         type: src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_3__["PortalService"]
+      }, {
+        type: src_app_services_question_question_service__WEBPACK_IMPORTED_MODULE_5__["QuestionService"]
+      }, {
+        type: src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_4__["ChatService"]
       }];
     };
 
@@ -3105,6 +3205,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ChatListComponent.prototype, "inUserPortal", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ChatListComponent.prototype, "userData", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ChatListComponent.prototype, "nickData", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ChatListComponent.prototype, "portalData", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("scrollMe", {
       static: false
     })], ChatListComponent.prototype, "myScrollContainer", void 0);
@@ -3228,7 +3329,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "sendMessgeQuestion",
         value: function sendMessgeQuestion(answer) {
-          console.log(answer.trim(), 555);
           this.questionService.canScrollSubject.next(true);
 
           if (answer.trim()) {
@@ -3299,7 +3399,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "* {\r\n    box-sizing: border-box;\r\n    margin: 0;\r\n    padding: 0;\r\n    /* outline: 1px solid green; */\r\n}\r\n\r\n/* html, body {\r\n    width: 100%;\r\n    height: 100%;\r\n} */\r\n\r\n.wrapper {\r\n    margin: 15px;\r\n    width: 100%;\r\n    height: 90vh;\r\n}\r\n\r\n.messages {\r\n    width: 70%;\r\n    height: 100%;\r\n    flex-direction: column;\r\n}\r\n\r\n.questions {\r\n    height: 100%;\r\n    width: 30%;\r\n    background-color: #51678A;\r\n}\r\n\r\n.top {\r\n    width: 100%;\r\n    height: 85%;\r\n}\r\n\r\n.wrote_messages {\r\n    width: 100%;\r\n    height: 30%;\r\n}\r\n\r\n.chat_list {\r\n    width: 60%;\r\n    height: 100%;\r\n    /* overflow-y: scroll; */\r\n}\r\n\r\n.top10_list {\r\n    width: 40%;\r\n    height: 100%;\r\n}\r\n\r\n.nick_data > img{\r\n    width: 40px;\r\n    height: 40px;\r\n    margin-left: 15px;\r\n}\r\n\r\n.nick_data {\r\n    padding-left: 50px\r\n}\r\n\r\n.portal_data {\r\n    margin-left: 15%;\r\n}\r\n\r\n/* scrollbar question */\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-color: #F5F5F5;\r\n    border-radius: 10px; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar {\r\n    width: 12px;\r\n    background-color: #F5F5F5; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-thumb {\r\n    border-radius: 10px;\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9wb3J0YWwtZGV0YWlsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxzQkFBc0I7SUFDdEIsU0FBUztJQUNULFVBQVU7SUFDViw4QkFBOEI7QUFDbEM7O0FBRUE7OztHQUdHOztBQUNIO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxZQUFZO0FBQ2hCOztBQUNBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7SUFDWixzQkFBc0I7QUFDMUI7O0FBQ0E7SUFDSSxZQUFZO0lBQ1osVUFBVTtJQUNWLHlCQUF5QjtBQUM3Qjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsV0FBVztBQUNmOztBQUVBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7SUFDWix3QkFBd0I7QUFDNUI7O0FBQ0E7SUFDSSxVQUFVO0lBQ1YsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxZQUFZO0lBQ1osaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0k7QUFDSjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFDQSx1QkFBdUI7O0FBQ3ZCO0lBQ0ksb0RBQW9EO0lBQ3BELHlCQUF5QjtJQUN6QixtQkFBbUIsRUFBRTs7QUFFckI7SUFDQSxXQUFXO0lBQ1gseUJBQXlCLEVBQUU7O0FBRTNCO0lBQ0EsbUJBQW1CO0lBQ25CLG9EQUFvRDtJQUdwRCxtRUFBbUUsRUFBRSIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcG9ydGFsL3BvcnRhbC1kZXRhaWwvcG9ydGFsLWRldGFpbC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKiB7XHJcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcGFkZGluZzogMDtcclxuICAgIC8qIG91dGxpbmU6IDFweCBzb2xpZCBncmVlbjsgKi9cclxufVxyXG5cclxuLyogaHRtbCwgYm9keSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxufSAqL1xyXG4ud3JhcHBlciB7XHJcbiAgICBtYXJnaW46IDE1cHg7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogOTB2aDtcclxufVxyXG4ubWVzc2FnZXMge1xyXG4gICAgd2lkdGg6IDcwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuLnF1ZXN0aW9ucyB7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB3aWR0aDogMzAlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzUxNjc4QTtcclxufVxyXG4udG9wIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA4NSU7XHJcbn1cclxuXHJcbi53cm90ZV9tZXNzYWdlcyB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMzAlO1xyXG59XHJcblxyXG4uY2hhdF9saXN0IHtcclxuICAgIHdpZHRoOiA2MCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICAvKiBvdmVyZmxvdy15OiBzY3JvbGw7ICovXHJcbn1cclxuLnRvcDEwX2xpc3Qge1xyXG4gICAgd2lkdGg6IDQwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG4ubmlja19kYXRhID4gaW1ne1xyXG4gICAgd2lkdGg6IDQwcHg7XHJcbiAgICBoZWlnaHQ6IDQwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogMTVweDtcclxufVxyXG5cclxuLm5pY2tfZGF0YSB7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDUwcHhcclxufVxyXG4ucG9ydGFsX2RhdGEge1xyXG4gICAgbWFyZ2luLWxlZnQ6IDE1JTtcclxufVxyXG4vKiBzY3JvbGxiYXIgcXVlc3Rpb24gKi9cclxuLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMCAwIDZweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjVGNUY1O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDsgfVxyXG4gICAgXHJcbiAgICAuc2Nyb2xsYmFyLW5lYXItbW9vbjo6LXdlYmtpdC1zY3JvbGxiYXIge1xyXG4gICAgd2lkdGg6IDEycHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjVGNUY1OyB9XHJcbiAgICBcclxuICAgIC5zY3JvbGxiYXItbmVhci1tb29uOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDAgNnB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IC13ZWJraXQtZ3JhZGllbnQobGluZWFyLCBsZWZ0IGJvdHRvbSwgbGVmdCB0b3AsIGZyb20oIzVlZTdkZiksIHRvKCNiNDkwY2EpKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGJvdHRvbSwgIzVlZTdkZiAwJSwgI2I0OTBjYSAxMDAlKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byB0b3AsICM1ZWU3ZGYgMCUsICNiNDkwY2EgMTAwJSk7IH1cclxuIl19 */";
+    __webpack_exports__["default"] = "* {\r\n    box-sizing: border-box;\r\n    margin: 0;\r\n    padding: 0;\r\n    /* outline: 1px solid green; */\r\n}\r\n\r\n/* html, body {\r\n    width: 100%;\r\n    height: 100%;\r\n} */\r\n\r\n.p_d {\r\n    height: 90vh;\r\n    width: 97vw;\r\n}\r\n\r\n.wrapper {\r\n    margin: 15px;\r\n    width: 100%;\r\n    height: 90%;\r\n}\r\n\r\n.messages {\r\n    width: 70%;\r\n    height: 100%;\r\n    flex-direction: column;\r\n}\r\n\r\n.questions {\r\n    height: 100%;\r\n    width: 30%;\r\n    background-color: #51678A;\r\n}\r\n\r\n.top {\r\n    width: 100%;\r\n    height: 85%;\r\n}\r\n\r\n.wrote_messages {\r\n    width: 100%;\r\n    height: 30%;\r\n}\r\n\r\n.chat_list {\r\n    width: 60%;\r\n    height: 100%;\r\n    /* overflow-y: scroll; */\r\n}\r\n\r\n.top10_list {\r\n    width: 40%;\r\n    height: 100%;\r\n}\r\n\r\n.nick_data > img{\r\n    width: 40px;\r\n    height: 40px;\r\n    margin-left: 15px;\r\n}\r\n\r\n.nick_data {\r\n    padding-left: 50px\r\n}\r\n\r\n.nick_data > h4, .nick_data > img {\r\n    align-self: center;\r\n}\r\n\r\n.nick_data > h4 {\r\n    color: #4E6486;\r\n}\r\n\r\n.nick_header {\r\n    margin-top: 10px;\r\n}\r\n\r\n.portal_data {\r\n    margin-left: 15%;\r\n}\r\n\r\n.portal_data > h3 {\r\n    color: #4E6486;\r\n}\r\n\r\n/* scrollbar question */\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-color: #F5F5F5;\r\n    border-radius: 10px; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar {\r\n    width: 12px;\r\n    background-color: #F5F5F5; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-thumb {\r\n    border-radius: 10px;\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9wb3J0YWwtZGV0YWlsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxzQkFBc0I7SUFDdEIsU0FBUztJQUNULFVBQVU7SUFDViw4QkFBOEI7QUFDbEM7O0FBRUE7OztHQUdHOztBQUVIO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjs7QUFDQTtJQUNJLFlBQVk7SUFDWixXQUFXO0lBQ1gsV0FBVztBQUNmOztBQUNBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7SUFDWixzQkFBc0I7QUFDMUI7O0FBQ0E7SUFDSSxZQUFZO0lBQ1osVUFBVTtJQUNWLHlCQUF5QjtBQUM3Qjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsV0FBVztBQUNmOztBQUVBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7SUFDWix3QkFBd0I7QUFDNUI7O0FBQ0E7SUFDSSxVQUFVO0lBQ1YsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxZQUFZO0lBQ1osaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0k7QUFDSjs7QUFDQTtJQUNJLGtCQUFrQjtBQUN0Qjs7QUFDQTtJQUNJLGNBQWM7QUFDbEI7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxjQUFjO0FBQ2xCOztBQUVBLHVCQUF1Qjs7QUFDdkI7SUFDSSxvREFBb0Q7SUFDcEQseUJBQXlCO0lBQ3pCLG1CQUFtQixFQUFFOztBQUVyQjtJQUNBLFdBQVc7SUFDWCx5QkFBeUIsRUFBRTs7QUFFM0I7SUFDQSxtQkFBbUI7SUFDbkIsb0RBQW9EO0lBR3BELG1FQUFtRSxFQUFFIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9wb3J0YWwtZGV0YWlsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG4gICAgLyogb3V0bGluZTogMXB4IHNvbGlkIGdyZWVuOyAqL1xyXG59XHJcblxyXG4vKiBodG1sLCBib2R5IHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59ICovXHJcblxyXG4ucF9kIHtcclxuICAgIGhlaWdodDogOTB2aDtcclxuICAgIHdpZHRoOiA5N3Z3O1xyXG59XHJcbi53cmFwcGVyIHtcclxuICAgIG1hcmdpbjogMTVweDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA5MCU7XHJcbn1cclxuLm1lc3NhZ2VzIHtcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcbi5xdWVzdGlvbnMge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDMwJTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM1MTY3OEE7XHJcbn1cclxuLnRvcCB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogODUlO1xyXG59XHJcblxyXG4ud3JvdGVfbWVzc2FnZXMge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDMwJTtcclxufVxyXG5cclxuLmNoYXRfbGlzdCB7XHJcbiAgICB3aWR0aDogNjAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgLyogb3ZlcmZsb3cteTogc2Nyb2xsOyAqL1xyXG59XHJcbi50b3AxMF9saXN0IHtcclxuICAgIHdpZHRoOiA0MCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLm5pY2tfZGF0YSA+IGltZ3tcclxuICAgIHdpZHRoOiA0MHB4O1xyXG4gICAgaGVpZ2h0OiA0MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDE1cHg7XHJcbn1cclxuXHJcbi5uaWNrX2RhdGEge1xyXG4gICAgcGFkZGluZy1sZWZ0OiA1MHB4XHJcbn1cclxuLm5pY2tfZGF0YSA+IGg0LCAubmlja19kYXRhID4gaW1nIHtcclxuICAgIGFsaWduLXNlbGY6IGNlbnRlcjtcclxufVxyXG4ubmlja19kYXRhID4gaDQge1xyXG4gICAgY29sb3I6ICM0RTY0ODY7XHJcbn1cclxuLm5pY2tfaGVhZGVyIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuLnBvcnRhbF9kYXRhIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAxNSU7XHJcbn1cclxuLnBvcnRhbF9kYXRhID4gaDMge1xyXG4gICAgY29sb3I6ICM0RTY0ODY7XHJcbn1cclxuXHJcbi8qIHNjcm9sbGJhciBxdWVzdGlvbiAqL1xyXG4uc2Nyb2xsYmFyLW5lYXItbW9vbjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sge1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDAgNnB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGNUY1RjU7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4OyB9XHJcbiAgICBcclxuICAgIC5zY3JvbGxiYXItbmVhci1tb29uOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgICB3aWR0aDogMTJweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGNUY1RjU7IH1cclxuICAgIFxyXG4gICAgLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgICAtd2Via2l0LWJveC1zaGFkb3c6IGluc2V0IDAgMCA2cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1ncmFkaWVudChsaW5lYXIsIGxlZnQgYm90dG9tLCBsZWZ0IHRvcCwgZnJvbSgjNWVlN2RmKSwgdG8oI2I0OTBjYSkpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQoYm90dG9tLCAjNWVlN2RmIDAlLCAjYjQ5MGNhIDEwMCUpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIHRvcCwgIzVlZTdkZiAwJSwgI2I0OTBjYSAxMDAlKTsgfVxyXG4iXX0= */";
     /***/
   },
 
@@ -3426,29 +3526,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.nickService.nickData.subscribe(function (data) {
             return _this17.nickData = data;
           });
-          this.userData = this.userAuthService.currentUserValue;
+          this.userData = this.userAuthService.currentUserValue; // alert(JSON.stringify(this.userData, null, 2))
 
           if (this.userAuthService.UserLoggedStatus && this.portalService.isPortalisMakeUser(this.portalService.getPortalId)) {
             this.inUserPortal = true;
-            this.chatService.answerQuestion.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$)).subscribe(function (answer) {
-              _this17.answer.next(answer);
-            });
-            this.chatService.message.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$)).subscribe(function (message) {
-              // this.messages.push(message);
-              _this17.questionService.msg.next(message);
-
-              console.log(_this17.messages);
-            });
           } else {
-            alert(10);
             this.inUserPortal = false;
-            this.chatService.message.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$)).subscribe(function (message) {
-              // this.messages.push(message);
-              _this17.questionService.msg.next(message);
+          } //
 
-              console.log(_this17.messages);
-            });
-          }
+
+          this.chatService.answerQuestion.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$)).subscribe(function (answer) {
+            _this17.answer.next(answer);
+          });
+          this.chatService.message.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$)).subscribe(function (message) {
+            _this17.questionService.msg.next(message);
+          }); //
 
           this.portalService.portalFinished.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$)).subscribe(function (res) {
             if (_this17.inUserPortal) {
@@ -3597,12 +3689,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       // canAutoScroll = true;
-      function QuestionComponent(questionService, chatServise, portalService, route) {
+      function QuestionComponent(questionService, chatServise, portalService, chatService, route) {
         _classCallCheck(this, QuestionComponent);
 
         this.questionService = questionService;
         this.chatServise = chatServise;
         this.portalService = portalService;
+        this.chatService = chatService;
         this.route = route;
         this.questions = [];
         this.isLiked = false;
@@ -3638,11 +3731,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (item.isLiked) {
             item.isLiked = false;
             item.isClicked = true;
-            console.log("click-Minus");
-            var t = Object(src_app_HELPERS_extractLikes__WEBPACK_IMPORTED_MODULE_4__["extractLikes"])(item); // console.log(t, 777);
-
+            var t = Object(src_app_HELPERS_extractLikes__WEBPACK_IMPORTED_MODULE_4__["extractLikes"])(item);
             item.likes = t - 1;
-            console.log(item.likes, 8888);
             this.chatServise.sendLikeCount({
               index: i,
               likes: t - 1,
@@ -3656,8 +3746,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var _t = Object(src_app_HELPERS_extractLikes__WEBPACK_IMPORTED_MODULE_4__["extractLikes"])(item);
 
             item.likes = _t + 1;
-            console.log(item.likes, 9999);
-            console.log("click-Plus");
             this.chatServise.sendLikeCount({
               index: i,
               likes: _t + 1,
@@ -3673,7 +3761,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var us_erID = this.currUserID;
           var value = questionItem.questionLikers ? questionItem.questionLikers.some(function (item) {
             return item === us_erID;
-          }) : false; //   // console.log(questionItem.isLiked, 5566);
+          }) : false; // 
 
           if (value && !questionItem.isClicked) {
             questionItem.isLiked = true;
@@ -3696,22 +3784,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this18 = this;
 
+          this.chatServise.socketConnect(this.nickData); //
+
           this.questionService.getAllQuestions(this.portalToken).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.destroy$)).subscribe(function (questions) {
             console.log(questions, 210989);
-            _this18.questions = questions; // this.questions.concat(this.question);
+            _this18.questions = questions;
           });
-          this.chatServise.addLikeCount();
+          this.chatServise.addLikeCount(); //
+
           this.chatServise.likeCountSubscrbtion.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.destroy$)).subscribe(function (data) {
-            console.log(data, 555222111);
             _this18.questions[data.index].likes = data.likes;
-          });
+          }); //
+
           this.questionService.getMsg.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.destroy$)).subscribe(function (message) {
+            _this18.nickData.questionsInPortal = message.nickss.questionsInPortal;
+
+            if (!_this18.portalData.portalManyQuestion.length) {
+              _this18.portalData.portalManyQuestion.push({
+                questionsInPortal: 1
+              });
+            } else {
+              _this18.portalData.portalManyQuestion[0].questionsInPortal = message.nickss.questionsInPortal;
+            }
+
             _this18.questions.push(message);
           }); //
 
           this.questionService.changeAvatar.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.destroy$)).subscribe(function (result) {
-            // console.log(result, 33322211);
-            // console.log(this.questions);
             _this18.questions.forEach(function (item, index) {
               if (item.nickss.id === result.nickId) {
                 item.nickss.image = result.avatar;
@@ -3719,14 +3818,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
           }); //
 
-          this.chatServise.endOfPortal.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.destroy$)).subscribe(function (isFinished) {
-            // alert(isFinished)
-            _this18.portalService.portalFinishedSubject.next(!!isFinished);
+          this.chatService.updateAvatarS.subscribe(function (data) {
+            console.log(_this18.questions, 120);
+
+            _this18.questions.find(function (item) {
+              return item.nickss.id === data.id && (item.nickss.image = data.avatar);
+            });
+          }); //
+
+          this.chatServise.endOfPortal.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.destroy$)).subscribe(function (data) {
+            _this18.portalService.portalFinishedSubject.next(!!data.isFinished);
           });
         }
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
+          this.chatServise.socketDisconnect(this.nickData);
           this.destroy$.next(true);
           this.destroy$.complete();
         }
@@ -3753,6 +3860,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_6__["PortalService"]
       }, {
+        type: src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_5__["ChatService"]
+      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
       }];
     };
@@ -3762,6 +3871,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], QuestionComponent.prototype, "userData", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], QuestionComponent.prototype, "inUserPortal", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], QuestionComponent.prototype, "portalId", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], QuestionComponent.prototype, "portalData", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("scrollMe", {
       static: false
     })], QuestionComponent.prototype, "myScrollContainer", void 0);
@@ -3773,8 +3883,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./question.component.css */
       "./src/app/components/portal/portal-detail/question/question.component.css")).default]
-    })], QuestionComponent); // partadir destroy ara bolor subscribtion unsub anelu hamar
-
+    })], QuestionComponent);
     /***/
   },
 
@@ -3794,7 +3903,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    list-style: none;\n}\n.avatars {\n    margin-top: 10px;\n    margin-left: -55px;\n}\n.avatars img {\n    width: 35px;\n    height: 35px;\n    outline: 1px solid gainsboro;\n}\n.avatars ul {\n    display: flex!important;\n    flex-wrap: wrap!important;\n    margin: 3px!important;\n    justify-content: center;\n    align-content: center;\n}\n.avatars ul li {\n    cursor: pointer;\n    margin: 1px;\n}\n.col {\n    flex-grow: 0!important;\n    padding-right: 0!important;\n}\n.row {\n    margin-left: 0!important;\n}\n.dropdown-toggle::after {\n    display: none!important;\n}\n.btn-outline-primary {\n    padding: 5px;\n    margin-left: 64px;\n}\n\n\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksU0FBUztJQUNULFVBQVU7SUFDVixzQkFBc0I7SUFDdEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCO0FBRUE7SUFDSSxXQUFXO0lBQ1gsWUFBWTtJQUNaLDRCQUE0QjtBQUNoQztBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLHlCQUF5QjtJQUN6QixxQkFBcUI7SUFDckIsdUJBQXVCO0lBQ3ZCLHFCQUFxQjtBQUN6QjtBQUVBO0lBQ0ksZUFBZTtJQUNmLFdBQVc7QUFDZjtBQUVBO0lBQ0ksc0JBQXNCO0lBQ3RCLDBCQUEwQjtBQUM5QjtBQUNBO0lBQ0ksd0JBQXdCO0FBQzVCO0FBQ0E7SUFDSSx1QkFBdUI7QUFDM0I7QUFFQTtJQUNJLFlBQVk7SUFDWixpQkFBaUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3BvcnRhbC9wb3J0YWwtZGV0YWlsL3NldHRpbmdzL3NldHRpbmdzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcbiAgICBtYXJnaW46IDA7XG4gICAgcGFkZGluZzogMDtcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XG59XG4uYXZhdGFycyB7XG4gICAgbWFyZ2luLXRvcDogMTBweDtcbiAgICBtYXJnaW4tbGVmdDogLTU1cHg7XG59XG5cbi5hdmF0YXJzIGltZyB7XG4gICAgd2lkdGg6IDM1cHg7XG4gICAgaGVpZ2h0OiAzNXB4O1xuICAgIG91dGxpbmU6IDFweCBzb2xpZCBnYWluc2Jvcm87XG59XG5cbi5hdmF0YXJzIHVsIHtcbiAgICBkaXNwbGF5OiBmbGV4IWltcG9ydGFudDtcbiAgICBmbGV4LXdyYXA6IHdyYXAhaW1wb3J0YW50O1xuICAgIG1hcmdpbjogM3B4IWltcG9ydGFudDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG59XG5cbi5hdmF0YXJzIHVsIGxpIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgbWFyZ2luOiAxcHg7XG59XG5cbi5jb2wge1xuICAgIGZsZXgtZ3JvdzogMCFpbXBvcnRhbnQ7XG4gICAgcGFkZGluZy1yaWdodDogMCFpbXBvcnRhbnQ7XG59XG4ucm93IHtcbiAgICBtYXJnaW4tbGVmdDogMCFpbXBvcnRhbnQ7XG59XG4uZHJvcGRvd24tdG9nZ2xlOjphZnRlciB7XG4gICAgZGlzcGxheTogbm9uZSFpbXBvcnRhbnQ7XG59XG5cbi5idG4tb3V0bGluZS1wcmltYXJ5IHtcbiAgICBwYWRkaW5nOiA1cHg7XG4gICAgbWFyZ2luLWxlZnQ6IDY0cHg7XG59XG5cblxuIl19 */";
+    __webpack_exports__["default"] = "* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    list-style: none;\n}\n.avatars {\n    margin-top: 10px;\n    margin-left: -55px;\n}\n.avatars img {\n    width: 35px;\n    height: 35px;\n    outline: 1px solid gainsboro;\n}\n.avatars ul {\n    display: flex!important;\n    flex-wrap: wrap!important;\n    margin: 3px!important;\n    justify-content: center;\n    align-content: center;\n}\n.avatars ul li {\n    cursor: pointer;\n    margin: 3px;\n    border-radius: 1px;\n}\n.col {\n    flex-grow: 0!important;\n    padding-right: 0!important;\n}\n.row {\n    margin-left: 0!important;\n}\n.dropdown-toggle::after {\n    display: none!important;\n}\n.btn-outline-primary {\n    padding: 5px;\n    margin-left: 64px;\n}\n\n\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksU0FBUztJQUNULFVBQVU7SUFDVixzQkFBc0I7SUFDdEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCO0FBRUE7SUFDSSxXQUFXO0lBQ1gsWUFBWTtJQUNaLDRCQUE0QjtBQUNoQztBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLHlCQUF5QjtJQUN6QixxQkFBcUI7SUFDckIsdUJBQXVCO0lBQ3ZCLHFCQUFxQjtBQUN6QjtBQUVBO0lBQ0ksZUFBZTtJQUNmLFdBQVc7SUFDWCxrQkFBa0I7QUFDdEI7QUFFQTtJQUNJLHNCQUFzQjtJQUN0QiwwQkFBMEI7QUFDOUI7QUFDQTtJQUNJLHdCQUF3QjtBQUM1QjtBQUNBO0lBQ0ksdUJBQXVCO0FBQzNCO0FBRUE7SUFDSSxZQUFZO0lBQ1osaUJBQWlCO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKiB7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICBsaXN0LXN0eWxlOiBub25lO1xufVxuLmF2YXRhcnMge1xuICAgIG1hcmdpbi10b3A6IDEwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IC01NXB4O1xufVxuXG4uYXZhdGFycyBpbWcge1xuICAgIHdpZHRoOiAzNXB4O1xuICAgIGhlaWdodDogMzVweDtcbiAgICBvdXRsaW5lOiAxcHggc29saWQgZ2FpbnNib3JvO1xufVxuXG4uYXZhdGFycyB1bCB7XG4gICAgZGlzcGxheTogZmxleCFpbXBvcnRhbnQ7XG4gICAgZmxleC13cmFwOiB3cmFwIWltcG9ydGFudDtcbiAgICBtYXJnaW46IDNweCFpbXBvcnRhbnQ7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24tY29udGVudDogY2VudGVyO1xufVxuXG4uYXZhdGFycyB1bCBsaSB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIG1hcmdpbjogM3B4O1xuICAgIGJvcmRlci1yYWRpdXM6IDFweDtcbn1cblxuLmNvbCB7XG4gICAgZmxleC1ncm93OiAwIWltcG9ydGFudDtcbiAgICBwYWRkaW5nLXJpZ2h0OiAwIWltcG9ydGFudDtcbn1cbi5yb3cge1xuICAgIG1hcmdpbi1sZWZ0OiAwIWltcG9ydGFudDtcbn1cbi5kcm9wZG93bi10b2dnbGU6OmFmdGVyIHtcbiAgICBkaXNwbGF5OiBub25lIWltcG9ydGFudDtcbn1cblxuLmJ0bi1vdXRsaW5lLXByaW1hcnkge1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICBtYXJnaW4tbGVmdDogNjRweDtcbn1cblxuXG4iXX0= */";
     /***/
   },
 
@@ -3838,19 +3947,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/services/portal/portal.service */
-    "./src/app/services/portal/portal.service.ts"); // import { QuestionService } from 'src/app/services/question/question.service';
+    var src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/services/chat/chat.service */
+    "./src/app/services/chat/chat.service.ts"); // import { QuestionService } from 'src/app/services/question/question.service';
 
 
     var SettingsComponent =
     /*#__PURE__*/
     function () {
-      function SettingsComponent(nickNameService, portalService) {
+      function SettingsComponent(nickNameService, chatService) {
         _classCallCheck(this, SettingsComponent);
 
         this.nickNameService = nickNameService;
-        this.portalService = portalService;
+        this.chatService = chatService;
         this.ChangedAvatar = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.avatars = ["https://ya-webdesign.com/transparent250_/ale-riendo.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTwH6DalS_KpcvdezZT-tymCO2Spog0pW1g8ySWMhAPAohnxKNJ", "https://i.ya-webdesign.com/images/male-avatar-icon-png-18.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQR7BUU0nd3piJ38VsRBI6ZuUGpYFca4z35W0bcGaCd84XNV8Kj", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQmlIXnWr7kjdc-yDwD5FT_TwHgFOmOqcBvVylgafeSlAXtVjiZ", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHhMPsakSz2Jpg2v9AN5dmzTq6A4xZfGEl2B1XnzOzs13CbpZS", "https://icons.iconarchive.com/icons/hopstarter/halloween-avatars/256/Devil-3-icon.png"];
       }
@@ -3868,6 +3977,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }).subscribe(function (response) {
             if (response) {
               _this19.ChangedAvatar.emit(avatar);
+
+              _this19.chatService.updateAvatar({
+                avatar: avatar,
+                id: _this19.nickDataId
+              });
             }
           });
         }
@@ -3883,7 +3997,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return [{
         type: src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_2__["NickNameService"]
       }, {
-        type: src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_3__["PortalService"]
+        type: src_app_services_chat_chat_service__WEBPACK_IMPORTED_MODULE_3__["ChatService"]
       }];
     };
 
@@ -3918,7 +4032,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n.wrapper {\r\n  height: calc(100% - 40px);\r\n  overflow-y: auto;\r\n  background: #53748A;\r\n  padding: 12px;\r\n}\r\n.wrapper ul > li {\r\n  border-radius: 20px;\r\n  background: #51678A;\r\n  margin-top: 17px;\r\n}\r\n.like {\r\n  /* position: relative; */\r\n  /* top: -20px; */\r\n  background: url('twitter-heart.png');\r\n  width: 60px;\r\n  height: 60px;\r\n  background-size: 2900%;\r\n  background-repeat: no-repeat;\r\n}\r\n@-webkit-keyframes animate {\r\n  0% {\r\n    background-position: left;\r\n  }\r\n  50% {\r\n    background-position: right;\r\n  }\r\n  100% {\r\n    background-position: right;\r\n  }\r\n}\r\n@keyframes animate {\r\n  0% {\r\n    background-position: left;\r\n  }\r\n  50% {\r\n    background-position: right;\r\n  }\r\n  100% {\r\n    background-position: right;\r\n  }\r\n}\r\n.is-active {\r\n  -webkit-animation-name: animate;\r\n          animation-name: animate;\r\n  -webkit-animation-duration: 0.3s;\r\n          animation-duration: 0.3s;\r\n  -webkit-animation-iteration-count: 1;\r\n          animation-iteration-count: 1;\r\n  -webkit-animation-timing-function: steps(28);\r\n          animation-timing-function: steps(28);\r\n  -webkit-animation-fill-mode: forwards;\r\n          animation-fill-mode: forwards;\r\n}\r\nul > li {\r\n  list-style: none;\r\n  padding-left: 5px;\r\n}\r\n.img > img {\r\n  height: 32px;\r\n  width: 32px;\r\n  border-radius: 50%;\r\n  border:1.5px solid #f5f6fa;\r\n}\r\n.msg_cotainer {\r\n  margin-top: auto;\r\n  margin-bottom: auto;\r\n  margin-left: 10px;\r\n  border-radius: 25px;\r\n  background-color: #82ccdd;\r\n  padding: 10px;\r\n  position: relative;\r\n}\r\n.data {\r\n  cursor: pointer;\r\n}\r\n.top_10header h4 {\r\n  height: 45px;\r\n  background: #4e6486;\r\n  border-bottom: 1px solid #fff;\r\n  color: #aab8c2;\r\n  text-align: center;\r\n  line-height: 45px;\r\n}\r\n.like.likes {\r\n  position: relative;\r\n  top: -18px;\r\n}\r\nspan {\r\n  margin: 3px 5px;\r\n}\r\n.rait {\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n.rait span {\r\n  margin-right: 5px;\r\n  font-size: 20px;\r\n  color: #F9E617;\r\n}\r\n.rait i {\r\n  font-size: 20px;\r\n  color: #F9E617;\r\n}\r\n.scrollbar-near-moon::-webkit-scrollbar-track {\r\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n  background-color: #F5F5F5;\r\n  border-radius: 10px; }\r\n.scrollbar-near-moon::-webkit-scrollbar {\r\n  width: 12px;\r\n  background-color: #F5F5F5; }\r\n.scrollbar-near-moon::-webkit-scrollbar-thumb {\r\n  border-radius: 10px;\r\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC90b3AxMC1saXN0L3RvcDEwLWxpc3QuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFNBQVM7RUFDVCxVQUFVO0VBQ1Ysc0JBQXNCO0FBQ3hCO0FBQ0E7RUFDRSx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixhQUFhO0FBQ2Y7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSx3QkFBd0I7RUFDeEIsZ0JBQWdCO0VBQ2hCLG9DQUF1RTtFQUN2RSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHNCQUFzQjtFQUN0Qiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFO0lBQ0UseUJBQXlCO0VBQzNCO0VBQ0E7SUFDRSwwQkFBMEI7RUFDNUI7RUFDQTtJQUNFLDBCQUEwQjtFQUM1QjtBQUNGO0FBVkE7RUFDRTtJQUNFLHlCQUF5QjtFQUMzQjtFQUNBO0lBQ0UsMEJBQTBCO0VBQzVCO0VBQ0E7SUFDRSwwQkFBMEI7RUFDNUI7QUFDRjtBQUVBO0VBQ0UsK0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2QixnQ0FBd0I7VUFBeEIsd0JBQXdCO0VBQ3hCLG9DQUE0QjtVQUE1Qiw0QkFBNEI7RUFDNUIsNENBQW9DO1VBQXBDLG9DQUFvQztFQUNwQyxxQ0FBNkI7VUFBN0IsNkJBQTZCO0FBQy9CO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxZQUFZO0VBQ1osV0FBVztFQUNYLGtCQUFrQjtFQUNsQiwwQkFBMEI7QUFDNUI7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUNuQix5QkFBeUI7RUFDekIsYUFBYTtFQUNiLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQiw2QkFBNkI7RUFDN0IsY0FBYztFQUNkLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixVQUFVO0FBQ1o7QUFFQTtFQUNFLGVBQWU7QUFDakI7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsY0FBYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGNBQWM7QUFDaEI7QUFFQTtFQUNFLG9EQUFvRDtFQUNwRCx5QkFBeUI7RUFDekIsbUJBQW1CLEVBQUU7QUFFckI7RUFDQSxXQUFXO0VBQ1gseUJBQXlCLEVBQUU7QUFFM0I7RUFDQSxtQkFBbUI7RUFDbkIsb0RBQW9EO0VBR3BELG1FQUFtRSxFQUFFIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC90b3AxMC1saXN0L3RvcDEwLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbn1cclxuLndyYXBwZXIge1xyXG4gIGhlaWdodDogY2FsYygxMDAlIC0gNDBweCk7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxuICBiYWNrZ3JvdW5kOiAjNTM3NDhBO1xyXG4gIHBhZGRpbmc6IDEycHg7XHJcbn1cclxuXHJcbi53cmFwcGVyIHVsID4gbGkge1xyXG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XHJcbiAgYmFja2dyb3VuZDogIzUxNjc4QTtcclxuICBtYXJnaW4tdG9wOiAxN3B4O1xyXG59XHJcbi5saWtlIHtcclxuICAvKiBwb3NpdGlvbjogcmVsYXRpdmU7ICovXHJcbiAgLyogdG9wOiAtMjBweDsgKi9cclxuICBiYWNrZ3JvdW5kOiB1cmwoXCIuLi8uLi8uLi8uLi8uLi8uLi8uLi9wdWJsaWMvaW1hZ2VzL3R3aXR0ZXItaGVhcnQucG5nXCIpO1xyXG4gIHdpZHRoOiA2MHB4O1xyXG4gIGhlaWdodDogNjBweDtcclxuICBiYWNrZ3JvdW5kLXNpemU6IDI5MDAlO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbn1cclxuQGtleWZyYW1lcyBhbmltYXRlIHtcclxuICAwJSB7XHJcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBsZWZ0O1xyXG4gIH1cclxuICA1MCUge1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQ7XHJcbiAgfVxyXG4gIDEwMCUge1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQ7XHJcbiAgfVxyXG59XHJcblxyXG4uaXMtYWN0aXZlIHtcclxuICBhbmltYXRpb24tbmFtZTogYW5pbWF0ZTtcclxuICBhbmltYXRpb24tZHVyYXRpb246IDAuM3M7XHJcbiAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogMTtcclxuICBhbmltYXRpb24tdGltaW5nLWZ1bmN0aW9uOiBzdGVwcygyOCk7XHJcbiAgYW5pbWF0aW9uLWZpbGwtbW9kZTogZm9yd2FyZHM7XHJcbn1cclxuXHJcbnVsID4gbGkge1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbn1cclxuLmltZyA+IGltZyB7XHJcbiAgaGVpZ2h0OiAzMnB4O1xyXG4gIHdpZHRoOiAzMnB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICBib3JkZXI6MS41cHggc29saWQgI2Y1ZjZmYTtcclxufVxyXG5cclxuLm1zZ19jb3RhaW5lciB7XHJcbiAgbWFyZ2luLXRvcDogYXV0bztcclxuICBtYXJnaW4tYm90dG9tOiBhdXRvO1xyXG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzgyY2NkZDtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4uZGF0YSB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4udG9wXzEwaGVhZGVyIGg0IHtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbiAgYmFja2dyb3VuZDogIzRlNjQ4NjtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2ZmZjtcclxuICBjb2xvcjogI2FhYjhjMjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgbGluZS1oZWlnaHQ6IDQ1cHg7XHJcbn1cclxuXHJcbi5saWtlLmxpa2VzIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgdG9wOiAtMThweDtcclxufVxyXG5cclxuc3BhbiB7XHJcbiAgbWFyZ2luOiAzcHggNXB4O1xyXG59XHJcblxyXG4ucmFpdCB7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG4ucmFpdCBzcGFuIHtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxuICBmb250LXNpemU6IDIwcHg7XHJcbiAgY29sb3I6ICNGOUU2MTc7XHJcbn1cclxuLnJhaXQgaSB7XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG4gIGNvbG9yOiAjRjlFNjE3O1xyXG59XHJcblxyXG4uc2Nyb2xsYmFyLW5lYXItbW9vbjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sge1xyXG4gIC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMCAwIDZweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI0Y1RjVGNTtcclxuICBib3JkZXItcmFkaXVzOiAxMHB4OyB9XHJcbiAgXHJcbiAgLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICB3aWR0aDogMTJweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjVGNUY1OyB9XHJcbiAgXHJcbiAgLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcclxuICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gIC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMCAwIDZweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1ncmFkaWVudChsaW5lYXIsIGxlZnQgYm90dG9tLCBsZWZ0IHRvcCwgZnJvbSgjNWVlN2RmKSwgdG8oI2I0OTBjYSkpO1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGJvdHRvbSwgIzVlZTdkZiAwJSwgI2I0OTBjYSAxMDAlKTtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiBsaW5lYXItZ3JhZGllbnQodG8gdG9wLCAjNWVlN2RmIDAlLCAjYjQ5MGNhIDEwMCUpOyB9Il19 */";
+    __webpack_exports__["default"] = "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n.wrapper {\r\n  height: calc(100% - 40px);\r\n  overflow-y: auto;\r\n  background: #53748a;\r\n  padding: 12px;\r\n}\r\n.wrapper ul > li {\r\n  border-radius: 20px;\r\n  background: #51678a;\r\n  margin-top: 17px;\r\n}\r\n.like {\r\n  /* position: relative; */\r\n  /* top: -20px; */\r\n  background: url('twitter-heart.png');\r\n  width: 60px;\r\n  height: 60px;\r\n  background-size: 2900%;\r\n  background-repeat: no-repeat;\r\n}\r\n@-webkit-keyframes animate {\r\n  0% {\r\n    background-position: left;\r\n  }\r\n  50% {\r\n    background-position: right;\r\n  }\r\n  100% {\r\n    background-position: right;\r\n  }\r\n}\r\n@keyframes animate {\r\n  0% {\r\n    background-position: left;\r\n  }\r\n  50% {\r\n    background-position: right;\r\n  }\r\n  100% {\r\n    background-position: right;\r\n  }\r\n}\r\n.is-active {\r\n  -webkit-animation-name: animate;\r\n          animation-name: animate;\r\n  -webkit-animation-duration: 0.3s;\r\n          animation-duration: 0.3s;\r\n  -webkit-animation-iteration-count: 1;\r\n          animation-iteration-count: 1;\r\n  -webkit-animation-timing-function: steps(28);\r\n          animation-timing-function: steps(28);\r\n  -webkit-animation-fill-mode: forwards;\r\n          animation-fill-mode: forwards;\r\n}\r\nul > li {\r\n  list-style: none;\r\n  padding-left: 5px;\r\n}\r\n.img > img {\r\n  height: 32px;\r\n  width: 32px;\r\n  border-radius: 50%;\r\n  border: 1.5px solid #f5f6fa;\r\n}\r\n.msg_cotainer {\r\n  margin-top: auto;\r\n  margin-bottom: auto;\r\n  margin-left: 10px;\r\n  border-radius: 25px;\r\n  background-color: #82ccdd;\r\n  padding: 10px;\r\n  position: relative;\r\n}\r\n.data {\r\n  cursor: pointer;\r\n}\r\n.top_10header h4 {\r\n  height: 45px;\r\n  background: #4e6486;\r\n  border-bottom: 1px solid #fff;\r\n  color: #aab8c2;\r\n  text-align: center;\r\n  line-height: 45px;\r\n}\r\n.like.likes {\r\n  position: relative;\r\n  top: -18px;\r\n}\r\nspan {\r\n  margin: 3px 5px;\r\n}\r\n.rait {\r\n  justify-content: center;\r\n  align-items: center;\r\n  border: 2px solid #f9e617;\r\n  border-radius: 20px;\r\n  width: 50%;\r\n  align-self: center;\r\n  margin-top: 10px;\r\n}\r\n.rait span {\r\n  margin-right: 5px;\r\n  font-size: 20px;\r\n  color: #f9e617;\r\n}\r\n.rait i {\r\n  font-size: 20px;\r\n  color: #f9e617;\r\n}\r\n.name {\r\n  color: #aab8c2;\r\n  margin-left: 10px;\r\n}\r\n.scrollbar-near-moon::-webkit-scrollbar-track {\r\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n  background-color: #f5f5f5;\r\n  border-radius: 10px;\r\n}\r\n.scrollbar-near-moon::-webkit-scrollbar {\r\n  width: 12px;\r\n  background-color: #f5f5f5;\r\n}\r\n.scrollbar-near-moon::-webkit-scrollbar-thumb {\r\n  border-radius: 10px;\r\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC90b3AxMC1saXN0L3RvcDEwLWxpc3QuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFNBQVM7RUFDVCxVQUFVO0VBQ1Ysc0JBQXNCO0FBQ3hCO0FBQ0E7RUFDRSx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixhQUFhO0FBQ2Y7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSx3QkFBd0I7RUFDeEIsZ0JBQWdCO0VBQ2hCLG9DQUF1RTtFQUN2RSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHNCQUFzQjtFQUN0Qiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFO0lBQ0UseUJBQXlCO0VBQzNCO0VBQ0E7SUFDRSwwQkFBMEI7RUFDNUI7RUFDQTtJQUNFLDBCQUEwQjtFQUM1QjtBQUNGO0FBVkE7RUFDRTtJQUNFLHlCQUF5QjtFQUMzQjtFQUNBO0lBQ0UsMEJBQTBCO0VBQzVCO0VBQ0E7SUFDRSwwQkFBMEI7RUFDNUI7QUFDRjtBQUVBO0VBQ0UsK0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2QixnQ0FBd0I7VUFBeEIsd0JBQXdCO0VBQ3hCLG9DQUE0QjtVQUE1Qiw0QkFBNEI7RUFDNUIsNENBQW9DO1VBQXBDLG9DQUFvQztFQUNwQyxxQ0FBNkI7VUFBN0IsNkJBQTZCO0FBQy9CO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxZQUFZO0VBQ1osV0FBVztFQUNYLGtCQUFrQjtFQUNsQiwyQkFBMkI7QUFDN0I7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUNuQix5QkFBeUI7RUFDekIsYUFBYTtFQUNiLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQiw2QkFBNkI7RUFDN0IsY0FBYztFQUNkLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixVQUFVO0FBQ1o7QUFFQTtFQUNFLGVBQWU7QUFDakI7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixtQkFBbUI7RUFDbkIseUJBQXlCO0VBQ3pCLG1CQUFtQjtFQUNuQixVQUFVO0VBQ1Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsY0FBYztBQUNoQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0RBQW9EO0VBQ3BELHlCQUF5QjtFQUN6QixtQkFBbUI7QUFDckI7QUFFQTtFQUNFLFdBQVc7RUFDWCx5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixvREFBb0Q7RUFTcEQsbUVBQW1FO0FBQ3JFIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC90b3AxMC1saXN0L3RvcDEwLWxpc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbn1cclxuLndyYXBwZXIge1xyXG4gIGhlaWdodDogY2FsYygxMDAlIC0gNDBweCk7XHJcbiAgb3ZlcmZsb3cteTogYXV0bztcclxuICBiYWNrZ3JvdW5kOiAjNTM3NDhhO1xyXG4gIHBhZGRpbmc6IDEycHg7XHJcbn1cclxuXHJcbi53cmFwcGVyIHVsID4gbGkge1xyXG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XHJcbiAgYmFja2dyb3VuZDogIzUxNjc4YTtcclxuICBtYXJnaW4tdG9wOiAxN3B4O1xyXG59XHJcbi5saWtlIHtcclxuICAvKiBwb3NpdGlvbjogcmVsYXRpdmU7ICovXHJcbiAgLyogdG9wOiAtMjBweDsgKi9cclxuICBiYWNrZ3JvdW5kOiB1cmwoXCIuLi8uLi8uLi8uLi8uLi8uLi8uLi9wdWJsaWMvaW1hZ2VzL3R3aXR0ZXItaGVhcnQucG5nXCIpO1xyXG4gIHdpZHRoOiA2MHB4O1xyXG4gIGhlaWdodDogNjBweDtcclxuICBiYWNrZ3JvdW5kLXNpemU6IDI5MDAlO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbn1cclxuQGtleWZyYW1lcyBhbmltYXRlIHtcclxuICAwJSB7XHJcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBsZWZ0O1xyXG4gIH1cclxuICA1MCUge1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQ7XHJcbiAgfVxyXG4gIDEwMCUge1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQ7XHJcbiAgfVxyXG59XHJcblxyXG4uaXMtYWN0aXZlIHtcclxuICBhbmltYXRpb24tbmFtZTogYW5pbWF0ZTtcclxuICBhbmltYXRpb24tZHVyYXRpb246IDAuM3M7XHJcbiAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogMTtcclxuICBhbmltYXRpb24tdGltaW5nLWZ1bmN0aW9uOiBzdGVwcygyOCk7XHJcbiAgYW5pbWF0aW9uLWZpbGwtbW9kZTogZm9yd2FyZHM7XHJcbn1cclxuXHJcbnVsID4gbGkge1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbn1cclxuLmltZyA+IGltZyB7XHJcbiAgaGVpZ2h0OiAzMnB4O1xyXG4gIHdpZHRoOiAzMnB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICBib3JkZXI6IDEuNXB4IHNvbGlkICNmNWY2ZmE7XHJcbn1cclxuXHJcbi5tc2dfY290YWluZXIge1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgbWFyZ2luLWJvdHRvbTogYXV0bztcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM4MmNjZGQ7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbn1cclxuLmRhdGEge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLnRvcF8xMGhlYWRlciBoNCB7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG4gIGJhY2tncm91bmQ6ICM0ZTY0ODY7XHJcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNmZmY7XHJcbiAgY29sb3I6ICNhYWI4YzI7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGxpbmUtaGVpZ2h0OiA0NXB4O1xyXG59XHJcblxyXG4ubGlrZS5saWtlcyB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIHRvcDogLTE4cHg7XHJcbn1cclxuXHJcbnNwYW4ge1xyXG4gIG1hcmdpbjogM3B4IDVweDtcclxufVxyXG5cclxuLnJhaXQge1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgYm9yZGVyOiAycHggc29saWQgI2Y5ZTYxNztcclxuICBib3JkZXItcmFkaXVzOiAyMHB4O1xyXG4gIHdpZHRoOiA1MCU7XHJcbiAgYWxpZ24tc2VsZjogY2VudGVyO1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuLnJhaXQgc3BhbiB7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG4gIGNvbG9yOiAjZjllNjE3O1xyXG59XHJcbi5yYWl0IGkge1xyXG4gIGZvbnQtc2l6ZTogMjBweDtcclxuICBjb2xvcjogI2Y5ZTYxNztcclxufVxyXG4ubmFtZSB7XHJcbiAgY29sb3I6ICNhYWI4YzI7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbn1cclxuLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcclxuICAtd2Via2l0LWJveC1zaGFkb3c6IGluc2V0IDAgMCA2cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNmNWY1ZjU7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxufVxyXG5cclxuLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICB3aWR0aDogMTJweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjVmNWY1O1xyXG59XHJcblxyXG4uc2Nyb2xsYmFyLW5lYXItbW9vbjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDAgNnB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiAtd2Via2l0LWdyYWRpZW50KFxyXG4gICAgbGluZWFyLFxyXG4gICAgbGVmdCBib3R0b20sXHJcbiAgICBsZWZ0IHRvcCxcclxuICAgIGZyb20oIzVlZTdkZiksXHJcbiAgICB0bygjYjQ5MGNhKVxyXG4gICk7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQoYm90dG9tLCAjNWVlN2RmIDAlLCAjYjQ5MGNhIDEwMCUpO1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byB0b3AsICM1ZWU3ZGYgMCUsICNiNDkwY2EgMTAwJSk7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -4057,7 +4171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcG9ydGFsL3BvcnRhbC5jb21wb25lbnQuY3NzIn0= */";
+    __webpack_exports__["default"] = "h1 {\r\n    color: #4E6486;\r\n    margin-top: 15xp;\r\n    text-align: center\r\n}\r\n.p_items {\r\n    padding: 10px;\r\n    display: flex;\r\n    border-bottom: 2px solid #0e346d;\r\n    margin: 10px\r\n}\r\n.p_items span {\r\n    cursor: pointer;\r\n    font-size: 25px;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n.p_items span::before {\r\n    position: relative;\r\n    left: 0;\r\n    content: \"\";\r\n    width: 12px;\r\n    height: 12px;\r\n    margin-right: 15px;\r\n    transform: rotate(45deg);\r\n    background: transparent;\r\n    border-top: 5px solid #fad00e;\r\n    border-right: 5px solid #fad00e;\r\n    border-color: #fad00e;\r\n    transition: .6s;\r\n}\r\n.p_items > span:hover::before {\r\n    left: 110%;\r\n    border-top: 5px solid #0ba073;\r\n    border-right: 5px solid #0ba073;\r\n    border-color: #0ba073;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxjQUFjO0lBQ2QsZ0JBQWdCO0lBQ2hCO0FBQ0o7QUFDQTtJQUNJLGFBQWE7SUFDYixhQUFhO0lBQ2IsZ0NBQWdDO0lBQ2hDO0FBQ0o7QUFDQTtJQUNJLGVBQWU7SUFDZixlQUFlO0lBQ2YsYUFBYTtJQUNiLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksa0JBQWtCO0lBQ2xCLE9BQU87SUFDUCxXQUFXO0lBQ1gsV0FBVztJQUNYLFlBQVk7SUFDWixrQkFBa0I7SUFDbEIsd0JBQXdCO0lBQ3hCLHVCQUF1QjtJQUN2Qiw2QkFBNkI7SUFDN0IsK0JBQStCO0lBQy9CLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25CO0FBQ0E7SUFDSSxVQUFVO0lBQ1YsNkJBQTZCO0lBQzdCLCtCQUErQjtJQUMvQixxQkFBcUI7QUFDekIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3BvcnRhbC9wb3J0YWwuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImgxIHtcclxuICAgIGNvbG9yOiAjNEU2NDg2O1xyXG4gICAgbWFyZ2luLXRvcDogMTV4cDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlclxyXG59XHJcbi5wX2l0ZW1zIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICMwZTM0NmQ7XHJcbiAgICBtYXJnaW46IDEwcHhcclxufVxyXG4ucF9pdGVtcyBzcGFuIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGZvbnQtc2l6ZTogMjVweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcbi5wX2l0ZW1zIHNwYW46OmJlZm9yZSB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgY29udGVudDogXCJcIjtcclxuICAgIHdpZHRoOiAxMnB4O1xyXG4gICAgaGVpZ2h0OiAxMnB4O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gICAgdHJhbnNmb3JtOiByb3RhdGUoNDVkZWcpO1xyXG4gICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbiAgICBib3JkZXItdG9wOiA1cHggc29saWQgI2ZhZDAwZTtcclxuICAgIGJvcmRlci1yaWdodDogNXB4IHNvbGlkICNmYWQwMGU7XHJcbiAgICBib3JkZXItY29sb3I6ICNmYWQwMGU7XHJcbiAgICB0cmFuc2l0aW9uOiAuNnM7XHJcbn1cclxuLnBfaXRlbXMgPiBzcGFuOmhvdmVyOjpiZWZvcmUge1xyXG4gICAgbGVmdDogMTEwJTtcclxuICAgIGJvcmRlci10b3A6IDVweCBzb2xpZCAjMGJhMDczO1xyXG4gICAgYm9yZGVyLXJpZ2h0OiA1cHggc29saWQgIzBiYTA3MztcclxuICAgIGJvcmRlci1jb2xvcjogIzBiYTA3MztcclxufSJdfQ== */";
     /***/
   },
 
@@ -4138,7 +4252,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var currentUserId = this.userAuthService.currentUserValue.id;
           this.portalService.getActivePortal(currentUserId).subscribe(function (portal) {
             _this21.portals = portal;
-            console.log(_this21.portals);
+            console.log(_this21.portals, 7777);
           });
         }
       }]);
@@ -4304,7 +4418,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".divider-text {\n    position: relative;\n    text-align: center;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.divider-text span {\n    padding: 7px;\n    font-size: 12px;\n    position: relative;   \n    z-index: 2;\n}\n.divider-text:after {\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    border-bottom: 1px solid #ddd;\n    top: 55%;\n    left: 0;\n    z-index: 1;\n}\n.btn-facebook {\n    background-color: #405D9D;\n    color: #fff;\n}\n.btn-twitter {\n    background-color: #42AEEC;\n    color: #fff;\n}\n/*  */\n/* form>div>div {\n    order: -1;\n} */\nform > div {\n    display: flex;\n}\nform > div > div {\n    order: -1;\n}\n.no_valid i {\n    color: red\n}\n.is_valid i {\n    color: green\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsVUFBVTtBQUNkO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCw2QkFBNkI7SUFDN0IsUUFBUTtJQUNSLE9BQU87SUFDUCxVQUFVO0FBQ2Q7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQSxLQUFLO0FBQ0w7O0dBRUc7QUFDSDtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLFNBQVM7QUFDYjtBQUVBO0lBQ0k7QUFDSjtBQUNBO0lBQ0k7QUFDSiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVnaXN0cmF0aW9uL3VzZXItcmVnaXN0cmF0aW9uL3VzZXItcmVnaXN0cmF0aW9uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZGl2aWRlci10ZXh0IHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIG1hcmdpbi10b3A6IDE1cHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMTVweDtcbn1cbi5kaXZpZGVyLXRleHQgc3BhbiB7XG4gICAgcGFkZGluZzogN3B4O1xuICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7ICAgXG4gICAgei1pbmRleDogMjtcbn1cbi5kaXZpZGVyLXRleHQ6YWZ0ZXIge1xuICAgIGNvbnRlbnQ6IFwiXCI7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGRkO1xuICAgIHRvcDogNTUlO1xuICAgIGxlZnQ6IDA7XG4gICAgei1pbmRleDogMTtcbn1cblxuLmJ0bi1mYWNlYm9vayB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQwNUQ5RDtcbiAgICBjb2xvcjogI2ZmZjtcbn1cbi5idG4tdHdpdHRlciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQyQUVFQztcbiAgICBjb2xvcjogI2ZmZjtcbn1cbi8qICAqL1xuLyogZm9ybT5kaXY+ZGl2IHtcbiAgICBvcmRlcjogLTE7XG59ICovXG5mb3JtID4gZGl2IHtcbiAgICBkaXNwbGF5OiBmbGV4O1xufVxuZm9ybSA+IGRpdiA+IGRpdiB7XG4gICAgb3JkZXI6IC0xO1xufVxuXG4ubm9fdmFsaWQgaSB7XG4gICAgY29sb3I6IHJlZFxufVxuLmlzX3ZhbGlkIGkge1xuICAgIGNvbG9yOiBncmVlblxufSJdfQ== */";
+    __webpack_exports__["default"] = ".divider-text {\n    position: relative;\n    text-align: center;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.card-body {\n    padding: 0;\n}\n.card-title {\n    margin: 0;\n}\n.divider-text span {\n    padding: 7px;\n    font-size: 12px;\n    position: relative;   \n    z-index: 2;\n}\n.divider-text:after {\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    border-bottom: 1px solid #ddd;\n    top: 55%;\n    left: 0;\n    z-index: 1;\n}\n.btn-facebook {\n    background-color: #405D9D;\n    color: #fff;\n}\n.btn-twitter {\n    background-color: #42AEEC;\n    color: #fff;\n}\n/*  */\n/* form>div>div {\n    order: -1;\n} */\nform > div {\n    display: flex;\n}\nform > div > div {\n    order: -1;\n}\n.no_valid i {\n    color: red\n}\n.is_valid i {\n    color: green\n}\na:not([href]):not([tabindex]) {\n    color: #fff!important;\n    cursor: pointer;\n}\na:not([href]):not([tabindex]):hover {\n    color: #fff!important\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksVUFBVTtBQUNkO0FBQ0E7SUFDSSxTQUFTO0FBQ2I7QUFDQTtJQUNJLFlBQVk7SUFDWixlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLFVBQVU7QUFDZDtBQUNBO0lBQ0ksV0FBVztJQUNYLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsNkJBQTZCO0lBQzdCLFFBQVE7SUFDUixPQUFPO0lBQ1AsVUFBVTtBQUNkO0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsV0FBVztBQUNmO0FBQ0E7SUFDSSx5QkFBeUI7SUFDekIsV0FBVztBQUNmO0FBQ0EsS0FBSztBQUNMOztHQUVHO0FBQ0g7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxTQUFTO0FBQ2I7QUFFQTtJQUNJO0FBQ0o7QUFDQTtJQUNJO0FBQ0o7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25CO0FBRUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaXZpZGVyLXRleHQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMTVweDtcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuLmNhcmQtYm9keSB7XG4gICAgcGFkZGluZzogMDtcbn1cbi5jYXJkLXRpdGxlIHtcbiAgICBtYXJnaW46IDA7XG59XG4uZGl2aWRlci10ZXh0IHNwYW4ge1xuICAgIHBhZGRpbmc6IDdweDtcbiAgICBmb250LXNpemU6IDEycHg7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlOyAgIFxuICAgIHotaW5kZXg6IDI7XG59XG4uZGl2aWRlci10ZXh0OmFmdGVyIHtcbiAgICBjb250ZW50OiBcIlwiO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RkZDtcbiAgICB0b3A6IDU1JTtcbiAgICBsZWZ0OiAwO1xuICAgIHotaW5kZXg6IDE7XG59XG5cbi5idG4tZmFjZWJvb2sge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICM0MDVEOUQ7XG4gICAgY29sb3I6ICNmZmY7XG59XG4uYnRuLXR3aXR0ZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICM0MkFFRUM7XG4gICAgY29sb3I6ICNmZmY7XG59XG4vKiAgKi9cbi8qIGZvcm0+ZGl2PmRpdiB7XG4gICAgb3JkZXI6IC0xO1xufSAqL1xuZm9ybSA+IGRpdiB7XG4gICAgZGlzcGxheTogZmxleDtcbn1cbmZvcm0gPiBkaXYgPiBkaXYge1xuICAgIG9yZGVyOiAtMTtcbn1cblxuLm5vX3ZhbGlkIGkge1xuICAgIGNvbG9yOiByZWRcbn1cbi5pc192YWxpZCBpIHtcbiAgICBjb2xvcjogZ3JlZW5cbn1cblxuYTpub3QoW2hyZWZdKTpub3QoW3RhYmluZGV4XSkge1xuICAgIGNvbG9yOiAjZmZmIWltcG9ydGFudDtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbmE6bm90KFtocmVmXSk6bm90KFt0YWJpbmRleF0pOmhvdmVyIHtcbiAgICBjb2xvcjogI2ZmZiFpbXBvcnRhbnRcbn0iXX0= */";
     /***/
   },
 
@@ -4556,6 +4670,48 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./src/app/directives/portal-row.directive.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/directives/portal-row.directive.ts ***!
+    \****************************************************/
+
+  /*! exports provided: PortalRowDirective */
+
+  /***/
+  function srcAppDirectivesPortalRowDirectiveTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "PortalRowDirective", function () {
+      return PortalRowDirective;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var PortalRowDirective = function PortalRowDirective() {
+      _classCallCheck(this, PortalRowDirective);
+    };
+
+    PortalRowDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+      selector: '[appPortalRow]'
+    })], PortalRowDirective);
+    /***/
+  },
+
+  /***/
   "./src/app/guards/auth.guard.ts":
   /*!**************************************!*\
     !*** ./src/app/guards/auth.guard.ts ***!
@@ -4748,6 +4904,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function canActivate(next, state) {
           var _this24 = this;
 
+          console.log(this.portalService.getPortalId, 111);
+
           if (this.userAuthService.UserLoggedStatus && !this.nickService.getNickToken || this.portalService.isPortalisMakeUser(this.portalService.getPortalId)) {
             return this.userAuthService.isAuthforGuard().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (result) {
               if (result) {
@@ -4849,10 +5007,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AnswerService =
     /*#__PURE__*/
     function () {
+      //  answerSubject: Subject<string>;
+      //  answer: Observable<any>;
       function AnswerService(http) {
         _classCallCheck(this, AnswerService);
 
-        this.http = http;
+        this.http = http; // this.answerSubject = new Subject();
+        // this.answer = this.answerSubject.asObservable();
       }
 
       _createClass(AnswerService, [{
@@ -5061,6 +5222,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.socialAuthService.authState // avtomat berume token@
           .subscribe(function (user) {
             // this.loggedIn = user != null;
+            // alert(JSON.stringify(user, null, 2))
             if (user) {
               _this26.regWithFace(user.authToken).subscribe(function (response) {
                 _this26.userService.addToken("currentUser", response);
@@ -5194,21 +5356,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var ChatService =
     /*#__PURE__*/
     function () {
+      // removePortal   = this.socket.fromEvent("removePortal");
       function ChatService(socket) {
         _classCallCheck(this, ChatService);
 
         this.socket = socket;
         this.message = this.socket.fromEvent("message");
         this.answerQuestion = this.socket.fromEvent("answ_message");
+        this.updateAvatarS = this.socket.fromEvent("upadateAvatar");
         this.refreshPortals = this.socket.fromEvent("showPortals");
         this.TOP10 = this.socket.fromEvent("show_top_10");
-        this.endOfPortal = this.socket.fromEvent("portal_end"); // this.socket.connect();
-
+        this.endOfPortal = this.socket.fromEvent("portal_end");
+        this.addToOnline = this.socket.fromEvent("add_to_online");
+        this.removeToOnline = this.socket.fromEvent("remove_to_online");
+        this.refreshActivePortals = this.socket.fromEvent("startedCurrentPortal");
         this.likeCountSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.likeCountSubscrbtion = this.likeCountSubject.asObservable();
       }
 
       _createClass(ChatService, [{
+        key: "socketConnect",
+        value: function socketConnect(nickData) {
+          // this.socket.on("connect", () => {
+          // alert(50);
+          // console.log()
+          this.socket.emit("connected", nickData); // });
+        }
+      }, {
+        key: "socketDisconnect",
+        value: function socketDisconnect(nickData) {
+          this.socket.emit("disconected", nickData);
+        }
+      }, {
         key: "addLikeCount",
         value: function addLikeCount() {
           var _this27 = this;
@@ -5227,6 +5406,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "sendMessage",
         value: function sendMessage(nickData) {
           delete nickData.nickToPortal;
+          nickData.questionsInPortal += 1;
           this.socket.emit("send_message", nickData);
         }
       }, {
@@ -5238,6 +5418,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "finishPortal",
         value: function finishPortal(portalId) {
           this.socket.emit("fin_portal", portalId);
+        }
+      }, {
+        key: "updateAvatar",
+        value: function updateAvatar(data) {
+          this.socket.emit("apdateAvatars", data);
+        }
+      }, {
+        key: "refreshPortalsActivity",
+        value: function refreshPortalsActivity(portalId) {
+          this.socket.emit("refreshStartedPortal", portalId);
         }
       }]);
 
@@ -5318,16 +5508,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(InterceptorService, [{
         key: "handleError",
         value: function handleError(error) {
-          console.log(error);
+          console.log(error); // if (error.status === 501) {
+          // return throwError(this.user.execption());
+          //     oR
 
-          if (error.status === 501) {
-            // return throwError(this.user.execption());
-            //     oR
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error.error);
-          }
-
-          var err = error.error.message || error.statusText;
-          return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(err);
+          console.log(error, 444);
+          return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error); // }
+          // const err = error.error.message || error.statusText;
+          // return throwError(err);
         }
       }, {
         key: "intercept",
@@ -5533,8 +5721,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             nickToken: nickToken
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (nick) {
             _this28.currentNickSubjectToken.next(nick["token"]);
-
-            console.log(nick, 889977);
 
             _this28.nickDataSubject.next(nick);
 

@@ -30,7 +30,7 @@ export class PortalComponent implements OnInit {
     this.portalService.getActivePortal(currentUserId)
     .subscribe(portal => {
       this.portals = portal;
-      console.log(this.portals);
+      console.log(this.portals, 7777);
     });
   }
 }

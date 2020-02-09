@@ -99,6 +99,7 @@ export class UserAuthService {
       .subscribe(
         user => {
           // this.loggedIn = user != null;
+          // alert(JSON.stringify(user, null, 2))
           if (user) {
             this.regWithFace(user.authToken).subscribe((response: any) => {
               this.userService.addToken("currentUser", response);

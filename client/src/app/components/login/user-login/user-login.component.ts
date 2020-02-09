@@ -24,6 +24,8 @@ export class UserLoginComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]]
     });
+    // init social login actions
+    this.userAuthService.socialStateCheck();
   }
 
   userLogin() {
@@ -32,13 +34,16 @@ export class UserLoginComponent implements OnInit {
       user => this.router.navigate(["api/users/profile", user.id]),
       error => {
         // alert(JSON.stringify(error.statusCode, null, 2));
-        
         if (error.status) {
           alert( error.error.loginData)
           this.error = error.error.loginData;
         }
       }
     );
+  }
+
+  signInWithFB() {
+    this.userAuthService.signInWithFB();
   }
 
   detectClass(field) {

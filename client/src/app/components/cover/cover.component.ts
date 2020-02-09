@@ -173,17 +173,23 @@ export class CoverComponent implements OnInit {
         this.currentUserPortals = portals;
       });
     }
-    // console.log(this.userAuthService.UserLoggedStatus);
     //
     this.chatService.addToOnline.subscribe( portalId => {
       this.portalData.find(item => item.id === portalId && (item.onlineSub += 1));
-      // console.log(t, 262626262);
-      // let subscribersCount = currPortal.onlineSub;
-      // subscribersCount++;
     });
 
     this.chatService.removeToOnline.subscribe(portalId => {
       this.portalData.find(item => item.id === portalId && (item.onlineSub -= 1));
+    });
+
+    //
+    this.chatService.refreshActivePortals.subscribe(portalId => {
+      this.portalData.find(portal => portal.id === portalId && (portal.isStarted = 1));
+    });
+
+    this.chatService.endOfPortal.subscribe((data: any) => {
+      alert('in cover.ts')
+      this.portalData.find((portal, index, portalData) => portal.id === data.portalId && (portalData.splice(index, 1)));
     });
   }
 }

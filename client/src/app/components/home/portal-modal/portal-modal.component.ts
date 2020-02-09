@@ -16,6 +16,7 @@ export class PortalModalComponent implements OnInit {
   time;
   currentUser;
   portalForm: FormGroup;
+  isValidEventData = true;
   constructor(
     private modalService: NgbModal,
     private formBuilder: FormBuilder,
@@ -38,23 +39,28 @@ export class PortalModalComponent implements OnInit {
     return this.portalForm.controls;
   }
 
+  chekEventDataValid(result): boolean {
+    if (result.invalid || !isValidDate(result.value.date, result.value.time)) {
+      this.isValidEventData = false;
+      return ;
+    }
+    this.isValidEventData = true;
+    return true;
+  }
+
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: "modal-basic-title" })
       .result.then(
         result => {
-          // this.closeResult = `Closed with: ${result}`;
-          console.log(result, 999);
-          if (result.invalid || !isValidDate(result.value.date, result.value.time)) {
-            console.log(89101);
-            return;
-          }
           const portalData = result.value;
           const userId = this.currentUser.id;
           const UTCtime = UTCtimeCreator(portalData.date, portalData.time);
-          console.log(UTCtime, 777666);
           this.portalService.addPortal({start: UTCtime, userId, name: portalData.title, private: +portalData.private})
-          .subscribe(portal => console.log(portal, 23323));
+          .subscribe(portal => {
+            this.portalService.portalSubject.next(portal);
+            this.portalService.currentPortalIdSubject.next(portal.id);
+          });
         },
         reason => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
