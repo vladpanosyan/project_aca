@@ -52,7 +52,7 @@ export class NickNameService {
       .post("api/nicknames/addNickname", { nickName, portalId, nickToken})
       .pipe(
         map(nick => {
-          this.currentNickSubjectToken.next(nick["token"]);
+          this.currentNickSubjectToken.next(nick["token"]); 
           this.nickDataSubject.next(nick);
           return nick;
         })

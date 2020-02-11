@@ -29,8 +29,7 @@ export class Top10ListComponent implements OnInit, OnDestroy {
     this.portalId = +this.portalService.getPortalId;
     const data$ = this.questionService.getTop_10_questions(this.portalId);
     timer(0, 80000).pipe(
-      concatMap(_ => data$), // ete ches uzum http->requestov anes, karas concatMap-i tex@ gres map(this.chatService.anyMethod()),
-                            // vor@ emit kani et URL-i(getTOP10/:portalId) tak reg exac inchvor socket
+      concatMap(_ => data$),
       takeUntil(this.unsubscribe$)
     )
     .subscribe(response => {

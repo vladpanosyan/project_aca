@@ -6,7 +6,6 @@ class QuestionController {
     async getAll(request, response) {
         try{
             const portalToken = request.params.token
-            console.log(32323232323, 'in controller QUESTION')
             let questions = await this.questionService.getAllQuestions(portalToken)
             // console.log(questions, 4444444)
             response.json( questions )
@@ -38,7 +37,6 @@ class QuestionController {
     async getTop10(request, response) {
         try {
             const portalId = request.params.portalID;
-            console.log(portalId, 333444)
             const top10 = await this.questionService.getTop10(portalId);
             response.json(top10);
         } catch (error) {

@@ -16,7 +16,7 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private userAuthService: UserAuthService
+    private userAuthService: UserAuthService 
   ) {}
 
   ngOnInit() {
@@ -31,11 +31,10 @@ export class UserLoginComponent implements OnInit {
   userLogin() {
     const { email, password } = this.loginForm.value;
     this.userAuthService.login(email, password).subscribe(
-      user => this.router.navigate(["api/users/profile", user.id]),
+      user => this.router.navigate(["/users/profile", user.id]),
       error => {
         // alert(JSON.stringify(error.statusCode, null, 2));
         if (error.status) {
-          alert( error.error.loginData)
           this.error = error.error.loginData;
         }
       }

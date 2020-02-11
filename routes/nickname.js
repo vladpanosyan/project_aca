@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports =  async (nicknameController) => {
+module.exports = (nicknameController) => {
     // const { nicknameController } = await require('../controllers/nicknameController')()
   
     router.get('/', nicknameController.showResult.bind(nicknameController));

@@ -13,7 +13,6 @@ module.exports = class Question {
 
     async getAllQuestions(portalToken) {
         let portalId = await this.models.Portals.findOne({raw: true,attributes: ['id'], where: {token: portalToken}})
-        console.log(portalId, 654);
         let questions = await this.models.Questions.findAll({
             // raw: true,
             // nest: true,

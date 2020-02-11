@@ -1,16 +1,9 @@
 module.exports = async (socketIo) => {
     const { SERVICES } = await require('../../app_init/dal_service_init')();
-
-    // console.log(socketIo, 9999)
     socketIo.on('connection', socket => {
-
-        // socket.on('disconnect', (i) => {
-        //     console.log(i, 23232323237)
-        // })
-
         socket.on('connected', async (nickData) => {
-            console.log(nickData, 99991111)
             const { Portals } = SERVICES;
+            console.log(nickData.portalId, 1231223132)
             const isAdded = await Portals.addToOnline(nickData.portalId);
             if (isAdded) {
                 socketIo.emit('add_to_online', nickData.portalId)
@@ -21,7 +14,6 @@ module.exports = async (socketIo) => {
             const { Portals } = SERVICES;
             const isRemoved = await Portals.AddToOutline(nickData.portalId);
             if (isRemoved) {
-                console.log(7777777555)
                 socketIo.emit('remove_to_online', nickData.portalId)
             }
         })
@@ -41,17 +33,8 @@ module.exports = async (socketIo) => {
                 portalId: nickData.portalId
             }
             const questionResponseData = await Questions.createQuestion(questionData);
-
-            // nickData.Question = {
-            //     id: questionResponseData.id,
-            //     message: questionResponseData.question,
-            //     time: questionResponseData.time,
-            // }
-            // const nickResponseMessage = {};
-
             delete nickData['message'];
             delete nickData['time'];
-
             delete questionResponseData['portalId'];
             delete questionResponseData['nicknameId'];
             const nickResponseMessage = { ...questionResponseData, nickss: nickData }
@@ -95,9 +78,5 @@ module.exports = async (socketIo) => {
         socket.on('refreshStartedPortal', portalId => {
             socket.broadcast.emit('startedCurrentPortal', portalId)
         })
-
-        // socket.on("removePortalAfterEvent", portalId => {
-        //     this.socket.broadcast.emit('removePortal', portalId)
-        // })
     })
 }

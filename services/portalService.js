@@ -45,7 +45,6 @@ class Portals {
     async getActivePortal(userId) {
         const activePortal = await this.portalDal.getActivePortal(userId);
         if(activePortal) {
-            console.log(activePortal, 22222222)
             return activePortal;
         } 
         return {
@@ -99,6 +98,13 @@ class Portals {
    async AddToOutline(portalId) {
         const isRemoved = await this.portalDal.AddToOutline(portalId);
         return isRemoved;
+    }
+    async getPortalIdFromToken(token) {
+        const portalId = await this.portalDal.getPortalIdFromToken(token)
+        if(portalId) {
+            return portalId.id;
+        }
+        return;
     }
 }
 

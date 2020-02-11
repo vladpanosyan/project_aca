@@ -104,7 +104,7 @@ export class UserAuthService {
             this.regWithFace(user.authToken).subscribe((response: any) => {
               this.userService.addToken("currentUser", response);
               this.refresh(response);
-              this.router.navigate([`api/users/profile`, response.id]);
+              this.router.navigate([`/users/profile`, response.id]);
             });
           }
         },

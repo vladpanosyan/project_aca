@@ -47,15 +47,14 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.portalData = this.portalService.getCurrentPortal;
-    alert(JSON.stringify(this.portalData))
     this.nickService.nickData.subscribe(data => (this.nickData = data));
 
     this.userData = this.userAuthService.currentUserValue;
-    // alert(JSON.stringify(this.userData, null, 2))
+    alert(55555555555)
 
     if (
       this.userAuthService.UserLoggedStatus &&
-      this.portalService.isPortalisMakeUser(this.portalService.getPortalId)
+      this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null)
     ) {
       this.inUserPortal = true;
     } else {
@@ -73,12 +72,19 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
         this.questionService.msg.next(message);
       });
     //
-
+    this.userAuthService.isAuthenticated().then(result => {
+      if (result) {
+        this.userAuthService.setLogin();
+      } else {
+        this.userAuthService.setLogOut();
+      }
+    });
+    //
     this.portalService.portalFinished
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(res => {
         if (this.inUserPortal) {
-          this.router.navigate(["/api/users/home"]);
+          this.router.navigate(["/users/home"]);
         } else {
           this.router.navigate(["/"]);
         }

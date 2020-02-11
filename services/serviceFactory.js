@@ -1,4 +1,4 @@
-const Services = require('./index')// {CostomerServices: CostomerServices}
+const Services = require('./index');
 
 module.exports = class ServiceFactory {
     constructor(DAL) {
@@ -7,7 +7,6 @@ module.exports = class ServiceFactory {
     }
 
     create() {
-        //ete DAl - mej ka sequelize && mongoose => loop-ov urish servicneri cank staci, es el Factory imaste 
         for(let service in Services) {
             this.services[service] = new Services[service](this.DAL[service])
         }

@@ -37,7 +37,7 @@ export class CoverComponent implements OnInit {
     const issubLoggedIn = await this.nickNameService.isSubAuth(item.id);
 
     if (issubLoggedIn && issubLoggedIn.currentNicId || userId === item.userId) {
-      this.router.navigate(["api/portals", item.token]);
+      this.router.navigate(["portals", item.token]);
     } else if (issubLoggedIn === false) {
       Swal.fire({
         icon: "error",
@@ -116,15 +116,11 @@ export class CoverComponent implements OnInit {
             });
             // console.log(window.atob(result.value[1].token.split(".")[1]), 888);
             localStorage.setItem("nickToken", result.value[1].token);
-            this.router.navigate(["api/portals", item.token]);
+            this.router.navigate(["/portals", item.token]);
           }
         });
     }
   }
-
-// lll() {
-//   console.log(898989)
-// }
 
   ngOnInit() {
     //
@@ -136,7 +132,6 @@ export class CoverComponent implements OnInit {
     //
     this.portalService.getAll().subscribe(portals => {
       this.portalData = portals;
-      console.log(this.portalData, 8899)
     });
     //
     this.userAuthService.isAuthenticated().then(result => {
@@ -149,8 +144,10 @@ export class CoverComponent implements OnInit {
     //
     this.portalService.portalState.subscribe(result => {
       if (result.state === null) {
+        alert('inside cover component -<=> result = null')
         this.portalService.chekPortalStatus(result.token).subscribe(status => {
           if (status.private) {
+            alert(status.private)
             this.openModal(status, true);
           } else {
             this.openModal(status, false);
@@ -160,7 +157,7 @@ export class CoverComponent implements OnInit {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "??????????????!",
+          text: "Something Went wrong!",
           footer: "<a href>Why do I have this issue?</a>"
         });
       }
@@ -188,7 +185,6 @@ export class CoverComponent implements OnInit {
     });
 
     this.chatService.endOfPortal.subscribe((data: any) => {
-      alert('in cover.ts')
       this.portalData.find((portal, index, portalData) => portal.id === data.portalId && (portalData.splice(index, 1)));
     });
   }

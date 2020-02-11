@@ -1,24 +1,21 @@
+const express = require('express');
+const apiRouter = express.Router();
 const { authMiddleware, facebookFutures } = require('./../middlewares/JWT_passport');
-// const faceFutures = require('./../middlewares/JWT_passport/fc_login');
-
 module.exports = async() => {
     try {
-        const { CONTROLLERS }    = await require('./../app_init/dal_service_init')();
-
-        const userRouter     = await require('./user')(CONTROLLERS.Users, authMiddleware, facebookFutures)
-        const portalRouter   = await require('./portal')(CONTROLLERS.Portals)
-        const nicknameRouter = await require('./nickname')(CONTROLLERS.Nicknames)
-        const questionRouter = await require('./queston')(CONTROLLERS.Questions)  
-        const answerRouter   = await require('./answer')(CONTROLLERS.Answers)  
+        const { CONTROLLERS } = await require('./../app_init/dal_service_init')();
+        const userRouter      = require('./user')(CONTROLLERS.Users, authMiddleware, facebookFutures)
+        const portalRouter    = require('./portal')(CONTROLLERS.Portals, authMiddleware)
+        const nicknameRouter  = require('./nickname')(CONTROLLERS.Nicknames)
+        const questionRouter  = require('./queston')(CONTROLLERS.Questions)  
+        const answerRouter    = require('./answer')(CONTROLLERS.Answers)  
         // const nick_likeRouter = await require('./')
-    
-        return {
-            userRouter,
-            portalRouter,
-            nicknameRouter,
-            questionRouter,
-            answerRouter
-        }
+        apiRouter.use('/users', userRouter);
+        apiRouter.use('/portals', portalRouter);
+        apiRouter.use('/nicknames', nicknameRouter);
+        apiRouter.use('/questions', questionRouter);
+        apiRouter.use('/answers', answerRouter);
+        return apiRouter
     } catch (error) {
         console.log(error.message, 777)
     }

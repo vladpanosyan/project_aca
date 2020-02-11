@@ -4,10 +4,9 @@ const ControllerFactory      = require('./../controllers/controllerFactory');
 
 module.exports = (async () => { 
     try {
-        const model = await require('./../db')() // array of objects model
+        const model = await require('./../db')()
         const DAL = new DalFactory(model);
         const SERVICES = new AbstractServiceFactory(DAL.create()).create() 
-        // ete petq e vor miajamanak A 2 db neri het apa dra hamar arandzin service pti sargvi,
         const CONTROLLERS = new ControllerFactory(SERVICES).create() 
         return {
             CONTROLLERS,

@@ -43,7 +43,6 @@ module.exports = class Nickname {
 
     // get nick by id
     async getNickData(id) {
-        console.log(id, 7410)
         return this.model.findByPk(id, {
             raw: true,
             // where: {

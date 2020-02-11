@@ -5,7 +5,6 @@
     // find
     async getAll(request, response) {
         try{
-            console.log(32323232323, 'in controller PORTAL')
             let portals = await this.portalService.getAll()
             response.json(portals);
             // io.emit('showPortals')
@@ -63,7 +62,6 @@
     async getActivePortal(request, response) {
         try {
             const userId = request.params.userId;
-            console.log(userId, 6666666)
             const activePortal = await this.portalService.getActivePortal(userId);
             response.json(activePortal)
         } catch (error) {
@@ -89,6 +87,17 @@
             const status = await this.portalService.getPortalStatus(token);
             response.json(status);
 
+        } catch (error) {
+            next(error)
+        }
+    }
+    async getPortalId(request, response) {
+        const token = request.params.token;
+        console.log(token, 99999)
+        try {
+            const portalId = await this.portalService.getPortalIdFromToken(token);
+            console.log(JSON.stringify(portalId, null, 2), 777777777777)
+            return portalId;
         } catch (error) {
             next(error)
         }

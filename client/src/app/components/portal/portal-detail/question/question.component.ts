@@ -111,8 +111,9 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngOnInit() {
-
-    this.chatServise.socketConnect(this.nickData);
+    if (!this.portalService.isPortalisMakeUser(this.portalId, null)) {
+      this.chatServise.socketConnect(this.nickData);
+    }
     //
     this.questionService
       .getAllQuestions(this.portalToken)

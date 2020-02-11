@@ -1,9 +1,6 @@
 const AppError = require('./../HELPERS/ErrorHandling/AppError');
 const JWT = require('./../HELPERS/utils/JWT');
 const sendMailer = require('./../HELPERS/utils/sendmailer');
-// const {
-//     UserExistsError
-// } = require('../HELPERS/ErrorHandling/UserError')
 
 class Users {
     constructor(userDal) {
@@ -88,7 +85,6 @@ class Users {
 
     // Other
     generateTokenForSocila(payload) {
-        console.log(payload, 454545454)
         const tokenObj = new JWT(payload, {expiresIn: 60 * 60});
         const token = tokenObj.createToken(); 
         return token;
@@ -99,10 +95,10 @@ class Users {
     async sendMail(emailArr, portalURL) {
         try {
             const info = await sendMailer(emailArr, portalURL);
-            console.log(info, 9999);
+            console.log(portalURL, 9999); 
             return info;
         } catch (error) {
-            console.log(error, 9999);
+            console.log(error, 33333);
            return error.message; 
         }
     }

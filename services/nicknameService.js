@@ -67,15 +67,17 @@ class Nicknames {
             console.log(error.message, 44444445);
             return;
         }
-    }
+    } 
     // used for nick guard
     async canactivate(portalToken, nickToken) {
         try {
             const payload = new JWT().verifyToken(nickToken);
             const portalId = await this.nicknameDal.getPortalId(portalToken);
+            console.log(portalId, 5555555)
             const nickId = payload.datas[portalId.id];
+            console.log(nickId, 66666)
+
             const nickData = await this.nicknameDal.getNickData1(nickId, portalId.id);
-            console.log(JSON.stringify(nickData, null, 2), 22222222222222)
             return nickData;
         } catch (error) {
             console.log(error.message, 55555577);

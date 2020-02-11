@@ -1,6 +1,6 @@
 const AppError = require('./../../../../HELPERS/ErrorHandling/AppError')
-var fs        = require('fs');
-var path      = require('path');
+const fs         = require('fs');
+const path       = require('path');
 const { Sequelize } = require('sequelize')
 const MYSQL = require('./../../../../app_init/config').database.mysql;
 
@@ -20,7 +20,7 @@ fs
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
-    var model = sequelize['import'](path.join(__dirname, file));
+    const model = sequelize['import'](path.join(__dirname, file));
     const name = model.name
     db[name] = model;
   });
@@ -30,7 +30,6 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
-// console.log(1111111111111111)
 module.exports = sequelize
     .authenticate()
     .then(() => {
@@ -48,9 +47,6 @@ module.exports = sequelize
       }
     })
     .then(res => {
-        // db.Customers.findAll({raw:true,where: {}})
-        // .then(customer => console.log(customer))
-        // console.log(db)
         global.UserModel = db.Users;
         global.sequelize = sequelize; 
         return db //exports into mysql/models/index.js

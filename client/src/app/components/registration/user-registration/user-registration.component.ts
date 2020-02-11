@@ -89,7 +89,7 @@ export class UserRegistrationComponent implements OnInit {
           console.log(data, typeof data);
           this.userService.addToken("currentUser", data);
           this.authService.refresh(data);
-          this.router.navigate([`api/users/profile`, data.id]);
+          this.router.navigate([`/users/profile`, data.id]);
         }
       },
       error => {

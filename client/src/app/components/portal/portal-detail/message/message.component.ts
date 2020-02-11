@@ -50,7 +50,7 @@ export class MessageComponent implements OnInit {
   ngOnInit() {
     this.isUserInSelfPortal =
       this.userAuthService.UserLoggedStatus &&
-      this.portalService.isPortalisMakeUser(this.portalService.getPortalId);
+      this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null);
 
     this.questionService.recivierAns
     .subscribe(nick => {

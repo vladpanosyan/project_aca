@@ -5,30 +5,30 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active" [routerLinkActive]="['is-active']">
+        <li class="nav-item active" routerLinkActive="['is-active']">
           <a class="nav-link" routerLink="/"><span class="sr-only">(current)</span>Main</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['is-active']">
-          <a *ngIf="isLoggedIn" class="nav-link" routerLink="/api/users/home">Home</a>
+          <a *ngIf="isLoggedIn" class="nav-link" routerLink="/users/home">Home</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item" [routerLinkActive]="['is-active']">
-          <a class="nav-link" [routerLink]="['/api/users/profile', currentUser.id]">MyProfile</a>
+          <a class="nav-link" [routerLink]="['/users/profile', currentUser.id]">MyProfile</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item" [routerLinkActive]="['is-active']">
-          <a class="nav-link" routerLink="api/portals">Portals</a>
+          <a class="nav-link" routerLink="portals">Portals</a>
         </li>
         <li class="nav-item" [routerLinkActive]="['is-active']">
-          <a *ngIf="!isLoggedIn" class="nav-link" routerLink="api/users/register">Registration</a>
+          <a *ngIf="!isLoggedIn" class="nav-link" routerLink="users/register">Registration</a>
         </li>
        
         <li *ngIf="!isLoggedIn" class="nav-item" [routerLinkActive]="['is-active']">
-          <a class="nav-link" routerLink="api/users/login">Login</a>
+          <a class="nav-link" routerLink="users/login">Login</a>
         </li>
         <li *ngIf="isLoggedIn" class="nav-item">
           <a class="nav-link" (click)="logout()" href="#">LogOut</a>
         </li>
          <li>
-          <a class="nav-link" [routerLink]="['/api/portals/active']">TEST</a> 
+          <a class="nav-link" [routerLink]="['/portals/active']">TEST</a> 
         </li>
          <li *ngIf="isLoggedIn" class="d-flex align-items-center">
           <img [src]="currentUser?.img" alt="" width="30" height="30" class="rounded">

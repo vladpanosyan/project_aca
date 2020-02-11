@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"list-type5\">\n    <!-- <pre>{{ portalData | json }}</pre> -->\n    <ol *ngFor=\"let item of portalData\">\n        <li *ngIf=\"item.private\" (click)=\"item.isStarted && openModal(item, true)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\n            <!-- <p>{{ item|json }}</p> -->\n            <span >{{ item.name }}</span>\n            <i class=\"fas fa-lock\"></i>\n            <span style=\" color: azure;\"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\n\n            <!-- {{item.private ? '-private' : '-public'}} ------ {{ item.userId }} -->\n        </li>\n        <li *ngIf=\"!item.private\" (click)=\"item.isStarted && openModal(item, false)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\n            <!-- <p>{{ item|json }}</p> -->\n            <span>{{ item.name }}</span>\n            <i class=\"fas fa-lock-open\"></i>\n            <span style=\"color: azure;\">{{ item.isStarted ? 'In Process ' : 'Started at ' + (item.start | date: 'medium')}}</span>\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\n\n            <!-- {{item.private ? '-private' : '-public'}}  ------ {{ item.userId }} -->\n        </li>\n    </ol>\n</div>  ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"list-type5\">\r\n    <!-- <pre>{{ portalData | json }}</pre> -->\r\n    <ol *ngFor=\"let item of portalData\">\r\n        <li *ngIf=\"item.private\" (click)=\"item.isStarted && openModal(item, true)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <!-- <p>{{ item|json }}</p> -->\r\n            <span >{{ item.name }}</span>\r\n            <i class=\"fas fa-lock\"></i>\r\n            <span style=\" color: azure;\"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n\r\n            <!-- {{item.private ? '-private' : '-public'}} ------ {{ item.userId }} -->\r\n        </li>\r\n        <li *ngIf=\"!item.private\" (click)=\"item.isStarted && openModal(item, false)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <!-- <p>{{ item|json }}</p> -->\r\n            <span>{{ item.name }}</span>\r\n            <i class=\"fas fa-lock-open\"></i>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'In Process ' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n\r\n            <!-- {{item.private ? '-private' : '-public'}}  ------ {{ item.userId }} -->\r\n        </li>\r\n    </ol>\r\n</div>  ");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n  \n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item active\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"/\"><span class=\"sr-only\">(current)</span>Main</a>\n        </li>\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a *ngIf=\"isLoggedIn\" class=\"nav-link\" routerLink=\"/api/users/home\">Home</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" [routerLink]=\"['/api/users/profile', currentUser.id]\">MyProfile</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"api/portals\">Portals</a>\n        </li>\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a *ngIf=\"!isLoggedIn\" class=\"nav-link\" routerLink=\"api/users/register\">Registration</a>\n        </li>\n       \n        <li *ngIf=\"!isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\n          <a class=\"nav-link\" routerLink=\"api/users/login\">Login</a>\n        </li>\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\">\n          <a class=\"nav-link\" (click)=\"logout()\" href=\"#\">LogOut</a>\n        </li>\n         <li>\n          <a class=\"nav-link\" [routerLink]=\"['/api/portals/active']\">TEST</a> \n        </li>\n         <li *ngIf=\"isLoggedIn\" class=\"d-flex align-items-center\">\n          <img [src]=\"currentUser?.img\" alt=\"\" width=\"30\" height=\"30\" class=\"rounded\">\n        </li>\n      </ul>\n    </div>\n  </nav>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n  \r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav ml-auto\">\r\n        <li class=\"nav-item active\" routerLinkActive=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"/\"><span class=\"sr-only\">(current)</span>Main</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"isLoggedIn\" class=\"nav-link\" routerLink=\"/users/home\">Home</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" [routerLink]=\"['/users/profile', currentUser.id]\">MyProfile</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"portals\">Portals</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"!isLoggedIn\" class=\"nav-link\" routerLink=\"users/register\">Registration</a>\r\n        </li>\r\n       \r\n        <li *ngIf=\"!isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"users/login\">Login</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\">\r\n          <a class=\"nav-link\" (click)=\"logout()\" href=\"#\">LogOut</a>\r\n        </li>\r\n         <li>\r\n          <a class=\"nav-link\" [routerLink]=\"['/portals/active']\">TEST</a> \r\n        </li>\r\n         <li *ngIf=\"isLoggedIn\" class=\"d-flex align-items-center\">\r\n          <img [src]=\"currentUser?.img\" alt=\"\" width=\"30\" height=\"30\" class=\"rounded\">\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <h2>To add Portal Click here</h2> -->\n<!-- <ngbd-datepicker-popup></ngbd-datepicker-popup> -->\n<app-portal-modal></app-portal-modal>\n<!-- <app-send-mail-modal></app-send-mail-modal> -->\n<table class=\"table\">\n    <thead class=\"thead-dark\">\n      <tr>\n        <th scope=\"col\">#</th>\n        <th scope=\"col\">Tittle</th>\n        <th scope=\"col\">Start</th>\n        <th scope=\"col\">link</th>\n        <th scope=\"col\">Status</th>\n        <th scope=\"col\">Share</th>\n        <th scope=\"col\">GO</th>\n        <th scope=\"col\">Remove</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let item of portalData; let i = index;\" [ngClass]=\"\">\n        <th scope=\"row\">{{ i + 1 }}</th>\n        <td>{{ item.name }}</td>\n        <td>{{ item.start }}</td>\n        <td>{{ portalUrlPath+item.token }}</td>\n        <td *ngIf=\"(item.counter | async) as timeOfStart\">{{ timeOfStart }}</td>\n        <td *ngIf=\"!item.isFinished && !(item.counter | async) as timeOfStart\">Started</td>\n        <td *ngIf=\"item.isFinished && !(item.counter | async) as timeOfStart\">Finished</td>\n        <!-- <td *ngIf=\"item.isFinished\">Finished</td> -->\n        <td><button [ngClass]=\"{'ni_active':item.isFinished}\"><app-send-mail-modal [url]=\"portalUrlPath+item.token\"></app-send-mail-modal></button></td>\n        <td><button [disabled]=\"(item.counter | async) || item.isStarted\" class=\"btn btn-success\" (click)=\"startEvent(item)\">Start</button></td>\n        <td><button class=\"btn btn-danger\" [attr.data-portal]=\"item.id\">Remove</button></td>\n      </tr>\n    </tbody>\n  </table>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <h2>To add Portal Click here</h2> -->\r\n<!-- <ngbd-datepicker-popup></ngbd-datepicker-popup> -->\r\n<app-portal-modal></app-portal-modal>\r\n<!-- <app-send-mail-modal></app-send-mail-modal> -->\r\n<table class=\"table\">\r\n    <thead class=\"thead-dark\">\r\n      <tr>\r\n        <th scope=\"col\">#</th>\r\n        <th scope=\"col\">Tittle</th>\r\n        <th scope=\"col\">Start</th>\r\n        <th scope=\"col\">link</th>\r\n        <th scope=\"col\">Status</th>\r\n        <th scope=\"col\">Share</th>\r\n        <th scope=\"col\">GO</th>\r\n        <!-- <th scope=\"col\">Remove</th> -->\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let item of portalData; let i = index;\" [ngClass]=\"\">\r\n        <th scope=\"row\">{{ i + 1 }}</th>\r\n        <td>{{ item.name }}</td>\r\n        <td>{{ item.start }}</td>\r\n        <td>{{ portalUrlPath+item.token }}</td>\r\n        <td *ngIf=\"(item.counter | async) as timeOfStart\">{{ timeOfStart }}</td>\r\n        <td *ngIf=\"!item.isFinished && !(item.counter | async) as timeOfStart\">Started</td>\r\n        <td *ngIf=\"item.isFinished && !(item.counter | async) as timeOfStart\">Finished</td>\r\n        <!-- <td *ngIf=\"item.isFinished\">Finished</td> -->\r\n        <td><button [ngClass]=\"{'ni_active':item.isFinished}\"><app-send-mail-modal [url]=\"portalUrlPath+item.token\"></app-send-mail-modal></button></td>\r\n        <td><button [disabled]=\"(item.counter | async) || item.isStarted\" class=\"btn btn-success\" (click)=\"startEvent(item)\">Start</button></td>\r\n        <!-- <td><button class=\"btn btn-danger\" [attr.data-portal]=\"item.id\">Remove</button></td> -->\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ng-template #content let-modal>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Create Your Portal</h4>\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <form [formGroup]=\"portalForm\">\n      <!-- tittle -->\n      <div class=\"form-group\">\n        <label for=\"portalTitle\">Title</label>\n        <div class=\"input-group\">\n          <input id=\"portalTitle\" class=\"form-control\" formControlName=\"title\" name=\"title\" type=\"text\" #title>\n          <!-- <div class=\"input-group-append\">\n            <button class=\"btn btn-outline-secondary calendar\" type=\"button\"></button>\n          </div> -->\n        </div>\n        <!-- date -->\n        <label for=\"dateOfStart\">Date of start</label>\n        <ngbd-datepicker-popup [formControl]=\"portalForm.controls['date']\"></ngbd-datepicker-popup>\n        <!-- <div class=\"input-group\">\n          <input id=\"dateOfStart\" class=\"form-control\" formControlName=\"date\" name=\"dp\" type=\"date\" #dp>\n        </div> -->\n        <!-- time -->\n        <label for=\"timeOfStart\">Time of start</label>\n        <div class=\"input-group\">\n          <input id=\"timeOfStart\" class=\"form-control\" formControlName=\"time\" name=\"time\" type=\"time\" #time>\n        </div>\n        <!-- private -->\n        <label for=\"timeOfStart\">Create Private Event</label>\n        <div class=\"input-group\">\n          <input id=\"checkPrivate\" class=\"\" formControlName=\"private\" name=\"private\" type=\"checkbox\" #prcheck>\n        </div>\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"modal.close(portalForm)\">Save</button>\n  </div>\n</ng-template>\n<div class=\"d-flex justify-content-center mt-3\">\n  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add Portal</button>\n</div>\n\n<hr>\n\n<pre>{{closeResult}}</pre>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-template #content let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Create Your Portal</h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form [formGroup]=\"portalForm\">\r\n      <!-- tittle -->\r\n      <div class=\"form-group\">\r\n        <label for=\"portalTitle\">Title</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"portalTitle\" class=\"form-control\" formControlName=\"title\" name=\"title\" type=\"text\" #title>\r\n          <!-- <div class=\"input-group-append\">\r\n            <button class=\"btn btn-outline-secondary calendar\" type=\"button\"></button>\r\n          </div> -->\r\n        </div>\r\n        <!-- date -->\r\n        <label for=\"dateOfStart\">Date of start</label>\r\n        <ngbd-datepicker-popup [formControl]=\"portalForm.controls['date']\"></ngbd-datepicker-popup>\r\n        <!-- <div class=\"input-group\">\r\n          <input id=\"dateOfStart\" class=\"form-control\" formControlName=\"date\" name=\"dp\" type=\"date\" #dp>\r\n        </div> -->\r\n        <!-- time -->\r\n        <label for=\"timeOfStart\">Time of start</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"timeOfStart\" class=\"form-control\" formControlName=\"time\" name=\"time\" type=\"time\" #time>\r\n        </div>\r\n        <!-- private -->\r\n        <label for=\"timeOfStart\">Create Private Event</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"checkPrivate\" class=\"\" formControlName=\"private\" name=\"private\" type=\"checkbox\" #prcheck>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <span *ngIf=\"!isValidEventData\">Make sure that event date is valid</span>\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"chekEventDataValid(portalForm) && modal.close(portalForm)\">Save</button>\r\n  </div>\r\n</ng-template>\r\n<div class=\"d-flex justify-content-center mt-3\">\r\n  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add Portal</button>\r\n</div>\r\n\r\n<hr>\r\n\r\n<pre>{{closeResult}}</pre>");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" (click)=\"resetErrorLoginMessage()\">\n    <hr>\n    <div class=\"card bg-light\">\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\n            <div *ngIf=\"error\" class=\"error\">\n                <p>{{ error }}</p>\n            </div>\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\n            <p class=\"text-center\">Get started with your free account</p>\n            <p>\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\n                <a class=\"btn btn-block btn-facebook\" (click)=\"signInWithFB()\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a>\n            </p>\n            <p class=\"divider-text\">\n                <span class=\"bg-light\">OR</span>\n            </p>\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"userLogin()\"> \n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\">\n                </div> \n\n                <!-- form-group end.// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" >\n                </div>\n                <div class=\"form-group\">\n                    <button class=\"btn btn-primary btn-block\"> LogIn </button>\n                </div> <!-- form-group// -->\n               \n            </form>\n        </article>\n    </div> <!-- card.// -->\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" (click)=\"resetErrorLoginMessage()\">\r\n    <hr>\r\n    <div class=\"card bg-light\">\r\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\r\n            <div *ngIf=\"error\" class=\"error\">\r\n                <p>{{ error }}</p>\r\n            </div>\r\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\r\n            <p class=\"text-center\">Get started with your free account</p>\r\n            <p>\r\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\r\n                <a class=\"btn btn-block btn-facebook\" (click)=\"signInWithFB()\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a>\r\n            </p>\r\n            <p class=\"divider-text\">\r\n                <span class=\"bg-light\">OR</span>\r\n            </p>\r\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"userLogin()\"> \r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\">\r\n                </div> \r\n\r\n                <!-- form-group end.// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" >\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button class=\"btn btn-primary btn-block\"> LogIn </button>\r\n                </div> <!-- form-group// -->\r\n               \r\n            </form>\r\n        </article>\r\n    </div> <!-- card.// -->\r\n\r\n</div>");
 
 /***/ }),
 
@@ -127,6 +127,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/not-found/not-found.component.html":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/not-found/not-found.component.html ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>not-found works!</h1>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/portal/portal-detail/chat-list/chat-list.component.html":
 /*!**************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/portal/portal-detail/chat-list/chat-list.component.html ***!
@@ -136,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"wrapper\"> -->\n    <div class=\"ch_list_header\">\n        <h4>Answer To Questions</h4>\n    </div>\n    <!-- {{ portalData | json}} -->\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\n        <ul class=\"\">\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of answers\">\n                <!-- {{item | json}} -->\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\n                <div class=\"item\">\n                    <div class=\"question d-flex flex-column\">\n                        <div class=\"q_data d-flex\">\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\n                        </div>\n                        <div class=\"q_q d-flex\">\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\n                        </div>\n                    </div>\n                    <div class=\"answer\">\n                        <div class=\"a_data d-flex\">\n                            <span><img [src]=\"inUserPortal ? userData.img : portalData.portalToUser.img \" alt=\"\"></span>\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\n                        </div>\n                        <div class=\"current_answer d-flex flex-column\">\n                            {{ item.answer }}\n                        </div> \n                        <span>{{ item.time | date: 'medium' }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n<!-- </div> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"wrapper\"> -->\n    <div class=\"ch_list_header\">\n        <h4>Answer To Questions</h4>\n    </div>\n    <!-- {{ portalData | json}} -->\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\n        <ul class=\"\">\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of answers\">\n                <!-- {{item | json}} -->\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\n                <div class=\"item\">\n                    <div class=\"question d-flex flex-column\">\n                        <div class=\"q_data d-flex\">\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\n                        </div>\n                        <div class=\"q_q d-flex\">\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\n                        </div>\n                    </div>\n                    <div class=\"answer\">\n                        <div class=\"a_data d-flex\">\n                            <span><img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img \" alt=\"\"></span>\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\n                        </div>\n                        <div class=\"current_answer d-flex flex-column\">\n                            {{ item.answer }}\n                        </div> \n                        <span>{{ item.time | date: 'medium' }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n<!-- </div> -->\n");
 
 /***/ }),
 
@@ -162,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre>  -->\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\n<!-- <pre>{{ portalData | json}}</pre>4 -->\n<!-- <p>{{ token }}</p> -->\n\n<div class=\"p_d\">\n\n    <div class=\"nick_header d-flex\">\n        <div class=\"nick_data d-flex\">\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\n        </div>\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\n        <div class=\"portal_data\">\n            <h3>{{ portalData.name }}</h3>\n        </div>\n    </div>\n    <div class=\"wrapper d-flex\">\n        <div class=\"messages d-flex\">\n            <div class=\"top d-flex\">\n                <div class=\"chat_list\">\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\n                </div>\n                <div class=\"top10_list\">\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\n                </div>\n            </div>\n            <div class=\"wrote_messages\">\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\n            </div>\n        </div>\n        <div class=\"questions\">\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre> 2 -->\r\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\r\n<!-- <pre>{{ portalData | json}}</pre>4 -->\r\n<!-- <p>{{ token }}</p> -->\r\n\r\n<div class=\"p_d\">\r\n\r\n    <div class=\"nick_header d-flex\">\r\n        <div class=\"nick_data d-flex\">\r\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\r\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\r\n        </div>\r\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\r\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\r\n        <div class=\"portal_data\">\r\n            <h3>{{ portalData.name }}</h3>\r\n        </div>\r\n    </div>\r\n    <div class=\"wrapper d-flex\">\r\n        <div class=\"messages d-flex\">\r\n            <div class=\"top d-flex\">\r\n                <div class=\"chat_list\">\r\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\r\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\r\n                </div>\r\n                <div class=\"top10_list\">\r\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"wrote_messages\">\r\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions\">\r\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\r\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -175,7 +188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <pre>{{ userData | json}}</pre> -->\n<!-- <pre>{{ nickData | json}}</pre> -->\n<!-- <pre>{{ inUserPortal }}</pre> -->\n<div class=\"comp_container\">\n    <div class=\"card-header\">\n        <div class=\"d-flex bd-highlight\">\n            <div class=\"img_cont\">\n                <img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img\" class=\"rounded-circle user_img\">\n                <span class=\"online_icon\"></span>\n            </div>\n            <div class=\"user_info\">\n                <span>Chat with {{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\n                <p *ngIf=\"inUserPortal\">{{ portalData.portalManyQuestion[0]?.questionsInPortal ? portalData.portalManyQuestion[0].questionsInPortal : \"ko yet \" }} Questions</p>\n                <p *ngIf=\"!inUserPortal\">{{ nickData.questionsInPortal ? nickData.questionsInPortal : \"no \" }} Questions</p>\n            </div>\n             <i *ngIf=\"inUserPortal\" (click)=\"finishPortal()\" class=\"finish far fa-stop-circle\"></i>\n        </div>\n    </div>\n    <div class=\"msg_cont \">\n        <!-- <h1>{{ ggg() }}</h1> -->\n        <ul class=\"card-body msg_card_body scrollbar scrollbar-near-moon\" #scrollMe>\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of questions; let i=index\"\n                class=\"d-flex justify-content-start mb-4 flex-column\">\n                <!-- {{ item | json }}  -->\n                <div class=\"name\" style=\"color: #AAB8C2\">{{ item.nickss.name }}</div>\n                <div class=\"img_name d-flex flex-column\">\n                    <div class=\"img_msg_wrap d-flex\">\n                        <div class=\"img_cont_msg\">\n                            <img [src]=\"item.nickss.image\" alt=\"\" class=\"rounded-circle user_img_msg\">\n                        </div>\n                        <div class=\"msg_cotainer\">\n                            {{ item.question }}\n                        </div>\n                    </div>\n                    <div class=\"metta d-flex\">\n                        <span class=\"msg_time\">{{ item.time | date: 'medium' }}</span>\n                        <span [class.is-active]=\"item.isLiked || isNickLiked(item)\" class=\"like-btn\" (click)=\"action(item, i)\"></span>\n                        <span class=\"like_count\" style=\"color:#FAD00E\">{{ item.likes ? item.likes : item.likes === undefined ? item.questionManyLikes : null }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <pre>{{ userData | json}}</pre> -->\r\n<!-- <pre>{{ nickData | json}}</pre> -->\r\n<!-- <pre>{{ inUserPortal }}</pre> -->\r\n<div class=\"comp_container\">\r\n    <div class=\"card-header\">\r\n        <div class=\"d-flex bd-highlight\">\r\n            <div class=\"img_cont\">\r\n                <img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img\" class=\"rounded-circle user_img\">\r\n                <span class=\"online_icon\"></span>\r\n            </div>\r\n            <div class=\"user_info\">\r\n                <span>Chat with {{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\r\n                <p *ngIf=\"inUserPortal\">{{ portalData.portalManyQuestion[0]?.questionsInPortal ? portalData.portalManyQuestion[0].questionsInPortal : \"ko yet \" }} Questions</p>\r\n                <p *ngIf=\"!inUserPortal\">{{ nickData.questionsInPortal ? nickData.questionsInPortal : \"no \" }} Questions</p>\r\n            </div>\r\n             <i *ngIf=\"inUserPortal\" (click)=\"finishPortal()\" class=\"finish far fa-stop-circle\"></i>\r\n        </div>\r\n    </div>\r\n    <div class=\"msg_cont \">\r\n        <!-- <h1>{{ ggg() }}</h1> -->\r\n        <ul class=\"card-body msg_card_body scrollbar scrollbar-near-moon\" #scrollMe>\r\n            <div class=\"force-overflow\"></div>\r\n            <li *ngFor=\"let item of questions; let i=index\"\r\n                class=\"d-flex justify-content-start mb-4 flex-column\">\r\n                <!-- {{ item | json }}  -->\r\n                <div class=\"name\" style=\"color: #AAB8C2\">{{ item.nickss.name }}</div>\r\n                <div class=\"img_name d-flex flex-column\">\r\n                    <div class=\"img_msg_wrap d-flex\">\r\n                        <div class=\"img_cont_msg\">\r\n                            <img [src]=\"item.nickss.image\" alt=\"\" class=\"rounded-circle user_img_msg\">\r\n                        </div>\r\n                        <div class=\"msg_cotainer\">\r\n                            {{ item.question }}\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"metta d-flex\">\r\n                        <span class=\"msg_time\">{{ item.time | date: 'medium' }}</span>\r\n                        <span [class.is-active]=\"item.isLiked || isNickLiked(item)\" class=\"like-btn\" (click)=\"action(item, i)\"></span>\r\n                        <span class=\"like_count\" style=\"color:#FAD00E\">{{ item.likes ? item.likes : item.likes === undefined ? item.questionManyLikes : null }}</span>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -214,7 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1>Active Portals</h1>\n<!-- <pre>{{ portals | json }}</pre> -->\n<!-- <ng-container class=\"text-center\" *ngIf=\"portals?.length\"> -->\n    <!-- <pre>{{ portals | json }}</pre> -->\n    <div *ngFor=\"let item of portals\" class=\"p_items\"> \n        <span (click)=\"goToPortal(item)\">{{ item.name }}</span>\n    </div>\n<!-- </ng-container> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>Active Portals</h1>\r\n<!-- <pre>{{ portals | json }}</pre> -->\r\n<!-- <ng-container class=\"text-center\" *ngIf=\"portals?.length\"> -->\r\n    <!-- <pre>{{ portals | json }}</pre> -->\r\n    <div *ngFor=\"let item of portals\" class=\"p_items\"> \r\n        <span (click)=\"goToPortal(item)\">{{ item.name }}</span>\r\n    </div>\r\n<!-- </ng-container> -->\r\n");
 
 /***/ }),
 
@@ -227,7 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <img [src]=\"(data | async)?.img\" alt=\"\"> -->\n<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\n<h1>hello</h1>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <img [src]=\"(data | async)?.img\" alt=\"\"> -->\n<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\n<h2>Hello {{ data?.firstName}}</h2>");
 
 /***/ }),
 
@@ -240,7 +253,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <h1 *ngIf=\"user\">{{user.name}}</h1>\n\n    <hr>\n    <div class=\"card bg-light\">\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\n            <p class=\"text-center\">Get started with your free account</p>\n            <p>\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\n                <a (click)=\"signInWithFB()\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a>\n                <!-- <a href=\"api/users/auth/facebook\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\n                    facebook</a> -->\n            </p>\n            <p class=\"divider-text\">\n                <span class=\"bg-light\">OR</span>\n            </p>\n            <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\"> \n                <!-- form-group// -->\n                <div class=\"form-group input-group\">\n                    <div class=\"input-group-prepend\" [ngClass]=\"detectClass('firstName')\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\" ></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"firstName\" placeholder=\"First name\" type=\"text\">\n                </div>\n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('lastName')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"lastName\" placeholder=\"Last name\" type=\"text\">\n                </div>\n                <!-- form-group// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\n                    </div>\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\" type=\"email\">\n                </div> \n\n                <!-- form-group end.// -->\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" type=\"password\">\n                </div>\n\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('confPassword')\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\n                    </div>\n                    <input class=\"form-control\" formControlName=\"confPassword\" placeholder=\"Repeat password\" type=\"password\">\n                </div> <!-- form-group// -->\n                <div class=\"form-group\">\n                    <button [disabled]=\"registerForm.invalid\" class=\"btn btn-primary btn-block\"> Create Account </button>\n                </div> <!-- form-group// -->\n            </form>\n        </article>\n    </div> <!-- card.// -->\n\n</div>\n<!--container end.//-->\n<p>{{ user }}</p>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <h1 *ngIf=\"user\">{{user.name}}</h1>\r\n\r\n    <hr>\r\n    <div class=\"card bg-light\">\r\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\r\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\r\n            <p class=\"text-center\">Get started with your free account</p>\r\n            <p>\r\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\r\n                <a (click)=\"signInWithFB()\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a>\r\n                <!-- <a href=\"api/users/auth/facebook\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a> -->\r\n            </p>\r\n            <p class=\"divider-text\">\r\n                <span class=\"bg-light\">OR</span>\r\n            </p>\r\n            <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\"> \r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\">\r\n                    <div class=\"input-group-prepend\" [ngClass]=\"detectClass('firstName')\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\" ></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"firstName\" placeholder=\"First name\" type=\"text\">\r\n                </div>\r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('lastName')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"lastName\" placeholder=\"Last name\" type=\"text\">\r\n                </div>\r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\" type=\"email\">\r\n                </div> \r\n\r\n                <!-- form-group end.// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" type=\"password\">\r\n                </div>\r\n\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('confPassword')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"confPassword\" placeholder=\"Repeat password\" type=\"password\">\r\n                </div> <!-- form-group// -->\r\n                <div class=\"form-group\">\r\n                    <button [disabled]=\"registerForm.invalid\" class=\"btn btn-primary btn-block\"> Create Account </button>\r\n                </div> <!-- form-group// -->\r\n            </form>\r\n        </article>\r\n    </div> <!-- card.// -->\r\n\r\n</div>\r\n<!--container end.//-->\r\n<p>{{ user }}</p>");
 
 /***/ }),
 
@@ -638,6 +651,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_portal_portal_detail_settings_settings_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/portal/portal-detail/settings/settings.component */ "./src/app/components/portal/portal-detail/settings/settings.component.ts");
 /* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
 /* harmony import */ var _guards_subscriber_guard__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./guards/subscriber.guard */ "./src/app/guards/subscriber.guard.ts");
+/* harmony import */ var _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/not-found/not-found.component */ "./src/app/components/not-found/not-found.component.ts");
 
 
 
@@ -653,7 +667,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { ChatService } from "./services/chat/chat.service";
 
 // forms
 
@@ -675,48 +688,52 @@ __webpack_require__.r(__webpack_exports__);
 // guard
 
 
+
 const routes = [
     {
         path: "",
-        redirectTo: "api/cover",
+        redirectTo: "cover",
         pathMatch: "full"
     },
     {
-        path: "api/cover",
+        path: "cover",
         component: _components_cover_cover_component__WEBPACK_IMPORTED_MODULE_22__["CoverComponent"]
     },
     {
-        path: "api/users/home",
+        path: "users/home",
         component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_21__["HomeComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_30__["AuthGuard"]]
     },
     {
-        path: "api/users/register",
+        path: "users/register",
         component: _components_registration_user_registration_user_registration_component__WEBPACK_IMPORTED_MODULE_16__["UserRegistrationComponent"]
     },
     {
-        path: "api/users/login",
+        path: "users/login",
         component: _components_login_user_login_user_login_component__WEBPACK_IMPORTED_MODULE_17__["UserLoginComponent"]
     },
     {
-        path: "api/portals/:token",
+        path: "portals/:token",
         component: src_app_components_portal_portal_detail_portal_detail_component__WEBPACK_IMPORTED_MODULE_20__["PortalDetailComponent"],
         canActivate: [_guards_subscriber_guard__WEBPACK_IMPORTED_MODULE_31__["SubscriberGuard"]]
     },
     {
-        path: "api/portals",
-        component: src_app_components_portal_portal_component__WEBPACK_IMPORTED_MODULE_19__["PortalComponent"]
+        path: "portals",
+        component: src_app_components_portal_portal_component__WEBPACK_IMPORTED_MODULE_19__["PortalComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_30__["AuthGuard"]]
     },
-    // {
-    //   path: "api/users/auth/facebook",
-    //   component: ProfileComponent
-    // },
     {
-        path: "api/users/profile/:id",
-        // redirectTo: "api/users/profile",
-        // pathMatch: "full",
+        path: "users/profile/:id",
         component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_18__["ProfileComponent"],
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_30__["AuthGuard"]]
+    },
+    {
+        path: "404",
+        component: _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_32__["NotFoundComponent"]
+    },
+    {
+        path: "**",
+        redirectTo: "404"
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -738,7 +755,8 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_portal_portal_detail_top10_list_top10_list_component__WEBPACK_IMPORTED_MODULE_26__["Top10ListComponent"],
             _components_portal_portal_detail_message_message_component__WEBPACK_IMPORTED_MODULE_27__["MessageComponent"],
             _components_portal_portal_detail_question_question_component__WEBPACK_IMPORTED_MODULE_28__["QuestionComponent"],
-            _components_portal_portal_detail_settings_settings_component__WEBPACK_IMPORTED_MODULE_29__["SettingsComponent"]
+            _components_portal_portal_detail_settings_settings_component__WEBPACK_IMPORTED_MODULE_29__["SettingsComponent"],
+            _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_32__["NotFoundComponent"]
         ],
         imports: [
             _datepicker_popup_module__WEBPACK_IMPORTED_MODULE_5__["NgbdDatepickerPopupModule"],
@@ -755,7 +773,6 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_9__["PortalService"],
             _services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_10__["NickNameService"],
             _services_answer_answer_service__WEBPACK_IMPORTED_MODULE_11__["AnswerService"],
-            // ChatService,
             _services_question_question_service__WEBPACK_IMPORTED_MODULE_14__["QuestionService"],
             {
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HTTP_INTERCEPTORS"],
@@ -985,7 +1002,7 @@ class CoverComponent {
             const userId = this.userAuthService.currentUserValue && this.userAuthService.currentUserValue.id;
             const issubLoggedIn = yield this.nickNameService.isSubAuth(item.id);
             if (issubLoggedIn && issubLoggedIn.currentNicId || userId === item.userId) {
-                this.router.navigate(["api/portals", item.token]);
+                this.router.navigate(["portals", item.token]);
             }
             else if (issubLoggedIn === false) {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
@@ -1061,15 +1078,12 @@ class CoverComponent {
                         });
                         // console.log(window.atob(result.value[1].token.split(".")[1]), 888);
                         localStorage.setItem("nickToken", result.value[1].token);
-                        this.router.navigate(["api/portals", item.token]);
+                        this.router.navigate(["/portals", item.token]);
                     }
                 }));
             }
         });
     }
-    // lll() {
-    //   console.log(898989)
-    // }
     ngOnInit() {
         //
         this.chatService.refreshPortals.subscribe(_ => {
@@ -1080,7 +1094,6 @@ class CoverComponent {
         //
         this.portalService.getAll().subscribe(portals => {
             this.portalData = portals;
-            console.log(this.portalData, 8899);
         });
         //
         this.userAuthService.isAuthenticated().then(result => {
@@ -1094,8 +1107,10 @@ class CoverComponent {
         //
         this.portalService.portalState.subscribe(result => {
             if (result.state === null) {
+                alert('inside cover component -<=> result = null');
                 this.portalService.chekPortalStatus(result.token).subscribe(status => {
                     if (status.private) {
+                        alert(status.private);
                         this.openModal(status, true);
                     }
                     else {
@@ -1107,7 +1122,7 @@ class CoverComponent {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: "??????????????!",
+                    text: "Something Went wrong!",
                     footer: "<a href>Why do I have this issue?</a>"
                 });
             }
@@ -1132,7 +1147,6 @@ class CoverComponent {
             this.portalData.find(portal => portal.id === portalId && (portal.isStarted = 1));
         });
         this.chatService.endOfPortal.subscribe((data) => {
-            alert('in cover.ts');
             this.portalData.find((portal, index, portalData) => portal.id === data.portalId && (portalData.splice(index, 1)));
         });
     }
@@ -1204,9 +1218,7 @@ let HeaderComponent = class HeaderComponent {
     ngOnInit() {
     }
     logout() {
-        alert(210989);
         this.authService.logout();
-        // this.socialAuthService.signOut();
         this.router.navigate(["/"]);
     }
 };
@@ -1264,7 +1276,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { formattedError } from '@angular/compiler';
 
 
 
@@ -1275,7 +1286,7 @@ let HomeComponent = class HomeComponent {
         this.chatService = chatService;
         this.router = router;
         this.timetoStart = false;
-        this.portalUrlPath = "http://localhost:3000/api/portals/";
+        this.portalUrlPath = "http://localhost:3000/portals/";
         this.destroy$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         this.portalData = [];
         this.portalService.portal.subscribe((x) => {
@@ -1288,7 +1299,6 @@ let HomeComponent = class HomeComponent {
             this.portalData.push(addedPortal[0]);
         });
     }
-    // extract date from array of portals
     extractStartDate(portals) {
         return portals.reduce((arr, item) => {
             return arr.push(item.start), arr;
@@ -1322,29 +1332,24 @@ let HomeComponent = class HomeComponent {
         const timer1 = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(1000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(_ => {
             const t = this.foo(time);
             if (!t) {
-                // this.started = true;
                 return;
             }
             return t;
-        }), 
-        // filter(item => !!item),
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this.destroy$));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this.destroy$));
         return timer1;
     }
     foo(time) {
         const countDownDate = new Date(time).getTime();
         return Object(src_app_HELPERS_backwardTimer__WEBPACK_IMPORTED_MODULE_6__["timer"])(countDownDate);
     }
-    startEvent(portal) {
-        console.log(portal, 88888);
+    startEvent(_a) {
+        var { counter } = _a, portal = tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"](_a, ["counter"]);
         this.portalService.currentPortalIdSubject.next(portal.id);
-        delete portal.counetr;
         this.portalService.currentPortalSubject.next(portal);
-        this.portalService.startEvent(portal.id, portal.token)
-            .subscribe(resp => {
+        this.portalService.startEvent(portal.id, portal.token).subscribe(resp => {
             if (resp) {
                 this.chatService.refreshPortalsActivity(portal.id);
-                this.router.navigate([`api/portals`, portal.token]);
+                this.router.navigate([`/portals`, portal.token]);
             }
         });
     }
@@ -1352,16 +1357,21 @@ let HomeComponent = class HomeComponent {
         const userId = this.userAuthService.currentUserValue.id;
         this.started = false;
         this.portalData = [];
-        // get all portals
         this.portalService.getUserPortals(userId).subscribe(portals => {
             const StartTime = this.extractStartDate(portals);
             this.portalData = this.setupTimes(portals, StartTime);
-            console.log(this.portalData);
+        });
+        this.userAuthService.isAuthenticated().then(result => {
+            if (result) {
+                this.userAuthService.setLogin();
+            }
+            else {
+                this.userAuthService.setLogOut();
+            }
         });
     }
     ngOnDestroy() {
         this.destroy$.next(true);
-        // Unsubscribe from the subject
         this.destroy$.complete();
     }
 };
@@ -1426,6 +1436,7 @@ let PortalModalComponent = class PortalModalComponent {
         this.formBuilder = formBuilder;
         this.authService = authService;
         this.portalService = portalService;
+        this.isValidEventData = true;
         this.portalForm = this.formBuilder.group({
             title: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
             date: [new Date(), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
@@ -1439,22 +1450,26 @@ let PortalModalComponent = class PortalModalComponent {
     get fx() {
         return this.portalForm.controls;
     }
+    chekEventDataValid(result) {
+        if (result.invalid || !Object(src_app_HELPERS_portalTimeCreator__WEBPACK_IMPORTED_MODULE_5__["isValidDate"])(result.value.date, result.value.time)) {
+            this.isValidEventData = false;
+            return;
+        }
+        this.isValidEventData = true;
+        return true;
+    }
     open(content) {
         this.modalService
             .open(content, { ariaLabelledBy: "modal-basic-title" })
             .result.then(result => {
-            // this.closeResult = `Closed with: ${result}`;
-            console.log(result, 999);
-            // if (result.invalid || !isValidDate(result.value.date, result.value.time)) {
-            //   console.log(89101);
-            //   return;
-            // }
             const portalData = result.value;
             const userId = this.currentUser.id;
             const UTCtime = Object(src_app_HELPERS_portalTimeCreator__WEBPACK_IMPORTED_MODULE_5__["UTCtimeCreator"])(portalData.date, portalData.time);
-            console.log(UTCtime, 777666);
             this.portalService.addPortal({ start: UTCtime, userId, name: portalData.title, private: +portalData.private })
-                .subscribe(portal => console.log(portal, 23323));
+                .subscribe(portal => {
+                this.portalService.portalSubject.next(portal);
+                this.portalService.currentPortalIdSubject.next(portal.id);
+            });
         }, reason => {
             this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
@@ -1602,7 +1617,7 @@ SendMailModalComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".divider-text {\n    position: relative;\n    text-align: center;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.divider-text span {\n    padding: 7px;\n    font-size: 12px;\n    position: relative;   \n    z-index: 2;\n}\n.divider-text:after {\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    border-bottom: 1px solid #ddd;\n    top: 55%;\n    left: 0;\n    z-index: 1;\n}\n.btn-facebook {\n    background-color: #405D9D;\n    color: #fff;\n}\n.btn-twitter {\n    background-color: #42AEEC;\n    color: #fff;\n}\n/*  */\n/* form>div>div {\n    order: -1;\n} */\nform > div {\n    display: flex;\n}\nform > div > div {\n    order: -1;\n}\n.no_valid i {\n    color: red\n}\n.is_valid i {\n    color: green\n}\n.card-body {\n    position: relative;\n}\n.error {\n    position: absolute;\n    width: 90%;\n    height: 31%;\n    display: flex;\n    align-items: center;\n    background: e07272;\n    opacity: .5;\n    z-index: 5;\n    margin-top: 50%;\n    justify-content: center;\n    border-radius: 5px\n}\n.error > p {\n    font-size: 18px;\n    color: #fff\n}\na:not([href]):not([tabindex]) {\n    color: #fff!important;\n    cursor: pointer;\n}\na:not([href]):not([tabindex]):hover {\n    color: #fff!important\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dpbi91c2VyLWxvZ2luL3VzZXItbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsVUFBVTtBQUNkO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCw2QkFBNkI7SUFDN0IsUUFBUTtJQUNSLE9BQU87SUFDUCxVQUFVO0FBQ2Q7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQSxLQUFLO0FBQ0w7O0dBRUc7QUFDSDtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLFNBQVM7QUFDYjtBQUVBO0lBQ0k7QUFDSjtBQUNBO0lBQ0k7QUFDSjtBQUVBO0lBQ0ksa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsVUFBVTtJQUNWLFdBQVc7SUFDWCxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsVUFBVTtJQUNWLGVBQWU7SUFDZix1QkFBdUI7SUFDdkI7QUFDSjtBQUNBO0lBQ0ksZUFBZTtJQUNmO0FBQ0o7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25CO0FBRUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9sb2dpbi91c2VyLWxvZ2luL3VzZXItbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaXZpZGVyLXRleHQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMTVweDtcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuLmRpdmlkZXItdGV4dCBzcGFuIHtcbiAgICBwYWRkaW5nOiA3cHg7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsgICBcbiAgICB6LWluZGV4OiAyO1xufVxuLmRpdmlkZXItdGV4dDphZnRlciB7XG4gICAgY29udGVudDogXCJcIjtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNkZGQ7XG4gICAgdG9wOiA1NSU7XG4gICAgbGVmdDogMDtcbiAgICB6LWluZGV4OiAxO1xufVxuXG4uYnRuLWZhY2Vib29rIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDA1RDlEO1xuICAgIGNvbG9yOiAjZmZmO1xufVxuLmJ0bi10d2l0dGVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDJBRUVDO1xuICAgIGNvbG9yOiAjZmZmO1xufVxuLyogICovXG4vKiBmb3JtPmRpdj5kaXYge1xuICAgIG9yZGVyOiAtMTtcbn0gKi9cbmZvcm0gPiBkaXYge1xuICAgIGRpc3BsYXk6IGZsZXg7XG59XG5mb3JtID4gZGl2ID4gZGl2IHtcbiAgICBvcmRlcjogLTE7XG59XG5cbi5ub192YWxpZCBpIHtcbiAgICBjb2xvcjogcmVkXG59XG4uaXNfdmFsaWQgaSB7XG4gICAgY29sb3I6IGdyZWVuXG59XG5cbi5jYXJkLWJvZHkge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbi5lcnJvciB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHdpZHRoOiA5MCU7XG4gICAgaGVpZ2h0OiAzMSU7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGJhY2tncm91bmQ6IGUwNzI3MjtcbiAgICBvcGFjaXR5OiAuNTtcbiAgICB6LWluZGV4OiA1O1xuICAgIG1hcmdpbi10b3A6IDUwJTtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBib3JkZXItcmFkaXVzOiA1cHhcbn1cbi5lcnJvciA+IHAge1xuICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICBjb2xvcjogI2ZmZlxufVxuXG5hOm5vdChbaHJlZl0pOm5vdChbdGFiaW5kZXhdKSB7XG4gICAgY29sb3I6ICNmZmYhaW1wb3J0YW50O1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuYTpub3QoW2hyZWZdKTpub3QoW3RhYmluZGV4XSk6aG92ZXIge1xuICAgIGNvbG9yOiAjZmZmIWltcG9ydGFudFxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".divider-text {\r\n    position: relative;\r\n    text-align: center;\r\n    margin-top: 15px;\r\n    margin-bottom: 15px;\r\n}\r\n.divider-text span {\r\n    padding: 7px;\r\n    font-size: 12px;\r\n    position: relative;   \r\n    z-index: 2;\r\n}\r\n.divider-text:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 100%;\r\n    border-bottom: 1px solid #ddd;\r\n    top: 55%;\r\n    left: 0;\r\n    z-index: 1;\r\n}\r\n.btn-facebook {\r\n    background-color: #405D9D;\r\n    color: #fff;\r\n}\r\n.btn-twitter {\r\n    background-color: #42AEEC;\r\n    color: #fff;\r\n}\r\n/*  */\r\n/* form>div>div {\r\n    order: -1;\r\n} */\r\nform > div {\r\n    display: flex;\r\n}\r\nform > div > div {\r\n    order: -1;\r\n}\r\n.no_valid i {\r\n    color: red\r\n}\r\n.is_valid i {\r\n    color: green\r\n}\r\n.card-body {\r\n    position: relative;\r\n}\r\n.error {\r\n    position: absolute;\r\n    width: 90%;\r\n    height: 31%;\r\n    display: flex;\r\n    align-items: center;\r\n    background: #e07272;\r\n    opacity: .5;\r\n    z-index: 5;\r\n    margin-top: 50%;\r\n    justify-content: center;\r\n    border-radius: 5px\r\n}\r\n.error > p {\r\n    font-size: 18px;\r\n    color: #fff\r\n}\r\na:not([href]):not([tabindex]) {\r\n    color: #fff!important;\r\n    cursor: pointer;\r\n}\r\na:not([href]):not([tabindex]):hover {\r\n    color: #fff!important\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dpbi91c2VyLWxvZ2luL3VzZXItbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsVUFBVTtBQUNkO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCw2QkFBNkI7SUFDN0IsUUFBUTtJQUNSLE9BQU87SUFDUCxVQUFVO0FBQ2Q7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQSxLQUFLO0FBQ0w7O0dBRUc7QUFDSDtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLFNBQVM7QUFDYjtBQUVBO0lBQ0k7QUFDSjtBQUNBO0lBQ0k7QUFDSjtBQUVBO0lBQ0ksa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsVUFBVTtJQUNWLFdBQVc7SUFDWCxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLG1CQUFtQjtJQUNuQixXQUFXO0lBQ1gsVUFBVTtJQUNWLGVBQWU7SUFDZix1QkFBdUI7SUFDdkI7QUFDSjtBQUNBO0lBQ0ksZUFBZTtJQUNmO0FBQ0o7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25CO0FBRUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9sb2dpbi91c2VyLWxvZ2luL3VzZXItbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaXZpZGVyLXRleHQge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luLXRvcDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbn1cclxuLmRpdmlkZXItdGV4dCBzcGFuIHtcclxuICAgIHBhZGRpbmc6IDdweDtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsgICBcclxuICAgIHotaW5kZXg6IDI7XHJcbn1cclxuLmRpdmlkZXItdGV4dDphZnRlciB7XHJcbiAgICBjb250ZW50OiBcIlwiO1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RkZDtcclxuICAgIHRvcDogNTUlO1xyXG4gICAgbGVmdDogMDtcclxuICAgIHotaW5kZXg6IDE7XHJcbn1cclxuXHJcbi5idG4tZmFjZWJvb2sge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQwNUQ5RDtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG59XHJcbi5idG4tdHdpdHRlciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDJBRUVDO1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn1cclxuLyogICovXHJcbi8qIGZvcm0+ZGl2PmRpdiB7XHJcbiAgICBvcmRlcjogLTE7XHJcbn0gKi9cclxuZm9ybSA+IGRpdiB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbmZvcm0gPiBkaXYgPiBkaXYge1xyXG4gICAgb3JkZXI6IC0xO1xyXG59XHJcblxyXG4ubm9fdmFsaWQgaSB7XHJcbiAgICBjb2xvcjogcmVkXHJcbn1cclxuLmlzX3ZhbGlkIGkge1xyXG4gICAgY29sb3I6IGdyZWVuXHJcbn1cclxuXHJcbi5jYXJkLWJvZHkge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG59XHJcbi5lcnJvciB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgaGVpZ2h0OiAzMSU7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGJhY2tncm91bmQ6ICNlMDcyNzI7XHJcbiAgICBvcGFjaXR5OiAuNTtcclxuICAgIHotaW5kZXg6IDU7XHJcbiAgICBtYXJnaW4tdG9wOiA1MCU7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweFxyXG59XHJcbi5lcnJvciA+IHAge1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgY29sb3I6ICNmZmZcclxufVxyXG5cclxuYTpub3QoW2hyZWZdKTpub3QoW3RhYmluZGV4XSkge1xyXG4gICAgY29sb3I6ICNmZmYhaW1wb3J0YW50O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG5hOm5vdChbaHJlZl0pOm5vdChbdGFiaW5kZXhdKTpob3ZlciB7XHJcbiAgICBjb2xvcjogI2ZmZiFpbXBvcnRhbnRcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -1644,10 +1659,9 @@ let UserLoginComponent = class UserLoginComponent {
     }
     userLogin() {
         const { email, password } = this.loginForm.value;
-        this.userAuthService.login(email, password).subscribe(user => this.router.navigate(["api/users/profile", user.id]), error => {
+        this.userAuthService.login(email, password).subscribe(user => this.router.navigate(["/users/profile", user.id]), error => {
             // alert(JSON.stringify(error.statusCode, null, 2));
             if (error.status) {
-                alert(error.error.loginData);
                 this.error = error.error.loginData;
             }
         });
@@ -1745,6 +1759,50 @@ NgbdDatepickerPopup = NgbdDatepickerPopup_1 = tslib__WEBPACK_IMPORTED_MODULE_0__
         ]
     })
 ], NgbdDatepickerPopup);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/not-found/not-found.component.css":
+/*!**************************************************************!*\
+  !*** ./src/app/components/not-found/not-found.component.css ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbm90LWZvdW5kL25vdC1mb3VuZC5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/components/not-found/not-found.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/components/not-found/not-found.component.ts ***!
+  \*************************************************************/
+/*! exports provided: NotFoundComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotFoundComponent", function() { return NotFoundComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let NotFoundComponent = class NotFoundComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+NotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-not-found',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./not-found.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/not-found/not-found.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./not-found.component.css */ "./src/app/components/not-found/not-found.component.css")).default]
+    })
+], NotFoundComponent);
 
 
 
@@ -1935,7 +1993,7 @@ let MessageComponent = class MessageComponent {
     ngOnInit() {
         this.isUserInSelfPortal =
             this.userAuthService.UserLoggedStatus &&
-                this.portalService.isPortalisMakeUser(this.portalService.getPortalId);
+                this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null);
         this.questionService.recivierAns
             .subscribe(nick => {
             this.currTop10Nick = nick;
@@ -2036,9 +2094,9 @@ let PortalDetailComponent = class PortalDetailComponent {
         this.portalData = this.portalService.getCurrentPortal;
         this.nickService.nickData.subscribe(data => (this.nickData = data));
         this.userData = this.userAuthService.currentUserValue;
-        // alert(JSON.stringify(this.userData, null, 2))
+        alert(55555555555);
         if (this.userAuthService.UserLoggedStatus &&
-            this.portalService.isPortalisMakeUser(this.portalService.getPortalId)) {
+            this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null)) {
             this.inUserPortal = true;
         }
         else {
@@ -2056,11 +2114,20 @@ let PortalDetailComponent = class PortalDetailComponent {
             this.questionService.msg.next(message);
         });
         //
+        this.userAuthService.isAuthenticated().then(result => {
+            if (result) {
+                this.userAuthService.setLogin();
+            }
+            else {
+                this.userAuthService.setLogOut();
+            }
+        });
+        //
         this.portalService.portalFinished
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$))
             .subscribe(res => {
             if (this.inUserPortal) {
-                this.router.navigate(["/api/users/home"]);
+                this.router.navigate(["/users/home"]);
             }
             else {
                 this.router.navigate(["/"]);
@@ -2214,7 +2281,9 @@ let QuestionComponent = class QuestionComponent {
         this.chatServise.finishPortal(this.portalId);
     }
     ngOnInit() {
-        this.chatServise.socketConnect(this.nickData);
+        if (!this.portalService.isPortalisMakeUser(this.portalId, null)) {
+            this.chatServise.socketConnect(this.nickData);
+        }
         //
         this.questionService
             .getAllQuestions(this.portalToken)
@@ -2443,9 +2512,7 @@ let Top10ListComponent = class Top10ListComponent {
     ngOnInit() {
         this.portalId = +this.portalService.getPortalId;
         const data$ = this.questionService.getTop_10_questions(this.portalId);
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["timer"])(0, 80000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(_ => data$), // ete ches uzum http->requestov anes, karas concatMap-i tex@ gres map(this.chatService.anyMethod()),
-        // vor@ emit kani et URL-i(getTOP10/:portalId) tak reg exac inchvor socket
-        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this.unsubscribe$))
+        Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["timer"])(0, 80000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(_ => data$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this.unsubscribe$))
             .subscribe(response => {
             this.top10data = response;
         });
@@ -2516,7 +2583,7 @@ let PortalComponent = class PortalComponent {
     goToPortal(portalData) {
         this.portalService.currentPortalIdSubject.next(portalData.id);
         this.portalService.currentPortalSubject.next(portalData);
-        this.router.navigate(["/api/portals", portalData.token]);
+        this.router.navigate(["/portals", portalData.token]);
         // console.log(portalData);
     }
     // [routerLink]="['/api/portals', item.token]"
@@ -2526,6 +2593,14 @@ let PortalComponent = class PortalComponent {
             .subscribe(portal => {
             this.portals = portal;
             console.log(this.portals, 7777);
+        });
+        this.userAuthService.isAuthenticated().then(result => {
+            if (result) {
+                this.userAuthService.setLogin();
+            }
+            else {
+                this.userAuthService.setLogOut();
+            }
         });
     }
 };
@@ -2573,23 +2648,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user/user.service */ "./src/app/services/user/user.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/auth/user-auth.service */ "./src/app/services/auth/user-auth.service.ts");
+
 
 
 
 
 // import { Observable } from "rxjs";
 let ProfileComponent = class ProfileComponent {
-    constructor(route, userService) {
+    constructor(route, userService, userAuthService) {
+        // const userToken = this.route.snapshot.paramMap.get("token");
         this.route = route;
         this.userService = userService;
-        const userId = this.route.snapshot.paramMap.get("id");
-        // const userToken = this.route.snapshot.paramMap.get("token");
-        if (userId) {
-            this.userService.getUserProfile(userId).subscribe(data => {
-                console.log(data);
-                this.data = data;
-            });
-        }
+        this.userAuthService = userAuthService;
         // if (userToken) {
         //   this.userService.addToken("access_token", userToken);
         //   this.userService.getUserProfileSocial(userToken).subscribe(data => {
@@ -2599,11 +2670,28 @@ let ProfileComponent = class ProfileComponent {
         // }
     }
     ngOnInit() {
+        const userId = this.route.snapshot.paramMap.get("id");
+        alert(userId);
+        if (userId) {
+            this.userService.getUserProfile(userId).subscribe(data => {
+                console.log(data);
+                this.data = data;
+            });
+        }
+        this.userAuthService.isAuthenticated().then(result => {
+            if (result) {
+                this.userAuthService.setLogin();
+            }
+            else {
+                this.userAuthService.setLogOut();
+            }
+        });
     }
 };
 ProfileComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] }
+    { type: src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_4__["UserAuthService"] }
 ];
 ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2626,7 +2714,7 @@ ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".divider-text {\n    position: relative;\n    text-align: center;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.card-body {\n    padding: 0;\n}\n.card-title {\n    margin: 0;\n}\n.divider-text span {\n    padding: 7px;\n    font-size: 12px;\n    position: relative;   \n    z-index: 2;\n}\n.divider-text:after {\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    border-bottom: 1px solid #ddd;\n    top: 55%;\n    left: 0;\n    z-index: 1;\n}\n.btn-facebook {\n    background-color: #405D9D;\n    color: #fff;\n}\n.btn-twitter {\n    background-color: #42AEEC;\n    color: #fff;\n}\n/*  */\n/* form>div>div {\n    order: -1;\n} */\nform > div {\n    display: flex;\n}\nform > div > div {\n    order: -1;\n}\n.no_valid i {\n    color: red\n}\n.is_valid i {\n    color: green\n}\na:not([href]):not([tabindex]) {\n    color: #fff!important;\n    cursor: pointer;\n}\na:not([href]):not([tabindex]):hover {\n    color: #fff!important\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksVUFBVTtBQUNkO0FBQ0E7SUFDSSxTQUFTO0FBQ2I7QUFDQTtJQUNJLFlBQVk7SUFDWixlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLFVBQVU7QUFDZDtBQUNBO0lBQ0ksV0FBVztJQUNYLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsNkJBQTZCO0lBQzdCLFFBQVE7SUFDUixPQUFPO0lBQ1AsVUFBVTtBQUNkO0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsV0FBVztBQUNmO0FBQ0E7SUFDSSx5QkFBeUI7SUFDekIsV0FBVztBQUNmO0FBQ0EsS0FBSztBQUNMOztHQUVHO0FBQ0g7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxTQUFTO0FBQ2I7QUFFQTtJQUNJO0FBQ0o7QUFDQTtJQUNJO0FBQ0o7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25CO0FBRUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaXZpZGVyLXRleHQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMTVweDtcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuLmNhcmQtYm9keSB7XG4gICAgcGFkZGluZzogMDtcbn1cbi5jYXJkLXRpdGxlIHtcbiAgICBtYXJnaW46IDA7XG59XG4uZGl2aWRlci10ZXh0IHNwYW4ge1xuICAgIHBhZGRpbmc6IDdweDtcbiAgICBmb250LXNpemU6IDEycHg7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlOyAgIFxuICAgIHotaW5kZXg6IDI7XG59XG4uZGl2aWRlci10ZXh0OmFmdGVyIHtcbiAgICBjb250ZW50OiBcIlwiO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RkZDtcbiAgICB0b3A6IDU1JTtcbiAgICBsZWZ0OiAwO1xuICAgIHotaW5kZXg6IDE7XG59XG5cbi5idG4tZmFjZWJvb2sge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICM0MDVEOUQ7XG4gICAgY29sb3I6ICNmZmY7XG59XG4uYnRuLXR3aXR0ZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICM0MkFFRUM7XG4gICAgY29sb3I6ICNmZmY7XG59XG4vKiAgKi9cbi8qIGZvcm0+ZGl2PmRpdiB7XG4gICAgb3JkZXI6IC0xO1xufSAqL1xuZm9ybSA+IGRpdiB7XG4gICAgZGlzcGxheTogZmxleDtcbn1cbmZvcm0gPiBkaXYgPiBkaXYge1xuICAgIG9yZGVyOiAtMTtcbn1cblxuLm5vX3ZhbGlkIGkge1xuICAgIGNvbG9yOiByZWRcbn1cbi5pc192YWxpZCBpIHtcbiAgICBjb2xvcjogZ3JlZW5cbn1cblxuYTpub3QoW2hyZWZdKTpub3QoW3RhYmluZGV4XSkge1xuICAgIGNvbG9yOiAjZmZmIWltcG9ydGFudDtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbmE6bm90KFtocmVmXSk6bm90KFt0YWJpbmRleF0pOmhvdmVyIHtcbiAgICBjb2xvcjogI2ZmZiFpbXBvcnRhbnRcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".divider-text {\r\n    position: relative;\r\n    text-align: center;\r\n    margin-top: 15px;\r\n    margin-bottom: 15px;\r\n}\r\n.card-body {\r\n    padding: 0;\r\n}\r\n.card-title {\r\n    margin: 0;\r\n}\r\n.divider-text span {\r\n    padding: 7px;\r\n    font-size: 12px;\r\n    position: relative;   \r\n    z-index: 2;\r\n}\r\n.divider-text:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 100%;\r\n    border-bottom: 1px solid #ddd;\r\n    top: 55%;\r\n    left: 0;\r\n    z-index: 1;\r\n}\r\n.btn-facebook {\r\n    background-color: #405D9D;\r\n    color: #fff;\r\n}\r\n.btn-twitter {\r\n    background-color: #42AEEC;\r\n    color: #fff;\r\n}\r\n/*  */\r\n/* form>div>div {\r\n    order: -1;\r\n} */\r\nform > div {\r\n    display: flex;\r\n}\r\nform > div > div {\r\n    order: -1;\r\n}\r\n.no_valid i {\r\n    color: red\r\n}\r\n.is_valid i {\r\n    color: green\r\n}\r\na:not([href]):not([tabindex]) {\r\n    color: #fff!important;\r\n    cursor: pointer;\r\n}\r\na:not([href]):not([tabindex]):hover {\r\n    color: #fff!important\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksVUFBVTtBQUNkO0FBQ0E7SUFDSSxTQUFTO0FBQ2I7QUFDQTtJQUNJLFlBQVk7SUFDWixlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLFVBQVU7QUFDZDtBQUNBO0lBQ0ksV0FBVztJQUNYLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsNkJBQTZCO0lBQzdCLFFBQVE7SUFDUixPQUFPO0lBQ1AsVUFBVTtBQUNkO0FBRUE7SUFDSSx5QkFBeUI7SUFDekIsV0FBVztBQUNmO0FBQ0E7SUFDSSx5QkFBeUI7SUFDekIsV0FBVztBQUNmO0FBQ0EsS0FBSztBQUNMOztHQUVHO0FBQ0g7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxTQUFTO0FBQ2I7QUFFQTtJQUNJO0FBQ0o7QUFDQTtJQUNJO0FBQ0o7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25CO0FBRUE7SUFDSTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24vdXNlci1yZWdpc3RyYXRpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kaXZpZGVyLXRleHQge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luLXRvcDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbn1cclxuLmNhcmQtYm9keSB7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG59XHJcbi5jYXJkLXRpdGxlIHtcclxuICAgIG1hcmdpbjogMDtcclxufVxyXG4uZGl2aWRlci10ZXh0IHNwYW4ge1xyXG4gICAgcGFkZGluZzogN3B4O1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlOyAgIFxyXG4gICAgei1pbmRleDogMjtcclxufVxyXG4uZGl2aWRlci10ZXh0OmFmdGVyIHtcclxuICAgIGNvbnRlbnQ6IFwiXCI7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGRkO1xyXG4gICAgdG9wOiA1NSU7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgei1pbmRleDogMTtcclxufVxyXG5cclxuLmJ0bi1mYWNlYm9vayB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDA1RDlEO1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn1cclxuLmJ0bi10d2l0dGVyIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM0MkFFRUM7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxufVxyXG4vKiAgKi9cclxuLyogZm9ybT5kaXY+ZGl2IHtcclxuICAgIG9yZGVyOiAtMTtcclxufSAqL1xyXG5mb3JtID4gZGl2IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuZm9ybSA+IGRpdiA+IGRpdiB7XHJcbiAgICBvcmRlcjogLTE7XHJcbn1cclxuXHJcbi5ub192YWxpZCBpIHtcclxuICAgIGNvbG9yOiByZWRcclxufVxyXG4uaXNfdmFsaWQgaSB7XHJcbiAgICBjb2xvcjogZ3JlZW5cclxufVxyXG5cclxuYTpub3QoW2hyZWZdKTpub3QoW3RhYmluZGV4XSkge1xyXG4gICAgY29sb3I6ICNmZmYhaW1wb3J0YW50O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG5hOm5vdChbaHJlZl0pOm5vdChbdGFiaW5kZXhdKTpob3ZlciB7XHJcbiAgICBjb2xvcjogI2ZmZiFpbXBvcnRhbnRcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -2714,7 +2802,7 @@ let UserRegistrationComponent = class UserRegistrationComponent {
                 console.log(data, typeof data);
                 this.userService.addToken("currentUser", data);
                 this.authService.refresh(data);
-                this.router.navigate([`api/users/profile`, data.id]);
+                this.router.navigate([`/users/profile`, data.id]);
             }
         }, error => {
             this.user = error.userData;
@@ -2837,7 +2925,7 @@ let AuthGuard = class AuthGuard {
             }
             else {
                 console.log(isValid, 33333333);
-                this.router.navigate(["api/users/login"], { queryParams: { returnUrl: state.url } });
+                this.router.navigate(["/users/login"], { queryParams: { returnUrl: state.url } });
                 return false;
             }
         });
@@ -2887,12 +2975,23 @@ let SubscriberGuard = class SubscriberGuard {
         this.portalService = portalService;
         this.userAuthService = userAuthService;
         this.router = router;
+        const userId = this.userAuthService.currentUserValue &&
+            this.userAuthService.currentUserValue.id;
+        if (userId) {
+            this.portalService.getUserPortals(userId).subscribe(portals => {
+                alert(portals.length + 5);
+                this.portalService.currentUserPortals.next(portals);
+            });
+        }
+    }
+    getPortalIdFromToken(token) {
+        this.portalService.getPortalIdFromToken(token);
     }
     canActivate(next, state) {
-        console.log(this.portalService.getPortalId, 111);
-        if (this.userAuthService.UserLoggedStatus &&
-            !this.nickService.getNickToken ||
-            this.portalService.isPortalisMakeUser(this.portalService.getPortalId)) {
+        console.log(this.userAuthService.UserLoggedStatus, !this.nickService.getNickToken, this.portalService.isPortalisMakeUser(null, next.params.token), 111);
+        if ((this.userAuthService.UserLoggedStatus &&
+            !this.nickService.getNickToken) ||
+            this.portalService.isPortalisMakeUser(null, next.params.token)) {
             return this.userAuthService.isAuthforGuard().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(result => {
                 if (result) {
                     console.log(result, 9999999);
@@ -2903,18 +3002,28 @@ let SubscriberGuard = class SubscriberGuard {
         }
         else {
             return this.nickService.isSubscriberAuth(next.params.token).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(result => {
+                alert(999);
                 if (result) {
                     this.nickService.nickDataSubject.next(result);
+                    this.portalService.currentPortalIdSubject.next(result.portalId);
                     return true;
                 }
                 else if (result === null) {
-                    this.portalService.portalStatusSubject.next({ token: next.params.token, state: null });
-                    this.router.navigate(["api/cover"]);
+                    alert("result=null");
+                    this.portalService.portalStatusSubject.next({
+                        token: next.params.token,
+                        state: null
+                    });
+                    this.router.navigate(["/cover"]);
                     return false;
                 }
                 else {
-                    this.portalService.portalStatusSubject.next({ token: next.params.token, state: false });
-                    this.router.navigate(["api/cover"]);
+                    alert("result=false");
+                    this.portalService.portalStatusSubject.next({
+                        token: next.params.token,
+                        state: false
+                    });
+                    this.router.navigate(["/cover"]);
                     return false;
                 }
             }));
@@ -3079,7 +3188,7 @@ let UserAuthService = class UserAuthService {
                 this.regWithFace(user.authToken).subscribe((response) => {
                     this.userService.addToken("currentUser", response);
                     this.refresh(response);
-                    this.router.navigate([`api/users/profile`, response.id]);
+                    this.router.navigate([`/users/profile`, response.id]);
                 });
             }
         }, error => console.log(error, 85858585));
@@ -3162,11 +3271,8 @@ let ChatService = class ChatService {
         this.likeCountSubscrbtion = this.likeCountSubject.asObservable();
     }
     socketConnect(nickData) {
-        // this.socket.on("connect", () => {
-        // alert(50);
-        // console.log()
+        alert(JSON.stringify(nickData, null, 2));
         this.socket.emit("connected", nickData);
-        // });
     }
     socketDisconnect(nickData) {
         this.socket.emit("disconected", nickData);
@@ -3436,8 +3542,8 @@ let PortalService = class PortalService {
         return this.http
             .post("api/portals/addPortal", data)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(portal => {
-            this.portalSubject.next(portal);
-            this.currentPortalIdSubject.next(portal.id);
+            portal.portalManyQuestion = [];
+            return portal;
         }));
     }
     startEvent(id, token) {
@@ -3470,10 +3576,27 @@ let PortalService = class PortalService {
             .post("api/portals/portalStatus", { token });
     }
     //
-    isPortalisMakeUser(portalid) {
+    isPortalisMakeUser(portalid, portalToken) {
         const userPortals = this.getCurentUserPortals;
-        const isExist = userPortals.find(item => item.id === portalid);
+        console.log(userPortals, 444444444);
+        let isExist;
+        if (portalid) {
+            isExist = userPortals.find(item => item.id === portalid);
+        }
+        else {
+            isExist = userPortals.find(item => item.token === portalToken);
+        }
         return isExist;
+    }
+    getPortalIdFromToken(token) {
+        alert(token);
+        return this.http
+            .get(`api/portals/${token}`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((portalId) => {
+            alert(portalId);
+            this.currentPortalIdSubject.next(portalId);
+            return portalId;
+        }));
     }
 };
 PortalService.ctorParameters = () => [

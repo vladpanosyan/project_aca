@@ -23,7 +23,7 @@ export class UserService {
     if (typeof user === "string") {
       localStorage.setItem(name, user);
     } else {
-      localStorage.setItem(name, JSON.stringify(user));
+      localStorage.setItem(name, JSON.stringify(user)); 
     }
   }
 

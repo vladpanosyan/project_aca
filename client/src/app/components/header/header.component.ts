@@ -27,9 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    alert(210989);
     this.authService.logout();
-    // this.socialAuthService.signOut();
     this.router.navigate(["/"]);
   }
 }

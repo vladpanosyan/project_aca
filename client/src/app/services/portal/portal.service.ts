@@ -107,9 +107,28 @@ export class PortalService {
     .post("api/portals/portalStatus", {token});
   }
   //
-  isPortalisMakeUser(portalid) {
+  isPortalisMakeUser(portalid, portalToken) {
     const userPortals = this.getCurentUserPortals;
-    const isExist = userPortals.find(item => item.id === portalid);
+    console.log(userPortals, 444444444);
+    let isExist;
+    if (portalid) {
+      isExist = userPortals.find(item => item.id === portalid);
+    } else {
+      isExist = userPortals.find(item => item.token === portalToken);
+    }
     return isExist;
+  }
+
+  getPortalIdFromToken(token): Observable<any> {
+    alert(token);
+    return this.http
+    .get(`api/portals/${token}`)
+    .pipe(
+      map((portalId: any) => {
+        alert(portalId)
+        this.currentPortalIdSubject.next(portalId)
+        return portalId;
+      })
+    );
   }
 }
