@@ -52,12 +52,9 @@ export class ChatListComponent implements OnInit, AfterViewChecked  {
     //
     this.chatService.updateAvatarS.subscribe(
       data => {
-        console.log(this.answers, 120)
         this.answers.find(item => item.answerToQuestion.nickss.id === data.id && ( item.answerToQuestion.nickss.image = data.avatar));
-        // alert(JSON.stringify(data, null, 2));
       }
     );
-    //
     //
     this.questionService.changeAvatar
     // .pipe(takeUntil(this.destroy$))

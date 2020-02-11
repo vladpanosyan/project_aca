@@ -32,6 +32,7 @@ export class PortalComponent implements OnInit {
       this.portals = portal;
       console.log(this.portals, 7777);
     });
+    this.portalService.getUserPortals(currentUserId).subscribe(portals => console.log(portals, 7))
     this.userAuthService.isAuthenticated().then(result => {
       if (result) {
         this.userAuthService.setLogin();

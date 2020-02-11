@@ -27,6 +27,7 @@ export class Top10ListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.portalId = +this.portalService.getPortalId;
+    alert(this.portalId)
     const data$ = this.questionService.getTop_10_questions(this.portalId);
     timer(0, 80000).pipe(
       concatMap(_ => data$),

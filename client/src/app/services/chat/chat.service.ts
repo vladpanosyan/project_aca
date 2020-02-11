@@ -29,7 +29,7 @@ export class ChatService {
   }
 
   socketConnect(nickData) {
-      alert(JSON.stringify(nickData, null, 2))
+      // alert(JSON.stringify(nickData, null, 2))
       this.socket.emit("connected", nickData);
   }
 
@@ -44,7 +44,6 @@ export class ChatService {
   }
 
   sendLikeCount(data, action) {
-    // alert(JSON.stringify(data));
     this.socket.emit("get_likes_count", data, action);
   }
 

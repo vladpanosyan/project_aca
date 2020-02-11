@@ -48,18 +48,8 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.portalData = this.portalService.getCurrentPortal;
     this.nickService.nickData.subscribe(data => (this.nickData = data));
-
     this.userData = this.userAuthService.currentUserValue;
-    alert(55555555555)
-
-    if (
-      this.userAuthService.UserLoggedStatus &&
-      this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null)
-    ) {
-      this.inUserPortal = true;
-    } else {
-      this.inUserPortal = false;
-    }
+    this.inUserPortal = this.userAuthService.isUserInOwnPortal();
     //
     this.chatService.answerQuestion
       .pipe(takeUntil(this.unsubscribe$))

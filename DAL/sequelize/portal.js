@@ -56,7 +56,7 @@ module.exports = class Portal {
         return portals;
     }
 
-    async getActivePortal(userId) { // ste usumnasiri te vorna active portal
+    async getActivePortal(userId) { 
         const activePortal = await this.model.findAll({
             // raw: true,
             where: {
@@ -71,7 +71,24 @@ module.exports = class Portal {
             }],
             group: ['Portals.id']
         });
-        // console.log(t, 636363)
+        return activePortal;
+    }
+
+    async getCurrentPortal(token) { 
+        const activePortal = await this.model.findAll({
+            where: {
+                isStarted: 1,
+                isFinished: 0,
+                token
+            },
+            include: [{
+                attributes: [[sequelize.fn('count', sequelize.col(`Portals.id`)), 'questionsInPortal']],
+                as: 'portalManyQuestion',
+                model: this.models.Questions,
+            }],
+            group: ['Portals.id']
+        });
+        // console.log(activePortal, 636363)
         return activePortal;
     }
 
@@ -149,14 +166,14 @@ module.exports = class Portal {
         }
         return;
     }
-    async getPortalIdFromToken(token) {
-        const portalId = await this.model.findOne({
-            attributes: ['id'],
-            where: {
-                token
-            }
-        })
-        console.log(portalId, 6666666666666666)
-        return portalId;
-    }
+    // async getPortalIdFromToken(token) {
+    //     const portalId = await this.model.findOne({
+    //         attributes: ['id'],
+    //         where: {
+    //             token
+    //         }
+    //     })
+    //     console.log(portalId, 6666666666666666)
+    //     return portalId;
+    // }
 }

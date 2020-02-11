@@ -52,6 +52,14 @@ class Portals {
         }
     }
 
+    async getCurrentPortal(token) {
+        const currPortal = await this.portalDal.getCurrentPortal(token);
+        if (currPortal) {
+            return currPortal[0];
+        } 
+        throw new Error('portal not exist');
+    }
+
     async deleteById(id) {
         let deletedPortal = await this.portalDal.deletePortal(id)
         if(deletedPortal) {

@@ -69,6 +69,15 @@
         }
     }
 
+    async getCurrentPortal(request, response) {
+        try {
+            const currentPortal = await this.portalService.getCurrentPortal(request.params.token);
+            response.json(currentPortal)
+        } catch (error) {
+            response.status(500).send({error: error.message})
+        }
+    }
+
     // check subscribers permision 
     async checkToken(request, response) {
         try {

@@ -30,7 +30,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     const userId = this.route.snapshot.paramMap.get("id");
-    alert(userId);
     if (userId) {
       this.userService.getUserProfile(userId).subscribe(data => {
         console.log(data);

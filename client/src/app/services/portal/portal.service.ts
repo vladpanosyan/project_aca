@@ -119,16 +119,8 @@ export class PortalService {
     return isExist;
   }
 
-  getPortalIdFromToken(token): Observable<any> {
-    alert(token);
+  getPortalIdFromToken(token): Promise<any> {
     return this.http
-    .get(`api/portals/${token}`)
-    .pipe(
-      map((portalId: any) => {
-        alert(portalId)
-        this.currentPortalIdSubject.next(portalId)
-        return portalId;
-      })
-    );
+    .get(`api/portals/${token}`).toPromise();
   }
 }

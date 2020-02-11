@@ -11,10 +11,13 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angularx-social-login";
+import { PortalService } from '../portal/portal.service';
 @Injectable({
   providedIn: "root"
 })
 export class UserAuthService {
+  portalIsMakeUser = false;
+
   public currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
@@ -25,6 +28,7 @@ export class UserAuthService {
     private http: HttpClient,
     private socialAuthService: AuthService,
     private userService: UserService,
+    private portalService: PortalService,
     private router: Router
   ) {
     this.currentUserSubject = new BehaviorSubject<User>(
@@ -44,18 +48,28 @@ export class UserAuthService {
     return this.isLoggedSubject.value;
   }
 
-  isAuthforGuard(): Observable<any> {
-    const accessToken = this.currentUserValue && this.currentUserValue.access_token;
-    if (accessToken) {
-      const res = this.http.post("api/users/checkTokenValid", { accessToken });
-      return res;
-      // if (res) {
-      //   return of(true);
-      // } else {
-      //   return of(false);
-      // }
-    }
+isUserInOwnPortal() {
+  if (
+    this.UserLoggedStatus &&
+    this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null) || this.portalIsMakeUser
+  ) {
+    return  true;
+  } else {
+    return false;
   }
+}
+
+setPortalToUser(bool) {
+  this.portalIsMakeUser = bool;
+}
+
+isAuthforGuard(): Observable<any> {
+  const accessToken = this.currentUserValue && this.currentUserValue.access_token;
+  if (accessToken) {
+    const res = this.http.post("api/users/checkTokenValid", { accessToken });
+    return res;
+  }
+}
 
   async isAuthenticated(): Promise<any> {
     // tslint:disable-next-line: variable-name
@@ -98,8 +112,6 @@ export class UserAuthService {
     this.socialAuthService.authState // avtomat berume token@
       .subscribe(
         user => {
-          // this.loggedIn = user != null;
-          // alert(JSON.stringify(user, null, 2))
           if (user) {
             this.regWithFace(user.authToken).subscribe((response: any) => {
               this.userService.addToken("currentUser", response);

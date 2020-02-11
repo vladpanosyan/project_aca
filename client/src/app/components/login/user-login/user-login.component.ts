@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 // import { UserService } from "src/app/services/user/user.service";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { PortalService } from 'src/app/services/portal/portal.service';
 
 @Component({
   selector: "app-user-login",
@@ -16,7 +17,8 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private userAuthService: UserAuthService 
+    private userAuthService: UserAuthService,
+    private portalService: PortalService
   ) {}
 
   ngOnInit() {
@@ -31,9 +33,10 @@ export class UserLoginComponent implements OnInit {
   userLogin() {
     const { email, password } = this.loginForm.value;
     this.userAuthService.login(email, password).subscribe(
-      user => this.router.navigate(["/users/profile", user.id]),
+      user => {
+        this.router.navigate(["/users/profile", user.id]);
+     },
       error => {
-        // alert(JSON.stringify(error.statusCode, null, 2));
         if (error.status) {
           this.error = error.error.loginData;
         }

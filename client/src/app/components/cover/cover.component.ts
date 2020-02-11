@@ -144,10 +144,8 @@ export class CoverComponent implements OnInit {
     //
     this.portalService.portalState.subscribe(result => {
       if (result.state === null) {
-        alert('inside cover component -<=> result = null')
         this.portalService.chekPortalStatus(result.token).subscribe(status => {
           if (status.private) {
-            alert(status.private)
             this.openModal(status, true);
           } else {
             this.openModal(status, false);
