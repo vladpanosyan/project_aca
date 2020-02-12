@@ -1,16 +1,16 @@
     class PortalController {
-    constructor(portalService) {
-        this.portalService = portalService
+    constructor(portalService, logger) {
+        this.portalService = portalService;
+        this.logger = logger;
     }
     // find
     async getAll(request, response) {
         try{
             let portals = await this.portalService.getAll()
             response.json(portals);
-            // io.emit('showPortals')
         }
         catch(e) {
-            console.log(e.message, 7777777) /// amena lav error handlingi tex@
+            this.logger.error(`${e.message} - ${e.stack}`) /// amena lav error handlingi tex@
             next(e.message);
         }
     }
@@ -23,7 +23,8 @@
             response.json(portals);
         }
         catch(e) {
-            console.log(e.message, 2525252525252525) ;
+            this.logger.info(error.message);
+            this.logger.error(e.message);
             next(e.message);
         } 
     }
@@ -43,7 +44,10 @@
         const portalId = await this.portalService.deleteById(request.params.id)
         if (portalId) {
             response.status(200).end(`portalId in id - ${portalId.id} has deleted`)
-        } else('User not found for deleting')
+        } else {
+            this.logger.error('User not found for deleting')
+            response.status(401).end('User not found for deleting')
+        }
     }
 
     // start
@@ -55,6 +59,8 @@
             response.json({success: 'ok', isStarted})
             
         } catch (error) {
+            this.logger.error(error.message);
+            this.logger.info(error.message);
             response.status(500).send({error: error.message})
         }
     }
@@ -65,6 +71,8 @@
             const activePortal = await this.portalService.getActivePortal(userId);
             response.json(activePortal)
         } catch (error) {
+            this.logger.error(error.message);
+            this.logger.info(error.message);
             response.status(500).json({error: error.message})
         }
     }
@@ -74,6 +82,8 @@
             const currentPortal = await this.portalService.getCurrentPortal(request.params.token);
             response.json(currentPortal)
         } catch (error) {
+            this.logger.error(error.message);
+            this.logger.info(error.message);
             response.status(500).send({error: error.message})
         }
     }
@@ -86,6 +96,8 @@
             response.json(isValid)
             
         } catch (error) {
+            this.logger.error(error.message);
+            this.logger.info(error.message);
             response.status(501).json({error: error.message})
         }
     } 
@@ -97,17 +109,19 @@
             response.json(status);
 
         } catch (error) {
+            this.logger.error(error.message);
+            this.logger.info(error.message);
             next(error)
         }
     }
     async getPortalId(request, response) {
         const token = request.params.token;
-        console.log(token, 99999)
         try {
             const portalId = await this.portalService.getPortalIdFromToken(token);
-            console.log(JSON.stringify(portalId, null, 2), 777777777777)
             return portalId;
         } catch (error) {
+            this.logger.info(error.message);
+            this.logger.error(error.message);
             next(error)
         }
     }

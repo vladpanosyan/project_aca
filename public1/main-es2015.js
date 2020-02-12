@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1>not-found works!</h1>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>not-found works!</h1>\r\n");
 
 /***/ }),
 
@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"wrapper\"> -->\n    <div class=\"ch_list_header\">\n        <h4>Answer To Questions</h4>\n    </div>\n    <!-- {{ portalData | json}} -->\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\n        <ul class=\"\">\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of answers\">\n                <!-- {{item | json}} -->\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\n                <div class=\"item\">\n                    <div class=\"question d-flex flex-column\">\n                        <div class=\"q_data d-flex\">\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\n                        </div>\n                        <div class=\"q_q d-flex\">\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\n                        </div>\n                    </div>\n                    <div class=\"answer\">\n                        <div class=\"a_data d-flex\">\n                            <span><img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img \" alt=\"\"></span>\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\n                        </div>\n                        <div class=\"current_answer d-flex flex-column\">\n                            {{ item.answer }}\n                        </div> \n                        <span>{{ item.time | date: 'medium' }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n<!-- </div> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"wrapper\"> -->\r\n    <div class=\"ch_list_header\">\r\n        <h4>Answer To Questions</h4>\r\n    </div>\r\n    <!-- {{ portalData | json}} -->\r\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\r\n        <ul class=\"\">\r\n            <div class=\"force-overflow\"></div>\r\n            <li *ngFor=\"let item of answers\">\r\n                <!-- {{item | json}} -->\r\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\r\n                <div class=\"item\">\r\n                    <div class=\"question d-flex flex-column\">\r\n                        <div class=\"q_data d-flex\">\r\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\r\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\r\n                        </div>\r\n                        <div class=\"q_q d-flex\">\r\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"answer\">\r\n                        <div class=\"a_data d-flex\">\r\n                            <span><img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img \" alt=\"\"></span>\r\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\r\n                        </div>\r\n                        <div class=\"current_answer d-flex flex-column\">\r\n                            {{ item.answer }}\r\n                        </div> \r\n                        <span>{{ item.time | date: 'medium' }}</span>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n<!-- </div> -->\r\n");
 
 /***/ }),
 
@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre> 2 -->\r\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\r\n<!-- <pre>{{ portalData | json}}</pre>4 -->\r\n<!-- <p>{{ token }}</p> -->\r\n\r\n<div class=\"p_d\">\r\n\r\n    <div class=\"nick_header d-flex\">\r\n        <div class=\"nick_data d-flex\">\r\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\r\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\r\n        </div>\r\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\r\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\r\n        <div class=\"portal_data\">\r\n            <h3>{{ portalData.name }}</h3>\r\n        </div>\r\n    </div>\r\n    <div class=\"wrapper d-flex\">\r\n        <div class=\"messages d-flex\">\r\n            <div class=\"top d-flex\">\r\n                <div class=\"chat_list\">\r\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\r\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\r\n                </div>\r\n                <div class=\"top10_list\">\r\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"wrote_messages\">\r\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions\">\r\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\r\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre> 2 -->\r\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\r\n<pre>{{ portalData | json}}</pre>4\r\n<!-- <p>{{ token }}</p> -->\r\n\r\n<div class=\"p_d\">\r\n\r\n    <div class=\"nick_header d-flex\">\r\n        <div class=\"nick_data d-flex\">\r\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\r\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\r\n        </div>\r\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\r\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\r\n        <div class=\"portal_data\">\r\n            <h3>{{ portalData.name }}</h3>\r\n        </div>\r\n    </div>\r\n    <div class=\"wrapper d-flex\">\r\n        <div class=\"messages d-flex\">\r\n            <div class=\"top d-flex\">\r\n                <div class=\"chat_list\">\r\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\r\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\r\n                </div>\r\n                <div class=\"top10_list\">\r\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"wrote_messages\">\r\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions\">\r\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\r\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -240,7 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <img [src]=\"(data | async)?.img\" alt=\"\"> -->\n<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\n<h2>Hello {{ data?.firstName}}</h2>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <img [src]=\"(data | async)?.img\" alt=\"\"> -->\r\n<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\r\n<h2>Hello {{ data?.firstName}}</h2>");
 
 /***/ }),
 
@@ -1107,10 +1107,8 @@ class CoverComponent {
         //
         this.portalService.portalState.subscribe(result => {
             if (result.state === null) {
-                alert('inside cover component -<=> result = null');
                 this.portalService.chekPortalStatus(result.token).subscribe(status => {
                     if (status.private) {
-                        alert(status.private);
                         this.openModal(status, true);
                     }
                     else {
@@ -1636,17 +1634,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth/user-auth.service */ "./src/app/services/auth/user-auth.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/portal/portal.service */ "./src/app/services/portal/portal.service.ts");
 
 
 
 // import { UserService } from "src/app/services/user/user.service";
 
 
+
 let UserLoginComponent = class UserLoginComponent {
-    constructor(router, formBuilder, userAuthService) {
+    constructor(router, formBuilder, userAuthService, portalService) {
         this.router = router;
         this.formBuilder = formBuilder;
         this.userAuthService = userAuthService;
+        this.portalService = portalService;
         this.error = "";
     }
     ngOnInit() {
@@ -1659,8 +1660,9 @@ let UserLoginComponent = class UserLoginComponent {
     }
     userLogin() {
         const { email, password } = this.loginForm.value;
-        this.userAuthService.login(email, password).subscribe(user => this.router.navigate(["/users/profile", user.id]), error => {
-            // alert(JSON.stringify(error.statusCode, null, 2));
+        this.userAuthService.login(email, password).subscribe(user => {
+            this.router.navigate(["/users/profile", user.id]);
+        }, error => {
             if (error.status) {
                 this.error = error.error.loginData;
             }
@@ -1686,7 +1688,8 @@ let UserLoginComponent = class UserLoginComponent {
 UserLoginComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
-    { type: src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_3__["UserAuthService"] }
+    { type: src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_3__["UserAuthService"] },
+    { type: src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_5__["PortalService"] }
 ];
 UserLoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1870,11 +1873,8 @@ let ChatListComponent = class ChatListComponent {
         this.answer.subscribe(answer => this.answers.push(answer));
         //
         this.chatService.updateAvatarS.subscribe(data => {
-            console.log(this.answers, 120);
             this.answers.find(item => item.answerToQuestion.nickss.id === data.id && (item.answerToQuestion.nickss.image = data.avatar));
-            // alert(JSON.stringify(data, null, 2));
         });
-        //
         //
         this.questionService.changeAvatar
             // .pipe(takeUntil(this.destroy$))
@@ -2094,14 +2094,7 @@ let PortalDetailComponent = class PortalDetailComponent {
         this.portalData = this.portalService.getCurrentPortal;
         this.nickService.nickData.subscribe(data => (this.nickData = data));
         this.userData = this.userAuthService.currentUserValue;
-        alert(55555555555);
-        if (this.userAuthService.UserLoggedStatus &&
-            this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null)) {
-            this.inUserPortal = true;
-        }
-        else {
-            this.inUserPortal = false;
-        }
+        this.inUserPortal = this.userAuthService.isUserInOwnPortal();
         //
         this.chatService.answerQuestion
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$))
@@ -2263,7 +2256,7 @@ let QuestionComponent = class QuestionComponent {
                 return item === us_erID;
             })
             : false;
-        // 
+        //
         if (value && !questionItem.isClicked) {
             questionItem.isLiked = true;
             return value;
@@ -2308,7 +2301,8 @@ let QuestionComponent = class QuestionComponent {
                 this.portalData.portalManyQuestion.push({ questionsInPortal: 1 });
             }
             else {
-                this.portalData.portalManyQuestion[0].questionsInPortal = message.nickss.questionsInPortal;
+                this.portalData.portalManyQuestion[0].questionsInPortal =
+                    message.nickss.questionsInPortal;
             }
             this.questions.push(message);
         });
@@ -2335,7 +2329,9 @@ let QuestionComponent = class QuestionComponent {
         });
     }
     ngOnDestroy() {
+        // if (!this.portalService.isPortalisMakeUser(this.portalId, null)) {
         this.chatServise.socketDisconnect(this.nickData);
+        // }
         this.destroy$.next(true);
         this.destroy$.complete();
     }
@@ -2511,6 +2507,7 @@ let Top10ListComponent = class Top10ListComponent {
     }
     ngOnInit() {
         this.portalId = +this.portalService.getPortalId;
+        alert(this.portalId);
         const data$ = this.questionService.getTop_10_questions(this.portalId);
         Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["timer"])(0, 80000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(_ => data$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this.unsubscribe$))
             .subscribe(response => {
@@ -2594,6 +2591,7 @@ let PortalComponent = class PortalComponent {
             this.portals = portal;
             console.log(this.portals, 7777);
         });
+        this.portalService.getUserPortals(currentUserId).subscribe(portals => console.log(portals, 7));
         this.userAuthService.isAuthenticated().then(result => {
             if (result) {
                 this.userAuthService.setLogin();
@@ -2671,7 +2669,6 @@ let ProfileComponent = class ProfileComponent {
     }
     ngOnInit() {
         const userId = this.route.snapshot.paramMap.get("id");
-        alert(userId);
         if (userId) {
             this.userService.getUserProfile(userId).subscribe(data => {
                 console.log(data);
@@ -2958,11 +2955,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/nickName/nick-name.service */ "./src/app/services/nickName/nick-name.service.ts");
-/* harmony import */ var _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/portal/portal.service */ "./src/app/services/portal/portal.service.ts");
-/* harmony import */ var _services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/auth/user-auth.service */ "./src/app/services/auth/user-auth.service.ts");
-
+/* harmony import */ var src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/nickName/nick-name.service */ "./src/app/services/nickName/nick-name.service.ts");
+/* harmony import */ var _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/portal/portal.service */ "./src/app/services/portal/portal.service.ts");
+/* harmony import */ var _services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/auth/user-auth.service */ "./src/app/services/auth/user-auth.service.ts");
 
 
 
@@ -2975,41 +2970,46 @@ let SubscriberGuard = class SubscriberGuard {
         this.portalService = portalService;
         this.userAuthService = userAuthService;
         this.router = router;
-        const userId = this.userAuthService.currentUserValue &&
-            this.userAuthService.currentUserValue.id;
-        if (userId) {
-            this.portalService.getUserPortals(userId).subscribe(portals => {
-                alert(portals.length + 5);
-                this.portalService.currentUserPortals.next(portals);
-            });
-        }
+        this.currentUserId = this.userAuthService.currentUserValue ? this.userAuthService.currentUserValue.id : null;
     }
-    getPortalIdFromToken(token) {
-        this.portalService.getPortalIdFromToken(token);
-    }
+    // getPortalIdFromToken(token) {
+    //   this.portalService.getPortalIdFromToken(token);
+    // }
     canActivate(next, state) {
-        console.log(this.userAuthService.UserLoggedStatus, !this.nickService.getNickToken, this.portalService.isPortalisMakeUser(null, next.params.token), 111);
-        if ((this.userAuthService.UserLoggedStatus &&
-            !this.nickService.getNickToken) ||
-            this.portalService.isPortalisMakeUser(null, next.params.token)) {
-            return this.userAuthService.isAuthforGuard().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(result => {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const portals = yield this.portalService
+                .getUserPortals(this.currentUserId)
+                .toPromise();
+            this.portalService.currentUserPortals.next(portals);
+            if ((this.userAuthService.UserLoggedStatus &&
+                !this.nickService.getNickToken) ||
+                this.portalService.isPortalisMakeUser(null, next.params.token)) {
+                const result = yield this.userAuthService.isAuthforGuard().toPromise();
                 if (result) {
-                    console.log(result, 9999999);
+                    this.userAuthService.isLoggedSubject.next(true);
+                    this.userAuthService.setPortalToUser(true);
+                    const portal = yield this.portalService.getPortalIdFromToken(next.params.token);
+                    console.log(portal, 7401);
+                    this.portalService.currentPortalSubject.next(portal);
+                    alert(typeof portal.id);
+                    this.portalService.currentPortalIdSubject.next(portal.id);
                     return true;
                 }
                 return false;
-            }));
-        }
-        else {
-            return this.nickService.isSubscriberAuth(next.params.token).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(result => {
-                alert(999);
+            }
+            else {
+                this.userAuthService.setPortalToUser(false);
+                const result = yield this.nickService
+                    .isSubscriberAuth(next.params.token)
+                    .toPromise();
                 if (result) {
                     this.nickService.nickDataSubject.next(result);
                     this.portalService.currentPortalIdSubject.next(result.portalId);
+                    const portal = yield this.portalService.getPortalIdFromToken(next.params.token);
+                    this.portalService.currentPortalSubject.next(portal);
                     return true;
                 }
                 else if (result === null) {
-                    alert("result=null");
                     this.portalService.portalStatusSubject.next({
                         token: next.params.token,
                         state: null
@@ -3018,7 +3018,6 @@ let SubscriberGuard = class SubscriberGuard {
                     return false;
                 }
                 else {
-                    alert("result=false");
                     this.portalService.portalStatusSubject.next({
                         token: next.params.token,
                         state: false
@@ -3026,14 +3025,14 @@ let SubscriberGuard = class SubscriberGuard {
                     this.router.navigate(["/cover"]);
                     return false;
                 }
-            }));
-        }
+            }
+        });
     }
 };
 SubscriberGuard.ctorParameters = () => [
-    { type: src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_4__["NickNameService"] },
-    { type: _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_5__["PortalService"] },
-    { type: _services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_6__["UserAuthService"] },
+    { type: src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_3__["NickNameService"] },
+    { type: _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_4__["PortalService"] },
+    { type: _services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_5__["UserAuthService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 SubscriberGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -3105,6 +3104,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _portal_portal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../portal/portal.service */ "./src/app/services/portal/portal.service.ts");
+
 
 
 
@@ -3115,11 +3116,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UserAuthService = class UserAuthService {
-    constructor(http, socialAuthService, userService, router) {
+    constructor(http, socialAuthService, userService, portalService, router) {
         this.http = http;
         this.socialAuthService = socialAuthService;
         this.userService = userService;
+        this.portalService = portalService;
         this.router = router;
+        this.portalIsMakeUser = false;
         this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_6__["BehaviorSubject"](JSON.parse(localStorage.getItem("currentUser")));
         this.currentUser = this.currentUserSubject.asObservable();
         this.isLoggedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_6__["BehaviorSubject"](false);
@@ -3131,16 +3134,23 @@ let UserAuthService = class UserAuthService {
     get UserLoggedStatus() {
         return this.isLoggedSubject.value;
     }
+    isUserInOwnPortal() {
+        if (this.UserLoggedStatus &&
+            this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null) || this.portalIsMakeUser) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    setPortalToUser(bool) {
+        this.portalIsMakeUser = bool;
+    }
     isAuthforGuard() {
         const accessToken = this.currentUserValue && this.currentUserValue.access_token;
         if (accessToken) {
             const res = this.http.post("api/users/checkTokenValid", { accessToken });
             return res;
-            // if (res) {
-            //   return of(true);
-            // } else {
-            //   return of(false);
-            // }
         }
     }
     isAuthenticated() {
@@ -3182,8 +3192,6 @@ let UserAuthService = class UserAuthService {
     socialStateCheck() {
         this.socialAuthService.authState // avtomat berume token@
             .subscribe(user => {
-            // this.loggedIn = user != null;
-            // alert(JSON.stringify(user, null, 2))
             if (user) {
                 this.regWithFace(user.authToken).subscribe((response) => {
                     this.userService.addToken("currentUser", response);
@@ -3224,6 +3232,7 @@ UserAuthService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
     { type: angularx_social_login__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
     { type: src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: _portal_portal_service__WEBPACK_IMPORTED_MODULE_8__["PortalService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
 ];
 UserAuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -3271,7 +3280,6 @@ let ChatService = class ChatService {
         this.likeCountSubscrbtion = this.likeCountSubject.asObservable();
     }
     socketConnect(nickData) {
-        alert(JSON.stringify(nickData, null, 2));
         this.socket.emit("connected", nickData);
     }
     socketDisconnect(nickData) {
@@ -3283,7 +3291,6 @@ let ChatService = class ChatService {
         });
     }
     sendLikeCount(data, action) {
-        // alert(JSON.stringify(data));
         this.socket.emit("get_likes_count", data, action);
     }
     sendMessage(nickData) {
@@ -3589,14 +3596,8 @@ let PortalService = class PortalService {
         return isExist;
     }
     getPortalIdFromToken(token) {
-        alert(token);
         return this.http
-            .get(`api/portals/${token}`)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((portalId) => {
-            alert(portalId);
-            this.currentPortalIdSubject.next(portalId);
-            return portalId;
-        }));
+            .get(`api/portals/${token}`).toPromise();
     }
 };
 PortalService.ctorParameters = () => [

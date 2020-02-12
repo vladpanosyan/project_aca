@@ -1,9 +1,9 @@
 const express = require('express');
 const apiRouter = express.Router();
 const { authMiddleware, facebookFutures } = require('./../middlewares/JWT_passport');
-module.exports = async() => {
+module.exports = async(logger) => {
     try {
-        const { CONTROLLERS } = await require('./../app_init/dal_service_init')();
+        const { CONTROLLERS } = await require('./../app_init/dal_service_init')(logger);
         const userRouter      = require('./user')(CONTROLLERS.Users, authMiddleware, facebookFutures)
         const portalRouter    = require('./portal')(CONTROLLERS.Portals, authMiddleware)
         const nicknameRouter  = require('./nickname')(CONTROLLERS.Nicknames)
@@ -17,6 +17,7 @@ module.exports = async() => {
         apiRouter.use('/answers', answerRouter);
         return apiRouter
     } catch (error) {
-        console.log(error.message, 777)
+        logger.error(error.message)
+        logger.info(error.message)
     }
 }

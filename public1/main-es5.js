@@ -211,7 +211,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h1>not-found works!</h1>\n";
+    __webpack_exports__["default"] = "<h1>not-found works!</h1>\r\n";
     /***/
   },
 
@@ -231,7 +231,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <div class=\"wrapper\"> -->\n    <div class=\"ch_list_header\">\n        <h4>Answer To Questions</h4>\n    </div>\n    <!-- {{ portalData | json}} -->\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\n        <ul class=\"\">\n            <div class=\"force-overflow\"></div>\n            <li *ngFor=\"let item of answers\">\n                <!-- {{item | json}} -->\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\n                <div class=\"item\">\n                    <div class=\"question d-flex flex-column\">\n                        <div class=\"q_data d-flex\">\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\n                        </div>\n                        <div class=\"q_q d-flex\">\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\n                        </div>\n                    </div>\n                    <div class=\"answer\">\n                        <div class=\"a_data d-flex\">\n                            <span><img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img \" alt=\"\"></span>\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\n                        </div>\n                        <div class=\"current_answer d-flex flex-column\">\n                            {{ item.answer }}\n                        </div> \n                        <span>{{ item.time | date: 'medium' }}</span>\n                    </div>\n                </div>\n            </li>\n        </ul>\n    </div>\n<!-- </div> -->\n";
+    __webpack_exports__["default"] = "<!-- <div class=\"wrapper\"> -->\r\n    <div class=\"ch_list_header\">\r\n        <h4>Answer To Questions</h4>\r\n    </div>\r\n    <!-- {{ portalData | json}} -->\r\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\r\n        <ul class=\"\">\r\n            <div class=\"force-overflow\"></div>\r\n            <li *ngFor=\"let item of answers\">\r\n                <!-- {{item | json}} -->\r\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\r\n                <div class=\"item\">\r\n                    <div class=\"question d-flex flex-column\">\r\n                        <div class=\"q_data d-flex\">\r\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\r\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\r\n                        </div>\r\n                        <div class=\"q_q d-flex\">\r\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"answer\">\r\n                        <div class=\"a_data d-flex\">\r\n                            <span><img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img \" alt=\"\"></span>\r\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\r\n                        </div>\r\n                        <div class=\"current_answer d-flex flex-column\">\r\n                            {{ item.answer }}\r\n                        </div> \r\n                        <span>{{ item.time | date: 'medium' }}</span>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n<!-- </div> -->\r\n";
     /***/
   },
 
@@ -271,7 +271,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre> 2 -->\r\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\r\n<!-- <pre>{{ portalData | json}}</pre>4 -->\r\n<!-- <p>{{ token }}</p> -->\r\n\r\n<div class=\"p_d\">\r\n\r\n    <div class=\"nick_header d-flex\">\r\n        <div class=\"nick_data d-flex\">\r\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\r\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\r\n        </div>\r\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\r\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\r\n        <div class=\"portal_data\">\r\n            <h3>{{ portalData.name }}</h3>\r\n        </div>\r\n    </div>\r\n    <div class=\"wrapper d-flex\">\r\n        <div class=\"messages d-flex\">\r\n            <div class=\"top d-flex\">\r\n                <div class=\"chat_list\">\r\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\r\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\r\n                </div>\r\n                <div class=\"top10_list\">\r\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"wrote_messages\">\r\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions\">\r\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\r\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\r\n        </div>\r\n    </div>\r\n</div>";
+    __webpack_exports__["default"] = "<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre> 2 -->\r\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\r\n<pre>{{ portalData | json}}</pre>4\r\n<!-- <p>{{ token }}</p> -->\r\n\r\n<div class=\"p_d\">\r\n\r\n    <div class=\"nick_header d-flex\">\r\n        <div class=\"nick_data d-flex\">\r\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\r\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\r\n        </div>\r\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\r\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\r\n        <div class=\"portal_data\">\r\n            <h3>{{ portalData.name }}</h3>\r\n        </div>\r\n    </div>\r\n    <div class=\"wrapper d-flex\">\r\n        <div class=\"messages d-flex\">\r\n            <div class=\"top d-flex\">\r\n                <div class=\"chat_list\">\r\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\r\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\r\n                </div>\r\n                <div class=\"top10_list\">\r\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"wrote_messages\">\r\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions\">\r\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\r\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -371,7 +371,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <img [src]=\"(data | async)?.img\" alt=\"\"> -->\n<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\n<h2>Hello {{ data?.firstName}}</h2>";
+    __webpack_exports__["default"] = "<!-- <img [src]=\"(data | async)?.img\" alt=\"\"> -->\r\n<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\r\n<h2>Hello {{ data?.firstName}}</h2>";
     /***/
   },
 
@@ -1990,12 +1990,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.portalService.portalState.subscribe(function (result) {
             if (result.state === null) {
-              alert('inside cover component -<=> result = null');
-
               _this3.portalService.chekPortalStatus(result.token).subscribe(function (status) {
                 if (status.private) {
-                  alert(status.private);
-
                   _this3.openModal(status, true);
                 } else {
                   _this3.openModal(status, false);
@@ -2882,18 +2878,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js"); // import { UserService } from "src/app/services/user/user.service";
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/services/portal/portal.service */
+    "./src/app/services/portal/portal.service.ts"); // import { UserService } from "src/app/services/user/user.service";
 
 
     var UserLoginComponent =
     /*#__PURE__*/
     function () {
-      function UserLoginComponent(router, formBuilder, userAuthService) {
+      function UserLoginComponent(router, formBuilder, userAuthService, portalService) {
         _classCallCheck(this, UserLoginComponent);
 
         this.router = router;
         this.formBuilder = formBuilder;
         this.userAuthService = userAuthService;
+        this.portalService = portalService;
         this.error = "";
       }
 
@@ -2916,9 +2919,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               email = _this$loginForm$value.email,
               password = _this$loginForm$value.password;
           this.userAuthService.login(email, password).subscribe(function (user) {
-            return _this13.router.navigate(["/users/profile", user.id]);
+            _this13.router.navigate(["/users/profile", user.id]);
           }, function (error) {
-            // alert(JSON.stringify(error.statusCode, null, 2));
             if (error.status) {
               _this13.error = error.error.loginData;
             }
@@ -2955,6 +2957,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"]
       }, {
         type: src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_3__["UserAuthService"]
+      }, {
+        type: src_app_services_portal_portal_service__WEBPACK_IMPORTED_MODULE_5__["PortalService"]
       }];
     };
 
@@ -3269,14 +3273,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }); //
 
           this.chatService.updateAvatarS.subscribe(function (data) {
-            console.log(_this14.answers, 120);
-
             _this14.answers.find(function (item) {
               return item.answerToQuestion.nickss.id === data.id && (item.answerToQuestion.nickss.image = data.avatar);
-            }); // alert(JSON.stringify(data, null, 2));
-
+            });
           }); //
-          //
 
           this.questionService.changeAvatar // .pipe(takeUntil(this.destroy$))
           .subscribe(function (result) {
@@ -3633,14 +3633,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return _this17.nickData = data;
           });
           this.userData = this.userAuthService.currentUserValue;
-          alert(55555555555);
-
-          if (this.userAuthService.UserLoggedStatus && this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null)) {
-            this.inUserPortal = true;
-          } else {
-            this.inUserPortal = false;
-          } //
-
+          this.inUserPortal = this.userAuthService.isUserInOwnPortal(); //
 
           this.chatService.answerQuestion.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$)).subscribe(function (answer) {
             _this17.answer.next(answer);
@@ -3876,7 +3869,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var us_erID = this.currUserID;
           var value = questionItem.questionLikers ? questionItem.questionLikers.some(function (item) {
             return item === us_erID;
-          }) : false; // 
+          }) : false; //
 
           if (value && !questionItem.isClicked) {
             questionItem.isLiked = true;
@@ -3951,7 +3944,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
-          this.chatServise.socketDisconnect(this.nickData);
+          // if (!this.portalService.isPortalisMakeUser(this.portalId, null)) {
+          this.chatServise.socketDisconnect(this.nickData); // }
+
           this.destroy$.next(true);
           this.destroy$.complete();
         }
@@ -4232,6 +4227,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this20 = this;
 
           this.portalId = +this.portalService.getPortalId;
+          alert(this.portalId);
           var data$ = this.questionService.getTop_10_questions(this.portalId);
           Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["timer"])(0, 80000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(function (_) {
             return data$;
@@ -4370,6 +4366,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this21.portals = portal;
             console.log(_this21.portals, 7777);
           });
+          this.portalService.getUserPortals(currentUserId).subscribe(function (portals) {
+            return console.log(portals, 7);
+          });
           this.userAuthService.isAuthenticated().then(function (result) {
             if (result) {
               _this21.userAuthService.setLogin();
@@ -4500,7 +4499,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this22 = this;
 
           var userId = this.route.snapshot.paramMap.get("id");
-          alert(userId);
 
           if (userId) {
             this.userService.getUserProfile(userId).subscribe(function (data) {
@@ -5007,25 +5005,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
-    /* harmony import */
-
-
-    var src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/services/nickName/nick-name.service */
     "./src/app/services/nickName/nick-name.service.ts");
     /* harmony import */
 
 
-    var _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../services/portal/portal.service */
     "./src/app/services/portal/portal.service.ts");
     /* harmony import */
 
 
-    var _services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../services/auth/user-auth.service */
     "./src/app/services/auth/user-auth.service.ts");
 
@@ -5033,81 +5025,120 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SubscriberGuard(nickService, portalService, userAuthService, router) {
-        var _this24 = this;
-
         _classCallCheck(this, SubscriberGuard);
 
         this.nickService = nickService;
         this.portalService = portalService;
         this.userAuthService = userAuthService;
         this.router = router;
-        var userId = this.userAuthService.currentUserValue && this.userAuthService.currentUserValue.id;
+        this.currentUserId = this.userAuthService.currentUserValue ? this.userAuthService.currentUserValue.id : null;
+      } // getPortalIdFromToken(token) {
+      //   this.portalService.getPortalIdFromToken(token);
+      // }
 
-        if (userId) {
-          this.portalService.getUserPortals(userId).subscribe(function (portals) {
-            alert(portals.length + 5);
-
-            _this24.portalService.currentUserPortals.next(portals);
-          });
-        }
-      }
 
       _createClass(SubscriberGuard, [{
-        key: "getPortalIdFromToken",
-        value: function getPortalIdFromToken(token) {
-          this.portalService.getPortalIdFromToken(token);
-        }
-      }, {
         key: "canActivate",
         value: function canActivate(next, state) {
-          var _this25 = this;
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee6() {
+            var portals, result, portal, _result, _portal;
 
-          console.log(this.userAuthService.UserLoggedStatus, !this.nickService.getNickToken, this.portalService.isPortalisMakeUser(null, next.params.token), 111);
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+              while (1) {
+                switch (_context6.prev = _context6.next) {
+                  case 0:
+                    _context6.next = 2;
+                    return this.portalService.getUserPortals(this.currentUserId).toPromise();
 
-          if (this.userAuthService.UserLoggedStatus && !this.nickService.getNickToken || this.portalService.isPortalisMakeUser(null, next.params.token)) {
-            return this.userAuthService.isAuthforGuard().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (result) {
-              if (result) {
-                console.log(result, 9999999);
-                return true;
+                  case 2:
+                    portals = _context6.sent;
+                    this.portalService.currentUserPortals.next(portals);
+
+                    if (!(this.userAuthService.UserLoggedStatus && !this.nickService.getNickToken || this.portalService.isPortalisMakeUser(null, next.params.token))) {
+                      _context6.next = 22;
+                      break;
+                    }
+
+                    _context6.next = 7;
+                    return this.userAuthService.isAuthforGuard().toPromise();
+
+                  case 7:
+                    result = _context6.sent;
+
+                    if (!result) {
+                      _context6.next = 19;
+                      break;
+                    }
+
+                    this.userAuthService.isLoggedSubject.next(true);
+                    this.userAuthService.setPortalToUser(true);
+                    _context6.next = 13;
+                    return this.portalService.getPortalIdFromToken(next.params.token);
+
+                  case 13:
+                    portal = _context6.sent;
+                    console.log(portal, 7401);
+                    this.portalService.currentPortalSubject.next(portal);
+                    alert(typeof portal.id);
+                    this.portalService.currentPortalIdSubject.next(portal.id);
+                    return _context6.abrupt("return", true);
+
+                  case 19:
+                    return _context6.abrupt("return", false);
+
+                  case 22:
+                    this.userAuthService.setPortalToUser(false);
+                    _context6.next = 25;
+                    return this.nickService.isSubscriberAuth(next.params.token).toPromise();
+
+                  case 25:
+                    _result = _context6.sent;
+
+                    if (!_result) {
+                      _context6.next = 36;
+                      break;
+                    }
+
+                    this.nickService.nickDataSubject.next(_result);
+                    this.portalService.currentPortalIdSubject.next(_result.portalId);
+                    _context6.next = 31;
+                    return this.portalService.getPortalIdFromToken(next.params.token);
+
+                  case 31:
+                    _portal = _context6.sent;
+                    this.portalService.currentPortalSubject.next(_portal);
+                    return _context6.abrupt("return", true);
+
+                  case 36:
+                    if (!(_result === null)) {
+                      _context6.next = 42;
+                      break;
+                    }
+
+                    this.portalService.portalStatusSubject.next({
+                      token: next.params.token,
+                      state: null
+                    });
+                    this.router.navigate(["/cover"]);
+                    return _context6.abrupt("return", false);
+
+                  case 42:
+                    this.portalService.portalStatusSubject.next({
+                      token: next.params.token,
+                      state: false
+                    });
+                    this.router.navigate(["/cover"]);
+                    return _context6.abrupt("return", false);
+
+                  case 45:
+                  case "end":
+                    return _context6.stop();
+                }
               }
-
-              return false;
-            }));
-          } else {
-            return this.nickService.isSubscriberAuth(next.params.token).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (result) {
-              alert(999);
-
-              if (result) {
-                _this25.nickService.nickDataSubject.next(result);
-
-                _this25.portalService.currentPortalIdSubject.next(result.portalId);
-
-                return true;
-              } else if (result === null) {
-                alert("result=null");
-
-                _this25.portalService.portalStatusSubject.next({
-                  token: next.params.token,
-                  state: null
-                });
-
-                _this25.router.navigate(["/cover"]);
-
-                return false;
-              } else {
-                alert("result=false");
-
-                _this25.portalService.portalStatusSubject.next({
-                  token: next.params.token,
-                  state: false
-                });
-
-                _this25.router.navigate(["/cover"]);
-
-                return false;
-              }
-            }));
-          }
+            }, _callee6, this);
+          }));
         }
       }]);
 
@@ -5116,11 +5147,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     SubscriberGuard.ctorParameters = function () {
       return [{
-        type: src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_4__["NickNameService"]
+        type: src_app_services_nickName_nick_name_service__WEBPACK_IMPORTED_MODULE_3__["NickNameService"]
       }, {
-        type: _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_5__["PortalService"]
+        type: _services_portal_portal_service__WEBPACK_IMPORTED_MODULE_4__["PortalService"]
       }, {
-        type: _services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_6__["UserAuthService"]
+        type: _services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_5__["UserAuthService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
       }];
@@ -5271,17 +5302,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var _portal_portal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ../portal/portal.service */
+    "./src/app/services/portal/portal.service.ts");
 
     var UserAuthService =
     /*#__PURE__*/
     function () {
-      function UserAuthService(http, socialAuthService, userService, router) {
+      function UserAuthService(http, socialAuthService, userService, portalService, router) {
         _classCallCheck(this, UserAuthService);
 
         this.http = http;
         this.socialAuthService = socialAuthService;
         this.userService = userService;
+        this.portalService = portalService;
         this.router = router;
+        this.portalIsMakeUser = false;
         this.currentUserSubject = new rxjs__WEBPACK_IMPORTED_MODULE_6__["BehaviorSubject"](JSON.parse(localStorage.getItem("currentUser")));
         this.currentUser = this.currentUserSubject.asObservable();
         this.isLoggedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_6__["BehaviorSubject"](false);
@@ -5289,6 +5328,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(UserAuthService, [{
+        key: "isUserInOwnPortal",
+        value: function isUserInOwnPortal() {
+          if (this.UserLoggedStatus && this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null) || this.portalIsMakeUser) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }, {
+        key: "setPortalToUser",
+        value: function setPortalToUser(bool) {
+          this.portalIsMakeUser = bool;
+        }
+      }, {
         key: "isAuthforGuard",
         value: function isAuthforGuard() {
           var accessToken = this.currentUserValue && this.currentUserValue.access_token;
@@ -5297,11 +5350,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var res = this.http.post("api/users/checkTokenValid", {
               accessToken: accessToken
             });
-            return res; // if (res) {
-            //   return of(true);
-            // } else {
-            //   return of(false);
-            // }
+            return res;
           }
         }
       }, {
@@ -5309,53 +5358,53 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function isAuthenticated() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee6() {
+          regeneratorRuntime.mark(function _callee7() {
             var accessToken, res;
-            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
-                switch (_context6.prev = _context6.next) {
+                switch (_context7.prev = _context7.next) {
                   case 0:
                     // tslint:disable-next-line: variable-name
                     accessToken = this.currentUserValue && this.currentUserValue.access_token;
 
                     if (!accessToken) {
-                      _context6.next = 10;
+                      _context7.next = 10;
                       break;
                     }
 
-                    _context6.next = 4;
+                    _context7.next = 4;
                     return this.http.post("api/users/checkTokenValid", {
                       accessToken: accessToken
                     }).toPromise();
 
                   case 4:
-                    res = _context6.sent;
+                    res = _context7.sent;
 
                     if (!res) {
-                      _context6.next = 9;
+                      _context7.next = 9;
                       break;
                     }
 
-                    return _context6.abrupt("return", res);
+                    return _context7.abrupt("return", res);
 
                   case 9:
                     this.logout();
 
                   case 10:
-                    return _context6.abrupt("return", Promise.resolve(null));
+                    return _context7.abrupt("return", Promise.resolve(null));
 
                   case 11:
                   case "end":
-                    return _context6.stop();
+                    return _context7.stop();
                 }
               }
-            }, _callee6, this);
+            }, _callee7, this);
           }));
         }
       }, {
         key: "login",
         value: function login(username, password) {
-          var _this26 = this;
+          var _this24 = this;
 
           return this.http.post("api/users/login", {
             username: username,
@@ -5364,9 +5413,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (user) {
               localStorage.setItem("currentUser", JSON.stringify(user));
 
-              _this26.currentUserSubject.next(user);
+              _this24.currentUserSubject.next(user);
 
-              _this26.isLoggedSubject.next(true);
+              _this24.isLoggedSubject.next(true);
             }
 
             return user;
@@ -5383,19 +5432,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "socialStateCheck",
         value: function socialStateCheck() {
-          var _this27 = this;
+          var _this25 = this;
 
           this.socialAuthService.authState // avtomat berume token@
           .subscribe(function (user) {
-            // this.loggedIn = user != null;
-            // alert(JSON.stringify(user, null, 2))
             if (user) {
-              _this27.regWithFace(user.authToken).subscribe(function (response) {
-                _this27.userService.addToken("currentUser", response);
+              _this25.regWithFace(user.authToken).subscribe(function (response) {
+                _this25.userService.addToken("currentUser", response);
 
-                _this27.refresh(response);
+                _this25.refresh(response);
 
-                _this27.router.navigate(["/users/profile", response.id]);
+                _this25.router.navigate(["/users/profile", response.id]);
               });
             }
           }, function (error) {
@@ -5464,6 +5511,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: angularx_social_login__WEBPACK_IMPORTED_MODULE_3__["AuthService"]
       }, {
         type: src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+      }, {
+        type: _portal_portal_service__WEBPACK_IMPORTED_MODULE_8__["PortalService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
       }];
@@ -5543,7 +5592,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ChatService, [{
         key: "socketConnect",
         value: function socketConnect(nickData) {
-          alert(JSON.stringify(nickData, null, 2));
           this.socket.emit("connected", nickData);
         }
       }, {
@@ -5554,16 +5602,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addLikeCount",
         value: function addLikeCount() {
-          var _this28 = this;
+          var _this26 = this;
 
           this.socket.on("sendLikesCount", function (data) {
-            _this28.likeCountSubject.next(data);
+            _this26.likeCountSubject.next(data);
           });
         }
       }, {
         key: "sendLikeCount",
         value: function sendLikeCount(data, action) {
-          // alert(JSON.stringify(data));
           this.socket.emit("get_likes_count", data, action);
         }
       }, {
@@ -5877,16 +5924,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "createNickname",
         value: function createNickname(nickName, portalId, nickToken) {
-          var _this29 = this;
+          var _this27 = this;
 
           return this.http.post("api/nicknames/addNickname", {
             nickName: nickName,
             portalId: portalId,
             nickToken: nickToken
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (nick) {
-            _this29.currentNickSubjectToken.next(nick["token"]);
+            _this27.currentNickSubjectToken.next(nick["token"]);
 
-            _this29.nickDataSubject.next(nick);
+            _this27.nickDataSubject.next(nick);
 
             return nick;
           })).toPromise();
@@ -6021,12 +6068,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getUserPortals",
         value: function getUserPortals(userId) {
-          var _this30 = this;
+          var _this28 = this;
 
           return this.http.post("api/portals/getUserPortals", {
             userId: userId
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (portals) {
-            _this30.currentUserPortals.next(portals);
+            _this28.currentUserPortals.next(portals);
 
             return portals;
           }));
@@ -6067,16 +6114,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getPortalIdFromToken",
         value: function getPortalIdFromToken(token) {
-          var _this31 = this;
-
-          alert(token);
-          return this.http.get("api/portals/".concat(token)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (portalId) {
-            alert(portalId);
-
-            _this31.currentPortalIdSubject.next(portalId);
-
-            return portalId;
-          }));
+          return this.http.get("api/portals/".concat(token)).toPromise();
         }
       }, {
         key: "getPortalId",

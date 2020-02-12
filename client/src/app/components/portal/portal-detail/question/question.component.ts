@@ -1,11 +1,19 @@
-import { Component, OnInit, OnDestroy, Input, AfterViewChecked, ViewChild, ElementRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  AfterViewChecked,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
 import { QuestionService } from "src/app/services/question/question.service";
 import { ActivatedRoute } from "@angular/router";
 import { extractLikes } from "src/app/HELPERS/extractLikes";
 import { ChatService } from "src/app/services/chat/chat.service";
-import { PortalService } from 'src/app/services/portal/portal.service';
+import { PortalService } from "src/app/services/portal/portal.service";
 import { Subject } from "rxjs";
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "app-question",
@@ -36,7 +44,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   @Input() portalId: number;
   @Input() portalData: any;
 
-// keep scroll in bottom
+  // keep scroll in bottom
   @ViewChild("scrollMe", { static: false })
   private myScrollContainer: ElementRef;
   get currUserID() {
@@ -93,7 +101,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
           return item === us_erID;
         })
       : false;
-    // 
+    //
     if (value && !questionItem.isClicked) {
       questionItem.isLiked = true;
       return value;
@@ -125,49 +133,52 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.chatServise.addLikeCount();
     //
     this.chatServise.likeCountSubscrbtion
-    .pipe(takeUntil(this.destroy$))
-    .subscribe(data => {
-      this.questions[data.index].likes = data.likes;
-    });
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(data => {
+        this.questions[data.index].likes = data.likes;
+      });
     //
     this.questionService.getMsg
-    .pipe(takeUntil(this.destroy$))
-    .subscribe(message => {
-      this.nickData.questionsInPortal = message.nickss.questionsInPortal;
-      if (!this.portalData.portalManyQuestion.length) {
-        this.portalData.portalManyQuestion.push({questionsInPortal: 1});
-      } else {
-        this.portalData.portalManyQuestion[0].questionsInPortal = message.nickss.questionsInPortal;
-      }
-      this.questions.push(message);
-    });
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(message => {
+        this.nickData.questionsInPortal = message.nickss.questionsInPortal;
+        if (!this.portalData.portalManyQuestion.length) {
+          this.portalData.portalManyQuestion.push({ questionsInPortal: 1 });
+        } else {
+          this.portalData.portalManyQuestion[0].questionsInPortal =
+            message.nickss.questionsInPortal;
+        }
+        this.questions.push(message);
+      });
     //
     this.questionService.changeAvatar
-    .pipe(takeUntil(this.destroy$))
-    .subscribe(result => {
-      this.questions.forEach((item, index) => {
-        if (item.nickss.id === result.nickId) {
-          item.nickss.image = result.avatar;
-        }
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(result => {
+        this.questions.forEach((item, index) => {
+          if (item.nickss.id === result.nickId) {
+            item.nickss.image = result.avatar;
+          }
+        });
       });
-    });
     //
-    this.chatService.updateAvatarS.subscribe(
-      data => {
-        console.log(this.questions, 120)
-        this.questions.find(item => item.nickss.id === data.id && ( item.nickss.image = data.avatar));
-      }
-    );
+    this.chatService.updateAvatarS.subscribe(data => {
+      console.log(this.questions, 120);
+      this.questions.find(
+        item => item.nickss.id === data.id && (item.nickss.image = data.avatar)
+      );
+    });
     //
     this.chatServise.endOfPortal
-    .pipe(takeUntil(this.destroy$))
-    .subscribe((data: any) => {
-      this.portalService.portalFinishedSubject.next(!!data.isFinished);
-    });
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: any) => {
+        this.portalService.portalFinishedSubject.next(!!data.isFinished);
+      });
   }
 
   ngOnDestroy() {
+    // if (!this.portalService.isPortalisMakeUser(this.portalId, null)) {
     this.chatServise.socketDisconnect(this.nickData);
+    // }
     this.destroy$.next(true);
     this.destroy$.complete();
   }

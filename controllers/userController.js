@@ -18,7 +18,7 @@ class UserController {
         }
         catch(e) {
             console.log(e.message, 15551515151515)
-            next(new AppError('wtf', e))
+            next(new AppError('wt', e))
         }
     }
 

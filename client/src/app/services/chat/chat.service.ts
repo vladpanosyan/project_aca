@@ -29,7 +29,6 @@ export class ChatService {
   }
 
   socketConnect(nickData) {
-      // alert(JSON.stringify(nickData, null, 2))
       this.socket.emit("connected", nickData);
   }
 

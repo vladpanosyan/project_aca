@@ -1,3 +1,4 @@
+const logger = require('./../HELPERS/logger/ErrorLog')
 module.exports = async() => {
         try {
             let model = {};
@@ -5,7 +6,11 @@ module.exports = async() => {
             model.sequelize = models
             return model;    
         } catch (error) {
-            console.log(error.message, 9999999989)   // es errorner@ qcuma anmijapes modelneri mejic  + naev erb xaamp anjatvac a   
-            throw new Error('WTF + connection Error  " from -> db/index"')
+            if (error.name === 'dbError' || error.name === 'AppError') {
+                logger.error(error.message)   
+                logger.info(error.message)
+            } else {
+                throw error
+            }
         }
     }

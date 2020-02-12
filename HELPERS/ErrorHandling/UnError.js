@@ -1,7 +1,7 @@
-exports.DbError = class DbError extends Error {
+exports.UnhError = class UnhError extends Error {
     constructor(message, cause) {
         super(message)
         this.cause = cause;
-        this.name = 'dbError'
+        this.name = 'NotKnown'
     }
 }

@@ -18,7 +18,7 @@ class Users {
                 user.access_token = token;
                 return user
             } else {
-                console.log(user, 55555555555)
+                // console.log(user, 55555555555)
             }
             
         } catch (error) {   
@@ -77,7 +77,7 @@ class Users {
     checkTokenValid(access_token) {
         try {
             const tokenObj = new JWT();
-            return tokenObj.verifyToken(access_token);
+            return tokenObj.verifyToken(access_token);zz
         } catch (error) {
             return;
         }
@@ -95,7 +95,6 @@ class Users {
     async sendMail(emailArr, portalURL) {
         try {
             const info = await sendMailer(emailArr, portalURL);
-            console.log(portalURL, 9999); 
             return info;
         } catch (error) {
             console.log(error, 33333);

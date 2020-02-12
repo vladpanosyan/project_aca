@@ -63,6 +63,8 @@ export class SubscriberGuard implements CanActivate {
       if (result) {
         this.nickService.nickDataSubject.next(result);
         this.portalService.currentPortalIdSubject.next(result.portalId);
+        const portal = await this.portalService.getPortalIdFromToken(next.params.token);
+        this.portalService.currentPortalSubject.next(portal);
         return true;
       } else if (result === null) {
         this.portalService.portalStatusSubject.next({

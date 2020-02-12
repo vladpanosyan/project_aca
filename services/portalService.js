@@ -1,9 +1,10 @@
 const URLToken = require('./../HELPERS/utils/JWT')
 const AppError = require ('./../HELPERS/ErrorHandling/AppError')
 
-class Portals {
-    constructor(portalDal) {
+class Portals { 
+    constructor(portalDal, logger) {
         this.portalDal = portalDal
+        this.logger    = logger;
     }
     async createPortal(data) {
         const token = new URLToken({id: data.userId, start: data.start}).createTokenForURL();
@@ -12,7 +13,7 @@ class Portals {
         if (portal) {
             return portal
         } else {
-            errorLog('portal not creted')
+            this.logger.info('portal not creted')
         } 
     }
 
@@ -56,8 +57,9 @@ class Portals {
         const currPortal = await this.portalDal.getCurrentPortal(token);
         if (currPortal) {
             return currPortal[0];
-        } 
-        throw new Error('portal not exist');
+        } else {
+            throw new Error('portal not exist');
+        }
     }
 
     async deleteById(id) {
@@ -65,7 +67,7 @@ class Portals {
         if(deletedPortal) {
             return deletedPortal
         } else {
-            errorLog('portal not found for deleting')
+            this.logger.info('portal not found for deleting')
         }
     }
 
@@ -89,8 +91,9 @@ class Portals {
         let portalStatus = await this.portalDal.getPortalStatus(token);
         if (portalStatus) {
             return portalStatus;
+        } else {
+            throw new Error("No Portal Portal POrtal .........");
         }
-        throw new Error("No Portal Portal POrtal .........");
     }
     //
     async finishPortal(portalId) {
