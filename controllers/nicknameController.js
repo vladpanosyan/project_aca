@@ -10,7 +10,7 @@ class NicknameController {
             response.json(nickname)
             
         } catch (error) {
-            console.log(error.message, 155515157777);
+            this.logger.error(`${error.message} - ${error.stack}`);
         }
     }
     // find
@@ -21,14 +21,14 @@ class NicknameController {
             response.json({ nicknames: nicknames })
         }
         catch(e) {
-            console.log(e.message, 15551515151515) /// amena lav error handlingi tex@
+            this.logger.error(`${e.message} - ${e.stack}`);
+            next(e.message)
         }
     }
 
 
     // delete by id
     async deleteNickname(request, response, next) {
-        console.log(request.params.id)
         const nicknameId = await this.nicknameService.deleteById(request.params.id)
         if (nicknameId) {
             response.status(200).end(`nicknameId in id - ${nicknameId.id} has deleted`)
@@ -66,7 +66,6 @@ class NicknameController {
         const changesData = request.body;
         const data = await this.nicknameService.changeAvatar(changesData);
         if (data) {
-            // io.emit('updateAvatar', changesData)
             response.json(data);
         } else {
             response.status(401).send("not updated")
