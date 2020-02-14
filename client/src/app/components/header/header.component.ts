@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { Router } from "@angular/router";
-// import { AuthService } from "angularx-social-login";
-// import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: "app-header",

@@ -59,7 +59,6 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
     this.chatService.message
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(message => {
-        console.log(message, 777777777);
         this.questionService.msg.next(message);
       });
     //

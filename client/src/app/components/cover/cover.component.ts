@@ -29,7 +29,6 @@ export class CoverComponent implements OnInit {
     });
   }
 
-  // async openModal(item.id, token, privatePortal, item.userId) {
   async openModal(item, privatePortal) {
     this.portalService.currentPortalIdSubject.next(item.id);
     this.portalService.currentPortalSubject.next(item);
@@ -103,10 +102,6 @@ export class CoverComponent implements OnInit {
             allowOutsideClick: () => !Swal.isLoading()
           }
         ])
-        // .then(async result => {
-        //   console.log(result, 1111111);
-        //   return result;
-        // })
         .then(async result => {
           if (result.value) {
             await Swal.fire({
@@ -114,7 +109,6 @@ export class CoverComponent implements OnInit {
               html: `Dear ${result.value[1].name} you succesfully Registered`,
               confirmButtonText: "Let's Start!"
             });
-            // console.log(window.atob(result.value[1].token.split(".")[1]), 888);
             localStorage.setItem("nickToken", result.value[1].token);
             this.router.navigate(["/portals", item.token]);
           }
@@ -151,7 +145,7 @@ export class CoverComponent implements OnInit {
               this.openModal(status, false);
             }
           });
-        } else if (result){
+        } else if (result) {
           Swal.fire({
             icon: "error",
             title: "Oops...",

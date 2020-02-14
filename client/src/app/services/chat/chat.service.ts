@@ -19,7 +19,6 @@ export class ChatService {
   addToOnline    = this.socket.fromEvent("add_to_online");
   removeToOnline = this.socket.fromEvent("remove_to_online");
   refreshActivePortals = this.socket.fromEvent("startedCurrentPortal");
-  // removePortal   = this.socket.fromEvent("removePortal");
 
   constructor(
     private socket: Socket
@@ -71,8 +70,4 @@ export class ChatService {
   refreshPortalsActivity(portalId) {
     this.socket.emit("refreshStartedPortal", portalId);
   }
-
-  // removePortalAfterEvent(portalId) {
-  //   this.socket.emit("removePortalAfterEvent", portalId);
-  // }
 }

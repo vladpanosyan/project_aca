@@ -103,7 +103,6 @@ isAuthforGuard(): Observable<any> {
   }
 
   regWithFace(accesToken): Observable<any> {
-    console.log("inside user-auth service", 7401);
     return this.http.post("api/users/auth/facebook", {
       access_token: accesToken
     });
@@ -147,7 +146,6 @@ isAuthforGuard(): Observable<any> {
   }
 
   logout() {
-    // remove user from local storage to log user out
     localStorage.removeItem("currentUser");
     this.signOut();
     this.currentUserSubject.next(null);

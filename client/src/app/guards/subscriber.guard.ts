@@ -25,10 +25,6 @@ export class SubscriberGuard implements CanActivate {
     this.currentUserId = this.userAuthService.currentUserValue ? this.userAuthService.currentUserValue.id : null;
   }
 
-  // getPortalIdFromToken(token) {
-  //   this.portalService.getPortalIdFromToken(token);
-  // }
-
   async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -48,9 +44,7 @@ export class SubscriberGuard implements CanActivate {
         this.userAuthService.isLoggedSubject.next(true);
         this.userAuthService.setPortalToUser(true);
         const portal = await this.portalService.getPortalIdFromToken(next.params.token);
-        console.log(portal, 7401)
         this.portalService.currentPortalSubject.next(portal);
-        alert(typeof portal.id )
         this.portalService.currentPortalIdSubject.next(portal.id);
         return true;
       }
@@ -71,7 +65,7 @@ export class SubscriberGuard implements CanActivate {
           token: next.params.token,
           state: null
         });
-        this.router.navigate(["/cover"]); 
+        this.router.navigate(["/cover"]);
         return false;
       } else {
         this.portalService.portalStatusSubject.next({

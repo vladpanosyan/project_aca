@@ -23,9 +23,7 @@ export class ChatListComponent implements OnInit, AfterViewChecked  {
   @Input() userData: any;
   @Input() nickData: any;
   @Input() portalData: any;
-  // @Input() portalData: any;
 
-  // keep scroll in bottom
   @ViewChild("scrollMe", { static: false })
   private myScrollContainer: ElementRef;
 

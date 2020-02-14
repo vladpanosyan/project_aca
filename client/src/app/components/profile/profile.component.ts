@@ -16,17 +16,7 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private userAuthService: UserAuthService
-    ) {
-    // const userToken = this.route.snapshot.paramMap.get("token");
-
-    // if (userToken) {
-    //   this.userService.addToken("access_token", userToken);
-    //   this.userService.getUserProfileSocial(userToken).subscribe(data => {
-    //     console.log(data, 93939393939);
-    //     this.data = data;
-    //   });
-    // }
-  }
+    ) {}
 
   ngOnInit() {
     const userId = this.route.snapshot.paramMap.get("id");

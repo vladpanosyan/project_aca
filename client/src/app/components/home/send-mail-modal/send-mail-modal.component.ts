@@ -43,7 +43,6 @@ export class SendMailModalComponent implements OnInit {
       .result.then(
         result => {
           this.fails = false;
-          console.log(result, 4444);
           this.userService
             .sendMail(result.value, this.url)
             .subscribe(info => console.log(info, 789));

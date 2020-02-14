@@ -54,7 +54,7 @@ class NicknameController {
         if (data) {
             response.json(data);
         } else if (data === null) {
-            response.json('not found nickData')
+            response.json(null)
         }else {
             response.status(200).send(false);
         }

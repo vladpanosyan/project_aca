@@ -2,7 +2,6 @@ const appRoot = require('app-root-path');
 const path = require('path')
 const logDirectory = 'logs';
 const fs = require('fs');
-// const errLoggerPath   = path.join(__dirname, logDirectory, 'error.log')
 const errLoggerPath = path.join(__dirname, logDirectory, '%DATE%-logsDemo.log')
 
 module.exports = {

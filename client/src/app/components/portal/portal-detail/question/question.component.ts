@@ -128,7 +128,6 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
       .getAllQuestions(this.portalToken)
       .pipe(takeUntil(this.destroy$))
       .subscribe(questions => {
-        console.log(questions, 210989);
         this.questions = questions;
       });
     this.chatServise.addLikeCount();

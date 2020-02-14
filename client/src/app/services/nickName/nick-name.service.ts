@@ -32,7 +32,7 @@ export class NickNameService {
     const nickToken = this.getNickToken;
     if (nickToken) {
       return this.http
-      .post("api/nicknames/canactivate", { portalToken, nickToken });
+      .post("api/nicknames/canactivate", { portalToken, nickToken }); 
     }
     return of(null);
   }

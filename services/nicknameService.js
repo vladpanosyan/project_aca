@@ -76,9 +76,12 @@ class Nicknames {
             console.log(portalId, 5555555)
             const nickId = payload.datas[portalId.id];
             console.log(nickId, 66666)
-
-            const nickData = await this.nicknameDal.getNickData1(nickId, portalId.id);
-            return nickData;
+            if (nickId) {
+                const nickData = await this.nicknameDal.getNickData1(nickId, portalId.id); 
+                return nickData;
+            } else {
+                return Promise.resolve(null);
+            }
         } catch (error) {
             console.log(error.message, 55555577);
             return;

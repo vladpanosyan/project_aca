@@ -6,11 +6,7 @@ import { Observable, Subject } from "rxjs";
   providedIn: "root"
 })
 export class AnswerService {
-  //  answerSubject: Subject<string>;
-  //  answer: Observable<any>;
   constructor(private http: HttpClient) {
-    // this.answerSubject = new Subject();
-    // this.answer = this.answerSubject.asObservable();
   }
 
   getAnswers(portalId): Observable<any> {

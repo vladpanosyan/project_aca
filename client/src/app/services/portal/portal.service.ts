@@ -120,7 +120,6 @@ export class PortalService {
   //
   isPortalisMakeUser(portalid, portalToken) {
     const userPortals = this.getCurentUserPortals;
-    console.log(userPortals, 444444444);
     let isExist;
     if (portalid) {
       isExist = userPortals.find(item => item.id === portalid);

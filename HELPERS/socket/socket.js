@@ -1,9 +1,6 @@
 module.exports = async (socketIo) => {
     const { SERVICES } = await require('../../app_init/dal_service_init')();
     socketIo.on('connection', socket => {
-        // socket.on('disconnect', _ => {
-        //     console.log(socket.id, 444444444)
-        // })
         try { 
             socket.on('connected', async (nickData) => {
                 const { Portals } = SERVICES;
@@ -30,7 +27,6 @@ module.exports = async (socketIo) => {
             })
 
             socket.on('send_message', async (nickData) => { 
-                console.log(nickData, 777777777)
                 const { Questions } = SERVICES;
                 const questionData = {
                     question: nickData.message,

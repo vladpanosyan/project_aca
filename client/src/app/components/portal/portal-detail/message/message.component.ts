@@ -3,7 +3,6 @@ import { ChatService } from "src/app/services/chat/chat.service";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { PortalService } from "src/app/services/portal/portal.service";
 import { QuestionService } from "src/app/services/question/question.service";
-// import { Observable, Subject } from "rxjs";
 
 @Component({
   selector: "app-message",
@@ -39,7 +38,6 @@ export class MessageComponent implements OnInit {
   // for user
   sendMessgeQuestion(answer) {
     this.questionService.canScrollSubject.next(true);
-    console.log(this.currTop10Nick, 888999)
     if (answer.trim()) {
       const userId     = this.userData.id;
       const portalId   = this.currTop10Nick.nickss.portalId;
