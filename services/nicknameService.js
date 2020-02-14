@@ -1,8 +1,9 @@
 const JWT = require('./../HELPERS/utils/JWT');
 
 class Nicknames {
-    constructor(nicknameDal) {
-        this.nicknameDal = nicknameDal
+    constructor(nicknameDal, logger) {
+        this.nicknameDal = nicknameDal;
+        this.logger      = logger;
     }
     async createNickname(data) { // ste hnaravora token.verify hamar vercvi try catch mej, ete frontic hankarc sxal nicktoken ga
         data.image = process.env.NICK_USER_DEFAULT_IMAGE;
@@ -27,7 +28,7 @@ class Nicknames {
                 return nickname;
             }
         } else {
-            errorLog('nickname not creted');
+            this.logger.info('nickname not creted');
         }
     }
     async getAllNicknames() {
@@ -35,7 +36,6 @@ class Nicknames {
         if (nickname) {
             return nickname;
         } else {
-            // errorLog('nickname not foud')// es error@ catch e linum routneri mej
             throw new Error('USER NOT EXIST')
         }
     }
@@ -44,7 +44,7 @@ class Nicknames {
         if (deletedNickname) {
             return deletedNickname;
         } else {
-            errorLog('nickname not found for deleting')
+            this.logger.info('nickname not found for deleting')
         }
     }
 
@@ -64,7 +64,7 @@ class Nicknames {
                 return nickData;
             }
         } catch (error) {
-            console.log(error.message, 44444445);
+            this.logger.error(`${error.message} - ${error.stack}`);
             return;
         }
     } 
@@ -73,9 +73,7 @@ class Nicknames {
         try {
             const payload = new JWT().verifyToken(nickToken);
             const portalId = await this.nicknameDal.getPortalId(portalToken);
-            console.log(portalId, 5555555)
             const nickId = payload.datas[portalId.id];
-            console.log(nickId, 66666)
             if (nickId) {
                 const nickData = await this.nicknameDal.getNickData1(nickId, portalId.id); 
                 return nickData;
@@ -83,7 +81,7 @@ class Nicknames {
                 return Promise.resolve(null);
             }
         } catch (error) {
-            console.log(error.message, 55555577);
+            this.logger.error(`${error.message} - ${error.stack}`);
             return;
         }
     }

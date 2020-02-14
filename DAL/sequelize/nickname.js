@@ -7,11 +7,7 @@ module.exports = class Nickname {
 
     async createData(data) {
         try {
-            console.log(data, 6363)
             let nickname = await this.model.create({ name: data.nickName, portalId: data.portalId, image: data.image });
-            // let portal = await this.models.Portals.findOne({where: {id: data.portalId}});
-            // nickname.addPortals(portal, {through: {}});
-
             nickname = nickname.get({ plain: true });
             return nickname
         } catch (error) {
@@ -45,16 +41,12 @@ module.exports = class Nickname {
     async getNickData(id) {
         return this.model.findByPk(id, {
             raw: true,
-            // where: {
-            //     id,
-            // }
         });
     }
 
     //
     async getNickData1(nickId, portalId) {
         return this.model.findOne({
-            // raw: true,
             required: true,
             where: {
                 id: nickId,
@@ -77,20 +69,6 @@ module.exports = class Nickname {
                     attributes: []
                 }]
             }]
-            // required: true,
-            // include:[{
-            //     attributes: ['name', 'start'],
-            //     model: this.models.Portals,
-            //     where: {
-            //         token: portalToken,
-            //     },
-            //     through: {
-            //         where: {
-            //             nicknameId: nickId
-            //         },
-            //         attributes: ['portalId']
-            //     }
-            // }]
         })
     }
     // get portalId using portalToken
@@ -110,7 +88,6 @@ module.exports = class Nickname {
     }
 
     async changeAvatar(data) {
-        console.log(data, 565656)
         const isUpdated = await this.model.update({
             image: data.avatar
         },{
@@ -119,7 +96,6 @@ module.exports = class Nickname {
             portalId: data.portalId
             }
         })
-            console.log(isUpdated, 6666666666666);
         if (isUpdated[0]) return true;
         return;
     }

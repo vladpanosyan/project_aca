@@ -52,6 +52,7 @@
     width: 40px;
     height: 40px;
     margin-left: 15px;
+    border-radius: 5px;
 }
 
 .nick_data {

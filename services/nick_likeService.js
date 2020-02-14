@@ -4,7 +4,6 @@ class Nick_likes {
     }
 
     async addLike(nicknameId, questionId) {
-        // console.log(this.nick_likeDal, 555)
         this.nick_likeDal.addLike({nicknameId, questionId})
     }
     

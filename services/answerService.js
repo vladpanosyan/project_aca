@@ -7,7 +7,7 @@ class Answers {
         if (answer) {
             return answer;
         } else {
-            errorLog('answer not creted');
+            this.logger.info('answer not creted');
         }
     }
     async getCurrentAnswer(answerId) {
@@ -15,7 +15,7 @@ class Answers {
         if(answer) {
             return answer;
         } else {
-            errorLog('answer not creted');
+            this.logger.info('answer not creted');
         }
     }
 
@@ -24,7 +24,6 @@ class Answers {
         if (answer) {
             return answer
         } else {
-            // errorLog('answer not foud')// es error@ catch e linum routneri mej
             throw new Error('answers NOT EXIST')
         }
     }
@@ -33,7 +32,7 @@ class Answers {
         if (deletedAnswer) {
             return deletedAnswer;
         } else {
-            errorLog('answer not found for deleting')
+            this.logger.info('answer not found for deleting')
         }
     }
 }

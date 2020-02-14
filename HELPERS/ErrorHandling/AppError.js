@@ -8,18 +8,4 @@ class AppError extends Error{
     }
 }
 
-// function DetectError(error) {
-//     switch (error.name) {
-//         case 'SequelizeConnectionRefusedError': 
-//         throw new AppError('Connection error, check DB connection', error)
-//             break;
-//         case 'SequelizeUniqueConstraintError': 
-//         throw new AppError(error.errors[0].message, error)
-        
-//         default:
-//             break;
-//     }
-   
-// }
-
 module.exports = AppError
