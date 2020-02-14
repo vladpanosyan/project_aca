@@ -142,23 +142,23 @@ export class CoverComponent implements OnInit {
       }
     });
     //
-    this.portalService.portalState.subscribe(result => {
-      if (result.state === null) {
-        this.portalService.chekPortalStatus(result.token).subscribe(status => {
-          if (status.private) {
-            this.openModal(status, true);
-          } else {
-            this.openModal(status, false);
-          }
-        });
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something Went wrong!",
-          footer: "<a href>Why do I have this issue?</a>"
-        });
-      }
+    this.portalService.showForm().subscribe(result => {
+        if (result && result.state === null) {
+          this.portalService.chekPortalStatus(result.token).subscribe(status => {
+            if (status.private) {
+              this.openModal(status, true);
+            } else {
+              this.openModal(status, false);
+            }
+          });
+        } else if (result){
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something Went wrong!",
+            footer: "<a href>Why do I have this issue?</a>"
+          });
+        }
     });
     //
     const userId = this.userAuthService.currentUserValue &&  this.userAuthService.currentUserValue.id;

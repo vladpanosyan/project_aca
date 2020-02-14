@@ -72,13 +72,14 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   action(item, i) {
     this.questionService.canScrollSubject.next(false);
     const us_erID = this.currUserID;
+    const portalId = this.portalId;
     if (item.isLiked) {
       item.isLiked = false;
       item.isClicked = true;
       const t = extractLikes(item);
       item.likes = t - 1;
       this.chatServise.sendLikeCount(
-        { index: i, likes: t - 1, nicknameId: us_erID, questionId: item.id },
+        { index: i, likes: t - 1, nicknameId: us_erID, questionId: item.id, portalId },
         "minus"
       );
     } else {
@@ -87,7 +88,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
       const t = extractLikes(item);
       item.likes = t + 1;
       this.chatServise.sendLikeCount(
-        { index: i, likes: t + 1, nicknameId: us_erID, questionId: item.id },
+        { index: i, likes: t + 1, nicknameId: us_erID, questionId: item.id, portalId },
         "plus"
       );
     }

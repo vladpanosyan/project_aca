@@ -4,7 +4,7 @@ module.exports = async (socketIo) => {
         // socket.on('disconnect', _ => {
         //     console.log(socket.id, 444444444)
         // })
-        try {
+        try { 
             socket.on('connected', async (nickData) => {
                 const { Portals } = SERVICES;
                 const isAdded = await Portals.addToOnline(nickData.portalId);
@@ -25,7 +25,10 @@ module.exports = async (socketIo) => {
                 console.log(nickName, 88888888)
             })
     
-    
+            socket.on('joinRoom', room => {
+                socket.join(room);
+            })
+
             socket.on('send_message', async (nickData) => { 
                 console.log(nickData, 777777777)
                 const { Questions } = SERVICES;
@@ -41,23 +44,23 @@ module.exports = async (socketIo) => {
                 delete questionResponseData['portalId'];
                 delete questionResponseData['nicknameId'];
                 const nickResponseMessage = { ...questionResponseData, nickss: nickData }
-                socketIo.emit('message', nickResponseMessage)
+                socketIo.to(nickData.portalId).emit('message', nickResponseMessage)
     
             })
     
-            socket.on('send_question', async (message) => {
-                // console.log(message, 774411)
+            socket.on('send_question', async ({portalId, ...message}) => {
                 const { Answers } = SERVICES;
+                console.log(portalId, message, 111111111) 
                 const answer = await Answers.addAnswer(message);
                 const id = answer.id;
                 const fullAnswer = await Answers.getCurrentAnswer(id);
-                socketIo.emit('answ_message', fullAnswer);
+                socketIo.to(portalId).emit('answ_message', fullAnswer);
             })
     
             //get likes count
             socket.on("get_likes_count", (data, action) => {
                 console.log(data, action, 5555555)
-                socketIo.emit("sendLikesCount", data);
+                socketIo.to(data.portalId).emit("sendLikesCount", data);
                 const { Nick_likes } = SERVICES;
                 if (action === "plus") {
                     Nick_likes.addLike(data.nicknameId, data.questionId)

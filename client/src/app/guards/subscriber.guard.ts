@@ -71,7 +71,7 @@ export class SubscriberGuard implements CanActivate {
           token: next.params.token,
           state: null
         });
-        this.router.navigate(["/cover"]);
+        this.router.navigate(["/cover"]); 
         return false;
       } else {
         this.portalService.portalStatusSubject.next({

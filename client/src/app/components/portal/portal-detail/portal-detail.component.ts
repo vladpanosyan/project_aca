@@ -24,8 +24,6 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
   inUserPortal = false;
   token = "";
 
-  kkk = 1;
-
   constructor(
     private nickService: NickNameService,
     private userAuthService: UserAuthService,
@@ -50,6 +48,8 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
     this.nickService.nickData.subscribe(data => (this.nickData = data));
     this.userData = this.userAuthService.currentUserValue;
     this.inUserPortal = this.userAuthService.isUserInOwnPortal();
+
+    this.chatService.joinRoom(this.portalData.id);
     //
     this.chatService.answerQuestion
       .pipe(takeUntil(this.unsubscribe$))
@@ -59,6 +59,7 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
     this.chatService.message
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(message => {
+        console.log(message, 777777777);
         this.questionService.msg.next(message);
       });
     //

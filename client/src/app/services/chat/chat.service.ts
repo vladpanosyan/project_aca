@@ -36,6 +36,10 @@ export class ChatService {
     this.socket.emit("disconected", nickData);
   }
 
+  joinRoom(portalId) {
+    this.socket.emit("joinRoom", portalId);
+  }
+
   addLikeCount() {
     this.socket.on("sendLikesCount", (data) => {
       this.likeCountSubject.next(data);

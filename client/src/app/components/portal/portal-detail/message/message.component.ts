@@ -39,10 +39,12 @@ export class MessageComponent implements OnInit {
   // for user
   sendMessgeQuestion(answer) {
     this.questionService.canScrollSubject.next(true);
+    console.log(this.currTop10Nick, 888999)
     if (answer.trim()) {
-      const userId = this.userData.id;
+      const userId     = this.userData.id;
+      const portalId   = this.currTop10Nick.nickss.portalId;
       const questionId = this.currTop10Nick.id;
-      this.chatService.answQuestion({userId, questionId, answer} );
+      this.chatService.answQuestion({userId, questionId, answer, portalId} );
       this.message = "";
     }
   }

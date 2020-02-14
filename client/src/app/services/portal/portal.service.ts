@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, from } from "rxjs";
+import { Observable,  of } from "rxjs";
 import { BehaviorSubject, Subject } from "rxjs";
 import { map } from "rxjs/operators";
 
@@ -16,7 +16,7 @@ export class PortalService {
   portalSubject: BehaviorSubject<any>;
   portal: Observable<any>;
 
-  portalStatusSubject: Subject<Port>;
+  portalStatusSubject: BehaviorSubject<Port>;
   portalState: Observable<Port>;
 
   currentPortalIdSubject: BehaviorSubject<string>;
@@ -33,7 +33,7 @@ export class PortalService {
     this.portalSubject = new BehaviorSubject<any>({});
     this.portal = this.portalSubject.asObservable();
 
-    this.portalStatusSubject = new Subject();
+    this.portalStatusSubject = new BehaviorSubject(null);
     this.portalState = this.portalStatusSubject.asObservable();
 
     this.currentPortalIdSubject = new BehaviorSubject("");
@@ -57,6 +57,10 @@ export class PortalService {
 
   get getCurrentPortal() {
     return this.currentPortalSubject.value;
+  }
+
+  get getPortalStatus() {
+    return this.portalStatusSubject.value;
   }
 
   // get getIsPortalofUser {
@@ -97,10 +101,17 @@ export class PortalService {
     );
   }
 
+
+
   getActivePortal(currentUserId): Observable<any> {
     return this.http
     .get(`api/portals/active/${currentUserId}`);
   }
+
+  showForm(): Observable<Port> {
+    return of(this.getPortalStatus);
+  }
+
   //
   chekPortalStatus(token): Observable<any> {
     return this.http
