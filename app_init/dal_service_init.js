@@ -1,14 +1,12 @@
 const DalFactory             = require('./../DAL/dalFactory');
 const AbstractServiceFactory = require('./../services/abstractServiceFactory');
 const ControllerFactory      = require('./../controllers/controllerFactory');
-
-module.exports = (async () => { 
+module.exports = (async (logger) => { 
     try {
-        const model = await require('./../db')() // array of objects model
+        const model = await require('./../db')(logger)
         const DAL = new DalFactory(model);
-        const SERVICES = new AbstractServiceFactory(DAL.create()).create() 
-        // ete petq e vor miajamanak A 2 db neri het apa dra hamar arandzin service pti sargvi,
-        const CONTROLLERS = new ControllerFactory(SERVICES).create() 
+        const SERVICES = new AbstractServiceFactory(DAL.create(), logger).create() 
+        const CONTROLLERS = new ControllerFactory(SERVICES, logger).create() 
         return {
             CONTROLLERS,
             SERVICES,
@@ -20,7 +18,7 @@ module.exports = (async () => {
         // ekel er sequelize/index.js  faylic, dra hamar kareli e mi hat error factory f(x) sargel vore @ndunum a error
         // object ev veradarcnum hamapatasxan errori tesk@, dra hamara karas ogtvr]es nayev nayes Rudiki helpers 
         // folderi enums.js ic
-        console.log(error.message, 3333333331)
+        logger.error(error.message)
         throw new Error('eli connection error "from -> dal_service_init"')
     }
 })

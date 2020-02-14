@@ -28,11 +28,9 @@ export class SettingsComponent implements OnInit {
   constructor(
     private nickNameService: NickNameService,
     private chatService: ChatService,
-    // private questionService: QuestionService
   ) {}
 
   updateAvatar(avatar) {
-    console.log(this.portalId, this.nickDataId, 888888888);
     this.nickNameService
       .changeAvatar({ avatar, portalId: this.portalId, nickId: this.nickDataId })
       .subscribe(response => {

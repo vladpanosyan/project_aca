@@ -19,7 +19,6 @@ export class ChatService {
   addToOnline    = this.socket.fromEvent("add_to_online");
   removeToOnline = this.socket.fromEvent("remove_to_online");
   refreshActivePortals = this.socket.fromEvent("startedCurrentPortal");
-  // removePortal   = this.socket.fromEvent("removePortal");
 
   constructor(
     private socket: Socket
@@ -29,15 +28,15 @@ export class ChatService {
   }
 
   socketConnect(nickData) {
-    // this.socket.on("connect", () => {
-      // alert(50);
-      // console.log()
       this.socket.emit("connected", nickData);
-    // });
   }
 
   socketDisconnect(nickData) {
     this.socket.emit("disconected", nickData);
+  }
+
+  joinRoom(portalId) {
+    this.socket.emit("joinRoom", portalId);
   }
 
   addLikeCount() {
@@ -47,7 +46,6 @@ export class ChatService {
   }
 
   sendLikeCount(data, action) {
-    // alert(JSON.stringify(data));
     this.socket.emit("get_likes_count", data, action);
   }
 
@@ -72,8 +70,4 @@ export class ChatService {
   refreshPortalsActivity(portalId) {
     this.socket.emit("refreshStartedPortal", portalId);
   }
-
-  // removePortalAfterEvent(portalId) {
-  //   this.socket.emit("removePortalAfterEvent", portalId);
-  // }
 }

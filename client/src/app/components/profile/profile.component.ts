@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/services/user/user.service";
 import { ActivatedRoute } from "@angular/router";
+import { UserAuthService } from 'src/app/services/auth/user-auth.service';
 
 // import { Observable } from "rxjs";
 
@@ -13,27 +14,25 @@ export class ProfileComponent implements OnInit {
   data: any;
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
-    ) {
-    const userId = this.route.snapshot.paramMap.get("id");
-    // const userToken = this.route.snapshot.paramMap.get("token");
+    private userService: UserService,
+    private userAuthService: UserAuthService
+    ) {}
 
+  ngOnInit() {
+    const userId = this.route.snapshot.paramMap.get("id");
     if (userId) {
       this.userService.getUserProfile(userId).subscribe(data => {
         console.log(data);
         this.data = data;
       });
     }
-    // if (userToken) {
-    //   this.userService.addToken("access_token", userToken);
-    //   this.userService.getUserProfileSocial(userToken).subscribe(data => {
-    //     console.log(data, 93939393939);
-    //     this.data = data;
-    //   });
-    // }
-  }
-
-  ngOnInit() {
+    this.userAuthService.isAuthenticated().then(result => {
+      if (result) {
+        this.userAuthService.setLogin();
+      } else {
+        this.userAuthService.setLogOut();
+      }
+    });
   }
 }
 interface User {

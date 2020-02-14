@@ -17,7 +17,6 @@ class NicknameController {
     async showResult(request, response, next) {
         
         try{
-            console.log(32323232323, 'in controller NickNmame')
             let nicknames = await this.nicknameService.getAllNicknames()
             response.json({ nicknames: nicknames })
         }
@@ -55,7 +54,7 @@ class NicknameController {
         if (data) {
             response.json(data);
         } else if (data === null) {
-            response.json('not found nickData')
+            response.json(null)
         }else {
             response.status(200).send(false);
         }
@@ -66,7 +65,6 @@ class NicknameController {
         const io = request.app.get("io");   
         const changesData = request.body;
         const data = await this.nicknameService.changeAvatar(changesData);
-        console.log(data, 77777777777)
         if (data) {
             // io.emit('updateAvatar', changesData)
             response.json(data);

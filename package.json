@@ -6,6 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "app-root-path": "^3.0.0",
     "bcryptjs": "^2.4.3",
     "ci": "^1.0.0",
     "cookie-parser": "~1.4.4",
@@ -28,6 +29,8 @@
     "passport-facebook-token": "^3.3.0",
     "passport-jwt": "^4.0.0",
     "sequelize": "^5.21.3",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.2"
   }
 }

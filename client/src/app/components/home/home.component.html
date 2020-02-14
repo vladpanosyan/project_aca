@@ -12,7 +12,7 @@
         <th scope="col">Status</th>
         <th scope="col">Share</th>
         <th scope="col">GO</th>
-        <th scope="col">Remove</th>
+        <!-- <th scope="col">Remove</th> -->
       </tr>
     </thead>
     <tbody>
@@ -27,7 +27,7 @@
         <!-- <td *ngIf="item.isFinished">Finished</td> -->
         <td><button [ngClass]="{'ni_active':item.isFinished}"><app-send-mail-modal [url]="portalUrlPath+item.token"></app-send-mail-modal></button></td>
         <td><button [disabled]="(item.counter | async) || item.isStarted" class="btn btn-success" (click)="startEvent(item)">Start</button></td>
-        <td><button class="btn btn-danger" [attr.data-portal]="item.id">Remove</button></td>
+        <!-- <td><button class="btn btn-danger" [attr.data-portal]="item.id">Remove</button></td> -->
       </tr>
     </tbody>
   </table>

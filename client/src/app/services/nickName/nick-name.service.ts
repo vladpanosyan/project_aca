@@ -32,7 +32,7 @@ export class NickNameService {
     const nickToken = this.getNickToken;
     if (nickToken) {
       return this.http
-      .post("api/nicknames/canactivate", { portalToken, nickToken });
+      .post("api/nicknames/canactivate", { portalToken, nickToken }); 
     }
     return of(null);
   }
@@ -52,7 +52,7 @@ export class NickNameService {
       .post("api/nicknames/addNickname", { nickName, portalId, nickToken})
       .pipe(
         map(nick => {
-          this.currentNickSubjectToken.next(nick["token"]);
+          this.currentNickSubjectToken.next(nick["token"]); 
           this.nickDataSubject.next(nick);
           return nick;
         })

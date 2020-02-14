@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = async (userController, authMiddleware, facebookFuture) => {
+module.exports = (userController, authMiddleware, facebookFuture) => {
   try {
     router.get('/', userController.showResult.bind(userController));
     router.get('/profile/:id', authMiddleware, userController.getUsersById.bind(userController));

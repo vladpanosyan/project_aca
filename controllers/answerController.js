@@ -10,7 +10,8 @@ class AnswerController {
             response.json(answers)
         }
         catch(e) {
-            console.log(e.message, 45454545454) // amena lav error handlingi tex@
+            this.logger.info(e.message); // amena lav error handlingi tex@
+            this.logger.error(e.message); // amena lav error handlingi tex@
         }
     }
 
@@ -26,21 +27,12 @@ class AnswerController {
         const answerId = await this.answerService.deleteById(request.params.id)
         if (answerId) {
             response.status(200).end(`answerId in id - ${answerId.id} has deleted`)
-        } else('User not found for deleting')
+        } else {
+            this.logger.info(e.message);
+            this.logger.error('User not found for deleting')
+
+        }
     }
 }
 
 module.exports = AnswerController
-// module.exports = async () => {
-//     try {
-//         const { Answers } = await require('./index')();
-//         return {
-//             answerController: new AnswerController(Answers),
-//         }
-//     } catch (error) {
-// console.log(error, 210989)
-//         // if (error.message === "db connect error") {
-//         //     throw new Error('db connect error')
-//         // }
-//     }
-// }

@@ -6,7 +6,6 @@ import {
   RouterStateSnapshot,
   UrlTree
 } from "@angular/router";
-import { Observable } from "rxjs";
 import { UserAuthService } from "./../services/auth/user-auth.service";
 
 @Injectable({
@@ -23,8 +22,7 @@ export class AuthGuard implements CanActivate {
     if (isValid) {
       return true;
     } else {
-      console.log(isValid, 33333333);
-      this.router.navigate(["api/users/login"], { queryParams: { returnUrl: state.url } });
+      this.router.navigate(["/users/login"], { queryParams: { returnUrl: state.url } });
       return false;
     }
   }

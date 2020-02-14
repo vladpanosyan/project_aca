@@ -53,12 +53,10 @@ module.exports = class Portal {
             }],
             group: ['Portals.id']
         })
-        console.log(JSON.stringify(portals, null, 2), 59595959)
         return portals;
     }
 
-    async getActivePortal(userId) { // ste usumnasiri te vorna active portal
-        console.log(userId, 5555555555)
+    async getActivePortal(userId) { 
         const activePortal = await this.model.findAll({
             // raw: true,
             where: {
@@ -73,7 +71,24 @@ module.exports = class Portal {
             }],
             group: ['Portals.id']
         });
-        // console.log(t, 636363)
+        return activePortal;
+    }
+
+    async getCurrentPortal(token) { 
+        const activePortal = await this.model.findAll({
+            where: {
+                isStarted: 1,
+                isFinished: 0,
+                token
+            },
+            include: [{
+                attributes: [[sequelize.fn('count', sequelize.col(`Portals.id`)), 'questionsInPortal']],
+                as: 'portalManyQuestion',
+                model: this.models.Questions,
+            }],
+            group: ['Portals.id']
+        });
+        // console.log(activePortal, 636363)
         return activePortal;
     }
 
@@ -123,7 +138,7 @@ module.exports = class Portal {
     }
 
     async addToOnline(portalId) {
-        // this.model.update({}, {});
+        console.log(portalId, 22222222222)
         const a = await this.model.increment("onlineSub", {
             where: {
                 id: portalId
@@ -133,7 +148,7 @@ module.exports = class Portal {
         });
         // console.log(await this.model.findOne({where: {id: portalId}, raw: true}), 3131313)
         if (a[0][1]) {
-            return a;
+            return a; 
         }
         return;
     }
@@ -151,4 +166,14 @@ module.exports = class Portal {
         }
         return;
     }
+    // async getPortalIdFromToken(token) {
+    //     const portalId = await this.model.findOne({
+    //         attributes: ['id'],
+    //         where: {
+    //             token
+    //         }
+    //     })
+    //     console.log(portalId, 6666666666666666)
+    //     return portalId;
+    // }
 }

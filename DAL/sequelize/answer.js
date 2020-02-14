@@ -29,7 +29,6 @@ module.exports = class Answer {
     }
     async getAllAnswers(portalId) {
         let answers = await this.model.findAll({
-           
             required: true,
             include: [{
                 model: this.models.Users,

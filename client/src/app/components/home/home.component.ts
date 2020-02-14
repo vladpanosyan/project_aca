@@ -1,12 +1,11 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { PortalService } from "src/app/services/portal/portal.service";
-import { Observable, Subject, interval } from "rxjs";
-import { map, filter, takeUntil } from "rxjs/operators";
-// import { formattedError } from '@angular/compiler';
+import { Subject, interval } from "rxjs";
+import { map, takeUntil } from "rxjs/operators";
 import { timer } from "src/app/HELPERS/backwardTimer";
-import { UserAuthService } from 'src/app/services/auth/user-auth.service';
-import { ChatService } from 'src/app/services/chat/chat.service';
+import { UserAuthService } from "src/app/services/auth/user-auth.service";
+import { ChatService } from "src/app/services/chat/chat.service";
 
 @Component({
   selector: "app-home",
@@ -18,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   started: boolean;
   portal;
   timetoStart = false;
-  portalUrlPath = "http://localhost:3000/api/portals/";
+  portalUrlPath = "http://localhost:3000/portals/";
   portalData: any[];
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -26,8 +25,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private portalService: PortalService,
     private userAuthService: UserAuthService,
     private chatService: ChatService,
-    private router: Router,
-    ) {
+    private router: Router
+  ) {
     this.portalData = [];
 
     this.portalService.portal.subscribe((x: any) => {
@@ -40,7 +39,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.portalData.push(addedPortal[0]);
     });
   }
-  // extract date from array of portals
   extractStartDate(portals) {
     return portals.reduce((arr, item) => {
       return arr.push(item.start), arr;
@@ -78,13 +76,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       map(_ => {
         const t = this.foo(time);
         if (!t) {
-          // this.started = true;
-          return ;
+          return;
         }
         return t;
       }),
-      // filter(item => !!item),
-      takeUntil(this.destroy$),
+      takeUntil(this.destroy$)
     );
     return timer1;
   }
@@ -95,15 +91,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   startEvent({ counter, ...portal }) {
-    alert(9999)
     this.portalService.currentPortalIdSubject.next(portal.id);
-    console.log(portal, 88888);
     this.portalService.currentPortalSubject.next(portal);
-    this.portalService.startEvent(portal.id, portal.token)
-    .subscribe(resp => {
+    this.portalService.startEvent(portal.id, portal.token).subscribe(resp => {
       if (resp) {
         this.chatService.refreshPortalsActivity(portal.id);
-        this.router.navigate([`api/portals`, portal.token]);
+        this.router.navigate([`/portals`, portal.token]);
       }
     });
   }
@@ -112,17 +105,23 @@ export class HomeComponent implements OnInit, OnDestroy {
     const userId = this.userAuthService.currentUserValue.id;
     this.started = false;
     this.portalData = [];
-    // get all portals
+
     this.portalService.getUserPortals(userId).subscribe(portals => {
       const StartTime = this.extractStartDate(portals);
       this.portalData = this.setupTimes(portals, StartTime);
-      console.log(this.portalData, 44444);
+    });
+
+    this.userAuthService.isAuthenticated().then(result => {
+      if (result) {
+        this.userAuthService.setLogin();
+      } else {
+        this.userAuthService.setLogOut();
+      }
     });
   }
 
   ngOnDestroy() {
     this.destroy$.next(true);
-    // Unsubscribe from the subject
     this.destroy$.complete();
   }
 }

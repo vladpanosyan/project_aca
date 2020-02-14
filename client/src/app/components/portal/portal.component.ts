@@ -20,7 +20,7 @@ export class PortalComponent implements OnInit {
   goToPortal(portalData) {
     this.portalService.currentPortalIdSubject.next(portalData.id);
     this.portalService.currentPortalSubject.next(portalData);
-    this.router.navigate(["/api/portals", portalData.token]);
+    this.router.navigate(["/portals", portalData.token]);
     // console.log(portalData);
   }
   // [routerLink]="['/api/portals', item.token]"
@@ -31,6 +31,14 @@ export class PortalComponent implements OnInit {
     .subscribe(portal => {
       this.portals = portal;
       console.log(this.portals, 7777);
+    });
+    this.portalService.getUserPortals(currentUserId).subscribe(portals => console.log(portals, 7))
+    this.userAuthService.isAuthenticated().then(result => {
+      if (result) {
+        this.userAuthService.setLogin();
+      } else {
+        this.userAuthService.setLogOut();
+      }
     });
   }
 }

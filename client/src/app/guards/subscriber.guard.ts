@@ -15,47 +15,66 @@ import { UserAuthService } from "../services/auth/user-auth.service";
   providedIn: "root"
 })
 export class SubscriberGuard implements CanActivate {
+  currentUserId;
   constructor(
     private nickService: NickNameService,
     private portalService: PortalService,
     private userAuthService: UserAuthService,
     private router: Router
-    ) {}
+  ) {
+    this.currentUserId = this.userAuthService.currentUserValue ? this.userAuthService.currentUserValue.id : null;
+  }
 
-  canActivate(
+  async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> {
-    console.log(this.portalService.getPortalId, 111)
-    if (this.userAuthService.UserLoggedStatus &&
-      !this.nickService.getNickToken ||
-      this.portalService.isPortalisMakeUser(this.portalService.getPortalId)) {
-      return this.userAuthService.isAuthforGuard().pipe(
-        map(result => {
-          if (result) {
-            console.log(result, 9999999);
-            return true;
-          }
-          return false;
-        })
-      );
+  ): Promise<boolean> {
+    const portals = await this.portalService
+      .getUserPortals(this.currentUserId)
+      .toPromise();
+    this.portalService.currentUserPortals.next(portals);
+
+    if (
+      (this.userAuthService.UserLoggedStatus &&
+        !this.nickService.getNickToken) ||
+      this.portalService.isPortalisMakeUser(null, next.params.token)
+    ) {
+      const result = await this.userAuthService.isAuthforGuard().toPromise();
+      if (result) {
+        this.userAuthService.isLoggedSubject.next(true);
+        this.userAuthService.setPortalToUser(true);
+        const portal = await this.portalService.getPortalIdFromToken(next.params.token);
+        this.portalService.currentPortalSubject.next(portal);
+        this.portalService.currentPortalIdSubject.next(portal.id);
+        return true;
+      }
+      return false;
     } else {
-      return this.nickService.isSubscriberAuth(next.params.token).pipe(
-        map(result => {
-          if (result) {
-            this.nickService.nickDataSubject.next(result);
-            return true;
-          } else if (result === null) {
-            this.portalService.portalStatusSubject.next({token: next.params.token, state: null});
-            this.router.navigate(["api/cover"]);
-            return false;
-          } else {
-            this.portalService.portalStatusSubject.next({token: next.params.token, state: false});
-            this.router.navigate(["api/cover"]);
-            return false;
-          }
-        })
-      );
+      this.userAuthService.setPortalToUser(false);
+      const result = await this.nickService
+        .isSubscriberAuth(next.params.token)
+        .toPromise();
+      if (result) {
+        this.nickService.nickDataSubject.next(result);
+        this.portalService.currentPortalIdSubject.next(result.portalId);
+        const portal = await this.portalService.getPortalIdFromToken(next.params.token);
+        this.portalService.currentPortalSubject.next(portal);
+        return true;
+      } else if (result === null) {
+        this.portalService.portalStatusSubject.next({
+          token: next.params.token,
+          state: null
+        });
+        this.router.navigate(["/cover"]);
+        return false;
+      } else {
+        this.portalService.portalStatusSubject.next({
+          token: next.params.token,
+          state: false
+        });
+        this.router.navigate(["/cover"]);
+        return false;
+      }
     }
   }
 }

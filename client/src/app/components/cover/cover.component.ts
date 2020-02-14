@@ -29,7 +29,6 @@ export class CoverComponent implements OnInit {
     });
   }
 
-  // async openModal(item.id, token, privatePortal, item.userId) {
   async openModal(item, privatePortal) {
     this.portalService.currentPortalIdSubject.next(item.id);
     this.portalService.currentPortalSubject.next(item);
@@ -37,7 +36,7 @@ export class CoverComponent implements OnInit {
     const issubLoggedIn = await this.nickNameService.isSubAuth(item.id);
 
     if (issubLoggedIn && issubLoggedIn.currentNicId || userId === item.userId) {
-      this.router.navigate(["api/portals", item.token]);
+      this.router.navigate(["portals", item.token]);
     } else if (issubLoggedIn === false) {
       Swal.fire({
         icon: "error",
@@ -103,10 +102,6 @@ export class CoverComponent implements OnInit {
             allowOutsideClick: () => !Swal.isLoading()
           }
         ])
-        // .then(async result => {
-        //   console.log(result, 1111111);
-        //   return result;
-        // })
         .then(async result => {
           if (result.value) {
             await Swal.fire({
@@ -114,17 +109,12 @@ export class CoverComponent implements OnInit {
               html: `Dear ${result.value[1].name} you succesfully Registered`,
               confirmButtonText: "Let's Start!"
             });
-            // console.log(window.atob(result.value[1].token.split(".")[1]), 888);
             localStorage.setItem("nickToken", result.value[1].token);
-            this.router.navigate(["api/portals", item.token]);
+            this.router.navigate(["/portals", item.token]);
           }
         });
     }
   }
-
-// lll() {
-//   console.log(898989)
-// }
 
   ngOnInit() {
     //
@@ -136,7 +126,6 @@ export class CoverComponent implements OnInit {
     //
     this.portalService.getAll().subscribe(portals => {
       this.portalData = portals;
-      console.log(this.portalData, 8899)
     });
     //
     this.userAuthService.isAuthenticated().then(result => {
@@ -147,23 +136,23 @@ export class CoverComponent implements OnInit {
       }
     });
     //
-    this.portalService.portalState.subscribe(result => {
-      if (result.state === null) {
-        this.portalService.chekPortalStatus(result.token).subscribe(status => {
-          if (status.private) {
-            this.openModal(status, true);
-          } else {
-            this.openModal(status, false);
-          }
-        });
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "??????????????!",
-          footer: "<a href>Why do I have this issue?</a>"
-        });
-      }
+    this.portalService.showForm().subscribe(result => {
+        if (result && result.state === null) {
+          this.portalService.chekPortalStatus(result.token).subscribe(status => {
+            if (status.private) {
+              this.openModal(status, true);
+            } else {
+              this.openModal(status, false);
+            }
+          });
+        } else if (result) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something Went wrong!",
+            footer: "<a href>Why do I have this issue?</a>"
+          });
+        }
     });
     //
     const userId = this.userAuthService.currentUserValue &&  this.userAuthService.currentUserValue.id;
@@ -188,7 +177,6 @@ export class CoverComponent implements OnInit {
     });
 
     this.chatService.endOfPortal.subscribe((data: any) => {
-      alert('in cover.ts')
       this.portalData.find((portal, index, portalData) => portal.id === data.portalId && (portalData.splice(index, 1)));
     });
   }

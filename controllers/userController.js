@@ -13,13 +13,12 @@ class UserController {
     async showResult(request, response, next) {
         
         try{
-            console.log(32323232323, 'in controller')
             let users = await this.userService.getAllUsers()
             response.json({ users: users })
         }
         catch(e) {
-            console.log(e.message, 15551515151515) /// amena lav error handlingi tex@
-            next(new AppError('wtf', e))
+            console.log(e.message, 15551515151515)
+            next(new AppError('wt', e))
         }
     }
 

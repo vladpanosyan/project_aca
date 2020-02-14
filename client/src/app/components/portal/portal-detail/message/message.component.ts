@@ -3,7 +3,6 @@ import { ChatService } from "src/app/services/chat/chat.service";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { PortalService } from "src/app/services/portal/portal.service";
 import { QuestionService } from "src/app/services/question/question.service";
-// import { Observable, Subject } from "rxjs";
 
 @Component({
   selector: "app-message",
@@ -40,9 +39,10 @@ export class MessageComponent implements OnInit {
   sendMessgeQuestion(answer) {
     this.questionService.canScrollSubject.next(true);
     if (answer.trim()) {
-      const userId = this.userData.id;
+      const userId     = this.userData.id;
+      const portalId   = this.currTop10Nick.nickss.portalId;
       const questionId = this.currTop10Nick.id;
-      this.chatService.answQuestion({userId, questionId, answer} );
+      this.chatService.answQuestion({userId, questionId, answer, portalId} );
       this.message = "";
     }
   }
@@ -50,7 +50,7 @@ export class MessageComponent implements OnInit {
   ngOnInit() {
     this.isUserInSelfPortal =
       this.userAuthService.UserLoggedStatus &&
-      this.portalService.isPortalisMakeUser(this.portalService.getPortalId);
+      this.portalService.isPortalisMakeUser(this.portalService.getPortalId, null);
 
     this.questionService.recivierAns
     .subscribe(nick => {

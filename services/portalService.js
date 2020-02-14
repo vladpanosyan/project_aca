@@ -1,9 +1,10 @@
 const URLToken = require('./../HELPERS/utils/JWT')
 const AppError = require ('./../HELPERS/ErrorHandling/AppError')
 
-class Portals {
-    constructor(portalDal) {
+class Portals { 
+    constructor(portalDal, logger) {
         this.portalDal = portalDal
+        this.logger    = logger;
     }
     async createPortal(data) {
         const token = new URLToken({id: data.userId, start: data.start}).createTokenForURL();
@@ -12,7 +13,7 @@ class Portals {
         if (portal) {
             return portal
         } else {
-            errorLog('portal not creted')
+            this.logger.info('portal not creted')
         } 
     }
 
@@ -45,11 +46,19 @@ class Portals {
     async getActivePortal(userId) {
         const activePortal = await this.portalDal.getActivePortal(userId);
         if(activePortal) {
-            console.log(activePortal, 22222222)
             return activePortal;
         } 
         return {
             message: 'Active Portal not exist'
+        }
+    }
+
+    async getCurrentPortal(token) {
+        const currPortal = await this.portalDal.getCurrentPortal(token);
+        if (currPortal) {
+            return currPortal[0];
+        } else {
+            throw new Error('portal not exist');
         }
     }
 
@@ -58,7 +67,7 @@ class Portals {
         if(deletedPortal) {
             return deletedPortal
         } else {
-            errorLog('portal not found for deleting')
+            this.logger.info('portal not found for deleting')
         }
     }
 
@@ -82,8 +91,9 @@ class Portals {
         let portalStatus = await this.portalDal.getPortalStatus(token);
         if (portalStatus) {
             return portalStatus;
+        } else {
+            throw new Error("No Portal Portal POrtal .........");
         }
-        throw new Error("No Portal Portal POrtal .........");
     }
     //
     async finishPortal(portalId) {
@@ -99,6 +109,13 @@ class Portals {
    async AddToOutline(portalId) {
         const isRemoved = await this.portalDal.AddToOutline(portalId);
         return isRemoved;
+    }
+    async getPortalIdFromToken(token) {
+        const portalId = await this.portalDal.getPortalIdFromToken(token)
+        if(portalId) {
+            return portalId.id;
+        }
+        return;
     }
 }
 

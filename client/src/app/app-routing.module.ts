@@ -12,7 +12,6 @@ import { NickNameService } from "./services/nickName/nick-name.service";
 import { AnswerService } from "./services/answer/answer.service";
 import { InterceptorService } from "./services/interceptor/interceptor.service";
 import { JwtInterceptor } from "./services/interceptor/interceptorJWT.service";
-// import { ChatService } from "./services/chat/chat.service";
 import { QuestionService } from "./services/question/question.service";
 
 // forms
@@ -36,49 +35,53 @@ import { SettingsComponent } from "./components/portal/portal-detail/settings/se
 // guard
 import { AuthGuard } from "./guards/auth.guard";
 import { SubscriberGuard } from "./guards/subscriber.guard";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "api/cover",
+    redirectTo: "cover",
     pathMatch: "full"
   },
   {
-    path: "api/cover",
+    path: "cover",
     component: CoverComponent
   },
   {
-    path: "api/users/home",
+    path: "users/home",
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: "api/users/register",
+    path: "users/register",
     component: UserRegistrationComponent
   },
   {
-    path: "api/users/login",
+    path: "users/login",
     component: UserLoginComponent
   },
   {
-    path: "api/portals/:token",
+    path: "portals/:token",
     component: PortalDetailComponent,
     canActivate: [SubscriberGuard]
   },
   {
-    path: "api/portals",
-    component: PortalComponent
+    path: "portals",
+    component: PortalComponent,
+    canActivate: [AuthGuard]
   },
-  // {
-  //   path: "api/users/auth/facebook",
-  //   component: ProfileComponent
-  // },
   {
-    path: "api/users/profile/:id",
-    // redirectTo: "api/users/profile",
-    // pathMatch: "full",
+    path: "users/profile/:id",
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: "404",
+    component: NotFoundComponent
+  },
+  {
+    path: "**",
+    redirectTo: "404"
   }
 ];
 
@@ -97,7 +100,8 @@ const routes: Routes = [
     Top10ListComponent,
     MessageComponent,
     QuestionComponent,
-    SettingsComponent
+    SettingsComponent,
+    NotFoundComponent
   ],
   imports: [
     NgbdDatepickerPopupModule,
@@ -114,7 +118,6 @@ const routes: Routes = [
     PortalService,
     NickNameService,
     AnswerService,
-    // ChatService,
     QuestionService,
     {
       provide: HTTP_INTERCEPTORS,
