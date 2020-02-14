@@ -7,11 +7,10 @@ class QuestionController {
         try{
             const portalToken = request.params.token
             let questions = await this.questionService.getAllQuestions(portalToken)
-            // console.log(questions, 4444444)
             response.json( questions )
         }
         catch(e) {
-            console.log(e, 111222111222333) /// amena lav error handlingi tex@
+            this.loger(`${e} - ${e.message}`) /// amena lav error handlingi tex@
             response.status(400).send({
                 success: "fail",
                 message: "questions not found, false portal adress"
@@ -31,7 +30,9 @@ class QuestionController {
         const questionId = await this.questionService.deleteById(request.params.id)
         if (questionId) {
             response.status(200).end(`questionId in id - ${questionId.id} has deleted`)
-        } else('User not found for deleting')
+        } else {
+            this.logger.info('User not found for deleting')
+        }
     }
 
     async getTop10(request, response) {
@@ -40,7 +41,7 @@ class QuestionController {
             const top10 = await this.questionService.getTop10(portalId);
             response.json(top10);
         } catch (error) {
-            console.log(error.message, 222222)
+            this.logger.error(`${error.message} - ${error.stack}`);
         }
     }
 }

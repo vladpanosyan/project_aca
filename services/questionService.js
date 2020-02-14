@@ -7,18 +7,15 @@ class Questions {
         if (question) {
             return question
         } else {
-            errorLog('question not creted')
+            this.logger.info('question not creted')
         } 
-        // console.log("question created", 555555, data)
     }
+
     async getAllQuestions(portalToken) {
         let questions = await this.questionDal.getAllQuestions(portalToken);
-        // console.log(JSON.stringify(questionLikers, null, 2))
-        // console.log(JSON.stringify(questions, null, 2));
         if (questions) {
             return questions
         } else {
-            // errorLog('questions not foud')// es error@ catch e linum routneri mej
             throw new Error('PORTAL NOT EXIST')
         } 
     }
@@ -27,7 +24,7 @@ class Questions {
         if(deletedQuestion) {
             return deletedQuestion
         } else {
-            errorLog('question not found for deleting')
+            this.loger.info('question not found for deleting')
         }
     }
 
