@@ -14,8 +14,6 @@ let transporter = nodemailer.createTransport({
 });
 
 module.exports = (email, portalURL) => {
-    console.log(process.env.SENDER_MAIL_ADRESS, process.env.SENDER_MAIL_PASSWORD,141414)
-    console.log(portalURL, 1313313)
     const mailOptions = {
         from: process.env.SENDER_MAIL_ADRESS,
         to: [...email],

@@ -15,7 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 module.exports = (async (message) => {
   if (message) {
     app.get('/*', (req, res) => {
-      console.log(message, 111111444444) 
       res.render('error', {message})
     })
     return app;
@@ -29,11 +28,10 @@ module.exports = (async (message) => {
     app.use(function (req, res, next) {
       next(createError(404));
     });
-    // error handler;;;;;3333
+    // error handler
     app.use(function (err, req, res, next) {
-      logger.error(err, 991)
-      logger.info(err.message, 991)
-      console.log(err.message, 999)
+      logger.error(`${err} -> error inside app.js`);
+      logger.info(`${err.message} -> error inside app.js`);
       res.locals.message = err.message;
       res.locals.error = req.app.get('env') === 'development' ? err : {};
       res.status(err.status || 500);

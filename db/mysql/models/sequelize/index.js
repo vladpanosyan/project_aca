@@ -34,7 +34,7 @@ Object.keys(db).forEach(modelName => {
 module.exports = sequelize
     .authenticate()
     .then(() => {
-        console.log('SEQUELIZE - Connection has been established successfully.');
+      logger.info('SEQUELIZE - Connection has been established successfully.');
         
     })
     .then(async () => {

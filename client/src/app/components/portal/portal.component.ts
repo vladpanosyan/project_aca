@@ -21,18 +21,14 @@ export class PortalComponent implements OnInit {
     this.portalService.currentPortalIdSubject.next(portalData.id);
     this.portalService.currentPortalSubject.next(portalData);
     this.router.navigate(["/portals", portalData.token]);
-    // console.log(portalData);
   }
-  // [routerLink]="['/api/portals', item.token]"
-
   ngOnInit() {
     const currentUserId = this.userAuthService.currentUserValue.id;
     this.portalService.getActivePortal(currentUserId)
     .subscribe(portal => {
       this.portals = portal;
-      console.log(this.portals, 7777);
     });
-    this.portalService.getUserPortals(currentUserId).subscribe(portals => console.log(portals, 7))
+    this.portalService.getUserPortals(currentUserId).subscribe(portals => portals);
     this.userAuthService.isAuthenticated().then(result => {
       if (result) {
         this.userAuthService.setLogin();

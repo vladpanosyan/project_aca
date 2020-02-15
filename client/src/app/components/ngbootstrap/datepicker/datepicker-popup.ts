@@ -1,8 +1,5 @@
-import { Component, forwardRef, Injector, OnInit } from "@angular/core";
-import { DatePipe } from "@angular/common";
+import { Component, forwardRef, OnInit } from "@angular/core";
 import {
-  ControlValueAccessor,
-  NgControl,
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
 
@@ -19,7 +16,6 @@ import {
 })
 export class NgbdDatepickerPopup {
   value: any;
-  // private ngControl: NgControl;
   constructor() {}
 
   private onChange: any = () => { };
@@ -36,19 +32,13 @@ export class NgbdDatepickerPopup {
   }
   public registerOnChange(fn: any) {
     this.onChange = fn;
-    this.onChange(this.value); // for OnInit cycle
+    this.onChange(this.value);
   }
 
   public registerOnTouched(fn: any) {
-    // this.onTouched = fn;
   }
 
-  //   public setDisabledState(isDisabled: boolean) {
-  //     //
-  //   }
-
   private transformDate(value: any) {
-    // console.log(value, 999);
     return this.value;
   }
 

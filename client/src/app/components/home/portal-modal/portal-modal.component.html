@@ -12,16 +12,10 @@
         <label for="portalTitle">Title</label>
         <div class="input-group">
           <input id="portalTitle" class="form-control" formControlName="title" name="title" type="text" #title>
-          <!-- <div class="input-group-append">
-            <button class="btn btn-outline-secondary calendar" type="button"></button>
-          </div> -->
         </div>
         <!-- date -->
         <label for="dateOfStart">Date of start</label>
         <ngbd-datepicker-popup [formControl]="portalForm.controls['date']"></ngbd-datepicker-popup>
-        <!-- <div class="input-group">
-          <input id="dateOfStart" class="form-control" formControlName="date" name="dp" type="date" #dp>
-        </div> -->
         <!-- time -->
         <label for="timeOfStart">Time of start</label>
         <div class="input-group">
@@ -45,5 +39,4 @@
 </div>
 
 <hr>
-
 <pre>{{closeResult}}</pre>

@@ -3,8 +3,9 @@ const JWT = require('./../HELPERS/utils/JWT');
 const sendMailer = require('./../HELPERS/utils/sendmailer');
 
 class Users {
-    constructor(userDal) {
-        this.userDal = userDal
+    constructor(userDal, logger) {
+        this.userDal = userDal;
+        this.logger  = logger;
     }
     async createUser(data) {
         try {
@@ -18,25 +19,15 @@ class Users {
                 user.access_token = token;
                 return user
             } else {
-                // console.log(user, 55555555555)
+                this.logger.error(`${user} -> inside createUser(Service) `)
             }
             
         } catch (error) {   
-            console.log(error.message, "from-> userService")
+            this.logger(`${error.message} from-> userService`)
             throw new AppError(error.message, error)
         }
     }
     
-    async getAllUsers() {
-        let user = await this.userDal.getAll()
-        if (user) {
-            return user
-        } else {
-            // errorLog('user not foud')// es error@ catch e linum routneri mej
-            throw new Error('USER NOT EXIST')
-        }
-    }
-
     async getUserById(id) {
         let user = await this.userDal.getByUserId(id)
         return user;
@@ -57,23 +48,7 @@ class Users {
         return;
     }
 
-    async deleteById(id) {
-        let deletedUser = await this.userDal.deleteUser(id);
-        if (deletedUser) {
-            return deletedUser
-        } else {
-            errorLog('user not found for deleting')
-        }
-    }
-    async updateUserById(id, data) {
-        let updatedUser = await this.userDal.updatedUser(id, data)
-        if (updatedUser) {
-            return updatedUser
-        } else errorLog('user not found for Updateing')
-    }
-
     // check token for authorization or authentication
-
     checkTokenValid(access_token) {
         try {
             const tokenObj = new JWT();
@@ -91,13 +66,12 @@ class Users {
     }
 
     // send Email to ...
-    
     async sendMail(emailArr, portalURL) {
         try {
             const info = await sendMailer(emailArr, portalURL);
             return info;
         } catch (error) {
-            console.log(error, 33333);
+            this.logger.error(error);
            return error.message; 
         }
     }

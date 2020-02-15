@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
+const router  = express.Router();
+const logger  = require('./../HELPERS/logger/ErrorLog');
 
 module.exports = (userController, authMiddleware, facebookFuture) => {
   try {
-    router.get('/', userController.showResult.bind(userController));
     router.get('/profile/:id', authMiddleware, userController.getUsersById.bind(userController));
     
     router.post('/register', userController.createUser.bind(userController));
@@ -14,6 +14,6 @@ module.exports = (userController, authMiddleware, facebookFuture) => {
     return router;
 
   } catch (error) {
-      console.log('Connection Error "from -> userRouter"', error.message, 1616161616)
+      logger(`Connection Error "from -> userRouter", ${error.message}`)
   }
 }

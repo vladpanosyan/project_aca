@@ -25,7 +25,6 @@ module.exports = (passport) => (app) => {
                 }
             })
         } catch (error) {
-            console.log(error.messge, 59595959999995)
             done(error)
         }
     }))
@@ -35,7 +34,6 @@ module.exports = (passport) => (app) => {
         profileFields: ['id', 'displayName', 'picture.type(large)', 'email', 'first_name', 'last_name']
     }, async (accessToken, refreshToken, profile, done) => {
         try {
-            console.log(profile._json, 7402)
             const { email, first_name, last_name } = profile._json;
             let user = await Users.findOrCreate({
                 attributes: ['id', 'firstName', 'lastName', 'img', 'time', 'email'],

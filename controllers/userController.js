@@ -6,20 +6,9 @@ const {
 } = require('./../HELPERS/validation/userValidation')
 
 class UserController {
-    constructor(userService) {
-        this.userService = userService
-    }
-    // find
-    async showResult(request, response, next) {
-        
-        try{
-            let users = await this.userService.getAllUsers()
-            response.json({ users: users })
-        }
-        catch(e) {
-            console.log(e.message, 15551515151515)
-            next(new AppError('wt', e))
-        }
+    constructor(userService, logger) {
+        this.userService = userService,
+        this.logger = logger
     }
 
     //create 
@@ -27,8 +16,6 @@ class UserController {
         try {
             const user = request.body;
             const isValidUserData = userValidation(request.body)
-            console.log(isValidUserData.error, 210989)
-    
             if(isValidUserData.error === null) {
                 const userData = await this.userService.createUser(user)
                 response.json(userData)
@@ -39,16 +26,16 @@ class UserController {
             }
             
         } catch (error) {
-            // next(new AppError(error.message, error))
-            console.log(error.message, 5353553)
-            response.status(501).json({
+            this.logger.error(`${error.message} - ${error.stack}`)
+            response
+            .status(501)
+            .json({
                 userData: 'no_user_data'
             })
         }
     }
     
-    async userLogin(request, response, next) {
-        // const { username, password } = request.body;
+    async userLogin(request, response) {
         try {
             const loginData = request.body;
             const isValidLoginData = userLoginValidation(loginData);
@@ -57,10 +44,13 @@ class UserController {
                 if(user) {
                     response.json(user);
                 } else {
-                   throw new Error('invalid login data') 
+                    this.logger.info('user not found in db-> UserLogin(controller');
+                   response
+                   .status(404)
+                   .end('Not found user') 
                 }
             } else {
-                console.log(21098912)
+                this.logger.info('not valid user credentials');
                 response
                 .status(401)
                 .json({
@@ -68,8 +58,10 @@ class UserController {
                 })
             }
         } catch (error) {
-            console.log(error.message, 2000000000)
-            response.status(501).json({
+            this.logger.error(`${error.message} -> JWT trown error; userLogin (userController)`)
+            response
+            .status(501)
+            .json({
                 userData: 'login data incorrect'
             })
         }
@@ -86,16 +78,19 @@ class UserController {
     async getUsersById(request, response, next) {
         const Id = request.params.id
         const user = await this.userService.getUserById(Id)
-        console.log('inside cuserController', 3636)
         if (user) {
             response.status(200).json(user)
-        } else next('User not found for get')
+        } else {
+            this.logger.error('User not found by Id -> (userController)')
+            response.status(404).send('User not found by Id')
+        }
+        
     }
 
     // check FC auth login
     async facebookAuthCheck(request, response, next) {
         if ( !request.user) {
-            response.send(401, 'user not found Bro')
+            response.status(404).send('user not found Bro')
         }
         const payload = {
             id: request.user.id,
@@ -105,24 +100,6 @@ class UserController {
         const access_token = this.userService.generateTokenForSocila(payload);
         request.user.access_token = access_token;
         response.json(request.user);
-    }
-
-    // delete by id
-    async deleteUser(request, response, next) {
-        console.log(request.params.id)
-        const userId = await this.userService.deleteById(request.params.id)
-        if (userId) {
-            response.status(200).end(`userId in id - ${userId.id} has deleted`)
-        } else next('User not found for deleting')
-    }
-    // updete
-    async updateUser(request, response, next) {
-        const Id = request.params.id;
-        const newData = request.body;
-        let newUser = await this.userService.updateUserById(Id, newData)
-        if (newUser) {
-            response.status(200).end(`userId in Id - ${Id} has updated. New data is ${JSON.stringify(newData)}`)
-        } else next(`User not found for Updateing`)
     }
 
     // send email to ...

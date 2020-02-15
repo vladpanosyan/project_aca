@@ -5,9 +5,7 @@ import {
   RouterStateSnapshot,
   Router
 } from "@angular/router";
-import { map } from "rxjs/operators";
 import { NickNameService } from "src/app/services/nickName/nick-name.service";
-import { Observable, of } from "rxjs";
 import { PortalService } from "../services/portal/portal.service";
 import { UserAuthService } from "../services/auth/user-auth.service";
 

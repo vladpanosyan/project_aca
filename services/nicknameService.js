@@ -5,7 +5,7 @@ class Nicknames {
         this.nicknameDal = nicknameDal;
         this.logger      = logger;
     }
-    async createNickname(data) { // ste hnaravora token.verify hamar vercvi try catch mej, ete frontic hankarc sxal nicktoken ga
+    async createNickname(data) {
         data.image = process.env.NICK_USER_DEFAULT_IMAGE;
         let nickname = await this.nicknameDal.createData(data);
 
@@ -20,7 +20,6 @@ class Nicknames {
                 const { id, name } = nickname;
                 const datas = {};
                 datas[nickname['portalId']] = id;
-                console.log(datas, 333111);
                 let payload = { id, name, datas };
                 const tokenObj = new JWT(payload);
                 const token = tokenObj.createToken();

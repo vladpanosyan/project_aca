@@ -45,7 +45,7 @@ export class SendMailModalComponent implements OnInit {
           this.fails = false;
           this.userService
             .sendMail(result.value, this.url)
-            .subscribe(info => console.log(info, 789));
+            .subscribe(info => info);
         },
         reason => {
           // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

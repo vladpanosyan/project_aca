@@ -25,7 +25,6 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   questions: any[] = [];
   isLiked = false;
   destroy$: Subject<boolean> = new Subject<boolean>();
-  // canAutoScroll = true;
   constructor(
     private questionService: QuestionService,
     private chatServise: ChatService,
@@ -94,7 +93,6 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
   }
 
-  // if user or subscriber are liked a question
   isNickLiked(questionItem) {
     const us_erID = this.currUserID;
     const value = questionItem.questionLikers
@@ -162,7 +160,6 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
       });
     //
     this.chatService.updateAvatarS.subscribe(data => {
-      console.log(this.questions, 120);
       this.questions.find(
         item => item.nickss.id === data.id && (item.nickss.image = data.avatar)
       );
@@ -176,9 +173,7 @@ export class QuestionComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngOnDestroy() {
-    // if (!this.portalService.isPortalisMakeUser(this.portalId, null)) {
     this.chatServise.socketDisconnect(this.nickData);
-    // }
     this.destroy$.next(true);
     this.destroy$.complete();
   }

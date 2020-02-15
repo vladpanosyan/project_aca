@@ -63,10 +63,6 @@ export class PortalService {
     return this.portalStatusSubject.value;
   }
 
-  // get getIsPortalofUser {
-  //   return this.isPortalOfUser.value;
-  // }
-
   addPortal(data: any): Observable<any> {
     return this.http
       .post<any>("api/portals/addPortal", data)
@@ -100,8 +96,6 @@ export class PortalService {
       })
     );
   }
-
-
 
   getActivePortal(currentUserId): Observable<any> {
     return this.http

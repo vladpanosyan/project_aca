@@ -1,3 +1,4 @@
+const logger = require('./../logger/ErrorLog')
 module.exports = async (socketIo) => {
     const { SERVICES } = await require('../../app_init/dal_service_init')();
     socketIo.on('connection', socket => {
@@ -16,10 +17,6 @@ module.exports = async (socketIo) => {
                 if (isRemoved) {
                     socketIo.emit('remove_to_online', nickData.portalId)
                 }
-            })
-    
-            socket.on('curr_nick', (nickName) => {
-                console.log(nickName, 88888888)
             })
     
             socket.on('joinRoom', room => {
@@ -46,7 +43,6 @@ module.exports = async (socketIo) => {
     
             socket.on('send_question', async ({portalId, ...message}) => {
                 const { Answers } = SERVICES;
-                console.log(portalId, message, 111111111) 
                 const answer = await Answers.addAnswer(message);
                 const id = answer.id;
                 const fullAnswer = await Answers.getCurrentAnswer(id);
@@ -55,7 +51,6 @@ module.exports = async (socketIo) => {
     
             //get likes count
             socket.on("get_likes_count", (data, action) => {
-                console.log(data, action, 5555555)
                 socketIo.to(data.portalId).emit("sendLikesCount", data);
                 const { Nick_likes } = SERVICES;
                 if (action === "plus") {
@@ -82,7 +77,8 @@ module.exports = async (socketIo) => {
             })
             
         } catch (error) {
-            console.log(error.message, 3333333333)
+            logger.error(error.message)
+            logger.info(error.message)
         }
     })
 }

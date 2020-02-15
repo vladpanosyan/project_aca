@@ -14,8 +14,6 @@ module.exports = class Question {
     async getAllQuestions(portalToken) {
         let portalId = await this.models.Portals.findOne({raw: true,attributes: ['id'], where: {token: portalToken}})
         let questions = await this.models.Questions.findAll({
-            // raw: true,
-            // nest: true,
             attributes: ['id', 'question', 'time'],
             required: true,
             where: {
@@ -28,17 +26,9 @@ module.exports = class Question {
             }, {
                 model: this.models.Nick_likes,
                 as: 'questionManyLikes',
-                // attributes: [[sequelize.fn('count', sequelize.col(`questionManyLikes.questionId`)), 'likeTotal']],
             }],
-            // group: ['Questions.id'],            
             order: [[sequelize.literal('Questions.time'), 'ASC']],
         })
-
-        // questions.forEach(item => {
-        //     console.log(item.get('nickss', {plain: true}))
-        //     console.log(item.get('questionManyLikes', {plain: true}))
-        //     console.log(item)
-        // })
 
         questions = questions.reduce((arr, question) => {
             const nickss = question.get('nickss', {plain: true});
@@ -67,7 +57,6 @@ module.exports = class Question {
                 return arr
             }
         }, [])
-        // console.log(JSON.stringify(questions, null, 2));
         return questions;
     }
 
@@ -92,7 +81,6 @@ module.exports = class Question {
             limit: 10,
             subQuery: false
         });
-        // console.log(JSON.stringify(getTop10, null, 2), 8888888888888);
         return getTop10;
     }
 
