@@ -49,7 +49,6 @@ module.exports = async (socketIo) => {
                 socketIo.to(portalId).emit('answ_message', fullAnswer);
             })
     
-            //get likes count
             socket.on("get_likes_count", (data, action) => {
                 socketIo.to(data.portalId).emit("sendLikesCount", data);
                 const { Nick_likes } = SERVICES;

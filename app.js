@@ -10,7 +10,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(express.static(path.join(__dirname, 'public1')));
+app.use(express.static(path.join(__dirname, 'public1')));
 
 module.exports = (async (message) => {
   if (message) {
@@ -21,9 +21,9 @@ module.exports = (async (message) => {
   } else {
     const apiRouter = await require('./routes')(logger)
     app.use('/api', apiRouter);
-    // app.get('/*', (req, res) => {
-    // res.sendFile(path.join(__dirname, 'public1/index.html'))
-    // })
+    app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public1/index.html'))
+    })
     
     app.use(function (req, res, next) {
       next(createError(404));

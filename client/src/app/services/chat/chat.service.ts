@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { Socket, } from "ngx-socket-io";
 import { Subject, Observable } from "rxjs";
 
-
 @Injectable({
   providedIn: "root"
 })

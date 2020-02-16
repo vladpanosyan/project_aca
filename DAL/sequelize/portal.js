@@ -23,7 +23,6 @@ module.exports = class Portal {
             where: {
                 isFinished: 0
             },
-            // required: true,
             include: [{
                 model: this.models.Users,
                 as: 'portalToUser',
@@ -32,8 +31,6 @@ module.exports = class Portal {
                 attributes: [[sequelize.fn('count', sequelize.col(`Portals.id`)), 'questionsInPortal']],
                 as: 'portalManyQuestion',
                 model: this.models.Questions,
-                // required: true,
-                // attributes: []
             }],
             group: ['Portals.id']
         })
@@ -57,7 +54,6 @@ module.exports = class Portal {
 
     async getActivePortal(userId) { 
         const activePortal = await this.model.findAll({
-            // raw: true,
             where: {
                 isStarted: 1,
                 isFinished: 0,

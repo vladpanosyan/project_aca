@@ -29,7 +29,6 @@ class Portals {
         if (portal) {
             return portal
         } else {
-            // errorLog('portal not foud')// es error@ catch e linum routneri mej
             throw new Error('PORTAL NOT EXIST')
         } 
     }
@@ -71,7 +70,6 @@ class Portals {
         }
     }
 
-    // 
     async checkToken(data) {
         const isValid = await this.portalDal.checkToken(data);
         if (isValid) {
@@ -86,7 +84,7 @@ class Portals {
             }
         }
     }
-    //
+
     async getPortalStatus(token) {
         let portalStatus = await this.portalDal.getPortalStatus(token);
         if (portalStatus) {
@@ -95,12 +93,12 @@ class Portals {
             throw new Error("No Portal Portal POrtal .........");
         }
     }
-    //
+
     async finishPortal(portalId) {
         const isFinished = await this.portalDal.finishPortal(portalId);
         return isFinished;
     }
-    //
+
     async addToOnline(portalId) {
         const isAdded = await this.portalDal.addToOnline(portalId);
         return isAdded;

@@ -1,6 +1,5 @@
 <div class="container">
     <h1 *ngIf="user">{{user.name}}</h1>
-
     <hr>
     <div class="card bg-light">
         <article class="card-body mx-auto" style="width: 400px;">
@@ -10,14 +9,11 @@
                 <a href="#" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
                 <a (click)="signInWithFB()" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via
                     facebook</a>
-                <!-- <a href="api/users/auth/facebook" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via
-                    facebook</a> -->
             </p>
             <p class="divider-text">
                 <span class="bg-light">OR</span>
             </p>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> 
-                <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend" [ngClass]="detectClass('firstName')">
                         <span class="input-group-text"> <i class="fa fa-user" ></i> </span>
@@ -58,8 +54,6 @@
                 </div> <!-- form-group// -->
             </form>
         </article>
-    </div> <!-- card.// -->
+    </div>
 
 </div>
-<!--container end.//-->
-<p>{{ user }}</p>

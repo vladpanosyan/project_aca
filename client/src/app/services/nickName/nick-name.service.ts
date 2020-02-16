@@ -1,10 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable, of } from "rxjs";
-
 import { map } from "rxjs/operators";
-// import { PreloadAllModules } from '@angular/router';
-
 
 @Injectable({
   providedIn: "root"
@@ -52,7 +49,7 @@ export class NickNameService {
       .post("api/nicknames/addNickname", { nickName, portalId, nickToken})
       .pipe(
         map(nick => {
-          this.currentNickSubjectToken.next(nick["token"]); 
+          this.currentNickSubjectToken.next(nick["token"]);
           this.nickDataSubject.next(nick);
           return nick;
         })

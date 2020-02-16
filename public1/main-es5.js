@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"list-type5\">\r\n    <!-- <pre>{{ portalData | json }}</pre> -->\r\n    <ol *ngFor=\"let item of portalData\">\r\n        <li *ngIf=\"item.private\" (click)=\"item.isStarted && openModal(item, true)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <!-- <p>{{ item|json }}</p> -->\r\n            <span >{{ item.name }}</span>\r\n            <i class=\"fas fa-lock\"></i>\r\n            <span style=\" color: azure;\"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n\r\n            <!-- {{item.private ? '-private' : '-public'}} ------ {{ item.userId }} -->\r\n        </li>\r\n        <li *ngIf=\"!item.private\" (click)=\"item.isStarted && openModal(item, false)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <!-- <p>{{ item|json }}</p> -->\r\n            <span>{{ item.name }}</span>\r\n            <i class=\"fas fa-lock-open\"></i>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'In Process ' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n\r\n            <!-- {{item.private ? '-private' : '-public'}}  ------ {{ item.userId }} -->\r\n        </li>\r\n    </ol>\r\n</div>  ";
+    __webpack_exports__["default"] = "<div class=\"list-type5\">\r\n    <ol *ngFor=\"let item of portalData\">\r\n        <li *ngIf=\"item.private\" (click)=\"item.isStarted && openModal(item, true)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <span >{{ item.name }}</span>\r\n            <i class=\"fas fa-lock\"></i>\r\n            <span style=\" color: azure;\"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n        </li>\r\n        <li *ngIf=\"!item.private\" (click)=\"item.isStarted && openModal(item, false)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <span>{{ item.name }}</span>\r\n            <i class=\"fas fa-lock-open\"></i>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'In Process ' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n        </li>\r\n    </ol>\r\n</div>  ";
     /***/
   },
 
@@ -91,7 +91,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n  \r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav ml-auto\">\r\n        <li class=\"nav-item active\" routerLinkActive=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"/\"><span class=\"sr-only\">(current)</span>Main</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"isLoggedIn\" class=\"nav-link\" routerLink=\"/users/home\">Home</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" [routerLink]=\"['/users/profile', currentUser.id]\">MyProfile</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"portals\">Portals</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"!isLoggedIn\" class=\"nav-link\" routerLink=\"users/register\">Registration</a>\r\n        </li>\r\n       \r\n        <li *ngIf=\"!isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"users/login\">Login</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\">\r\n          <a class=\"nav-link\" (click)=\"logout()\" href=\"#\">LogOut</a>\r\n        </li>\r\n         <li>\r\n          <a class=\"nav-link\" [routerLink]=\"['/portals/active']\">TEST</a> \r\n        </li>\r\n         <li *ngIf=\"isLoggedIn\" class=\"d-flex align-items-center\">\r\n          <img [src]=\"currentUser?.img\" alt=\"\" width=\"30\" height=\"30\" class=\"rounded\">\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n";
+    __webpack_exports__["default"] = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n  \r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav ml-auto\">\r\n        <li class=\"nav-item active\" routerLinkActive=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"/\"><span class=\"sr-only\">(current)</span>Main</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"isLoggedIn\" class=\"nav-link\" routerLink=\"/users/home\">Home</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" [routerLink]=\"['/users/profile', currentUser.id]\">MyProfile</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"portals\">Portals</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"!isLoggedIn\" class=\"nav-link\" routerLink=\"users/register\">Registration</a>\r\n        </li>\r\n       \r\n        <li *ngIf=\"!isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"users/login\">Login</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\">\r\n          <a class=\"nav-link\" (click)=\"logout()\" href=\"#\">LogOut</a>\r\n        </li>\r\n         <li *ngIf=\"isLoggedIn\" class=\"d-flex align-items-center\">\r\n          <img [src]=\"currentUser?.img\" alt=\"\" width=\"30\" height=\"30\" class=\"rounded\">\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n";
     /***/
   },
 
@@ -131,7 +131,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ng-template #content let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Create Your Portal</h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form [formGroup]=\"portalForm\">\r\n      <!-- tittle -->\r\n      <div class=\"form-group\">\r\n        <label for=\"portalTitle\">Title</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"portalTitle\" class=\"form-control\" formControlName=\"title\" name=\"title\" type=\"text\" #title>\r\n          <!-- <div class=\"input-group-append\">\r\n            <button class=\"btn btn-outline-secondary calendar\" type=\"button\"></button>\r\n          </div> -->\r\n        </div>\r\n        <!-- date -->\r\n        <label for=\"dateOfStart\">Date of start</label>\r\n        <ngbd-datepicker-popup [formControl]=\"portalForm.controls['date']\"></ngbd-datepicker-popup>\r\n        <!-- <div class=\"input-group\">\r\n          <input id=\"dateOfStart\" class=\"form-control\" formControlName=\"date\" name=\"dp\" type=\"date\" #dp>\r\n        </div> -->\r\n        <!-- time -->\r\n        <label for=\"timeOfStart\">Time of start</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"timeOfStart\" class=\"form-control\" formControlName=\"time\" name=\"time\" type=\"time\" #time>\r\n        </div>\r\n        <!-- private -->\r\n        <label for=\"timeOfStart\">Create Private Event</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"checkPrivate\" class=\"\" formControlName=\"private\" name=\"private\" type=\"checkbox\" #prcheck>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <span *ngIf=\"!isValidEventData\">Make sure that event date is valid</span>\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"chekEventDataValid(portalForm) && modal.close(portalForm)\">Save</button>\r\n  </div>\r\n</ng-template>\r\n<div class=\"d-flex justify-content-center mt-3\">\r\n  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add Portal</button>\r\n</div>\r\n\r\n<hr>\r\n\r\n<pre>{{closeResult}}</pre>";
+    __webpack_exports__["default"] = "<ng-template #content let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Create Your Portal</h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form [formGroup]=\"portalForm\">\r\n      <!-- tittle -->\r\n      <div class=\"form-group\">\r\n        <label for=\"portalTitle\">Title</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"portalTitle\" class=\"form-control\" formControlName=\"title\" name=\"title\" type=\"text\" #title>\r\n        </div>\r\n        <!-- date -->\r\n        <label for=\"dateOfStart\">Date of start</label>\r\n        <ngbd-datepicker-popup [formControl]=\"portalForm.controls['date']\"></ngbd-datepicker-popup>\r\n        <!-- time -->\r\n        <label for=\"timeOfStart\">Time of start</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"timeOfStart\" class=\"form-control\" formControlName=\"time\" name=\"time\" type=\"time\" #time>\r\n        </div>\r\n        <!-- private -->\r\n        <label for=\"timeOfStart\">Create Private Event</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"checkPrivate\" class=\"\" formControlName=\"private\" name=\"private\" type=\"checkbox\" #prcheck>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <span *ngIf=\"!isValidEventData\">Make sure that event date is valid</span>\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"chekEventDataValid(portalForm) && modal.close(portalForm)\">Save</button>\r\n  </div>\r\n</ng-template>\r\n<div class=\"d-flex justify-content-center mt-3\">\r\n  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add Portal</button>\r\n</div>\r\n\r\n<hr>\r\n<pre>{{closeResult}}</pre>";
     /***/
   },
 
@@ -171,7 +171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\" (click)=\"resetErrorLoginMessage()\">\r\n    <hr>\r\n    <div class=\"card bg-light\">\r\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\r\n            <div *ngIf=\"error\" class=\"error\">\r\n                <p>{{ error }}</p>\r\n            </div>\r\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\r\n            <p class=\"text-center\">Get started with your free account</p>\r\n            <p>\r\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\r\n                <a class=\"btn btn-block btn-facebook\" (click)=\"signInWithFB()\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a>\r\n            </p>\r\n            <p class=\"divider-text\">\r\n                <span class=\"bg-light\">OR</span>\r\n            </p>\r\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"userLogin()\"> \r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\">\r\n                </div> \r\n\r\n                <!-- form-group end.// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" >\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button class=\"btn btn-primary btn-block\"> LogIn </button>\r\n                </div> <!-- form-group// -->\r\n               \r\n            </form>\r\n        </article>\r\n    </div> <!-- card.// -->\r\n\r\n</div>";
+    __webpack_exports__["default"] = "<div class=\"container\" (click)=\"resetErrorLoginMessage()\">\r\n    <hr>\r\n    <div class=\"card bg-light\">\r\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\r\n            <div *ngIf=\"error\" class=\"error\">\r\n                <p>{{ error }}</p>\r\n            </div>\r\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\r\n            <p class=\"text-center\">Get started with your free account</p>\r\n            <p>\r\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\r\n                <a class=\"btn btn-block btn-facebook\" (click)=\"signInWithFB()\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a>\r\n            </p>\r\n            <p class=\"divider-text\">\r\n                <span class=\"bg-light\">OR</span>\r\n            </p>\r\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"userLogin()\"> \r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\">\r\n                </div> \r\n\r\n                <!-- form-group end.// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" >\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button class=\"btn btn-primary btn-block\"> LogIn </button>\r\n                </div> <!-- form-group// -->\r\n               \r\n            </form>\r\n        </article>\r\n    </div>\r\n\r\n</div>";
     /***/
   },
 
@@ -211,7 +211,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h1>not-found works!</h1>\r\n";
+    __webpack_exports__["default"] = "<h1>page not found</h1>\r\n";
     /***/
   },
 
@@ -231,7 +231,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <div class=\"wrapper\"> -->\r\n    <div class=\"ch_list_header\">\r\n        <h4>Answer To Questions</h4>\r\n    </div>\r\n    <!-- {{ portalData | json}} -->\r\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\r\n        <ul class=\"\">\r\n            <div class=\"force-overflow\"></div>\r\n            <li *ngFor=\"let item of answers\">\r\n                <!-- {{item | json}} -->\r\n                <!-- {{ item.answerToQuestion.question }} - {{ item.answer }} -->\r\n                <div class=\"item\">\r\n                    <div class=\"question d-flex flex-column\">\r\n                        <div class=\"q_data d-flex\">\r\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\r\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\r\n                        </div>\r\n                        <div class=\"q_q d-flex\">\r\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"answer\">\r\n                        <div class=\"a_data d-flex\">\r\n                            <span><img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img \" alt=\"\"></span>\r\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\r\n                        </div>\r\n                        <div class=\"current_answer d-flex flex-column\">\r\n                            {{ item.answer }}\r\n                        </div> \r\n                        <span>{{ item.time | date: 'medium' }}</span>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n<!-- </div> -->\r\n";
+    __webpack_exports__["default"] = "    <div class=\"ch_list_header\">\r\n        <h4>Answer To Questions</h4>\r\n    </div>\r\n    <div class=\"list scrollbar scrollbar-near-moon\" #scrollMe>\r\n        <ul class=\"\">\r\n            <div class=\"force-overflow\"></div>\r\n            <li *ngFor=\"let item of answers\">\r\n                <div class=\"item\">\r\n                    <div class=\"question d-flex flex-column\">\r\n                        <div class=\"q_data d-flex\">\r\n                            <span><img [src]=\"item.answerToQuestion.nickss.image\" alt=\"\"></span>\r\n                            <span>{{ item.answerToQuestion.nickss.name }}</span>\r\n                        </div>\r\n                        <div class=\"q_q d-flex\">\r\n                            <div class=\"current_question\">{{ item.answerToQuestion.question }}</div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"answer\">\r\n                        <div class=\"a_data d-flex\">\r\n                            <span><img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img \" alt=\"\"></span>\r\n                            <span>{{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\r\n                        </div>\r\n                        <div class=\"current_answer d-flex flex-column\">\r\n                            {{ item.answer }}\r\n                        </div> \r\n                        <span>{{ item.time | date: 'medium' }}</span>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n";
     /***/
   },
 
@@ -251,7 +251,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"text_container d-flex\">\n    <div class=\"reciever\">\n        <div class=\"rec_wrap\"  *ngIf=\"currTop10Nick?.id\">\n            <!-- {{ currTop10Nick|json }} -->\n            <img [src]=\"currTop10Nick.nickss.image\" alt=\"\">\n            <h4>{{ currTop10Nick.nickss.name }}</h4>\n        </div>\n    </div>\n    <div class=\"txt_area\">\n        <textarea [disabled]=\"!currTop10Nick && isUserInSelfPortal\" (keydown.enter)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\" class=\"form-control form-rounded msg\" rows=\"3\" #msg [(ngModel)]=\"message\" [placeholder]=\"(!currTop10Nick && isUserInSelfPortal) ? '... Choose the one if you need to answer the question': ''\"></textarea>\n    </div>\n    <div class=\"sendbtn\">\n        <button [disabled]=\"!currTop10Nick && isUserInSelfPortal\" class=\"btn btn-dark\" (click)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\">Send</button>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"text_container d-flex\">\n    <div class=\"reciever\">\n        <div class=\"rec_wrap\"  *ngIf=\"currTop10Nick?.id\">\n            <img [src]=\"currTop10Nick.nickss.image\" alt=\"\">\n            <h4>{{ currTop10Nick.nickss.name }}</h4>\n        </div>\n    </div>\n    <div class=\"txt_area\">\n        <textarea [disabled]=\"!currTop10Nick && isUserInSelfPortal\" (keydown.enter)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\" class=\"form-control form-rounded msg\" rows=\"3\" #msg [(ngModel)]=\"message\" [placeholder]=\"(!currTop10Nick && isUserInSelfPortal) ? '... Choose the one if you need to answer the question': ''\"></textarea>\n    </div>\n    <div class=\"sendbtn\">\n        <button [disabled]=\"!currTop10Nick && isUserInSelfPortal\" class=\"btn btn-dark\" (click)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\">Send</button>\n    </div>\n</div>";
     /***/
   },
 
@@ -271,7 +271,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre> 2 -->\r\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\r\n<pre>{{ portalData | json}}</pre>4\r\n<!-- <p>{{ token }}</p> -->\r\n\r\n<div class=\"p_d\">\r\n\r\n    <div class=\"nick_header d-flex\">\r\n        <div class=\"nick_data d-flex\">\r\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\r\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\r\n        </div>\r\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\r\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\r\n        <div class=\"portal_data\">\r\n            <h3>{{ portalData.name }}</h3>\r\n        </div>\r\n    </div>\r\n    <div class=\"wrapper d-flex\">\r\n        <div class=\"messages d-flex\">\r\n            <div class=\"top d-flex\">\r\n                <div class=\"chat_list\">\r\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\r\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\r\n                </div>\r\n                <div class=\"top10_list\">\r\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"wrote_messages\">\r\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions\">\r\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\r\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\r\n        </div>\r\n    </div>\r\n</div>";
+    __webpack_exports__["default"] = "<!-- <pre *ngIf=\"nickData?.id\">{{ nickData | json}}</pre> 2 -->\r\n<!-- <pre *ngIf=\"userData?.id\">{{ userData | json}}</pre> -->\r\n<!-- <pre>{{ portalData | json}}</pre>4 -->\r\n<!-- <p>{{ token }}</p> -->\r\n\r\n<div class=\"p_d\">\r\n\r\n    <div class=\"nick_header d-flex\">\r\n        <div class=\"nick_data d-flex\">\r\n            <h4> {{inUserPortal ? userData.firstName : nickData.name}} </h4>\r\n            <img [src]=\"inUserPortal ? userData.img : nickData.image\" alt=\"\">\r\n        </div>\r\n        <ngbd-dropdown-basic *ngIf=\"!inUserPortal\" (ChangedAvatar)=\"ChangedAvatar($event)\" [portalId]=\"portalData.id\"\r\n            [nickDataId]=\"nickData.id\"></ngbd-dropdown-basic>\r\n        <div class=\"portal_data\">\r\n            <h3>{{ portalData.name }}</h3>\r\n        </div>\r\n    </div>\r\n    <div class=\"wrapper d-flex\">\r\n        <div class=\"messages d-flex\">\r\n            <div class=\"top d-flex\">\r\n                <div class=\"chat_list\">\r\n                    <app-chat-list [answer]=\"answer.asObservable()\" [userData]=\"userData\" [inUserPortal]=\"inUserPortal\"\r\n                        [nickData]=\"nickData\" [portalData]=\"portalData\"></app-chat-list>\r\n                </div>\r\n                <div class=\"top10_list\">\r\n                    <app-top10-list [inUserPortal]=\"inUserPortal\"></app-top10-list>\r\n                </div>\r\n            </div>\r\n            <div class=\"wrote_messages\">\r\n                <app-message [nickData]=\"nickData\" [userData]=\"userData\"></app-message>\r\n            </div>\r\n        </div>\r\n        <div class=\"questions\">\r\n            <app-question [question]=\"messages\" [nickData]=\"nickData\" [userData]=\"userData\"\r\n                [inUserPortal]=\"inUserPortal\" [portalId]=\"portalData.id\" [portalData]=\"portalData\"></app-question>\r\n        </div>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -291,7 +291,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <pre>{{ userData | json}}</pre> -->\r\n<!-- <pre>{{ nickData | json}}</pre> -->\r\n<!-- <pre>{{ inUserPortal }}</pre> -->\r\n<div class=\"comp_container\">\r\n    <div class=\"card-header\">\r\n        <div class=\"d-flex bd-highlight\">\r\n            <div class=\"img_cont\">\r\n                <img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img\" class=\"rounded-circle user_img\">\r\n                <span class=\"online_icon\"></span>\r\n            </div>\r\n            <div class=\"user_info\">\r\n                <span>Chat with {{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\r\n                <p *ngIf=\"inUserPortal\">{{ portalData.portalManyQuestion[0]?.questionsInPortal ? portalData.portalManyQuestion[0].questionsInPortal : \"ko yet \" }} Questions</p>\r\n                <p *ngIf=\"!inUserPortal\">{{ nickData.questionsInPortal ? nickData.questionsInPortal : \"no \" }} Questions</p>\r\n            </div>\r\n             <i *ngIf=\"inUserPortal\" (click)=\"finishPortal()\" class=\"finish far fa-stop-circle\"></i>\r\n        </div>\r\n    </div>\r\n    <div class=\"msg_cont \">\r\n        <!-- <h1>{{ ggg() }}</h1> -->\r\n        <ul class=\"card-body msg_card_body scrollbar scrollbar-near-moon\" #scrollMe>\r\n            <div class=\"force-overflow\"></div>\r\n            <li *ngFor=\"let item of questions; let i=index\"\r\n                class=\"d-flex justify-content-start mb-4 flex-column\">\r\n                <!-- {{ item | json }}  -->\r\n                <div class=\"name\" style=\"color: #AAB8C2\">{{ item.nickss.name }}</div>\r\n                <div class=\"img_name d-flex flex-column\">\r\n                    <div class=\"img_msg_wrap d-flex\">\r\n                        <div class=\"img_cont_msg\">\r\n                            <img [src]=\"item.nickss.image\" alt=\"\" class=\"rounded-circle user_img_msg\">\r\n                        </div>\r\n                        <div class=\"msg_cotainer\">\r\n                            {{ item.question }}\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"metta d-flex\">\r\n                        <span class=\"msg_time\">{{ item.time | date: 'medium' }}</span>\r\n                        <span [class.is-active]=\"item.isLiked || isNickLiked(item)\" class=\"like-btn\" (click)=\"action(item, i)\"></span>\r\n                        <span class=\"like_count\" style=\"color:#FAD00E\">{{ item.likes ? item.likes : item.likes === undefined ? item.questionManyLikes : null }}</span>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>";
+    __webpack_exports__["default"] = "<!-- <pre>{{ userData | json}}</pre> -->\r\n<!-- <pre>{{ nickData | json}}</pre> -->\r\n<!-- <pre>{{ inUserPortal }}</pre> -->\r\n<div class=\"comp_container\">\r\n    <div class=\"card-header\">\r\n        <div class=\"d-flex bd-highlight\">\r\n            <div class=\"img_cont\">\r\n                <img [src]=\"inUserPortal ? userData.img : nickData.nickToPortal.portalToUser.img\" class=\"rounded-circle user_img\">\r\n                <span class=\"online_icon\"></span>\r\n            </div>\r\n            <div class=\"user_info\">\r\n                <span>Chat with {{ inUserPortal ? userData.firstName : nickData.nickToPortal.portalToUser.firstName }}</span>\r\n                <p *ngIf=\"inUserPortal\">{{ portalData.portalManyQuestion[0]?.questionsInPortal ? portalData.portalManyQuestion[0].questionsInPortal : \"ko yet \" }} Questions</p>\r\n                <p *ngIf=\"!inUserPortal\">{{ nickData.questionsInPortal ? nickData.questionsInPortal : \"no \" }} Questions</p>\r\n            </div>\r\n             <i *ngIf=\"inUserPortal\" (click)=\"finishPortal()\" class=\"finish far fa-stop-circle\"></i>\r\n        </div>\r\n    </div>\r\n    <div class=\"msg_cont scrollbar scrollbar-near-moon\" #scrollMe>\r\n        <div class=\"force-overflow\"></div>\r\n        <ul class=\"card-body msg_card_body \">\r\n            <li *ngFor=\"let item of questions; let i=index\"\r\n                class=\"d-flex justify-content-start mb-4 flex-column\">\r\n                <div class=\"name\" style=\"color: #AAB8C2\">{{ item.nickss.name }}</div>\r\n                <div class=\"img_name d-flex flex-column\">\r\n                    <div class=\"img_msg_wrap d-flex\">\r\n                        <div class=\"img_cont_msg\">\r\n                            <img [src]=\"item.nickss.image\" alt=\"\" class=\"rounded-circle user_img_msg\">\r\n                        </div>\r\n                        <div class=\"msg_cotainer\">\r\n                            {{ item.question }}\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"metta d-flex\">\r\n                        <span class=\"msg_time\">{{ item.time | date: 'medium' }}</span>\r\n                        <span [class.is-active]=\"item.isLiked || isNickLiked(item)\" class=\"like-btn\" (click)=\"action(item, i)\"></span>\r\n                        <span class=\"like_count\" style=\"color:#FAD00E\">{{ item.likes ? item.likes : item.likes === undefined ? item.questionManyLikes : null }}</span>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -311,7 +311,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col\">\n        <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Set Avatar</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"avatars\">\n                <ul>\n                    <!-- <button> -->\n                        <li *ngFor=\"let item of avatars\" (click)=\"updateAvatar(item)\">\n                            <img [src]=\"item\" alt=\"\">\n                        </li>\n                    <!-- </button> -->\n                </ul>\n                <!-- <button ngbDropdownItem>Action - 1</button>\n                <button ngbDropdownItem>Another Action</button>\n                <button ngbDropdownItem>Something else is here</button> -->\n            </div>\n        </div>\n    </div>\n    <!-- <div class=\"col\">\n        <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic2\" ngbDropdownToggle>Set Avatar</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">\n                <button ngbDropdownItem>Action - 1</button>\n                <button ngbDropdownItem>Another Action</button>\n                <button ngbDropdownItem>Something else is here</button>\n            </div>\n        </div>\n    </div>\n</div> -->";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col\">\n        <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Set Avatar</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"avatars\">\n                <ul>\n                    <li *ngFor=\"let item of avatars\" (click)=\"updateAvatar(item)\">\n                        <img [src]=\"item\" alt=\"\">\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -351,7 +351,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h1>Active Portals</h1>\r\n<!-- <pre>{{ portals | json }}</pre> -->\r\n<!-- <ng-container class=\"text-center\" *ngIf=\"portals?.length\"> -->\r\n    <!-- <pre>{{ portals | json }}</pre> -->\r\n    <div *ngFor=\"let item of portals\" class=\"p_items\"> \r\n        <span (click)=\"goToPortal(item)\">{{ item.name }}</span>\r\n    </div>\r\n<!-- </ng-container> -->\r\n";
+    __webpack_exports__["default"] = "<h1>Active Portals</h1>\r\n<div *ngFor=\"let item of portals\" class=\"p_items\"> \r\n    <span (click)=\"goToPortal(item)\">{{ item.name }}</span>\r\n</div>\r\n";
     /***/
   },
 
@@ -371,7 +371,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <img [src]=\"(data | async)?.img\" alt=\"\"> -->\r\n<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\r\n<h2>Hello {{ data?.firstName}}</h2>";
+    __webpack_exports__["default"] = "<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\r\n<h2>Hello {{ data?.firstName}}</h2>";
     /***/
   },
 
@@ -391,7 +391,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\">\r\n    <h1 *ngIf=\"user\">{{user.name}}</h1>\r\n\r\n    <hr>\r\n    <div class=\"card bg-light\">\r\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\r\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\r\n            <p class=\"text-center\">Get started with your free account</p>\r\n            <p>\r\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\r\n                <a (click)=\"signInWithFB()\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a>\r\n                <!-- <a href=\"api/users/auth/facebook\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a> -->\r\n            </p>\r\n            <p class=\"divider-text\">\r\n                <span class=\"bg-light\">OR</span>\r\n            </p>\r\n            <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\"> \r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\">\r\n                    <div class=\"input-group-prepend\" [ngClass]=\"detectClass('firstName')\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\" ></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"firstName\" placeholder=\"First name\" type=\"text\">\r\n                </div>\r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('lastName')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"lastName\" placeholder=\"Last name\" type=\"text\">\r\n                </div>\r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\" type=\"email\">\r\n                </div> \r\n\r\n                <!-- form-group end.// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" type=\"password\">\r\n                </div>\r\n\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('confPassword')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"confPassword\" placeholder=\"Repeat password\" type=\"password\">\r\n                </div> <!-- form-group// -->\r\n                <div class=\"form-group\">\r\n                    <button [disabled]=\"registerForm.invalid\" class=\"btn btn-primary btn-block\"> Create Account </button>\r\n                </div> <!-- form-group// -->\r\n            </form>\r\n        </article>\r\n    </div> <!-- card.// -->\r\n\r\n</div>\r\n<!--container end.//-->\r\n<p>{{ user }}</p>";
+    __webpack_exports__["default"] = "<div class=\"container\">\r\n    <h1 *ngIf=\"user\">{{user.name}}</h1>\r\n    <hr>\r\n    <div class=\"card bg-light\">\r\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\r\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\r\n            <p class=\"text-center\">Get started with your free account</p>\r\n            <p>\r\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\r\n                <a (click)=\"signInWithFB()\" class=\"btn btn-block btn-facebook\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a>\r\n            </p>\r\n            <p class=\"divider-text\">\r\n                <span class=\"bg-light\">OR</span>\r\n            </p>\r\n            <form [formGroup]=\"registerForm\" (ngSubmit)=\"onSubmit()\"> \r\n                <div class=\"form-group input-group\">\r\n                    <div class=\"input-group-prepend\" [ngClass]=\"detectClass('firstName')\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\" ></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"firstName\" placeholder=\"First name\" type=\"text\">\r\n                </div>\r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('lastName')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"lastName\" placeholder=\"Last name\" type=\"text\">\r\n                </div>\r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\" type=\"email\">\r\n                </div> \r\n\r\n                <!-- form-group end.// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" type=\"password\">\r\n                </div>\r\n\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('confPassword')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"confPassword\" placeholder=\"Repeat password\" type=\"password\">\r\n                </div> <!-- form-group// -->\r\n                <div class=\"form-group\">\r\n                    <button [disabled]=\"registerForm.invalid\" class=\"btn btn-primary btn-block\"> Create Account </button>\r\n                </div> <!-- form-group// -->\r\n            </form>\r\n        </article>\r\n    </div>\r\n\r\n</div>";
     /***/
   },
 
@@ -1024,8 +1024,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/tslib/tslib.es6.js");
 
     function extractLikes(item) {
-      console.log(item, 4444); // return 10
-
       if (item.likes || item.likes === 0) {
         return item.likes;
       } else if (item.questionManyLikes) {
@@ -1478,32 +1476,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var ngx_socket_io__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ngx-socket-io */
     "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
-    /* harmony import */
-
-
-    var src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/services/auth/user-auth.service */
-    "./src/app/services/auth/user-auth.service.ts"); // import { UserAuthService } from "src/app/services/user/user.service";
-    // services
-    // import { UserAuthService } from "./services/auth/user-auth.service";
-
 
     var AppComponent =
     /*#__PURE__*/
     function () {
-      function AppComponent(userAuthService, socket) {
+      function AppComponent(socket) {
         _classCallCheck(this, AppComponent);
 
-        this.userAuthService = userAuthService;
-        this.socket = socket; // const source = fromEvent(window, "storage");
-        // // source.pipe(map(event => ))
-        // source.subscribe( (e: any) => {
-        //   // if (!e.key && !e.newValue) {
-        //   //   this.userAuthService.logout();
-        //   //   this.userAuthService.signOut();
-        //   // }
-        //   console.log(e, 23232323);
-        // });
+        this.socket = socket;
       }
 
       _createClass(AppComponent, [{
@@ -1518,8 +1498,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     AppComponent.ctorParameters = function () {
       return [{
-        type: src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_3__["UserAuthService"]
-      }, {
         type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_2__["Socket"]
       }];
     };
@@ -1628,7 +1606,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ./directives/portal-row.directive */
     "./src/app/directives/portal-row.directive.ts"); // Import social login module
     // Import login providers
-    // import { HomeComponent } from "./components/home/home.component";
 
 
     var socketConfig = {
@@ -1773,8 +1750,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.portalService.portal.subscribe(function (portal) {
           _this.portalData.push(portal);
         });
-      } // async openModal(item.id, token, privatePortal, item.userId) {
-
+      }
 
       _createClass(CoverComponent, [{
         key: "openModal",
@@ -1917,11 +1893,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         allowOutsideClick: function allowOutsideClick() {
                           return !sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.isLoading();
                         }
-                      }]) // .then(async result => {
-                      //   console.log(result, 1111111);
-                      //   return result;
-                      // })
-                      .then(function (result) {
+                      }]).then(function (result) {
                         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this2, void 0, void 0,
                         /*#__PURE__*/
                         regeneratorRuntime.mark(function _callee3() {
@@ -1942,7 +1914,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                   });
 
                                 case 3:
-                                  // console.log(window.atob(result.value[1].token.split(".")[1]), 888);
                                   localStorage.setItem("nickToken", result.value[1].token);
                                   this.router.navigate(["/portals", item.token]);
 
@@ -1988,8 +1959,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           }); //
 
-          this.portalService.portalState.subscribe(function (result) {
-            if (result.state === null) {
+          this.portalService.showForm().subscribe(function (result) {
+            if (result && result.state === null) {
               _this3.portalService.chekPortalStatus(result.token).subscribe(function (status) {
                 if (status.private) {
                   _this3.openModal(status, true);
@@ -1997,7 +1968,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   _this3.openModal(status, false);
                 }
               });
-            } else {
+            } else if (result) {
               sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
                 icon: "error",
                 title: "Oops...",
@@ -2132,9 +2103,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js"); // import { AuthService } from "angularx-social-login";
-    // import { Observable } from "rxjs/Observable";
-
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var HeaderComponent =
     /*#__PURE__*/
@@ -2742,10 +2711,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             ariaLabelledBy: "modal-basic-title"
           }).result.then(function (result) {
             _this12.fails = false;
-            console.log(result, 4444);
 
             _this12.userService.sendMail(result.value, _this12.url).subscribe(function (info) {
-              return console.log(info, 789);
+              return info;
             });
           }, function (reason) {// this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
           });
@@ -3017,7 +2985,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var NgbdDatepickerPopup = NgbdDatepickerPopup_1 =
     /*#__PURE__*/
     function () {
-      // private ngControl: NgControl;
       function NgbdDatepickerPopup() {
         _classCallCheck(this, NgbdDatepickerPopup);
 
@@ -3042,19 +3009,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "registerOnChange",
         value: function registerOnChange(fn) {
           this.onChange = fn;
-          this.onChange(this.value); // for OnInit cycle
+          this.onChange(this.value);
         }
       }, {
         key: "registerOnTouched",
-        value: function registerOnTouched(fn) {} // this.onTouched = fn;
-        //   public setDisabledState(isDisabled: boolean) {
-        //     //
-        //   }
-
+        value: function registerOnTouched(fn) {}
       }, {
         key: "transformDate",
         value: function transformDate(value) {
-          // console.log(value, 999);
           return this.value;
         }
       }]);
@@ -3401,8 +3363,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var src_app_services_question_question_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/services/question/question.service */
-    "./src/app/services/question/question.service.ts"); // import { Observable, Subject } from "rxjs";
-
+    "./src/app/services/question/question.service.ts");
 
     var MessageComponent =
     /*#__PURE__*/
@@ -3439,11 +3400,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (answer.trim()) {
             var userId = this.userData.id;
+            var portalId = this.currTop10Nick.nickss.portalId;
             var questionId = this.currTop10Nick.id;
             this.chatService.answQuestion({
               userId: userId,
               questionId: questionId,
-              answer: answer
+              answer: answer,
+              portalId: portalId
             });
             this.message = "";
           }
@@ -3505,7 +3468,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "* {\r\n    box-sizing: border-box;\r\n    margin: 0;\r\n    padding: 0;\r\n    /* outline: 1px solid green; */\r\n}\r\n\r\n/* html, body {\r\n    width: 100%;\r\n    height: 100%;\r\n} */\r\n\r\n.p_d {\r\n    height: 90vh;\r\n    width: 97vw;\r\n}\r\n\r\n.wrapper {\r\n    margin: 15px;\r\n    width: 100%;\r\n    height: 90%;\r\n}\r\n\r\n.messages {\r\n    width: 70%;\r\n    height: 100%;\r\n    flex-direction: column;\r\n}\r\n\r\n.questions {\r\n    height: 100%;\r\n    width: 30%;\r\n    background-color: #51678A;\r\n}\r\n\r\n.top {\r\n    width: 100%;\r\n    height: 85%;\r\n}\r\n\r\n.wrote_messages {\r\n    width: 100%;\r\n    height: 30%;\r\n}\r\n\r\n.chat_list {\r\n    width: 60%;\r\n    height: 100%;\r\n    /* overflow-y: scroll; */\r\n}\r\n\r\n.top10_list {\r\n    width: 40%;\r\n    height: 100%;\r\n}\r\n\r\n.nick_data > img{\r\n    width: 40px;\r\n    height: 40px;\r\n    margin-left: 15px;\r\n}\r\n\r\n.nick_data {\r\n    padding-left: 50px\r\n}\r\n\r\n.nick_data > h4, .nick_data > img {\r\n    align-self: center;\r\n}\r\n\r\n.nick_data > h4 {\r\n    color: #4E6486;\r\n}\r\n\r\n.nick_header {\r\n    margin-top: 10px;\r\n}\r\n\r\n.portal_data {\r\n    margin-left: 15%;\r\n}\r\n\r\n.portal_data > h3 {\r\n    color: #4E6486;\r\n}\r\n\r\n/* scrollbar question */\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-color: #F5F5F5;\r\n    border-radius: 10px; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar {\r\n    width: 12px;\r\n    background-color: #F5F5F5; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-thumb {\r\n    border-radius: 10px;\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9wb3J0YWwtZGV0YWlsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxzQkFBc0I7SUFDdEIsU0FBUztJQUNULFVBQVU7SUFDViw4QkFBOEI7QUFDbEM7O0FBRUE7OztHQUdHOztBQUVIO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjs7QUFDQTtJQUNJLFlBQVk7SUFDWixXQUFXO0lBQ1gsV0FBVztBQUNmOztBQUNBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7SUFDWixzQkFBc0I7QUFDMUI7O0FBQ0E7SUFDSSxZQUFZO0lBQ1osVUFBVTtJQUNWLHlCQUF5QjtBQUM3Qjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsV0FBVztBQUNmOztBQUVBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7SUFDWix3QkFBd0I7QUFDNUI7O0FBQ0E7SUFDSSxVQUFVO0lBQ1YsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxZQUFZO0lBQ1osaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0k7QUFDSjs7QUFDQTtJQUNJLGtCQUFrQjtBQUN0Qjs7QUFDQTtJQUNJLGNBQWM7QUFDbEI7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBQ0E7SUFDSSxjQUFjO0FBQ2xCOztBQUVBLHVCQUF1Qjs7QUFDdkI7SUFDSSxvREFBb0Q7SUFDcEQseUJBQXlCO0lBQ3pCLG1CQUFtQixFQUFFOztBQUVyQjtJQUNBLFdBQVc7SUFDWCx5QkFBeUIsRUFBRTs7QUFFM0I7SUFDQSxtQkFBbUI7SUFDbkIsb0RBQW9EO0lBR3BELG1FQUFtRSxFQUFFIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9wb3J0YWwtZGV0YWlsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG4gICAgLyogb3V0bGluZTogMXB4IHNvbGlkIGdyZWVuOyAqL1xyXG59XHJcblxyXG4vKiBodG1sLCBib2R5IHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59ICovXHJcblxyXG4ucF9kIHtcclxuICAgIGhlaWdodDogOTB2aDtcclxuICAgIHdpZHRoOiA5N3Z3O1xyXG59XHJcbi53cmFwcGVyIHtcclxuICAgIG1hcmdpbjogMTVweDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA5MCU7XHJcbn1cclxuLm1lc3NhZ2VzIHtcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcbi5xdWVzdGlvbnMge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDMwJTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM1MTY3OEE7XHJcbn1cclxuLnRvcCB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogODUlO1xyXG59XHJcblxyXG4ud3JvdGVfbWVzc2FnZXMge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDMwJTtcclxufVxyXG5cclxuLmNoYXRfbGlzdCB7XHJcbiAgICB3aWR0aDogNjAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgLyogb3ZlcmZsb3cteTogc2Nyb2xsOyAqL1xyXG59XHJcbi50b3AxMF9saXN0IHtcclxuICAgIHdpZHRoOiA0MCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLm5pY2tfZGF0YSA+IGltZ3tcclxuICAgIHdpZHRoOiA0MHB4O1xyXG4gICAgaGVpZ2h0OiA0MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDE1cHg7XHJcbn1cclxuXHJcbi5uaWNrX2RhdGEge1xyXG4gICAgcGFkZGluZy1sZWZ0OiA1MHB4XHJcbn1cclxuLm5pY2tfZGF0YSA+IGg0LCAubmlja19kYXRhID4gaW1nIHtcclxuICAgIGFsaWduLXNlbGY6IGNlbnRlcjtcclxufVxyXG4ubmlja19kYXRhID4gaDQge1xyXG4gICAgY29sb3I6ICM0RTY0ODY7XHJcbn1cclxuLm5pY2tfaGVhZGVyIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuLnBvcnRhbF9kYXRhIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAxNSU7XHJcbn1cclxuLnBvcnRhbF9kYXRhID4gaDMge1xyXG4gICAgY29sb3I6ICM0RTY0ODY7XHJcbn1cclxuXHJcbi8qIHNjcm9sbGJhciBxdWVzdGlvbiAqL1xyXG4uc2Nyb2xsYmFyLW5lYXItbW9vbjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sge1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDAgNnB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGNUY1RjU7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4OyB9XHJcbiAgICBcclxuICAgIC5zY3JvbGxiYXItbmVhci1tb29uOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgICB3aWR0aDogMTJweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGNUY1RjU7IH1cclxuICAgIFxyXG4gICAgLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgICAtd2Via2l0LWJveC1zaGFkb3c6IGluc2V0IDAgMCA2cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1ncmFkaWVudChsaW5lYXIsIGxlZnQgYm90dG9tLCBsZWZ0IHRvcCwgZnJvbSgjNWVlN2RmKSwgdG8oI2I0OTBjYSkpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQoYm90dG9tLCAjNWVlN2RmIDAlLCAjYjQ5MGNhIDEwMCUpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIHRvcCwgIzVlZTdkZiAwJSwgI2I0OTBjYSAxMDAlKTsgfVxyXG4iXX0= */";
+    __webpack_exports__["default"] = "* {\r\n    box-sizing: border-box;\r\n    margin: 0;\r\n    padding: 0;\r\n    /* outline: 1px solid green; */\r\n}\r\n\r\n/* html, body {\r\n    width: 100%;\r\n    height: 100%;\r\n} */\r\n\r\n.p_d {\r\n    height: 90vh;\r\n    width: 97vw;\r\n}\r\n\r\n.wrapper {\r\n    margin: 15px;\r\n    width: 100%;\r\n    height: 90%;\r\n}\r\n\r\n.messages {\r\n    width: 70%;\r\n    height: 100%;\r\n    flex-direction: column;\r\n}\r\n\r\n.questions {\r\n    height: 100%;\r\n    width: 30%;\r\n    background-color: #51678A;\r\n}\r\n\r\n.top {\r\n    width: 100%;\r\n    height: 85%;\r\n}\r\n\r\n.wrote_messages {\r\n    width: 100%;\r\n    height: 30%;\r\n}\r\n\r\n.chat_list {\r\n    width: 60%;\r\n    height: 100%;\r\n    /* overflow-y: scroll; */\r\n}\r\n\r\n.top10_list {\r\n    width: 40%;\r\n    height: 100%;\r\n}\r\n\r\n.nick_data > img{\r\n    width: 40px;\r\n    height: 40px;\r\n    margin-left: 15px;\r\n    border-radius: 5px;\r\n}\r\n\r\n.nick_data {\r\n    padding-left: 50px\r\n}\r\n\r\n.nick_data > h4, .nick_data > img {\r\n    align-self: center;\r\n}\r\n\r\n.nick_data > h4 {\r\n    color: #4E6486;\r\n}\r\n\r\n.nick_header {\r\n    margin-top: 10px;\r\n}\r\n\r\n.portal_data {\r\n    margin-left: 15%;\r\n}\r\n\r\n.portal_data > h3 {\r\n    color: #4E6486;\r\n}\r\n\r\n/* scrollbar question */\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-color: #F5F5F5;\r\n    border-radius: 10px; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar {\r\n    width: 12px;\r\n    background-color: #F5F5F5; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-thumb {\r\n    border-radius: 10px;\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9wb3J0YWwtZGV0YWlsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxzQkFBc0I7SUFDdEIsU0FBUztJQUNULFVBQVU7SUFDViw4QkFBOEI7QUFDbEM7O0FBRUE7OztHQUdHOztBQUVIO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjs7QUFDQTtJQUNJLFlBQVk7SUFDWixXQUFXO0lBQ1gsV0FBVztBQUNmOztBQUNBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7SUFDWixzQkFBc0I7QUFDMUI7O0FBQ0E7SUFDSSxZQUFZO0lBQ1osVUFBVTtJQUNWLHlCQUF5QjtBQUM3Qjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsV0FBVztBQUNmOztBQUVBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7SUFDWix3QkFBd0I7QUFDNUI7O0FBQ0E7SUFDSSxVQUFVO0lBQ1YsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLFdBQVc7SUFDWCxZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJO0FBQ0o7O0FBQ0E7SUFDSSxrQkFBa0I7QUFDdEI7O0FBQ0E7SUFDSSxjQUFjO0FBQ2xCOztBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCOztBQUNBO0lBQ0ksY0FBYztBQUNsQjs7QUFFQSx1QkFBdUI7O0FBQ3ZCO0lBQ0ksb0RBQW9EO0lBQ3BELHlCQUF5QjtJQUN6QixtQkFBbUIsRUFBRTs7QUFFckI7SUFDQSxXQUFXO0lBQ1gseUJBQXlCLEVBQUU7O0FBRTNCO0lBQ0EsbUJBQW1CO0lBQ25CLG9EQUFvRDtJQUdwRCxtRUFBbUUsRUFBRSIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcG9ydGFsL3BvcnRhbC1kZXRhaWwvcG9ydGFsLWRldGFpbC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKiB7XHJcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcGFkZGluZzogMDtcclxuICAgIC8qIG91dGxpbmU6IDFweCBzb2xpZCBncmVlbjsgKi9cclxufVxyXG5cclxuLyogaHRtbCwgYm9keSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxufSAqL1xyXG5cclxuLnBfZCB7XHJcbiAgICBoZWlnaHQ6IDkwdmg7XHJcbiAgICB3aWR0aDogOTd2dztcclxufVxyXG4ud3JhcHBlciB7XHJcbiAgICBtYXJnaW46IDE1cHg7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogOTAlO1xyXG59XHJcbi5tZXNzYWdlcyB7XHJcbiAgICB3aWR0aDogNzAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG4ucXVlc3Rpb25zIHtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIHdpZHRoOiAzMCU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNTE2NzhBO1xyXG59XHJcbi50b3Age1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDg1JTtcclxufVxyXG5cclxuLndyb3RlX21lc3NhZ2VzIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAzMCU7XHJcbn1cclxuXHJcbi5jaGF0X2xpc3Qge1xyXG4gICAgd2lkdGg6IDYwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIC8qIG92ZXJmbG93LXk6IHNjcm9sbDsgKi9cclxufVxyXG4udG9wMTBfbGlzdCB7XHJcbiAgICB3aWR0aDogNDAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcbi5uaWNrX2RhdGEgPiBpbWd7XHJcbiAgICB3aWR0aDogNDBweDtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIG1hcmdpbi1sZWZ0OiAxNXB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG59XHJcblxyXG4ubmlja19kYXRhIHtcclxuICAgIHBhZGRpbmctbGVmdDogNTBweFxyXG59XHJcbi5uaWNrX2RhdGEgPiBoNCwgLm5pY2tfZGF0YSA+IGltZyB7XHJcbiAgICBhbGlnbi1zZWxmOiBjZW50ZXI7XHJcbn1cclxuLm5pY2tfZGF0YSA+IGg0IHtcclxuICAgIGNvbG9yOiAjNEU2NDg2O1xyXG59XHJcbi5uaWNrX2hlYWRlciB7XHJcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xyXG59XHJcbi5wb3J0YWxfZGF0YSB7XHJcbiAgICBtYXJnaW4tbGVmdDogMTUlO1xyXG59XHJcbi5wb3J0YWxfZGF0YSA+IGgzIHtcclxuICAgIGNvbG9yOiAjNEU2NDg2O1xyXG59XHJcblxyXG4vKiBzY3JvbGxiYXIgcXVlc3Rpb24gKi9cclxuLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMCAwIDZweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjVGNUY1O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDsgfVxyXG4gICAgXHJcbiAgICAuc2Nyb2xsYmFyLW5lYXItbW9vbjo6LXdlYmtpdC1zY3JvbGxiYXIge1xyXG4gICAgd2lkdGg6IDEycHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjVGNUY1OyB9XHJcbiAgICBcclxuICAgIC5zY3JvbGxiYXItbmVhci1tb29uOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDAgNnB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IC13ZWJraXQtZ3JhZGllbnQobGluZWFyLCBsZWZ0IGJvdHRvbSwgbGVmdCB0b3AsIGZyb20oIzVlZTdkZiksIHRvKCNiNDkwY2EpKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGJvdHRvbSwgIzVlZTdkZiAwJSwgI2I0OTBjYSAxMDAlKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byB0b3AsICM1ZWU3ZGYgMCUsICNiNDkwY2EgMTAwJSk7IH1cclxuIl19 */";
     /***/
   },
 
@@ -3608,7 +3571,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.answer = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
         this.inUserPortal = false;
         this.token = "";
-        this.kkk = 1;
         this.nickService.currentNickToken.subscribe(function (token) {
           return _this16.token = token;
         });
@@ -3633,7 +3595,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return _this17.nickData = data;
           });
           this.userData = this.userAuthService.currentUserValue;
-          this.inUserPortal = this.userAuthService.isUserInOwnPortal(); //
+          this.inUserPortal = this.userAuthService.isUserInOwnPortal();
+          this.chatService.joinRoom(this.portalData.id); //
 
           this.chatService.answerQuestion.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.unsubscribe$)).subscribe(function (answer) {
             _this17.answer.next(answer);
@@ -3715,7 +3678,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "li {\r\n    list-style: none;\r\n}\r\n.msg_card_body{\r\n    overflow-y: auto;\r\n    max-height: 470px;\r\n}\r\n.card-header > div {\r\n    align-items: center;\r\n}\r\n/* .scr {\r\n    width: 100%;\r\n    height: 100%;\r\n} */\r\n.user_img_msg{\r\n    height: 32px;\r\n    width: 32px;\r\n    border:1.5px solid #f5f6fa;\r\n    border-radius: 50%;\r\n}\r\n/*  */\r\n.img_cont_msg{\r\n    height: 40px;\r\n    width: 40px;\r\n}\r\n.img_name {\r\n    display: flex;\r\n}\r\n.name {\r\n    margin-left: -15px;\r\n}\r\n/*  */\r\n.msg_cotainer{\r\n    margin-top: auto;\r\n    margin-bottom: auto;\r\n    margin-left: 10px;\r\n    border-radius: 25px;\r\n    background-color: #82ccdd;\r\n    padding: 10px;\r\n    position: relative;\r\n}\r\n.msg_cont  {\r\n    overflow-y: auto;\r\n}\r\n.msg_time{\r\n    width: 115px;\r\n    margin-top: 2px;\r\n    margin-left: 50px;\r\n    color: rgba(255,255,255,0.5);\r\n    font-size: 10px;\r\n}\r\n/* user card style */\r\n.card-header{\r\n    border-radius: 15px 15px 0 0 !important;\r\n    border-bottom: 1px solid #f5f6fa !important;\r\n}\r\n.user_info {\r\n    margin-top: auto;\r\n    margin-bottom: auto;\r\n    margin-left: 15px;\r\n}\r\n.user_info span, .user_info p {\r\n    color: #AAB8C2;\r\n}\r\n.user_img {\r\n    height: 70px;\r\n    width: 70px;\r\n    border: 1.5px solid #f5f6fa;\r\n}\r\n.metta {\r\n    margin-top: 5px;\r\n    margin-bottom: -60px;\r\n}\r\n/* like */\r\n@-webkit-keyframes animate {\r\n    0%   { background-position: left;  }\r\n    50%  { background-position: right; }\r\n    100% { background-position: right; }\r\n}\r\n@keyframes animate {\r\n    0%   { background-position: left;  }\r\n    50%  { background-position: right; }\r\n    100% { background-position: right; }\r\n}\r\n.is-active {\r\n  -webkit-animation-name: animate;\r\n          animation-name: animate;\r\n  -webkit-animation-duration: 1s;\r\n          animation-duration: 1s;\r\n  -webkit-animation-iteration-count: 1;\r\n          animation-iteration-count: 1;\r\n  -webkit-animation-timing-function: steps(28);\r\n          animation-timing-function: steps(28);\r\n  -webkit-animation-fill-mode: forwards;\r\n          animation-fill-mode: forwards;\r\n}\r\n.like-btn {\r\n    position: relative;\r\n    top: -20px;\r\n    background: url('twitter-heart.png');\r\n    width: 60px;\r\n    height: 60px;\r\n    background-size: 2900%;\r\n    background-repeat: no-repeat;\r\n    cursor: pointer;\r\n}\r\n.like_count {\r\n    margin-top: -3px;\r\n}\r\n.finish {\r\n    font-size: 55px;\r\n    color: red;\r\n    margin-left: auto;\r\n    margin-right: 20px;\r\n    cursor: pointer;\r\n}\r\n/* scroll */\r\n.scrollbar-near-moon::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-color: #F5F5F5;\r\n    border-radius: 10px; }\r\n.scrollbar-near-moon::-webkit-scrollbar {\r\n    width: 12px;\r\n    background-color: #F5F5F5; }\r\n.scrollbar-near-moon::-webkit-scrollbar-thumb {\r\n    border-radius: 10px;\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); }\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9xdWVzdGlvbi9xdWVzdGlvbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7QUFDQTs7O0dBR0c7QUFDSDtJQUNJLFlBQVk7SUFDWixXQUFXO0lBQ1gsMEJBQTBCO0lBQzFCLGtCQUFrQjtBQUN0QjtBQUVBLEtBQUs7QUFDTDtJQUNJLFlBQVk7SUFDWixXQUFXO0FBQ2Y7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBLEtBQUs7QUFDTDtJQUNJLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQix5QkFBeUI7SUFDekIsYUFBYTtJQUNiLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osZUFBZTtJQUNmLGlCQUFpQjtJQUNqQiw0QkFBNEI7SUFDNUIsZUFBZTtBQUNuQjtBQUVBLG9CQUFvQjtBQUVwQjtJQUNJLHVDQUF1QztJQUN2QywyQ0FBMkM7QUFDL0M7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osV0FBVztJQUNYLDJCQUEyQjtBQUMvQjtBQUNBO0lBQ0ksZUFBZTtJQUNmLG9CQUFvQjtBQUN4QjtBQUVBLFNBQVM7QUFDVDtJQUNJLE9BQU8seUJBQXlCLEdBQUc7SUFDbkMsT0FBTywwQkFBMEIsRUFBRTtJQUNuQyxPQUFPLDBCQUEwQixFQUFFO0FBQ3ZDO0FBSkE7SUFDSSxPQUFPLHlCQUF5QixHQUFHO0lBQ25DLE9BQU8sMEJBQTBCLEVBQUU7SUFDbkMsT0FBTywwQkFBMEIsRUFBRTtBQUN2QztBQUVBO0VBQ0UsK0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qiw4QkFBc0I7VUFBdEIsc0JBQXNCO0VBQ3RCLG9DQUE0QjtVQUE1Qiw0QkFBNEI7RUFDNUIsNENBQW9DO1VBQXBDLG9DQUFvQztFQUNwQyxxQ0FBNkI7VUFBN0IsNkJBQTZCO0FBQy9CO0FBR0E7SUFDSSxrQkFBa0I7SUFDbEIsVUFBVTtJQUNWLG9DQUFtRTtJQUNuRSxXQUFXO0lBQ1gsWUFBWTtJQUNaLHNCQUFzQjtJQUN0Qiw0QkFBNEI7SUFDNUIsZUFBZTtBQUNuQjtBQUNBO0lBQ0ksZ0JBQWdCO0FBQ3BCO0FBRUE7SUFDSSxlQUFlO0lBQ2YsVUFBVTtJQUNWLGlCQUFpQjtJQUNqQixrQkFBa0I7SUFDbEIsZUFBZTtBQUNuQjtBQUVBLFdBQVc7QUFDWDtJQUNJLG9EQUFvRDtJQUNwRCx5QkFBeUI7SUFDekIsbUJBQW1CLEVBQUU7QUFFckI7SUFDQSxXQUFXO0lBQ1gseUJBQXlCLEVBQUU7QUFFM0I7SUFDQSxtQkFBbUI7SUFDbkIsb0RBQW9EO0lBR3BELG1FQUFtRSxFQUFFIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9xdWVzdGlvbi9xdWVzdGlvbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibGkge1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxufVxyXG4ubXNnX2NhcmRfYm9keXtcclxuICAgIG92ZXJmbG93LXk6IGF1dG87XHJcbiAgICBtYXgtaGVpZ2h0OiA0NzBweDtcclxufVxyXG4uY2FyZC1oZWFkZXIgPiBkaXYge1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG4vKiAuc2NyIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59ICovXHJcbi51c2VyX2ltZ19tc2d7XHJcbiAgICBoZWlnaHQ6IDMycHg7XHJcbiAgICB3aWR0aDogMzJweDtcclxuICAgIGJvcmRlcjoxLjVweCBzb2xpZCAjZjVmNmZhO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59XHJcblxyXG4vKiAgKi9cclxuLmltZ19jb250X21zZ3tcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIHdpZHRoOiA0MHB4O1xyXG59XHJcbi5pbWdfbmFtZSB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5uYW1lIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMTVweDtcclxufVxyXG4vKiAgKi9cclxuLm1zZ19jb3RhaW5lcntcclxuICAgIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgICBtYXJnaW4tYm90dG9tOiBhdXRvO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzgyY2NkZDtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbn1cclxuLm1zZ19jb250ICB7XHJcbiAgICBvdmVyZmxvdy15OiBhdXRvO1xyXG59XHJcbi5tc2dfdGltZXtcclxuICAgIHdpZHRoOiAxMTVweDtcclxuICAgIG1hcmdpbi10b3A6IDJweDtcclxuICAgIG1hcmdpbi1sZWZ0OiA1MHB4O1xyXG4gICAgY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC41KTtcclxuICAgIGZvbnQtc2l6ZTogMTBweDtcclxufVxyXG5cclxuLyogdXNlciBjYXJkIHN0eWxlICovXHJcblxyXG4uY2FyZC1oZWFkZXJ7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxNXB4IDE1cHggMCAwICFpbXBvcnRhbnQ7XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2Y1ZjZmYSAhaW1wb3J0YW50O1xyXG59XHJcbi51c2VyX2luZm8ge1xyXG4gICAgbWFyZ2luLXRvcDogYXV0bztcclxuICAgIG1hcmdpbi1ib3R0b206IGF1dG87XHJcbiAgICBtYXJnaW4tbGVmdDogMTVweDtcclxufVxyXG4udXNlcl9pbmZvIHNwYW4sIC51c2VyX2luZm8gcCB7XHJcbiAgICBjb2xvcjogI0FBQjhDMjtcclxufVxyXG4udXNlcl9pbWcge1xyXG4gICAgaGVpZ2h0OiA3MHB4O1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbiAgICBib3JkZXI6IDEuNXB4IHNvbGlkICNmNWY2ZmE7XHJcbn1cclxuLm1ldHRhIHtcclxuICAgIG1hcmdpbi10b3A6IDVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IC02MHB4O1xyXG59XHJcblxyXG4vKiBsaWtlICovXHJcbkBrZXlmcmFtZXMgYW5pbWF0ZSB7XHJcbiAgICAwJSAgIHsgYmFja2dyb3VuZC1wb3NpdGlvbjogbGVmdDsgIH1cclxuICAgIDUwJSAgeyBiYWNrZ3JvdW5kLXBvc2l0aW9uOiByaWdodDsgfVxyXG4gICAgMTAwJSB7IGJhY2tncm91bmQtcG9zaXRpb246IHJpZ2h0OyB9XHJcbn1cclxuXHJcbi5pcy1hY3RpdmUge1xyXG4gIGFuaW1hdGlvbi1uYW1lOiBhbmltYXRlO1xyXG4gIGFuaW1hdGlvbi1kdXJhdGlvbjogMXM7XHJcbiAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogMTtcclxuICBhbmltYXRpb24tdGltaW5nLWZ1bmN0aW9uOiBzdGVwcygyOCk7XHJcbiAgYW5pbWF0aW9uLWZpbGwtbW9kZTogZm9yd2FyZHM7XHJcbn1cclxuXHJcblxyXG4ubGlrZS1idG4ge1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgdG9wOiAtMjBweDtcclxuICAgIGJhY2tncm91bmQ6IHVybCgnLi8uLi8uLi8uLi8uLi8uLi9hc3NldHMvaW1hZ2VzL3R3aXR0ZXItaGVhcnQucG5nJyk7XHJcbiAgICB3aWR0aDogNjBweDtcclxuICAgIGhlaWdodDogNjBweDtcclxuICAgIGJhY2tncm91bmQtc2l6ZTogMjkwMCU7XHJcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5saWtlX2NvdW50IHtcclxuICAgIG1hcmdpbi10b3A6IC0zcHg7XHJcbn1cclxuXHJcbi5maW5pc2gge1xyXG4gICAgZm9udC1zaXplOiA1NXB4O1xyXG4gICAgY29sb3I6IHJlZDtcclxuICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4vKiBzY3JvbGwgKi9cclxuLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzogaW5zZXQgMCAwIDZweCByZ2JhKDAsIDAsIDAsIDAuMSk7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjVGNUY1O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDsgfVxyXG4gICAgXHJcbiAgICAuc2Nyb2xsYmFyLW5lYXItbW9vbjo6LXdlYmtpdC1zY3JvbGxiYXIge1xyXG4gICAgd2lkdGg6IDEycHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjVGNUY1OyB9XHJcbiAgICBcclxuICAgIC5zY3JvbGxiYXItbmVhci1tb29uOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDAgNnB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IC13ZWJraXQtZ3JhZGllbnQobGluZWFyLCBsZWZ0IGJvdHRvbSwgbGVmdCB0b3AsIGZyb20oIzVlZTdkZiksIHRvKCNiNDkwY2EpKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KGJvdHRvbSwgIzVlZTdkZiAwJSwgI2I0OTBjYSAxMDAlKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byB0b3AsICM1ZWU3ZGYgMCUsICNiNDkwY2EgMTAwJSk7IH1cclxuXHJcbiJdfQ== */";
+    __webpack_exports__["default"] = "li {\r\n    list-style: none;\r\n}\r\n\r\n.card-header > div {\r\n    align-items: center;\r\n}\r\n\r\n/* .scr {\r\n    width: 100%;\r\n    height: 100%;\r\n} */\r\n\r\n.user_img_msg{\r\n    height: 32px;\r\n    width: 32px;\r\n    border:1.5px solid #f5f6fa;\r\n    border-radius: 50%;\r\n}\r\n\r\n/*  */\r\n\r\n.img_cont_msg{\r\n    height: 40px;\r\n    width: 40px;\r\n}\r\n\r\n.img_name {\r\n    display: flex;\r\n}\r\n\r\n.name {\r\n    margin-left: -15px;\r\n}\r\n\r\n/*  */\r\n\r\n.msg_cotainer{\r\n    margin-top: auto;\r\n    margin-bottom: auto;\r\n    margin-left: 10px;\r\n    border-radius: 25px;\r\n    background-color: #82ccdd;\r\n    padding: 10px;\r\n    position: relative;\r\n}\r\n\r\n.msg_cont  {\r\n    overflow-y: auto;\r\n    height: calc(100% - 137px);\r\n}\r\n\r\n.comp_container {\r\n    height: 100%;\r\n}\r\n\r\n.msg_time{\r\n    width: 115px;\r\n    margin-top: 2px;\r\n    margin-left: 50px;\r\n    color: rgba(255,255,255,0.5);\r\n    font-size: 10px;\r\n}\r\n\r\n/* user card style */\r\n\r\n.card-header{\r\n    border-radius: 15px 15px 0 0 !important;\r\n    border-bottom: 1px solid #f5f6fa !important;\r\n}\r\n\r\n.user_info {\r\n    margin-top: auto;\r\n    margin-bottom: auto;\r\n    margin-left: 15px;\r\n}\r\n\r\n.user_info span, .user_info p {\r\n    color: #AAB8C2;\r\n}\r\n\r\n.user_img {\r\n    height: 70px;\r\n    width: 70px;\r\n    border: 1.5px solid #f5f6fa;\r\n}\r\n\r\n.metta {\r\n    margin-top: 5px;\r\n    margin-bottom: -60px;\r\n}\r\n\r\n/* like */\r\n\r\n@-webkit-keyframes animate {\r\n    0%   { background-position: left;  }\r\n    50%  { background-position: right; }\r\n    100% { background-position: right; }\r\n}\r\n\r\n@keyframes animate {\r\n    0%   { background-position: left;  }\r\n    50%  { background-position: right; }\r\n    100% { background-position: right; }\r\n}\r\n\r\n.is-active {\r\n  -webkit-animation-name: animate;\r\n          animation-name: animate;\r\n  -webkit-animation-duration: 1s;\r\n          animation-duration: 1s;\r\n  -webkit-animation-iteration-count: 1;\r\n          animation-iteration-count: 1;\r\n  -webkit-animation-timing-function: steps(28);\r\n          animation-timing-function: steps(28);\r\n  -webkit-animation-fill-mode: forwards;\r\n          animation-fill-mode: forwards;\r\n}\r\n\r\n.like-btn {\r\n    position: relative;\r\n    top: -20px;\r\n    background: url('twitter-heart.png');\r\n    width: 60px;\r\n    height: 60px;\r\n    background-size: 2900%;\r\n    background-repeat: no-repeat;\r\n    cursor: pointer;\r\n}\r\n\r\n.like_count {\r\n    margin-top: -3px;\r\n}\r\n\r\n.finish {\r\n    font-size: 55px;\r\n    color: red;\r\n    margin-left: auto;\r\n    margin-right: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n/* scroll */\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-color: #F5F5F5;\r\n    border-radius: 10px; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar {\r\n    width: 12px;\r\n    background-color: #F5F5F5; }\r\n\r\n.scrollbar-near-moon::-webkit-scrollbar-thumb {\r\n    border-radius: 10px;\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);\r\n    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%); }\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9xdWVzdGlvbi9xdWVzdGlvbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksbUJBQW1CO0FBQ3ZCOztBQUNBOzs7R0FHRzs7QUFDSDtJQUNJLFlBQVk7SUFDWixXQUFXO0lBQ1gsMEJBQTBCO0lBQzFCLGtCQUFrQjtBQUN0Qjs7QUFFQSxLQUFLOztBQUNMO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjs7QUFDQTtJQUNJLGFBQWE7QUFDakI7O0FBQ0E7SUFDSSxrQkFBa0I7QUFDdEI7O0FBQ0EsS0FBSzs7QUFDTDtJQUNJLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQix5QkFBeUI7SUFDekIsYUFBYTtJQUNiLGtCQUFrQjtBQUN0Qjs7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQiwwQkFBMEI7QUFDOUI7O0FBQ0E7SUFDSSxZQUFZO0FBQ2hCOztBQUNBO0lBQ0ksWUFBWTtJQUNaLGVBQWU7SUFDZixpQkFBaUI7SUFDakIsNEJBQTRCO0lBQzVCLGVBQWU7QUFDbkI7O0FBRUEsb0JBQW9COztBQUVwQjtJQUNJLHVDQUF1QztJQUN2QywyQ0FBMkM7QUFDL0M7O0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsbUJBQW1CO0lBQ25CLGlCQUFpQjtBQUNyQjs7QUFDQTtJQUNJLGNBQWM7QUFDbEI7O0FBQ0E7SUFDSSxZQUFZO0lBQ1osV0FBVztJQUNYLDJCQUEyQjtBQUMvQjs7QUFDQTtJQUNJLGVBQWU7SUFDZixvQkFBb0I7QUFDeEI7O0FBRUEsU0FBUzs7QUFDVDtJQUNJLE9BQU8seUJBQXlCLEdBQUc7SUFDbkMsT0FBTywwQkFBMEIsRUFBRTtJQUNuQyxPQUFPLDBCQUEwQixFQUFFO0FBQ3ZDOztBQUpBO0lBQ0ksT0FBTyx5QkFBeUIsR0FBRztJQUNuQyxPQUFPLDBCQUEwQixFQUFFO0lBQ25DLE9BQU8sMEJBQTBCLEVBQUU7QUFDdkM7O0FBRUE7RUFDRSwrQkFBdUI7VUFBdkIsdUJBQXVCO0VBQ3ZCLDhCQUFzQjtVQUF0QixzQkFBc0I7RUFDdEIsb0NBQTRCO1VBQTVCLDRCQUE0QjtFQUM1Qiw0Q0FBb0M7VUFBcEMsb0NBQW9DO0VBQ3BDLHFDQUE2QjtVQUE3Qiw2QkFBNkI7QUFDL0I7O0FBR0E7SUFDSSxrQkFBa0I7SUFDbEIsVUFBVTtJQUNWLG9DQUFtRTtJQUNuRSxXQUFXO0lBQ1gsWUFBWTtJQUNaLHNCQUFzQjtJQUN0Qiw0QkFBNEI7SUFDNUIsZUFBZTtBQUNuQjs7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLGVBQWU7SUFDZixVQUFVO0lBQ1YsaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixlQUFlO0FBQ25COztBQUVBLFdBQVc7O0FBQ1g7SUFDSSxvREFBb0Q7SUFDcEQseUJBQXlCO0lBQ3pCLG1CQUFtQixFQUFFOztBQUVyQjtJQUNBLFdBQVc7SUFDWCx5QkFBeUIsRUFBRTs7QUFFM0I7SUFDQSxtQkFBbUI7SUFDbkIsb0RBQW9EO0lBR3BELG1FQUFtRSxFQUFFIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9wb3J0YWwvcG9ydGFsLWRldGFpbC9xdWVzdGlvbi9xdWVzdGlvbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibGkge1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxufVxyXG5cclxuLmNhcmQtaGVhZGVyID4gZGl2IHtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuLyogLnNjciB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxufSAqL1xyXG4udXNlcl9pbWdfbXNne1xyXG4gICAgaGVpZ2h0OiAzMnB4O1xyXG4gICAgd2lkdGg6IDMycHg7XHJcbiAgICBib3JkZXI6MS41cHggc29saWQgI2Y1ZjZmYTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxufVxyXG5cclxuLyogICovXHJcbi5pbWdfY29udF9tc2d7XHJcbiAgICBoZWlnaHQ6IDQwcHg7XHJcbiAgICB3aWR0aDogNDBweDtcclxufVxyXG4uaW1nX25hbWUge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxufVxyXG4ubmFtZSB7XHJcbiAgICBtYXJnaW4tbGVmdDogLTE1cHg7XHJcbn1cclxuLyogICovXHJcbi5tc2dfY290YWluZXJ7XHJcbiAgICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogYXV0bztcclxuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM4MmNjZGQ7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG59XHJcbi5tc2dfY29udCAge1xyXG4gICAgb3ZlcmZsb3cteTogYXV0bztcclxuICAgIGhlaWdodDogY2FsYygxMDAlIC0gMTM3cHgpO1xyXG59XHJcbi5jb21wX2NvbnRhaW5lciB7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLm1zZ190aW1le1xyXG4gICAgd2lkdGg6IDExNXB4O1xyXG4gICAgbWFyZ2luLXRvcDogMnB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDUwcHg7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwwLjUpO1xyXG4gICAgZm9udC1zaXplOiAxMHB4O1xyXG59XHJcblxyXG4vKiB1c2VyIGNhcmQgc3R5bGUgKi9cclxuXHJcbi5jYXJkLWhlYWRlcntcclxuICAgIGJvcmRlci1yYWRpdXM6IDE1cHggMTVweCAwIDAgIWltcG9ydGFudDtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZjVmNmZhICFpbXBvcnRhbnQ7XHJcbn1cclxuLnVzZXJfaW5mbyB7XHJcbiAgICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogYXV0bztcclxuICAgIG1hcmdpbi1sZWZ0OiAxNXB4O1xyXG59XHJcbi51c2VyX2luZm8gc3BhbiwgLnVzZXJfaW5mbyBwIHtcclxuICAgIGNvbG9yOiAjQUFCOEMyO1xyXG59XHJcbi51c2VyX2ltZyB7XHJcbiAgICBoZWlnaHQ6IDcwcHg7XHJcbiAgICB3aWR0aDogNzBweDtcclxuICAgIGJvcmRlcjogMS41cHggc29saWQgI2Y1ZjZmYTtcclxufVxyXG4ubWV0dGEge1xyXG4gICAgbWFyZ2luLXRvcDogNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogLTYwcHg7XHJcbn1cclxuXHJcbi8qIGxpa2UgKi9cclxuQGtleWZyYW1lcyBhbmltYXRlIHtcclxuICAgIDAlICAgeyBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBsZWZ0OyAgfVxyXG4gICAgNTAlICB7IGJhY2tncm91bmQtcG9zaXRpb246IHJpZ2h0OyB9XHJcbiAgICAxMDAlIHsgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQ7IH1cclxufVxyXG5cclxuLmlzLWFjdGl2ZSB7XHJcbiAgYW5pbWF0aW9uLW5hbWU6IGFuaW1hdGU7XHJcbiAgYW5pbWF0aW9uLWR1cmF0aW9uOiAxcztcclxuICBhbmltYXRpb24taXRlcmF0aW9uLWNvdW50OiAxO1xyXG4gIGFuaW1hdGlvbi10aW1pbmctZnVuY3Rpb246IHN0ZXBzKDI4KTtcclxuICBhbmltYXRpb24tZmlsbC1tb2RlOiBmb3J3YXJkcztcclxufVxyXG5cclxuXHJcbi5saWtlLWJ0biB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICB0b3A6IC0yMHB4O1xyXG4gICAgYmFja2dyb3VuZDogdXJsKCcuLy4uLy4uLy4uLy4uLy4uL2Fzc2V0cy9pbWFnZXMvdHdpdHRlci1oZWFydC5wbmcnKTtcclxuICAgIHdpZHRoOiA2MHB4O1xyXG4gICAgaGVpZ2h0OiA2MHB4O1xyXG4gICAgYmFja2dyb3VuZC1zaXplOiAyOTAwJTtcclxuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuLmxpa2VfY291bnQge1xyXG4gICAgbWFyZ2luLXRvcDogLTNweDtcclxufVxyXG5cclxuLmZpbmlzaCB7XHJcbiAgICBmb250LXNpemU6IDU1cHg7XHJcbiAgICBjb2xvcjogcmVkO1xyXG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi8qIHNjcm9sbCAqL1xyXG4uc2Nyb2xsYmFyLW5lYXItbW9vbjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sge1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiBpbnNldCAwIDAgNnB4IHJnYmEoMCwgMCwgMCwgMC4xKTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGNUY1RjU7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4OyB9XHJcbiAgICBcclxuICAgIC5zY3JvbGxiYXItbmVhci1tb29uOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgICB3aWR0aDogMTJweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGNUY1RjU7IH1cclxuICAgIFxyXG4gICAgLnNjcm9sbGJhci1uZWFyLW1vb246Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgICAtd2Via2l0LWJveC1zaGFkb3c6IGluc2V0IDAgMCA2cHggcmdiYSgwLCAwLCAwLCAwLjEpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1ncmFkaWVudChsaW5lYXIsIGxlZnQgYm90dG9tLCBsZWZ0IHRvcCwgZnJvbSgjNWVlN2RmKSwgdG8oI2I0OTBjYSkpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQoYm90dG9tLCAjNWVlN2RmIDAlLCAjYjQ5MGNhIDEwMCUpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIHRvcCwgIzVlZTdkZiAwJSwgI2I0OTBjYSAxMDAlKTsgfVxyXG5cclxuIl19 */";
     /***/
   },
 
@@ -3796,7 +3759,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var QuestionComponent =
     /*#__PURE__*/
     function () {
-      // canAutoScroll = true;
       function QuestionComponent(questionService, chatServise, portalService, chatService, route) {
         _classCallCheck(this, QuestionComponent);
 
@@ -3835,6 +3797,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function action(item, i) {
           this.questionService.canScrollSubject.next(false);
           var us_erID = this.currUserID;
+          var portalId = this.portalId;
 
           if (item.isLiked) {
             item.isLiked = false;
@@ -3845,7 +3808,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               index: i,
               likes: t - 1,
               nicknameId: us_erID,
-              questionId: item.id
+              questionId: item.id,
+              portalId: portalId
             }, "minus");
           } else {
             item.isLiked = true;
@@ -3858,11 +3822,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               index: i,
               likes: _t + 1,
               nicknameId: us_erID,
-              questionId: item.id
+              questionId: item.id,
+              portalId: portalId
             }, "plus");
           }
-        } // if user or subscriber are liked a question
-
+        }
       }, {
         key: "isNickLiked",
         value: function isNickLiked(questionItem) {
@@ -3898,7 +3862,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
           this.questionService.getAllQuestions(this.portalToken).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.destroy$)).subscribe(function (questions) {
-            console.log(questions, 210989);
             _this18.questions = questions;
           });
           this.chatServise.addLikeCount(); //
@@ -3930,8 +3893,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }); //
 
           this.chatService.updateAvatarS.subscribe(function (data) {
-            console.log(_this18.questions, 120);
-
             _this18.questions.find(function (item) {
               return item.nickss.id === data.id && (item.nickss.image = data.avatar);
             });
@@ -3944,9 +3905,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
-          // if (!this.portalService.isPortalisMakeUser(this.portalId, null)) {
-          this.chatServise.socketDisconnect(this.nickData); // }
-
+          this.chatServise.socketDisconnect(this.nickData);
           this.destroy$.next(true);
           this.destroy$.complete();
         }
@@ -4082,7 +4041,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function updateAvatar(avatar) {
           var _this19 = this;
 
-          console.log(this.portalId, this.nickDataId, 888888888);
           this.nickNameService.changeAvatar({
             avatar: avatar,
             portalId: this.portalId,
@@ -4227,7 +4185,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this20 = this;
 
           this.portalId = +this.portalService.getPortalId;
-          alert(this.portalId);
           var data$ = this.questionService.getTop_10_questions(this.portalId);
           Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["timer"])(0, 80000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["concatMap"])(function (_) {
             return data$;
@@ -4353,9 +4310,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function goToPortal(portalData) {
           this.portalService.currentPortalIdSubject.next(portalData.id);
           this.portalService.currentPortalSubject.next(portalData);
-          this.router.navigate(["/portals", portalData.token]); // console.log(portalData);
-        } // [routerLink]="['/api/portals', item.token]"
-
+          this.router.navigate(["/portals", portalData.token]);
+        }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
@@ -4364,10 +4320,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var currentUserId = this.userAuthService.currentUserValue.id;
           this.portalService.getActivePortal(currentUserId).subscribe(function (portal) {
             _this21.portals = portal;
-            console.log(_this21.portals, 7777);
           });
           this.portalService.getUserPortals(currentUserId).subscribe(function (portals) {
-            return console.log(portals, 7);
+            return portals;
           });
           this.userAuthService.isAuthenticated().then(function (result) {
             if (result) {
@@ -4472,8 +4427,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var src_app_services_auth_user_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/services/auth/user-auth.service */
-    "./src/app/services/auth/user-auth.service.ts"); // import { Observable } from "rxjs";
-
+    "./src/app/services/auth/user-auth.service.ts");
 
     var ProfileComponent =
     /*#__PURE__*/
@@ -4481,16 +4435,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function ProfileComponent(route, userService, userAuthService) {
         _classCallCheck(this, ProfileComponent);
 
-        // const userToken = this.route.snapshot.paramMap.get("token");
         this.route = route;
         this.userService = userService;
-        this.userAuthService = userAuthService; // if (userToken) {
-        //   this.userService.addToken("access_token", userToken);
-        //   this.userService.getUserProfileSocial(userToken).subscribe(data => {
-        //     console.log(data, 93939393939);
-        //     this.data = data;
-        //   });
-        // }
+        this.userAuthService = userAuthService;
       }
 
       _createClass(ProfileComponent, [{
@@ -4502,7 +4449,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (userId) {
             this.userService.getUserProfile(userId).subscribe(function (data) {
-              console.log(data);
               _this22.data = data;
             });
           }
@@ -4622,18 +4568,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _HELPERS_mutch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./../../../HELPERS/mutch */
-    "./src/app/HELPERS/mutch.ts"); // import { AuthService } from "angularx-social-login";
-    // import {
-    //   FacebookLoginProvider,
-    //   GoogleLoginProvider
-    // } from "angularx-social-login";
-
+    "./src/app/HELPERS/mutch.ts");
 
     var UserRegistrationComponent =
     /*#__PURE__*/
     function () {
-      function UserRegistrationComponent(router, userService, authService, // private socialAuthService: AuthService,
-      formBuilder) {
+      function UserRegistrationComponent(router, userService, authService, formBuilder) {
         _classCallCheck(this, UserRegistrationComponent);
 
         this.router = router;
@@ -4664,36 +4604,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else if (this.registerForm.controls[field].dirty && this.registerForm.controls[field].valid) {
             return "is_valid";
           }
-        } // signInWithGoogle(): void {
-        //   this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-        // }
-
+        }
       }, {
         key: "signInWithFB",
         value: function signInWithFB() {
-          // this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
           this.authService.signInWithFB();
-        } // signOut(): void {
-        //   this.socialAuthService.signOut();
-        // }
-        // FC_Login() {
-        //   console.log("in user-registration component");
-        //   this.authService.regWithFace()
-        //   .subscribe(x => console.log(x), err => console.log(err, 2109));
-        // }
-
+        }
       }, {
         key: "onSubmit",
         value: function onSubmit() {
           var _this23 = this;
 
-          console.log(this.registerForm.value);
           var userData = this.registerForm.value;
           delete userData.confPassword;
           this.userService.AddUser(userData).subscribe(function (data) {
             if (data.firstName) {
-              console.log(data, typeof data);
-
               _this23.userService.addToken("currentUser", data);
 
               _this23.authService.refresh(data);
@@ -4930,7 +4855,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     return _context5.abrupt("return", true);
 
                   case 7:
-                    console.log(isValid, 33333333);
                     this.router.navigate(["/users/login"], {
                       queryParams: {
                         returnUrl: state.url
@@ -4938,7 +4862,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
                     return _context5.abrupt("return", false);
 
-                  case 10:
+                  case 9:
                   case "end":
                     return _context5.stop();
                 }
@@ -5032,10 +4956,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.userAuthService = userAuthService;
         this.router = router;
         this.currentUserId = this.userAuthService.currentUserValue ? this.userAuthService.currentUserValue.id : null;
-      } // getPortalIdFromToken(token) {
-      //   this.portalService.getPortalIdFromToken(token);
-      // }
-
+      }
 
       _createClass(SubscriberGuard, [{
         key: "canActivate",
@@ -5057,7 +4978,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.portalService.currentUserPortals.next(portals);
 
                     if (!(this.userAuthService.UserLoggedStatus && !this.nickService.getNickToken || this.portalService.isPortalisMakeUser(null, next.params.token))) {
-                      _context6.next = 22;
+                      _context6.next = 20;
                       break;
                     }
 
@@ -5068,7 +4989,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     result = _context6.sent;
 
                     if (!result) {
-                      _context6.next = 19;
+                      _context6.next = 17;
                       break;
                     }
 
@@ -5079,41 +5000,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 13:
                     portal = _context6.sent;
-                    console.log(portal, 7401);
                     this.portalService.currentPortalSubject.next(portal);
-                    alert(typeof portal.id);
                     this.portalService.currentPortalIdSubject.next(portal.id);
                     return _context6.abrupt("return", true);
 
-                  case 19:
+                  case 17:
                     return _context6.abrupt("return", false);
 
-                  case 22:
+                  case 20:
                     this.userAuthService.setPortalToUser(false);
-                    _context6.next = 25;
+                    _context6.next = 23;
                     return this.nickService.isSubscriberAuth(next.params.token).toPromise();
 
-                  case 25:
+                  case 23:
                     _result = _context6.sent;
 
                     if (!_result) {
-                      _context6.next = 36;
+                      _context6.next = 34;
                       break;
                     }
 
                     this.nickService.nickDataSubject.next(_result);
                     this.portalService.currentPortalIdSubject.next(_result.portalId);
-                    _context6.next = 31;
+                    _context6.next = 29;
                     return this.portalService.getPortalIdFromToken(next.params.token);
 
-                  case 31:
+                  case 29:
                     _portal = _context6.sent;
                     this.portalService.currentPortalSubject.next(_portal);
                     return _context6.abrupt("return", true);
 
-                  case 36:
+                  case 34:
                     if (!(_result === null)) {
-                      _context6.next = 42;
+                      _context6.next = 40;
                       break;
                     }
 
@@ -5124,7 +5043,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.router.navigate(["/cover"]);
                     return _context6.abrupt("return", false);
 
-                  case 42:
+                  case 40:
                     this.portalService.portalStatusSubject.next({
                       token: next.params.token,
                       state: false
@@ -5132,7 +5051,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.router.navigate(["/cover"]);
                     return _context6.abrupt("return", false);
 
-                  case 45:
+                  case 43:
                   case "end":
                     return _context6.stop();
                 }
@@ -5204,13 +5123,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AnswerService =
     /*#__PURE__*/
     function () {
-      //  answerSubject: Subject<string>;
-      //  answer: Observable<any>;
       function AnswerService(http) {
         _classCallCheck(this, AnswerService);
 
-        this.http = http; // this.answerSubject = new Subject();
-        // this.answer = this.answerSubject.asObservable();
+        this.http = http;
       }
 
       _createClass(AnswerService, [{
@@ -5306,7 +5222,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var _portal_portal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ../portal/portal.service */
+    /*! ./../portal/portal.service */
     "./src/app/services/portal/portal.service.ts");
 
     var UserAuthService =
@@ -5424,7 +5340,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "regWithFace",
         value: function regWithFace(accesToken) {
-          console.log("inside user-auth service", 7401);
           return this.http.post("api/users/auth/facebook", {
             access_token: accesToken
           });
@@ -5483,7 +5398,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "logout",
         value: function logout() {
-          // remove user from local storage to log user out
           localStorage.removeItem("currentUser");
           this.signOut();
           this.currentUserSubject.next(null);
@@ -5571,7 +5485,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var ChatService =
     /*#__PURE__*/
     function () {
-      // removePortal   = this.socket.fromEvent("removePortal");
       function ChatService(socket) {
         _classCallCheck(this, ChatService);
 
@@ -5598,6 +5511,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "socketDisconnect",
         value: function socketDisconnect(nickData) {
           this.socket.emit("disconected", nickData);
+        }
+      }, {
+        key: "joinRoom",
+        value: function joinRoom(portalId) {
+          this.socket.emit("joinRoom", portalId);
         }
       }, {
         key: "addLikeCount",
@@ -5719,14 +5637,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(InterceptorService, [{
         key: "handleError",
         value: function handleError(error) {
-          console.log(error); // if (error.status === 501) {
-          // return throwError(this.user.execption());
-          //     oR
-
-          console.log(error, 444);
-          return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error); // }
-          // const err = error.error.message || error.statusText;
-          // return throwError(err);
+          return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
         }
       }, {
         key: "intercept",
@@ -5877,8 +5788,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js"); // import { PreloadAllModules } from '@angular/router';
-
+    "./node_modules/rxjs/_esm2015/operators/index.js");
 
     var NickNameService =
     /*#__PURE__*/
@@ -6018,27 +5928,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var PortalService =
     /*#__PURE__*/
     function () {
-      // isPortalOfUser: BehaviorSubject<boolean>;
       function PortalService(http) {
         _classCallCheck(this, PortalService);
 
         this.http = http;
         this.portalSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
         this.portal = this.portalSubject.asObservable();
-        this.portalStatusSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.portalStatusSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
         this.portalState = this.portalStatusSubject.asObservable();
         this.currentPortalIdSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]("");
         this.currentPortalSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
         this.currentUserPortals = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
         this.portalFinishedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-        this.portalFinished = this.portalFinishedSubject.asObservable(); // this.isPortalOfUser = new BehaviorSubject(false);
+        this.portalFinished = this.portalFinishedSubject.asObservable();
       }
 
       _createClass(PortalService, [{
         key: "addPortal",
-        // get getIsPortalofUser {
-        //   return this.isPortalOfUser.value;
-        // }
         value: function addPortal(data) {
           return this.http.post("api/portals/addPortal", data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (portal) {
             portal.portalManyQuestion = [];
@@ -6050,7 +5956,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function startEvent(id, token) {
           return this.http.put("api/portals/".concat(token), {
             id: id
-          }); // xi token@ query.param ???
+          });
         }
       }, {
         key: "checkPermision",
@@ -6082,21 +5988,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getActivePortal",
         value: function getActivePortal(currentUserId) {
           return this.http.get("api/portals/active/".concat(currentUserId));
-        } //
-
+        }
+      }, {
+        key: "showForm",
+        value: function showForm() {
+          return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(this.getPortalStatus);
+        }
       }, {
         key: "chekPortalStatus",
         value: function chekPortalStatus(token) {
           return this.http.post("api/portals/portalStatus", {
             token: token
           });
-        } //
-
+        }
       }, {
         key: "isPortalisMakeUser",
         value: function isPortalisMakeUser(portalid, portalToken) {
           var userPortals = this.getCurentUserPortals;
-          console.log(userPortals, 444444444);
           var isExist;
 
           if (portalid) {
@@ -6130,6 +6038,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getCurrentPortal",
         get: function get() {
           return this.currentPortalSubject.value;
+        }
+      }, {
+        key: "getPortalStatus",
+        get: function get() {
+          return this.portalStatusSubject.value;
         }
       }]);
 
@@ -6320,7 +6233,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "sendMail",
         value: function sendMail(email, url) {
-          console.log(email, url, 9999);
           email = email.reduce(function (arr, item) {
             return arr.push(item.email), arr;
           }, []);

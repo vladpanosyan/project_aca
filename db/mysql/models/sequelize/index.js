@@ -50,7 +50,7 @@ module.exports = sequelize
     .then(res => {
         global.UserModel = db.Users;
         global.sequelize = sequelize; 
-        return db //exports into mysql/models/index.js
+        return db;
     })
     .catch(err => {
         logger.error('Unable to connect to the database:' + err.message);

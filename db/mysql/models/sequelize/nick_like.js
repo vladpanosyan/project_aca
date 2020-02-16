@@ -21,7 +21,6 @@ module.exports = (sequelize, Sequelize) => {
         Nick_like.belongsTo(models.Nicknames, {
             as: 'nick_likesToNikes',
             foreignKey: 'nicknameId',
-            // as: 'nickToPortal'
         });
         
         Nick_like.belongsTo(models.Questions, {

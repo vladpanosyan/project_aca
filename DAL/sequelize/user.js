@@ -60,6 +60,6 @@ module.exports = class User {
                 fields:fields.length ? field : null,
                 where: {id}
             })
-            return !!updatedUser[0]
-        }
+        return !!updatedUser[0]
+    }
 }

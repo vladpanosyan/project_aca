@@ -3,8 +3,6 @@ import { UserService } from "src/app/services/user/user.service";
 import { ActivatedRoute } from "@angular/router";
 import { UserAuthService } from 'src/app/services/auth/user-auth.service';
 
-// import { Observable } from "rxjs";
-
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",

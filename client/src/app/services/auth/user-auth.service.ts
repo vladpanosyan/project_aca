@@ -11,7 +11,7 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angularx-social-login";
-import { PortalService } from '../portal/portal.service';
+import { PortalService } from "./../portal/portal.service";
 @Injectable({
   providedIn: "root"
 })

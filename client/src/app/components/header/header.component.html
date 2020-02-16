@@ -27,9 +27,6 @@
         <li *ngIf="isLoggedIn" class="nav-item">
           <a class="nav-link" (click)="logout()" href="#">LogOut</a>
         </li>
-         <li>
-          <a class="nav-link" [routerLink]="['/portals/active']">TEST</a> 
-        </li>
          <li *ngIf="isLoggedIn" class="d-flex align-items-center">
           <img [src]="currentUser?.img" alt="" width="30" height="30" class="rounded">
         </li>
