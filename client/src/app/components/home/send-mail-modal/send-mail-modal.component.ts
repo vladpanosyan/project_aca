@@ -28,7 +28,7 @@ export class SendMailModalComponent implements OnInit {
     this.sendMailForm = this.formBuilder.group({
       emails: this.formBuilder.array([
         this.formBuilder.group({
-          email: [null, [Validators.email]]
+          email: [null, [Validators.email, Validators.required]]
         })
       ])
     });
@@ -54,6 +54,7 @@ export class SendMailModalComponent implements OnInit {
   }
 
   checkFormValid(isValid) {
+    console.log(isValid.valid)
     if (isValid.valid) {
       return true;
     }
@@ -65,10 +66,12 @@ export class SendMailModalComponent implements OnInit {
     return this.sendMailForm.get("emails") as FormArray;
   }
 
-  addInput() {
-    this.inpArray.push(
-      this.formBuilder.group({ email: [null, [Validators.email]] })
-    );
+  addInput(forms) {
+    if (forms.valid) {
+      this.inpArray.push(
+        this.formBuilder.group({ email: [null, [Validators.email, Validators.required]] })
+      );
+    }
   }
 
   removeEmail(i: number) {

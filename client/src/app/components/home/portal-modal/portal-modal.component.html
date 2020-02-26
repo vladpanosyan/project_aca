@@ -9,13 +9,13 @@
     <form [formGroup]="portalForm">
       <!-- tittle -->
       <div class="form-group">
-        <label for="portalTitle">Title</label>
+        <label for="portalTitle">Title</label> 
         <div class="input-group">
           <input id="portalTitle" class="form-control" formControlName="title" name="title" type="text" #title>
         </div>
         <!-- date -->
         <label for="dateOfStart">Date of start</label>
-        <ngbd-datepicker-popup [formControl]="portalForm.controls['date']"></ngbd-datepicker-popup>
+        <ngbd-datepicker-popup [formControl]="portalForm.controls['date']" (changedTime)="getTime($event)"></ngbd-datepicker-popup>
         <!-- time -->
         <label for="timeOfStart">Time of start</label>
         <div class="input-group">
@@ -30,7 +30,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <span *ngIf="!isValidEventData">Make sure that event date is valid</span>
+    <span *ngIf="!isValidEventData">Make sure that event date is valid or all fields are filled</span>
     <button type="button" class="btn btn-outline-dark" (click)="chekEventDataValid(portalForm) && modal.close(portalForm)">Save</button>
   </div>
 </ng-template>

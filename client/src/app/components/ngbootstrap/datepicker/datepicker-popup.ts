@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit } from "@angular/core";
+import { Component,EventEmitter, forwardRef, OnInit, Output } from "@angular/core";
 import {
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
@@ -14,9 +14,12 @@ import {
     }
   ]
 })
-export class NgbdDatepickerPopup {
+export class NgbdDatepickerPopup implements OnInit {
   value: any;
+  time: any;
   constructor() {}
+
+  @Output() changedTime = new EventEmitter<string>();
 
   private onChange: any = () => { };
   private onTouched: any = () => { };
@@ -24,6 +27,10 @@ export class NgbdDatepickerPopup {
   public bsValueChange(value) {
     this.writeValue(value);
     this.onTouched();
+  }
+
+  public setValue() {
+
   }
 
   public writeValue(value: any) {
@@ -42,7 +49,16 @@ export class NgbdDatepickerPopup {
     return this.value;
   }
 
-  // ngOnInit() {
-  //   // this.ngControl = this.injector.get(NgControl);
-  // }
+  ngOnInit() {
+    const targetDate = Date.now() + ( 12 * 60 * 60 * 1000);
+    const date = new Date(targetDate);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    this.value = { year, month, day };
+    const hours = (date.getHours() < 10 ? `0${date.getHours()}` : date.getHours());
+    const minutes = (date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes());
+    this.time = `${hours}:${minutes}`;
+    this.changedTime.emit(this.time);
+  }
 }
