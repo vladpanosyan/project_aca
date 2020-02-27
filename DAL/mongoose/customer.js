@@ -4,7 +4,6 @@ module.exports = class Customer {
     }
 
     async createData(data) {
-        console.log(375656)
         let user = await this.model.create({name: 'Aghasik', phone: 20202020})// seq
         return user
     }

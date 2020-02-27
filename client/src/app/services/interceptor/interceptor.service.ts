@@ -17,15 +17,7 @@ export class InterceptorService implements HttpInterceptor {
   constructor(private user: UserService) {}
 
   handleError(error: HttpErrorResponse) {
-    // if (error.status === 501) {
-
-      // return throwError(this.user.execption());
-      //     oR
-    console.log(error, 444);
     return throwError(error);
-    // }
-    // const err = error.error.message || error.statusText;
-    // return throwError(err);
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {

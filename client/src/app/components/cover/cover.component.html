@@ -1,23 +1,16 @@
-<div class="list-type5">
-    <!-- <pre>{{ portalData | json }}</pre> -->
+<div class="list-type5" *ngIf="portalData.length">
     <ol *ngFor="let item of portalData">
         <li *ngIf="item.private" (click)="item.isStarted && openModal(item, true)" [ngClass]="{disabled: !item.isStarted}" class="d-flex">
-            <!-- <p>{{ item|json }}</p> -->
             <span >{{ item.name }}</span>
             <i class="fas fa-lock"></i>
             <span style=" color: azure;"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>
             <span style="color: azure;">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>
-
-            <!-- {{item.private ? '-private' : '-public'}} ------ {{ item.userId }} -->
         </li>
         <li *ngIf="!item.private" (click)="item.isStarted && openModal(item, false)" [ngClass]="{disabled: !item.isStarted}" class="d-flex">
-            <!-- <p>{{ item|json }}</p> -->
             <span>{{ item.name }}</span>
             <i class="fas fa-lock-open"></i>
             <span style="color: azure;">{{ item.isStarted ? 'In Process ' : 'Started at ' + (item.start | date: 'medium')}}</span>
             <span style="color: azure;">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>
-
-            <!-- {{item.private ? '-private' : '-public'}}  ------ {{ item.userId }} -->
         </li>
     </ol>
 </div>  

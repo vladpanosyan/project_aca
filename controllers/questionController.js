@@ -3,15 +3,15 @@ class QuestionController {
         this.questionService = questionService
     }
     // find
-    async getAll(request, response) {
+    async getAll(request, response) { 
         try{
             const portalToken = request.params.token
             let questions = await this.questionService.getAllQuestions(portalToken)
             response.json( questions )
         }
         catch(e) {
-            this.loger(`${e} - ${e.message}`) /// amena lav error handlingi tex@
-            response.status(400).send({
+            this.loger.error(`${e} - ${e.message}`);
+            response.status(403).send({
                 success: "fail",
                 message: "questions not found, false portal adress"
             })
@@ -26,7 +26,6 @@ class QuestionController {
 
     // delete by id
     async deleteQuestion(request, response) {
-        console.log(request.params.id)
         const questionId = await this.questionService.deleteById(request.params.id)
         if (questionId) {
             response.status(200).end(`questionId in id - ${questionId.id} has deleted`)

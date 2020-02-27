@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
 
     Question.associate = function (models) {
         Question.belongsTo(models.Portals, {
-            // as: "portal",
             as: "quToPortal",
             foreignKey: 'portalId',
         });

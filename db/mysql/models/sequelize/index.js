@@ -34,7 +34,7 @@ Object.keys(db).forEach(modelName => {
 module.exports = sequelize
     .authenticate()
     .then(() => {
-        console.log('SEQUELIZE - Connection has been established successfully.');
+      logger.info('SEQUELIZE - Connection has been established successfully.');
         
     })
     .then(async () => {
@@ -50,7 +50,7 @@ module.exports = sequelize
     .then(res => {
         global.UserModel = db.Users;
         global.sequelize = sequelize; 
-        return db //exports into mysql/models/index.js
+        return db;
     })
     .catch(err => {
         logger.error('Unable to connect to the database:' + err.message);

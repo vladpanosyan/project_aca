@@ -1,8 +1,5 @@
-import { Component, forwardRef, Injector, OnInit } from "@angular/core";
-import { DatePipe } from "@angular/common";
+import { Component,EventEmitter, forwardRef, OnInit, Output } from "@angular/core";
 import {
-  ControlValueAccessor,
-  NgControl,
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
 
@@ -17,10 +14,12 @@ import {
     }
   ]
 })
-export class NgbdDatepickerPopup {
+export class NgbdDatepickerPopup implements OnInit {
   value: any;
-  // private ngControl: NgControl;
+  time: any;
   constructor() {}
+
+  @Output() changedTime = new EventEmitter<string>();
 
   private onChange: any = () => { };
   private onTouched: any = () => { };
@@ -30,29 +29,36 @@ export class NgbdDatepickerPopup {
     this.onTouched();
   }
 
+  public setValue() {
+
+  }
+
   public writeValue(value: any) {
     this.value = this.transformDate(this.value);
     this.onChange(this.value);
   }
   public registerOnChange(fn: any) {
     this.onChange = fn;
-    this.onChange(this.value); // for OnInit cycle
+    this.onChange(this.value);
   }
 
   public registerOnTouched(fn: any) {
-    // this.onTouched = fn;
   }
 
-  //   public setDisabledState(isDisabled: boolean) {
-  //     //
-  //   }
-
   private transformDate(value: any) {
-    // console.log(value, 999);
     return this.value;
   }
 
-  // ngOnInit() {
-  //   // this.ngControl = this.injector.get(NgControl);
-  // }
+  ngOnInit() {
+    const targetDate = Date.now() + ( 12 * 60 * 60 * 1000);
+    const date = new Date(targetDate);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    this.value = { year, month, day };
+    const hours = (date.getHours() < 10 ? `0${date.getHours()}` : date.getHours());
+    const minutes = (date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes());
+    this.time = `${hours}:${minutes}`;
+    this.changedTime.emit(this.time);
+  }
 }

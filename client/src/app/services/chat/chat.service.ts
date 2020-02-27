@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { Socket, } from "ngx-socket-io";
 import { Subject, Observable } from "rxjs";
 
-
 @Injectable({
   providedIn: "root"
 })
@@ -46,7 +45,7 @@ export class ChatService {
   }
 
   sendLikeCount(data, action) {
-    this.socket.emit("get_likes_count", data, action);
+    this.socket.emit("get_likes_count", data, action); 
   }
 
   sendMessage(nickData) {

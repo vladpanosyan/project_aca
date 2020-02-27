@@ -9,7 +9,6 @@ module.exports = {
             node_port: process.env.PORT_DEV,
             
             database: {
-                db_orm: process.env.DB_ORENTATION,
                 mongoDb: {
                     db_host: process.env. MONGO_DB_HOST,
                     db_port: process.env.MONGO_DB_PORT,

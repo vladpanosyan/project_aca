@@ -17,12 +17,10 @@
         </div>
     </div>
     <div class="msg_cont scrollbar scrollbar-near-moon" #scrollMe>
-        <!-- <h1>{{ ggg() }}</h1> -->
         <div class="force-overflow"></div>
         <ul class="card-body msg_card_body ">
             <li *ngFor="let item of questions; let i=index"
                 class="d-flex justify-content-start mb-4 flex-column">
-                <!-- {{ item | json }}  -->
                 <div class="name" style="color: #AAB8C2">{{ item.nickss.name }}</div>
                 <div class="img_name d-flex flex-column">
                     <div class="img_msg_wrap d-flex">

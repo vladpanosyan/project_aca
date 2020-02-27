@@ -10,8 +10,8 @@ class AnswerController {
             response.json(answers)
         }
         catch(e) {
-            this.logger.info(e.message); // amena lav error handlingi tex@
-            this.logger.error(e.message); // amena lav error handlingi tex@
+            this.logger.info(e.message); 
+            this.logger.error(e.message);
         }
     }
 
@@ -23,7 +23,6 @@ class AnswerController {
 
     // delete by id
     async deleteAnswer(request, response) {
-        console.log(request.params.id)
         const answerId = await this.answerService.deleteById(request.params.id)
         if (answerId) {
             response.status(200).end(`answerId in id - ${answerId.id} has deleted`)

@@ -4,12 +4,11 @@ const { authMiddleware, facebookFutures } = require('./../middlewares/JWT_passpo
 module.exports = async(logger) => {
     try {
         const { CONTROLLERS } = await require('./../app_init/dal_service_init')(logger);
-        const userRouter      = require('./user')(CONTROLLERS.Users, authMiddleware, facebookFutures)
-        const portalRouter    = require('./portal')(CONTROLLERS.Portals, authMiddleware)
-        const nicknameRouter  = require('./nickname')(CONTROLLERS.Nicknames)
-        const questionRouter  = require('./queston')(CONTROLLERS.Questions)  
-        const answerRouter    = require('./answer')(CONTROLLERS.Answers)  
-        // const nick_likeRouter = await require('./')
+        const userRouter      = require('./user')(CONTROLLERS.Users, authMiddleware, facebookFutures);
+        const portalRouter    = require('./portal')(CONTROLLERS.Portals, authMiddleware);
+        const nicknameRouter  = require('./nickname')(CONTROLLERS.Nicknames);
+        const questionRouter  = require('./queston')(CONTROLLERS.Questions); 
+        const answerRouter    = require('./answer')(CONTROLLERS.Answers);  
         apiRouter.use('/users', userRouter);
         apiRouter.use('/portals', portalRouter);
         apiRouter.use('/nicknames', nicknameRouter);

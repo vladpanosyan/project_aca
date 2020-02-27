@@ -16,7 +16,6 @@ const socketIo = require('socket.io');
     const app = await require('../app')();
     startApp(app, socketconnect);
   } catch (error) {
-    console.log(error, 333333)
     const app = await require('../app')(error.cause.message);
     startApp(app);
   }

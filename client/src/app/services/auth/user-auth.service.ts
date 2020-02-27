@@ -11,7 +11,7 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angularx-social-login";
-import { PortalService } from '../portal/portal.service';
+import { PortalService } from "./../portal/portal.service";
 @Injectable({
   providedIn: "root"
 })
@@ -119,7 +119,7 @@ isAuthforGuard(): Observable<any> {
             });
           }
         },
-        error => console.log(error, 85858585)
+        error => console.error(error, 85858585)
       );
   }
 

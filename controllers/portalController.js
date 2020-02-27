@@ -6,24 +6,24 @@
     // find
     async getAll(request, response) {
         try{
-            let portals = await this.portalService.getAll()
+            let portals = await this.portalService.getAll();
             response.json(portals);
         }
         catch(e) {
-            this.logger.error(`${e.message} - ${e.stack}`) /// amena lav error handlingi tex@
+            this.logger.error(`${e.message} - ${e.stack}`);
             next(e.message);
         }
     }
 
     // get specificc user portals
-    async getUserPortals(request, response) {
+    async getUserPortals(request, response) { 
         try{
             const { userId } = request.body;
             let portals = await this.portalService.getUserPortals(userId);
             response.json(portals);
         }
         catch(e) {
-            this.logger.info(error.message);
+            this.logger.info(e.message);
             this.logger.error(e.message);
             next(e.message);
         } 
@@ -40,13 +40,12 @@
 
     // delete by id
     async deletePortal(request, response) {
-        console.log(request.params.id)
         const portalId = await this.portalService.deleteById(request.params.id)
         if (portalId) {
             response.status(200).end(`portalId in id - ${portalId.id} has deleted`)
         } else {
             this.logger.error('User not found for deleting')
-            response.status(401).end('User not found for deleting')
+            response.status(404).end('User not found for deleting')
         }
     }
 
@@ -124,10 +123,6 @@
             this.logger.error(error.message);
             next(error)
         }
-    }
-
-    exp(request, response) {
-        response.json({experemet: "ok"})
     }
 }
 

@@ -23,7 +23,7 @@ export class UserService {
     if (typeof user === "string") {
       localStorage.setItem(name, user);
     } else {
-      localStorage.setItem(name, JSON.stringify(user)); 
+      localStorage.setItem(name, JSON.stringify(user));
     }
   }
 
@@ -37,5 +37,9 @@ export class UserService {
     }, []);
     return this.http
     .post("api/users/sendmail", {email, url});
+  }
+
+  checkEmailIsValid(token): Observable<any> {
+    return this.http.put("/api/users/checkEmail", {token});
   }
  }

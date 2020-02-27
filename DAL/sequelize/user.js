@@ -9,12 +9,10 @@ module.exports = class User {
     async createData(data) {
         try {
             data.password = await this.models.Users.generateHash(data.password)
-            // data = {...data, password}
             let user = await this.model.create(data)
             user = user.get({plain: true})
             delete user['password'];
             delete user['email'];
-            console.log(user, 727272727272)
             return user;
         } catch (error) {
             if(error.name === "SequelizeUniqueConstraintError") {
@@ -41,12 +39,10 @@ module.exports = class User {
             where: {
                 email: data.username
             },
-            attributes: ['id', 'firstName', 'LastName', 'img', 'time', 'password']
+            attributes: ['id', 'firstName', 'LastName', 'img', 'time', 'password', 'activated']
         });
         
-        console.log(user, 666666)
         if(user.length) {
-            // console.log(typeof data.password, typeof  user.passwordtypeof)
             const isValid = await this.models.Users.validPassword(data.password, user[0].password);
             if(isValid) return user[0];
         }
@@ -64,6 +60,24 @@ module.exports = class User {
                 fields:fields.length ? field : null,
                 where: {id}
             })
-            return !!updatedUser[0]
-        }
+        return !!updatedUser[0]
+    }
+
+    async checkEmail(email) {
+        const userData = await this.model.findAll({
+            where: {
+                email
+            }
+        })
+
+        if(userData.length) {
+            const activated = await this.model.update({
+             activated: 1
+            }, {
+                where: {email}
+            });
+            return !!activated[0];
+        } 
+        return null;
+    }
 }

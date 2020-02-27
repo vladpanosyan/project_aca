@@ -4,7 +4,6 @@ class AppError extends Error{
         this.cause = cause;
         this.name = 'AppError';
         this.stack = cause.stack;
-        
     }
 }
 

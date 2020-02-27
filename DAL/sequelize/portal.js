@@ -4,7 +4,7 @@ module.exports = class Portal {
         this.models = models
     }
 
-    async createPortal(data) {
+    async createPortal(data) { 
         let portal = await this.model.create(data)
         return portal
     }
@@ -14,7 +14,6 @@ module.exports = class Portal {
             { isStarted: 1 },
             { where: { id, token } }
         )
-        console.log(portalStarted, 523);
         if (portalStarted[0]) return true;
         return;
     }
@@ -24,7 +23,6 @@ module.exports = class Portal {
             where: {
                 isFinished: 0
             },
-            // required: true,
             include: [{
                 model: this.models.Users,
                 as: 'portalToUser',
@@ -33,8 +31,6 @@ module.exports = class Portal {
                 attributes: [[sequelize.fn('count', sequelize.col(`Portals.id`)), 'questionsInPortal']],
                 as: 'portalManyQuestion',
                 model: this.models.Questions,
-                // required: true,
-                // attributes: []
             }],
             group: ['Portals.id']
         })
@@ -58,7 +54,6 @@ module.exports = class Portal {
 
     async getActivePortal(userId) { 
         const activePortal = await this.model.findAll({
-            // raw: true,
             where: {
                 isStarted: 1,
                 isFinished: 0,
@@ -88,7 +83,6 @@ module.exports = class Portal {
             }],
             group: ['Portals.id']
         });
-        // console.log(activePortal, 636363)
         return activePortal;
     }
 
@@ -100,7 +94,6 @@ module.exports = class Portal {
                 token: data.token
             }
         });
-        console.log(isValid, 7777777)
         if (isValid.length) {
             return true;
         }
@@ -126,7 +119,6 @@ module.exports = class Portal {
             return portalData[0]
         }
         return;
-        // console.log(portalStatus, 8888888888);
     }
 
     async finishPortal(portalId) {
@@ -138,7 +130,6 @@ module.exports = class Portal {
     }
 
     async addToOnline(portalId) {
-        console.log(portalId, 22222222222)
         const a = await this.model.increment("onlineSub", {
             where: {
                 id: portalId
@@ -146,7 +137,6 @@ module.exports = class Portal {
             raw: true,
             returning: true
         });
-        // console.log(await this.model.findOne({where: {id: portalId}, raw: true}), 3131313)
         if (a[0][1]) {
             return a; 
         }
@@ -160,20 +150,9 @@ module.exports = class Portal {
             raw: true,
             returning: true
         })
-        // console.log(await this.model.findOne({where: {id: portalId}, raw: true}), 3131313)
         if (r[0][1]) {
             return r;
         }
         return;
     }
-    // async getPortalIdFromToken(token) {
-    //     const portalId = await this.model.findOne({
-    //         attributes: ['id'],
-    //         where: {
-    //             token
-    //         }
-    //     })
-    //     console.log(portalId, 6666666666666666)
-    //     return portalId;
-    // }
 }

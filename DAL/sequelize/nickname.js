@@ -12,7 +12,6 @@ module.exports = class Nickname {
             return nickname
         } catch (error) {
             if (error.name === "SequelizeUniqueConstraintError") {
-                // throw new AppError(error.errors[0].message, error)
                 return {
                     ok: null,
                     textContent: error.errors[0].message

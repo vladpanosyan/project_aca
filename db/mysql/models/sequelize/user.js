@@ -1,5 +1,5 @@
 
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
     var User = sequelize.define('Users', {
@@ -30,38 +30,21 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,
         },
-        // time1: {
-        //     allowNull: false,
-        //     type: Sequelize.DATE,
-        //     defaultValue: DataTypes.literal('CURRENT_TIMESTAMP'),
-        // }
+        activated: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: 0
+        },
     }, {
         timestamps: false,
         tableName: 'users',
-        
-        // defaultScope: {
-        //     exclude: ['password']
-        // }
-        // classMethods: {
-        //     async generateHash(password) {
-        //         const salt = await bcrypt.genSalt(10);
-        //         return bcrypt.hash(password, salt);
-        //     },
-        //     async validPassword(password) {
-        //         return bcrypt.compare(password, this.password);
-        //     }
-        // }
-        // classMethods:
     });
 
     User.associate = function (models) {
         User.hasMany(models.Portals, {
             foreignKey: 'userId',
-            // as: 'port'
         });
         User.hasMany(models.Answers, {
             foreignKey: 'userId',
-            // as: 'port'
         });
         User.belongsToMany(models.Questions, {
             through: 'users_likes',
