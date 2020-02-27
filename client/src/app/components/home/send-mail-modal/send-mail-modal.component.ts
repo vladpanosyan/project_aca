@@ -54,7 +54,6 @@ export class SendMailModalComponent implements OnInit {
   }
 
   checkFormValid(isValid) {
-    console.log(isValid.valid)
     if (isValid.valid) {
       return true;
     }

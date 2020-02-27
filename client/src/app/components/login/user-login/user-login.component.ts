@@ -34,7 +34,11 @@ export class UserLoginComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this.userAuthService.login(email, password).subscribe(
       user => {
-        this.router.navigate(["/users/profile", user.id]);
+        if (user.activated) {
+          this.router.navigate(["/users/profile", user.id]);
+        } else {
+          this.router.navigate(["/users/login"]);
+        }
      },
       error => {
         if (error.status) {

@@ -8,11 +8,19 @@ module.exports = class JWTFutures {
     }
 
     createToken() {
-        return JWT.sign(this.payload, SECRET_KEY, this.options)
+        return JWT.sign(this.payload, SECRET_KEY, this.options);
+    }
+
+    createTokenMail(token) {
+        return JWT.sign(this.payload, token, this.options);
     }
 
     verifyToken(token) {
         return JWT.verify(token, SECRET_KEY);
+    }
+
+    verifyTokenMail(token, secret) {
+        return JWT.verify(token, secret);
     }
 
     createTokenForURL() {

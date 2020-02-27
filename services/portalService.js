@@ -27,7 +27,7 @@ class Portals {
     async getAll() {
         let portal = await this.portalDal.getAll();
         if (portal) {
-            return portal
+            return portal 
         } else {
             throw new Error('PORTAL NOT EXIST')
         } 

@@ -39,7 +39,7 @@ module.exports = class User {
             where: {
                 email: data.username
             },
-            attributes: ['id', 'firstName', 'LastName', 'img', 'time', 'password']
+            attributes: ['id', 'firstName', 'LastName', 'img', 'time', 'password', 'activated']
         });
         
         if(user.length) {
@@ -61,5 +61,23 @@ module.exports = class User {
                 where: {id}
             })
         return !!updatedUser[0]
+    }
+
+    async checkEmail(email) {
+        const userData = await this.model.findAll({
+            where: {
+                email
+            }
+        })
+
+        if(userData.length) {
+            const activated = await this.model.update({
+             activated: 1
+            }, {
+                where: {email}
+            });
+            return !!activated[0];
+        } 
+        return null;
     }
 }

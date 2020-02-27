@@ -1,4 +1,4 @@
-<div class="list-type5">
+<div class="list-type5" *ngIf="portalData.length">
     <ol *ngFor="let item of portalData">
         <li *ngIf="item.private" (click)="item.isStarted && openModal(item, true)" [ngClass]="{disabled: !item.isStarted}" class="d-flex">
             <span >{{ item.name }}</span>

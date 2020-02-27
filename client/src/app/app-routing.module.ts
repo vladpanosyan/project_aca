@@ -36,6 +36,7 @@ import { SettingsComponent } from "./components/portal/portal-detail/settings/se
 import { AuthGuard } from "./guards/auth.guard";
 import { SubscriberGuard } from "./guards/subscriber.guard";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { UserRegisterValidateComponent } from './components/registration/user-register-validate/user-register-validate.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,10 @@ const routes: Routes = [
   {
     path: "users/register",
     component: UserRegistrationComponent
+  },
+  {
+    path: "users/register/validate/:token",
+    component: UserRegisterValidateComponent
   },
   {
     path: "users/login",
@@ -101,7 +106,8 @@ const routes: Routes = [
     MessageComponent,
     QuestionComponent,
     SettingsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UserRegisterValidateComponent
   ],
   imports: [
     NgbdDatepickerPopupModule,

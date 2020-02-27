@@ -12,7 +12,7 @@ interface Port {
   providedIn: "root"
 })
 export class PortalService {
-  portalSubject: BehaviorSubject<any>;
+  portalSubject: Subject<any>;
   portal: Observable<any>;
 
   portalStatusSubject: BehaviorSubject<Port>;
@@ -27,7 +27,7 @@ export class PortalService {
   portalFinished: Observable<boolean>;
 
   constructor(private http: HttpClient) {
-    this.portalSubject = new BehaviorSubject<any>({});
+    this.portalSubject = new Subject<any>();
     this.portal = this.portalSubject.asObservable();
 
     this.portalStatusSubject = new BehaviorSubject(null);

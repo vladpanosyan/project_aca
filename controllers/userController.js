@@ -107,15 +107,35 @@ class UserController {
         const {email, url} = request.body;
         const isValidEmailadresse = userSendMailValidation(email);
         const notNullableValues = isValidEmailadresse.value.filter(item => item)
+        const opts = {
+            subject: 'Invite to Event',
+            text: "You are invited to participate in event",
+            html: `<a style="color:red" href='${url}/'>portalURL-${url}</a>`
+        }
 
         if (!isValidEmailadresse.error ) {
-            const result = await this.userService.sendMail(email, url);
+            const result = await this.userService.sendMail(email, url, opts);
             response.json({result});
         } else if (isValidEmailadresse && notNullableValues.length) {
-            const result = await this.userService.sendMail(notNullableValues, url);
+            const result = await this.userService.sendMail(notNullableValues, url, opts);
             response.json({result, message: 'You have some false email Adress format'});
         } else {
             response.status(402).send({sueccess: 'not valid email adresses'})
+        }
+    }
+
+    async checkEmail(request, response) {
+        try {
+            const { token } = request.body;
+            const activated = await this.userService.checkEmail(token)
+            if (activated) {
+                response.send(activated);
+            } else {
+                response.status(401).send('invalid credentials')
+            }
+        } catch (error) {
+            this.logger.error(error);
+            response.status(401).send(error.message)
         }
     }
 }
