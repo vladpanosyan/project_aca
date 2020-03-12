@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "@angular/animations": "^9.0.6",
+    "@angular/core": "^9.0.6",
     "app-root-path": "^3.0.0",
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "ci": "^1.0.0",
     "cookie-parser": "~1.4.4",

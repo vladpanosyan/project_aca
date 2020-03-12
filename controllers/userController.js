@@ -3,7 +3,8 @@ const {
     userValidation,
     userLoginValidation,
     userSendMailValidation
-} = require('./../HELPERS/validation/userValidation')
+} = require('./../HELPERS/validation/userValidation');
+const axios = require('axios');
 
 class UserController {
     constructor(userService, logger) {
@@ -102,6 +103,60 @@ class UserController {
         const access_token = this.userService.generateTokenForSocila(payload);
         request.user.access_token = access_token;
         response.json(request.user);
+    }
+
+    // google auth login
+  async googleLogin(req, res) {
+    console.log(req);
+    await this.validateGoogleUser(req);
+  }
+
+  async validateGoogleUser(profile) {
+    const user = await this.userService.getUserByEmail(profile.email);
+    try {
+      if(user) {
+        return user;
+      }else {
+        const { email, first_name, last_name } = profile._json;
+        let user = await Users.findOrCreate({
+          attributes: ['id', 'firstName', 'lastName', 'img', 'time', 'email'],
+          where: { email }, defaults: {
+              firstName: first_name,
+              lastName: last_name,
+              img: profile._json.picture.data.url || process.env.USER_DEFAULT_IMAGE,
+          }
+      });
+      user = user[0].get({ plain: true });
+      user.access_token = accessToken
+      done(null, user);
+      }  
+  } catch (error) {
+      done(error, false, error.message)
+  }
+
+  // googleResponse(token): Observable<AxiosResponse<any>> {
+  //   return axios.get(`https://oauth2.googleapis.com/tokeninfo?id_token=${token}`).pipe(
+  //       map(
+  //           response => response.data,
+  //       )
+  //   )
+  // } 
+        // async loginFbGoogle(req, token: any) {
+        //     const user = await this.findUserByEmail(req.body.email || req.user.email);
+        //     if(token) {
+        //         return {
+        //             fullName: user.fullName,
+        //             email: user.email,
+        //             roles: user.roles,
+        //             _id: user._id,
+        //             accessToken: await this.authService.createAccessToken(user._id),
+        //             refreshToken: await this.authService.createRefreshToken(req, user._id),
+        //         };
+        //     }else {
+        //         throw new BadRequestException('User login failure.');
+        //     }
+
+      
     }
 
     // send email to ...

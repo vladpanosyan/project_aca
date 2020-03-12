@@ -8,6 +8,7 @@ module.exports = (userController, authMiddleware, facebookFuture) => {
     router.post('/register', userController.createUser.bind(userController));
     router.post('/login', userController.userLogin.bind(userController));
     router.post('/auth/facebook', facebookFuture.facebookAuthCheck(), userController.facebookAuthCheck.bind(userController));
+    router.post('/auth/google', userController.googleLogin.bind(userController))
     router.post('/checkTokenValid', userController.checkTokenValid.bind(userController));
     router.post('/sendmail', userController.sendMail.bind(userController));
     router.put('/checkEmail', userController.checkEmail.bind(userController));

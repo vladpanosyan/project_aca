@@ -112,6 +112,13 @@ export class UserAuthService {
     });
   }
 
+<<<<<<< HEAD
+=======
+  signInGoogle(res) {
+    return this.http.post('api/users/auth/google', res)
+  }
+ 
+>>>>>>> google-login
   signInWithFB(): void {
     from(this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID))
       .pipe(
