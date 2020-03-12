@@ -5,6 +5,7 @@ import { Subject, interval } from "rxjs";
 import { map, takeUntil } from "rxjs/operators";
 import { timer } from "src/app/HELPERS/backwardTimer";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
+import { UserService } from "src/app/services/user/user.service";
 import { ChatService } from "src/app/services/chat/chat.service";
 
 @Component({
@@ -13,6 +14,7 @@ import { ChatService } from "src/app/services/chat/chat.service";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  data: any;
   timeOfStart: any;
   started: boolean;
   portal;
@@ -24,6 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private portalService: PortalService,
     private userAuthService: UserAuthService,
+    private userService: UserService,
     private chatService: ChatService,
     private router: Router
   ) {
@@ -96,7 +99,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.portalService.startEvent(portal.id, portal.token).subscribe(resp => {
       if (resp) {
         this.chatService.refreshPortalsActivity(portal.id);
-        this.router.navigate([`/portals`, portal.token]);
+        this.router.navigate([`/portals`, portal.token]); 
       }
     });
   }
@@ -109,6 +112,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.portalService.getUserPortals(userId).subscribe(portals => {
       const StartTime = this.extractStartDate(portals);
       this.portalData = this.setupTimes(portals, StartTime);
+    });
+
+    this.userService.getUserProfile(userId).subscribe(data => {
+      this.data = data;
     });
 
     this.userAuthService.isAuthenticated().then(result => {

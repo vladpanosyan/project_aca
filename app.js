@@ -21,9 +21,9 @@ module.exports = (async (message) => {
   } else {
     const apiRouter = await require('./routes')(logger)
     app.use('/api', apiRouter);
-    app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public1/index.html'))
-    })
+    // app.get('/*', (req, res) => {
+    // res.sendFile(path.join(__dirname, 'public1/index.html'))
+    // })
     
     app.use(function (req, res, next) {
       next(createError(404));

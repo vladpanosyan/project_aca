@@ -49,7 +49,7 @@ class NicknameController {
     // canactivate for guards
     async canactivate(request, response) {
         const { portalToken, nickToken } = request.body;
-        const data = await this.nicknameService.canactivate(portalToken, nickToken);
+        const data = await this.nicknameService.canactivate(portalToken, nickToken); 
 
         if (data) {
             response.json(data);

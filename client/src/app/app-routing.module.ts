@@ -19,7 +19,6 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 // components
 import { UserRegistrationComponent } from "./components/registration/user-registration/user-registration.component";
 import { UserLoginComponent } from "./components/login/user-login/user-login.component";
-import { ProfileComponent } from "./components/profile/profile.component";
 import { PortalComponent } from "src/app/components/portal/portal.component";
 import { PortalDetailComponent } from "src/app/components/portal/portal-detail/portal-detail.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -76,11 +75,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "users/profile/:id",
-    component: ProfileComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: "404",
     component: NotFoundComponent
   },
@@ -94,7 +88,6 @@ const routes: Routes = [
   declarations: [
     UserRegistrationComponent,
     UserLoginComponent,
-    ProfileComponent,
     HomeComponent,
     PortalComponent,
     PortalDetailComponent,

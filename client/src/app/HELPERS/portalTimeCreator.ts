@@ -5,7 +5,7 @@ export function UTCtimeCreator(date: any, time: string) {
 }
 export function isValidDate(date, time) {
     const dateNOw = UTCtimeCreator(date, time).getTime();
-    if (dateNOw - (60 * 60 * 12) < Date.now()) {  // half day
+    if (dateNOw - (1000 * 60 * 2) < Date.now()) {  // half day
         return;
     }
     return true;

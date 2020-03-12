@@ -50,7 +50,7 @@ export class NgbdDatepickerPopup implements OnInit {
   }
 
   ngOnInit() {
-    const targetDate = Date.now() + ( 12 * 60 * 60 * 1000);
+    const targetDate = Date.now() + (1 * 60 * 1000);
     const date = new Date(targetDate);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;

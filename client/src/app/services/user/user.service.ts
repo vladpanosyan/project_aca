@@ -27,7 +27,7 @@ export class UserService {
     }
   }
 
-  getUserProfile(id: string): Observable<any> {
+  getUserProfile(id: number): Observable<any> {
     return this.http.get(`api/users/profile/${id}`);
   }
 

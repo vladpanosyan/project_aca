@@ -65,7 +65,7 @@ class Users {
 
     // Other
     generateTokenForSocila(payload) {
-        const tokenObj = new JWT(payload, {expiresIn: 60 * 60});
+        const tokenObj = new JWT(payload, {expiresIn: 60 * 60 * 4});
         const token = tokenObj.createToken(); 
         return token;
     }

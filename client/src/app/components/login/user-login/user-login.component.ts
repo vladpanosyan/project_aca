@@ -35,9 +35,10 @@ export class UserLoginComponent implements OnInit {
     this.userAuthService.login(email, password).subscribe(
       user => {
         if (user.activated) {
-          this.router.navigate(["/users/profile", user.id]);
+          alert(7)
+          this.router.navigate(["/users/home"]);
         } else {
-          this.router.navigate(["/users/login"]);
+          this.router.navigate(["/users/login"]); 
         }
      },
       error => {

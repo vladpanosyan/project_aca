@@ -67,7 +67,7 @@ export class PortalModalComponent implements OnInit {
           });
         },
         reason => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+          this.closeResult = ``;
         }
       );
   }

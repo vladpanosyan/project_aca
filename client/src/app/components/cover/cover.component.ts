@@ -5,6 +5,8 @@ import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { ChatService } from "src/app/services/chat/chat.service";
+import { switchMap } from 'rxjs/operators';
+import { EMPTY, fromEvent } from 'rxjs';
 @Component({
   selector: "app-cover",
   templateUrl: "./cover.component.html",
@@ -118,10 +120,10 @@ export class CoverComponent implements OnInit {
 
   ngOnInit() {
     //
-    this.chatService.refreshPortals.subscribe(_ => {
-      this.portalService.getAll().subscribe(portals => {
-        this.portalData = portals;
-      });
+    this.chatService.refreshPortals
+    .pipe(switchMap(_ => this.portalService.getAll()))
+    .subscribe(portals => {
+      this.portalData = portals;
     });
     //
     this.portalService.getAll().subscribe(portals => {
@@ -136,23 +138,28 @@ export class CoverComponent implements OnInit {
       }
     });
     //
-    this.portalService.showForm().subscribe(result => {
-        if (result && result.state === null) {
-          this.portalService.chekPortalStatus(result.token).subscribe(status => {
-            if (status.private) {
-              this.openModal(status, true);
-            } else {
-              this.openModal(status, false);
-            }
-          });
-        } else if (result) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something Went wrong!",
-            footer: "<a href>Why do I have this issue?</a>"
-          });
-        }
+    this.portalService.showForm()
+    .pipe(switchMap(result => {
+      if (result && result.state === null) {
+        return this.portalService.chekPortalStatus(result.token);
+      } else if (result) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something Went wrong!",
+          footer: "<a href>Why do I have this issue?</a>"
+        });
+        return EMPTY;
+      } else {
+        return EMPTY;
+      }
+    }))
+    .subscribe(status => {
+      // if (status.private) {
+      //   this.openModal(status, false);
+      // } else {
+        this.openModal(status, false);
+      // }
     });
     //
     const userId = this.userAuthService.currentUserValue &&  this.userAuthService.currentUserValue.id;
@@ -179,5 +186,7 @@ export class CoverComponent implements OnInit {
     this.chatService.endOfPortal.subscribe((data: any) => {
       this.portalData.find((portal, index, portalData) => portal.id === data.portalId && (portalData.splice(index, 1)));
     });
+    //
+    // fromEvent(window, "unload").subscribe(e => alert(e));
   }
 }

@@ -66,7 +66,7 @@ export class UserRegistrationComponent implements OnInit {
         if (data.firstName) {
           this.userService.addToken("currentUser", data);
           this.authService.refresh(data);
-          this.router.navigate([`/users/profile`, data.id]);
+          this.router.navigate([`/users/home`]);
         }
       },
       error => {

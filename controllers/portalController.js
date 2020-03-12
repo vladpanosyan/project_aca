@@ -35,7 +35,7 @@
         const portalData = request.body;
         const portal = await this.portalService.createPortal(portalData);
         response.json(portal);
-        io.emit('showPortals')
+        io.emit('showPortals') 
     }
 
     // delete by id

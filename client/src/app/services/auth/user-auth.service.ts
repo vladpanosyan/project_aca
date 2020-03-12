@@ -5,7 +5,8 @@ import { UserService } from "src/app/services/user/user.service";
 import { Router } from "@angular/router";
 
 import { BehaviorSubject, Observable, of } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, switchMap } from "rxjs/operators";
+import { EMPTY } from "rxjs";
 import { User } from "./../../models/user";
 import {
   FacebookLoginProvider,
@@ -109,18 +110,17 @@ isAuthforGuard(): Observable<any> {
   }
   socialStateCheck() {
     this.socialAuthService.authState // avtomat berume token@
-      .subscribe(
-        user => {
-          if (user) {
-            this.regWithFace(user.authToken).subscribe((response: any) => {
-              this.userService.addToken("currentUser", response);
-              this.refresh(response);
-              this.router.navigate([`/users/profile`, response.id]);
-            });
-          }
-        },
-        error => console.error(error, 85858585)
-      );
+      .pipe(switchMap(user => {
+        if (user) {
+          return this.regWithFace(user.authToken);
+        }
+        return EMPTY;
+      }))
+      .subscribe((response: any) => {
+        this.userService.addToken("currentUser", response);
+        this.refresh(response);
+        this.router.navigate([`/users/home`]);
+      });
   }
 
   signInWithGoogle(): void {
