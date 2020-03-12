@@ -35,6 +35,10 @@ export class PortalModalComponent implements OnInit {
 
   }
 
+  getTime(time) {
+    this.portalForm.get("time").setValue(time);
+  }
+
   get fx() {
     return this.portalForm.controls;
   }
@@ -46,7 +50,6 @@ export class PortalModalComponent implements OnInit {
     }
     this.isValidEventData = true;
     return true;
-    
   }
 
   open(content) {

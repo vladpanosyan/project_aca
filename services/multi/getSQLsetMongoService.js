@@ -1,1 +1,0 @@
-// ste kgres nenc service vore ashxatum e ham sql ham mongoi hamar, 

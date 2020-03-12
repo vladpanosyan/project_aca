@@ -16,7 +16,7 @@
     }
 
     // get specificc user portals
-    async getUserPortals(request, response) {
+    async getUserPortals(request, response) { 
         try{
             const { userId } = request.body;
             let portals = await this.portalService.getUserPortals(userId);

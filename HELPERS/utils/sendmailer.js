@@ -13,13 +13,16 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-module.exports = (email, portalURL) => {
+module.exports = (email, url, opts) => {
+    const options = opts || {
+        subject: 'Verify portal account',
+        text: 'To user your account you need to go from the link',
+        html: `<a style="color:red" href='${url}/'>Go to link for verify- ${url}</a>` 
+    }
     const mailOptions = {
         from: process.env.SENDER_MAIL_ADRESS,
         to: [...email],
-        subject: 'Invite to Event',
-        text: portalURL,
-        html: `<a style="color:red" href='${portalURL}/'>portalURL-${portalURL}</a>`
+        ...options
     };
 
     return transporter.sendMail(mailOptions)

@@ -19,8 +19,7 @@
         </li>
         <li class="nav-item" [routerLinkActive]="['is-active']">
           <a *ngIf="!isLoggedIn" class="nav-link" routerLink="users/register">Registration</a>
-        </li>
-       
+        </li> 
         <li *ngIf="!isLoggedIn" class="nav-item" [routerLinkActive]="['is-active']">
           <a class="nav-link" routerLink="users/login">Login</a>
         </li>

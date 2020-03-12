@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"list-type5\">\r\n    <ol *ngFor=\"let item of portalData\">\r\n        <li *ngIf=\"item.private\" (click)=\"item.isStarted && openModal(item, true)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <span >{{ item.name }}</span>\r\n            <i class=\"fas fa-lock\"></i>\r\n            <span style=\" color: azure;\"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n        </li>\r\n        <li *ngIf=\"!item.private\" (click)=\"item.isStarted && openModal(item, false)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <span>{{ item.name }}</span>\r\n            <i class=\"fas fa-lock-open\"></i>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'In Process ' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n        </li>\r\n    </ol>\r\n</div>  ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"list-type5\" *ngIf=\"portalData.length\">\r\n    <ol *ngFor=\"let item of portalData\">\r\n        <li *ngIf=\"item.private\" (click)=\"item.isStarted && openModal(item, true)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <span >{{ item.name }}</span>\r\n            <i class=\"fas fa-lock\"></i>\r\n            <span style=\" color: azure;\"> {{ item.isStarted ? 'In Process' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n        </li>\r\n        <li *ngIf=\"!item.private\" (click)=\"item.isStarted && openModal(item, false)\" [ngClass]=\"{disabled: !item.isStarted}\" class=\"d-flex\">\r\n            <span>{{ item.name }}</span>\r\n            <i class=\"fas fa-lock-open\"></i>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'In Process ' : 'Started at ' + (item.start | date: 'medium')}}</span>\r\n            <span style=\"color: azure;\">{{ item.isStarted ? 'Online ' + (!item.onlineSub ? 'No' : item.onlineSub ) + ' people' : null }}</span>\r\n        </li>\r\n    </ol>\r\n</div>  ");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n  \r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav ml-auto\">\r\n        <li class=\"nav-item active\" routerLinkActive=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"/\"><span class=\"sr-only\">(current)</span>Main</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"isLoggedIn\" class=\"nav-link\" routerLink=\"/users/home\">Home</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" [routerLink]=\"['/users/profile', currentUser.id]\">MyProfile</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"portals\">Portals</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"!isLoggedIn\" class=\"nav-link\" routerLink=\"users/register\">Registration</a>\r\n        </li>\r\n       \r\n        <li *ngIf=\"!isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"users/login\">Login</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\">\r\n          <a class=\"nav-link\" (click)=\"logout()\" href=\"#\">LogOut</a>\r\n        </li>\r\n         <li *ngIf=\"isLoggedIn\" class=\"d-flex align-items-center\">\r\n          <img [src]=\"currentUser?.img\" alt=\"\" width=\"30\" height=\"30\" class=\"rounded\">\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n  \r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav ml-auto\">\r\n        <li class=\"nav-item active\" routerLinkActive=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"/\"><span class=\"sr-only\">(current)</span>Main</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"isLoggedIn\" class=\"nav-link\" routerLink=\"/users/home\">Home</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" [routerLink]=\"['/users/profile', currentUser.id]\">MyProfile</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"portals\">Portals</a>\r\n        </li>\r\n        <li class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a *ngIf=\"!isLoggedIn\" class=\"nav-link\" routerLink=\"users/register\">Registration</a>\r\n        </li> \r\n        <li *ngIf=\"!isLoggedIn\" class=\"nav-item\" [routerLinkActive]=\"['is-active']\">\r\n          <a class=\"nav-link\" routerLink=\"users/login\">Login</a>\r\n        </li>\r\n        <li *ngIf=\"isLoggedIn\" class=\"nav-item\">\r\n          <a class=\"nav-link\" (click)=\"logout()\" href=\"#\">LogOut</a>\r\n        </li>\r\n         <li *ngIf=\"isLoggedIn\" class=\"d-flex align-items-center\">\r\n          <img [src]=\"currentUser?.img\" alt=\"\" width=\"30\" height=\"30\" class=\"rounded\">\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ng-template #content let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Create Your Portal</h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form [formGroup]=\"portalForm\">\r\n      <!-- tittle -->\r\n      <div class=\"form-group\">\r\n        <label for=\"portalTitle\">Title</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"portalTitle\" class=\"form-control\" formControlName=\"title\" name=\"title\" type=\"text\" #title>\r\n        </div>\r\n        <!-- date -->\r\n        <label for=\"dateOfStart\">Date of start</label>\r\n        <ngbd-datepicker-popup [formControl]=\"portalForm.controls['date']\"></ngbd-datepicker-popup>\r\n        <!-- time -->\r\n        <label for=\"timeOfStart\">Time of start</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"timeOfStart\" class=\"form-control\" formControlName=\"time\" name=\"time\" type=\"time\" #time>\r\n        </div>\r\n        <!-- private -->\r\n        <label for=\"timeOfStart\">Create Private Event</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"checkPrivate\" class=\"\" formControlName=\"private\" name=\"private\" type=\"checkbox\" #prcheck>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <span *ngIf=\"!isValidEventData\">Make sure that event date is valid</span>\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"chekEventDataValid(portalForm) && modal.close(portalForm)\">Save</button>\r\n  </div>\r\n</ng-template>\r\n<div class=\"d-flex justify-content-center mt-3\">\r\n  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add Portal</button>\r\n</div>\r\n\r\n<hr>\r\n<pre>{{closeResult}}</pre>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-template #content let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Create Your Portal</h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form [formGroup]=\"portalForm\">\r\n      <!-- tittle -->\r\n      <div class=\"form-group\">\r\n        <label for=\"portalTitle\">Title</label> \r\n        <div class=\"input-group\">\r\n          <input id=\"portalTitle\" class=\"form-control\" formControlName=\"title\" name=\"title\" type=\"text\" #title>\r\n        </div>\r\n        <!-- date -->\r\n        <label for=\"dateOfStart\">Date of start</label>\r\n        <ngbd-datepicker-popup [formControl]=\"portalForm.controls['date']\" (changedTime)=\"getTime($event)\"></ngbd-datepicker-popup>\r\n        <!-- time -->\r\n        <label for=\"timeOfStart\">Time of start</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"timeOfStart\" class=\"form-control\" formControlName=\"time\" name=\"time\" type=\"time\" #time>\r\n        </div>\r\n        <!-- private -->\r\n        <label for=\"timeOfStart\">Create Private Event</label>\r\n        <div class=\"input-group\">\r\n          <input id=\"checkPrivate\" class=\"\" formControlName=\"private\" name=\"private\" type=\"checkbox\" #prcheck>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <span *ngIf=\"!isValidEventData\">Make sure that event date is valid or all fields are filled</span>\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"chekEventDataValid(portalForm) && modal.close(portalForm)\">Save</button>\r\n  </div>\r\n</ng-template>\r\n<div class=\"d-flex justify-content-center mt-3\">\r\n  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add Portal</button>\r\n</div>\r\n\r\n<hr>\r\n<pre>{{closeResult}}</pre>");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ng-template #content let-modal>\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\" id=\"modal-basic-title\">Send Portal adresses</h4>\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <form [formGroup]=\"sendMailForm\">\n        <p class=\"url\">{{ url }}</p>\n        <p [ngStyle]=\"{'color': 'red'}\" *ngIf=\"fails\">Wrong Email Format </p>\n        <div formArrayName=\"emails\">\n          <div *ngFor=\"let item of inpArray.controls; let inputIndex=index; let i=index\" [formGroupName]=\"inputIndex\"  class=\"form-group\">\n            <label for=\"dateOfBirth\"></label>\n            <div class=\"input-group\">\n              <input id=\"sendMail\" class=\"form-control\" formControlName=\"email\" name=\"mail\" placeholder=\"Email\">\n              <span (click)=\"removeEmail(inputIndex)\"><i class=\"far fa-trash-alt\"></i></span>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n    <div class=\"modal-footer d-flex\">\n      <div class=\"add\"><i class=\"fas fa-plus-circle\" (click)=\"addInput()\"></i></div>\n      <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"checkFormValid(sendMailForm) && modal.close(sendMailForm.controls.emails)\">Send</button>\n    </div>\n  </ng-template>\n  \n  <button class=\"btn btn-warning\" (click)=\"open(content)\">Share</button>\n  ");
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-template #content let-modal>\r\n    <div class=\"modal-header\">\r\n      <h4 class=\"modal-title\" id=\"modal-basic-title\">Send Portal adresses</h4>\r\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n        <span aria-hidden=\"true\">&times;</span>\r\n      </button>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n      <form [formGroup]=\"sendMailForm\">\r\n        <p class=\"url\">{{ url }}</p>\r\n        <p [ngStyle]=\"{'color': 'red'}\" *ngIf=\"fails\">Wrong Email Format </p>\r\n        <div formArrayName=\"emails\">\r\n          <div *ngFor=\"let item of inpArray.controls; let inputIndex=index; let i=index\" [formGroupName]=\"inputIndex\"  class=\"form-group\">\r\n            <label for=\"dateOfBirth\"></label>\r\n            <div class=\"input-group\">\r\n              <input id=\"sendMail\" class=\"form-control\" formControlName=\"email\" name=\"mail\" placeholder=\"Email\">\r\n              <span (click)=\"removeEmail(inputIndex)\"><i class=\"far fa-trash-alt\"></i></span>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n    <div class=\"modal-footer d-flex\">\r\n      <div class=\"add\"><i class=\"fas fa-plus-circle\" (click)=\"addInput(sendMailForm)\"></i></div>\r\n      <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"checkFormValid(sendMailForm) && modal.close(sendMailForm.controls.emails)\">Send</button>\r\n    </div>\r\n  </ng-template>\r\n  \r\n  <button class=\"btn btn-warning\" (click)=\"open(content)\">Share</button>\r\n  ");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" (click)=\"resetErrorLoginMessage()\">\r\n    <hr>\r\n    <div class=\"card bg-light\">\r\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\r\n            <div *ngIf=\"error\" class=\"error\">\r\n                <p>{{ error }}</p>\r\n            </div>\r\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\r\n            <p class=\"text-center\">Get started with your free account</p>\r\n            <p>\r\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\r\n                <a class=\"btn btn-block btn-facebook\" (click)=\"signInWithFB()\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a>\r\n            </p>\r\n            <p class=\"divider-text\">\r\n                <span class=\"bg-light\">OR</span>\r\n            </p>\r\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"userLogin()\"> \r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\">\r\n                </div> \r\n\r\n                <!-- form-group end.// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" >\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button class=\"btn btn-primary btn-block\"> LogIn </button>\r\n                </div> <!-- form-group// -->\r\n               \r\n            </form>\r\n        </article>\r\n    </div>\r\n\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\" (click)=\"resetErrorLoginMessage()\">\r\n    <hr>\r\n    <div class=\"card bg-light\">\r\n        <article class=\"card-body mx-auto\" style=\"width: 400px;\">\r\n            <div *ngIf=\"error\" class=\"error\">\r\n                <p>{{ error }}</p>\r\n            </div>\r\n            <h4 class=\"card-title mt-3 text-center\">Create Account</h4>\r\n            <p class=\"text-center\">Get started with your free account</p>\r\n            <p>\r\n                <a href=\"#\" class=\"btn btn-block btn-twitter\"> <i class=\"fab fa-twitter\"></i>   Login via Twitter</a>\r\n                <a class=\"btn btn-block btn-facebook\" (click)=\"signInWithFB()\"> <i class=\"fab fa-facebook-f\"></i>   Login via\r\n                    facebook</a>\r\n            </p>\r\n            <p class=\"divider-text\">\r\n                <span class=\"bg-light\">OR</span>\r\n            </p>\r\n            <form [formGroup]=\"loginForm\" (ngSubmit)=\"userLogin()\"> \r\n                <!-- form-group// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('email')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-envelope\"></i> </span>\r\n                    </div>\r\n                    <input name=\"\" class=\"form-control\" formControlName=\"email\" placeholder=\"Email address\">\r\n                </div> \r\n\r\n                <!-- form-group end.// -->\r\n                <div class=\"form-group input-group\" [ngClass]=\"detectClass('password')\">\r\n                    <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\"> <i class=\"fa fa-lock\"></i> </span>\r\n                    </div>\r\n                    <input class=\"form-control\" formControlName=\"password\" placeholder=\"Create password\" type=\"password\">\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <button class=\"btn btn-primary btn-block\"> LogIn </button>\r\n                </div> <!-- form-group// -->\r\n               \r\n            </form>\r\n        </article>\r\n    </div>\r\n\r\n</div>");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"form-group\">\r\n    <div class=\"input-group\">\r\n      <input class=\"form-control\" placeholder=\"Choose Date Of Start Event\" [(ngModel)]=\"value\"\r\n      (ngModelChange)=\"bsValueChange($event)\"\r\n             name=\"dp\" ngbDatepicker #d=\"ngbDatepicker\">\r\n      <div class=\"input-group-append\">\r\n        <button class=\"btn btn-outline-secondary calendar\" (click)=\"d.toggle()\" type=\"button\"><i class=\"far fa-calendar-alt\"></i></button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"form-group\">\r\n    <div class=\"input-group\">\r\n      <input class=\"form-control\" placeholder=\"Choose Date Of Start Event\" [(ngModel)]=\"value\"\r\n      (ngModelChange)=\"bsValueChange($event)\" value=\"setValue()\"\r\n             name=\"dp\" ngbDatepicker #d=\"ngbDatepicker\"> \r\n      <div class=\"input-group-append\">\r\n        <button class=\"btn btn-outline-secondary calendar\" (click)=\"d.toggle()\" type=\"button\"><i class=\"far fa-calendar-alt\"></i></button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n");
 
 /***/ }),
 
@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"text_container d-flex\">\n    <div class=\"reciever\">\n        <div class=\"rec_wrap\"  *ngIf=\"currTop10Nick?.id\">\n            <img [src]=\"currTop10Nick.nickss.image\" alt=\"\">\n            <h4>{{ currTop10Nick.nickss.name }}</h4>\n        </div>\n    </div>\n    <div class=\"txt_area\">\n        <textarea [disabled]=\"!currTop10Nick && isUserInSelfPortal\" (keydown.enter)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\" class=\"form-control form-rounded msg\" rows=\"3\" #msg [(ngModel)]=\"message\" [placeholder]=\"(!currTop10Nick && isUserInSelfPortal) ? '... Choose the one if you need to answer the question': ''\"></textarea>\n    </div>\n    <div class=\"sendbtn\">\n        <button [disabled]=\"!currTop10Nick && isUserInSelfPortal\" class=\"btn btn-dark\" (click)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\">Send</button>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"text_container d-flex\">\r\n    <div class=\"reciever\">\r\n        <div class=\"rec_wrap\"  *ngIf=\"currTop10Nick?.id\">\r\n            <img [src]=\"currTop10Nick.nickss.image\" alt=\"\">\r\n            <h4>{{ currTop10Nick.nickss.name }}</h4>\r\n        </div>\r\n    </div>\r\n    <div class=\"txt_area\">\r\n        <textarea [disabled]=\"!currTop10Nick && isUserInSelfPortal\" (keydown.enter)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\" class=\"form-control form-rounded msg\" rows=\"3\" #msg [(ngModel)]=\"message\" [placeholder]=\"(!currTop10Nick && isUserInSelfPortal) ? '... Choose the one if you need to answer the question': ''\"></textarea>\r\n    </div>\r\n    <div class=\"sendbtn\">\r\n        <button [disabled]=\"!currTop10Nick && isUserInSelfPortal\" class=\"btn btn-dark\" (click)=\"isUserInSelfPortal ? sendMessgeQuestion(msg.value) : sendMessage(msg.value)\">Send</button>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -201,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col\">\n        <div ngbDropdown class=\"d-inline-block\">\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Set Avatar</button>\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"avatars\">\n                <ul>\n                    <li *ngFor=\"let item of avatars\" (click)=\"updateAvatar(item)\">\n                        <img [src]=\"item\" alt=\"\">\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\r\n    <div class=\"col\">\r\n        <div ngbDropdown class=\"d-inline-block\">\r\n            <button class=\"btn btn-outline-primary\" id=\"dropdownBasic1\" ngbDropdownToggle>Set Avatar</button>\r\n            <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\" class=\"avatars\">\r\n                <ul>\r\n                    <li *ngFor=\"let item of avatars\" (click)=\"updateAvatar(item)\">\r\n                        <img [src]=\"item\" alt=\"\">\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -241,6 +241,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<img [src]=\"data?.img\" alt=\"\" width=\"200\" height=\"200\">\r\n<h2>Hello {{ data?.firstName}}</h2>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/registration/user-register-validate/user-register-validate.component.html":
+/*!********************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/registration/user-register-validate/user-register-validate.component.html ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("");
 
 /***/ }),
 
@@ -650,6 +663,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
 /* harmony import */ var _guards_subscriber_guard__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./guards/subscriber.guard */ "./src/app/guards/subscriber.guard.ts");
 /* harmony import */ var _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/not-found/not-found.component */ "./src/app/components/not-found/not-found.component.ts");
+/* harmony import */ var _components_registration_user_register_validate_user_register_validate_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/registration/user-register-validate/user-register-validate.component */ "./src/app/components/registration/user-register-validate/user-register-validate.component.ts");
 
 
 
@@ -687,6 +701,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const routes = [
     {
         path: "",
@@ -705,6 +720,10 @@ const routes = [
     {
         path: "users/register",
         component: _components_registration_user_registration_user_registration_component__WEBPACK_IMPORTED_MODULE_16__["UserRegistrationComponent"]
+    },
+    {
+        path: "users/register/validate/:token",
+        component: _components_registration_user_register_validate_user_register_validate_component__WEBPACK_IMPORTED_MODULE_33__["UserRegisterValidateComponent"]
     },
     {
         path: "users/login",
@@ -754,7 +773,8 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_portal_portal_detail_message_message_component__WEBPACK_IMPORTED_MODULE_27__["MessageComponent"],
             _components_portal_portal_detail_question_question_component__WEBPACK_IMPORTED_MODULE_28__["QuestionComponent"],
             _components_portal_portal_detail_settings_settings_component__WEBPACK_IMPORTED_MODULE_29__["SettingsComponent"],
-            _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_32__["NotFoundComponent"]
+            _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_32__["NotFoundComponent"],
+            _components_registration_user_register_validate_user_register_validate_component__WEBPACK_IMPORTED_MODULE_33__["UserRegisterValidateComponent"]
         ],
         imports: [
             _datepicker_popup_module__WEBPACK_IMPORTED_MODULE_5__["NgbdDatepickerPopupModule"],
@@ -1418,6 +1438,9 @@ let PortalModalComponent = class PortalModalComponent {
             this.currentUser = x;
         });
     }
+    getTime(time) {
+        this.portalForm.get("time").setValue(time);
+    }
     get fx() {
         return this.portalForm.controls;
     }
@@ -1522,7 +1545,7 @@ let SendMailModalComponent = class SendMailModalComponent {
         this.sendMailForm = this.formBuilder.group({
             emails: this.formBuilder.array([
                 this.formBuilder.group({
-                    email: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]]
+                    email: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
                 })
             ])
         });
@@ -1549,8 +1572,10 @@ let SendMailModalComponent = class SendMailModalComponent {
     get inpArray() {
         return this.sendMailForm.get("emails");
     }
-    addInput() {
-        this.inpArray.push(this.formBuilder.group({ email: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]] }));
+    addInput(forms) {
+        if (forms.valid) {
+            this.inpArray.push(this.formBuilder.group({ email: [null, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]] }));
+        }
     }
     removeEmail(i) {
         this.inpArray.removeAt(i);
@@ -1633,7 +1658,12 @@ let UserLoginComponent = class UserLoginComponent {
     userLogin() {
         const { email, password } = this.loginForm.value;
         this.userAuthService.login(email, password).subscribe(user => {
-            this.router.navigate(["/users/profile", user.id]);
+            if (user.activated) {
+                this.router.navigate(["/users/profile", user.id]);
+            }
+            else {
+                this.router.navigate(["/users/login"]);
+            }
         }, error => {
             if (error.status) {
                 this.error = error.error.loginData;
@@ -1694,12 +1724,15 @@ var NgbdDatepickerPopup_1;
 
 let NgbdDatepickerPopup = NgbdDatepickerPopup_1 = class NgbdDatepickerPopup {
     constructor() {
+        this.changedTime = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.onChange = () => { };
         this.onTouched = () => { };
     }
     bsValueChange(value) {
         this.writeValue(value);
         this.onTouched();
+    }
+    setValue() {
     }
     writeValue(value) {
         this.value = this.transformDate(this.value);
@@ -1714,7 +1747,22 @@ let NgbdDatepickerPopup = NgbdDatepickerPopup_1 = class NgbdDatepickerPopup {
     transformDate(value) {
         return this.value;
     }
+    ngOnInit() {
+        const targetDate = Date.now() + (12 * 60 * 60 * 1000);
+        const date = new Date(targetDate);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        this.value = { year, month, day };
+        const hours = (date.getHours() < 10 ? `0${date.getHours()}` : date.getHours());
+        const minutes = (date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes());
+        this.time = `${hours}:${minutes}`;
+        this.changedTime.emit(this.time);
+    }
 };
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], NgbdDatepickerPopup.prototype, "changedTime", void 0);
 NgbdDatepickerPopup = NgbdDatepickerPopup_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: "ngbd-datepicker-popup",
@@ -2648,6 +2696,56 @@ ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/components/registration/user-register-validate/user-register-validate.component.ts":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/components/registration/user-register-validate/user-register-validate.component.ts ***!
+  \****************************************************************************************************/
+/*! exports provided: UserRegisterValidateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserRegisterValidateComponent", function() { return UserRegisterValidateComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/user/user.service */ "./src/app/services/user/user.service.ts");
+
+
+
+
+let UserRegisterValidateComponent = class UserRegisterValidateComponent {
+    constructor(route, userService, router) {
+        this.route = route;
+        this.userService = userService;
+        this.router = router;
+        const token = this.route.snapshot.paramMap.get("token");
+        this.userService
+            .checkEmailIsValid(token)
+            .subscribe(res => {
+            router.navigate(["users/login"]);
+        }, err => {
+            router.navigate(["users/register"]);
+        });
+    }
+    ngOnInit() { }
+};
+UserRegisterValidateComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_services_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+UserRegisterValidateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: "app-user-register-validate",
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./user-register-validate.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/registration/user-register-validate/user-register-validate.component.html")).default
+    })
+], UserRegisterValidateComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/registration/user-registration/user-registration.component.css":
 /*!*******************************************************************************************!*\
   !*** ./src/app/components/registration/user-registration/user-registration.component.css ***!
@@ -3113,7 +3211,7 @@ let UserAuthService = class UserAuthService {
                     this.router.navigate([`/users/profile`, response.id]);
                 });
             }
-        }, error => console.log(error, 85858585));
+        }, error => console.error(error, 85858585));
     }
     signInWithGoogle() {
         this.socialAuthService.signIn(angularx_social_login__WEBPACK_IMPORTED_MODULE_3__["GoogleLoginProvider"].PROVIDER_ID);
@@ -3427,7 +3525,7 @@ __webpack_require__.r(__webpack_exports__);
 let PortalService = class PortalService {
     constructor(http) {
         this.http = http;
-        this.portalSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
+        this.portalSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.portal = this.portalSubject.asObservable();
         this.portalStatusSubject = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
         this.portalState = this.portalStatusSubject.asObservable();
@@ -3618,6 +3716,9 @@ let UserService = class UserService {
         }, []);
         return this.http
             .post("api/users/sendmail", { email, url });
+    }
+    checkEmailIsValid(token) {
+        return this.http.put("/api/users/checkEmail", { token });
     }
 };
 UserService.ctorParameters = () => [

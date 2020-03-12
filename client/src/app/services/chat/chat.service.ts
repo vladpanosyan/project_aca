@@ -45,7 +45,7 @@ export class ChatService {
   }
 
   sendLikeCount(data, action) {
-    this.socket.emit("get_likes_count", data, action);
+    this.socket.emit("get_likes_count", data, action); 
   }
 
   sendMessage(nickData) {

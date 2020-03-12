@@ -21,7 +21,7 @@
       </form>
     </div>
     <div class="modal-footer d-flex">
-      <div class="add"><i class="fas fa-plus-circle" (click)="addInput()"></i></div>
+      <div class="add"><i class="fas fa-plus-circle" (click)="addInput(sendMailForm)"></i></div>
       <button type="button" class="btn btn-outline-dark" (click)="checkFormValid(sendMailForm) && modal.close(sendMailForm.controls.emails)">Send</button>
     </div>
   </ng-template>

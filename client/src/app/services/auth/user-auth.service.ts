@@ -119,7 +119,7 @@ isAuthforGuard(): Observable<any> {
             });
           }
         },
-        error => console.log(error, 85858585)
+        error => console.error(error, 85858585)
       );
   }
 

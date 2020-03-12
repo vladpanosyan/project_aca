@@ -1,4 +1,0 @@
-2020-02-15T14:40:23.763Z - ERROR:[error]: Cannot read property 'bind' of undefined
-2020-02-15T14:43:35.074Z - ERROR:[error]: Cannot read property 'bind' of undefined
-2020-02-15T14:51:32.248Z - ERROR:[error]: Unexpected token '}'
-2020-02-15T15:35:09.142Z - ERROR:[error]: NotFoundError: Not Found -> error inside app.js

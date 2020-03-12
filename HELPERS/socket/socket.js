@@ -15,7 +15,8 @@ module.exports = async (socketIo) => {
                 const { Portals } = SERVICES;
                 const isRemoved = await Portals.AddToOutline(nickData.portalId);
                 if (isRemoved) {
-                    socketIo.emit('remove_to_online', nickData.portalId)
+                    socket.leave(nickData.portalId)
+                    socketIo.emit('remove_to_online', nickData.portalId) 
                 }
             })
     
