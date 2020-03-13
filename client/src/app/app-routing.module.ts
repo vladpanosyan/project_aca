@@ -31,12 +31,11 @@ import { Top10ListComponent } from "./components/portal/portal-detail/top10-list
 import { MessageComponent } from "./components/portal/portal-detail/message/message.component";
 import { QuestionComponent } from "./components/portal/portal-detail/question/question.component";
 import { SettingsComponent } from "./components/portal/portal-detail/settings/settings.component";
-import { PortalStatisticComponent } from './components/ngbootstrap/portal-statistic/portal-statistic.component';
 // guard
 import { AuthGuard } from "./guards/auth.guard";
 import { SubscriberGuard } from "./guards/subscriber.guard";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
-import { UserRegisterValidateComponent } from './components/registration/user-register-validate/user-register-validate.component';
+import { UserRegisterValidateComponent } from "./components/registration/user-register-validate/user-register-validate.component";
 
 const routes: Routes = [
   {
@@ -102,7 +101,6 @@ const routes: Routes = [
     SettingsComponent,
     NotFoundComponent,
     UserRegisterValidateComponent,
-    PortalStatisticComponent
   ],
   imports: [
     NgbdDatepickerPopupModule,
