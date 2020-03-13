@@ -14,13 +14,14 @@ export class UserLoginComponent implements OnInit {
   loginForm: FormGroup;
   submited: false;
   error = "";
+  info = true;
+  activatedPortal = false;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private userAuthService: UserAuthService,
     private portalService: PortalService
   ) {}
-
 
   userLogin() {
     const { email, password } = this.loginForm.value;
@@ -29,6 +30,7 @@ export class UserLoginComponent implements OnInit {
         if (user.activated) {
           this.router.navigate(["/users/home"]);
         } else {
+          this.info = this.portalService.isActivatedPortall;
           this.router.navigate(["/users/login"]);
         }
       },
@@ -37,7 +39,7 @@ export class UserLoginComponent implements OnInit {
           this.error = error.error.loginData;
         }
       }
-      );
+    );
   }
 
   signInWithFB() {
@@ -60,14 +62,18 @@ export class UserLoginComponent implements OnInit {
 
   resetErrorLoginMessage() {
     this.error = "";
+    this.info = true;
+    this.activatedPortal = false;
   }
-
   ngOnInit() {
+    const val = this.portalService.isActivatedPortall;
+    const bal = this.portalService.isactivePSubV;
+    this.info = !val && this.info;
+    this.activatedPortal = !val && bal;
+
     this.loginForm = this.formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]]
     });
-    // init social login actions
-    // this.userAuthService.socialStateCheck();
   }
 }

@@ -26,6 +26,11 @@ export class PortalService {
   portalFinishedSubject: Subject<boolean>;
   portalFinished: Observable<boolean>;
 
+  isActivatedPortalSubject: BehaviorSubject<boolean>;
+  isActivatedPortal: Observable<any>;
+
+  isactivePSub: BehaviorSubject<boolean>;
+
   constructor(private http: HttpClient) {
     this.portalSubject = new Subject<any>();
     this.portal = this.portalSubject.asObservable();
@@ -41,6 +46,10 @@ export class PortalService {
     this.portalFinishedSubject = new Subject();
     this.portalFinished = this.portalFinishedSubject.asObservable();
 
+    this.isActivatedPortalSubject = new BehaviorSubject(false);
+    this.isActivatedPortal = this.isActivatedPortalSubject.asObservable();
+
+    this.isactivePSub = new BehaviorSubject(false);
   }
 
   get getPortalId() {
@@ -57,6 +66,12 @@ export class PortalService {
 
   get getPortalStatus() {
     return this.portalStatusSubject.value;
+  }
+  get isActivatedPortall() {
+    return this.isActivatedPortalSubject.value;
+  }
+  get isactivePSubV() {
+    return this.isactivePSub.value;
   }
 
   addPortal(data: any): Observable<any> {

@@ -1,5 +1,5 @@
 const AppError = require('./../HELPERS/ErrorHandling/AppError')
-const { 
+const {
     userValidation,
     userLoginValidation,
     userSendMailValidation
@@ -8,7 +8,7 @@ const {
 class UserController {
     constructor(userService, logger) {
         this.userService = userService,
-        this.logger = logger
+            this.logger = logger
     }
 
     //create 
@@ -16,7 +16,7 @@ class UserController {
         try {
             const user = request.body;
             const isValidUserData = userValidation(request.body)
-            if(isValidUserData.error === null) {
+            if (isValidUserData.error === null) {
                 const userData = await this.userService.createUser(user)
                 response.json(userData)
             } else {
@@ -24,46 +24,48 @@ class UserController {
                     userData: 'notvalid'
                 })
             }
-            
+
         } catch (error) {
             this.logger.error(`${error.message} - ${error.stack}`)
             response
-            .status(501)
-            .json({
-                userData: 'no_user_data'
-            })
+                .status(501)
+                .json({
+                    userData: 'no_user_data'
+                })
         }
     }
-    
+
     async userLogin(request, response) {
         try {
             const loginData = request.body;
             const isValidLoginData = userLoginValidation(loginData);
-            if(isValidLoginData.error === null) {
+            if (isValidLoginData.error === null) {
                 const user = await this.userService.getUserByEmail(loginData);
-                if(user) {
+                if (user) {
                     response.json(user);
                 } else {
-                    this.logger.info('user not found in db-> UserLogin(controller');
-                   response
-                   .status(404)
-                   .end('Not found user') 
+                    this.logger.info('user not found in db-> UserLogin(controller)');
+                    response
+                        .status(404)
+                        .json({
+                            loginData: 'incorrect email or password'
+                        })
                 }
             } else {
                 this.logger.info('not valid user credentials');
                 response
-                .status(401)
-                .json({
-                    loginData: 'Not Valid'
-                })
+                    .status(401)
+                    .json({
+                        loginData: 'Not Valid'
+                    })
             }
         } catch (error) {
-            this.logger.error(`${error.message} -> JWT trown error; userLogin (userController)`)
+            this.logger.error(`${error.message}`);
             response
-            .status(501)
-            .json({
-                userData: 'login data incorrect'
-            })
+                .status(501)
+                .json({
+                    userData: 'login data incorrect'
+                })
         }
     }
 
@@ -84,14 +86,14 @@ class UserController {
             this.logger.error('User not found by Id -> (userController)');
             response.status(404).send('User not found by Id');
         }
-        
+
     }
 
     // check FC auth login
     async facebookAuthCheck(request, response, next) {
         console.log(7777)
-        if ( !request.user) {
-            response.status(404).send('user not found Bro'); 
+        if (!request.user) {
+            response.status(404).send('user not found Bro');
         }
         const payload = {
             id: request.user.id,
@@ -105,7 +107,7 @@ class UserController {
 
     // send email to ...
     async sendMail(request, response) {
-        const {email, url} = request.body;
+        const { email, url } = request.body;
         const isValidEmailadresse = userSendMailValidation(email);
         const notNullableValues = isValidEmailadresse.value.filter(item => item)
         const opts = {
@@ -114,14 +116,14 @@ class UserController {
             html: `<a style="color:red" href='${url}/'>portalURL-${url}</a>`
         }
 
-        if (!isValidEmailadresse.error ) {
+        if (!isValidEmailadresse.error) {
             const result = await this.userService.sendMail(email, url, opts);
-            response.json({result});
+            response.json({ result });
         } else if (isValidEmailadresse && notNullableValues.length) {
             const result = await this.userService.sendMail(notNullableValues, url, opts);
-            response.json({result, message: 'You have some false email Adress format'});
+            response.json({ result, message: 'You have some false email Adress format' });
         } else {
-            response.status(402).send({sueccess: 'not valid email adresses'})
+            response.status(402).send({ sueccess: 'not valid email adresses' })
         }
     }
 
