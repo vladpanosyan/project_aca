@@ -10,7 +10,7 @@ module.exports = async(logger) => {
         const questionRouter  = require('./queston')(CONTROLLERS.Questions); 
         const answerRouter    = require('./answer')(CONTROLLERS.Answers);  
         apiRouter.use('/users', userRouter);
-        apiRouter.use('/portals', portalRouter);
+        apiRouter.use('/portals', portalRouter); 
         apiRouter.use('/nicknames', nicknameRouter);
         apiRouter.use('/questions', questionRouter);
         apiRouter.use('/answers', answerRouter);

@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { NgbdDatepickerPopupModule } from "./datepicker-popup.module";
+import { NgbdDatepickerPopupModule } from "./datepicker-popup.module"; 
 // services
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { UserService } from "./services/user/user.service";
@@ -31,6 +31,7 @@ import { Top10ListComponent } from "./components/portal/portal-detail/top10-list
 import { MessageComponent } from "./components/portal/portal-detail/message/message.component";
 import { QuestionComponent } from "./components/portal/portal-detail/question/question.component";
 import { SettingsComponent } from "./components/portal/portal-detail/settings/settings.component";
+import { PortalStatisticComponent } from './components/ngbootstrap/portal-statistic/portal-statistic.component';
 // guard
 import { AuthGuard } from "./guards/auth.guard";
 import { SubscriberGuard } from "./guards/subscriber.guard";
@@ -100,7 +101,8 @@ const routes: Routes = [
     QuestionComponent,
     SettingsComponent,
     NotFoundComponent,
-    UserRegisterValidateComponent
+    UserRegisterValidateComponent,
+    PortalStatisticComponent
   ],
   imports: [
     NgbdDatepickerPopupModule,

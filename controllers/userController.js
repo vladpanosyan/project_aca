@@ -81,8 +81,8 @@ class UserController {
         if (user) {
             response.status(200).json(user)
         } else {
-            this.logger.error('User not found by Id -> (userController)')
-            response.status(404).send('User not found by Id')
+            this.logger.error('User not found by Id -> (userController)');
+            response.status(404).send('User not found by Id');
         }
         
     }
@@ -90,7 +90,7 @@ class UserController {
     // check FC auth login
     async facebookAuthCheck(request, response, next) {
         if ( !request.user) {
-            response.status(404).send('user not found Bro')
+            response.status(404).send('user not found Bro'); 
         }
         const payload = {
             id: request.user.id,

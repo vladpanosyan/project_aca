@@ -1,5 +1,5 @@
 const Users = global.UserModel;
-const JwtStrategy = require('passport-jwt').Strategy,
+const JwtStrategy = require('passport-jwt').Strategy, 
       ExtractJwt = require('passport-jwt').ExtractJwt;
 
 const FacebookTokenStrategy = require('passport-facebook-token');

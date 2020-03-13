@@ -6,4 +6,4 @@ const pasport_facebook   = require('./fc_login/index')(passport)
 
 exports.passport_strategy = passport_strategy;
 exports.authMiddleware = passport_middlware;
-exports.facebookFutures = pasport_facebook;
+exports.facebookFutures = pasport_facebook; 

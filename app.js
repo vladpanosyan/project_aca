@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const { passport_strategy } = require('./middlewares/JWT_passport');
-const logger = require('./HELPERS/logger/ErrorLog')
+const logger = require('./HELPERS/logger/ErrorLog') 
 
 const app = express();
 passport_strategy(app);

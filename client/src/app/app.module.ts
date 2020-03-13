@@ -2,6 +2,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 // Import social login module
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
@@ -39,7 +41,8 @@ export function provideConfig() {
     AppRoutingModule,
     SocialLoginModule,
     NgbModule,
-    SocketIoModule.forRoot(socketConfig)
+    SocketIoModule.forRoot(socketConfig),
+    BrowserAnimationsModule
   ],
   providers: [
     {

@@ -16,7 +16,7 @@
       </tr>
     </thead> 
     <tbody>
-      <tr *ngFor="let item of portalData; let i = index;" [ngClass]="">
+      <tr *ngFor="let item of portalData; let i = index;" class="ro">
         <th scope="row">{{ i + 1 }}</th>
         <td>{{ item.name }}</td>
         <td>{{ item.start }}</td>
@@ -27,6 +27,7 @@
         <!-- <td *ngIf="item.isFinished">Finished</td> -->
         <td><button [ngClass]="{'ni_active':item.isFinished}"><app-send-mail-modal [url]="portalUrlPath+item.token"></app-send-mail-modal></button></td>
         <td><button [disabled]="(item.counter | async) || item.isStarted" class="btn btn-success" (click)="startEvent(item)">Start</button></td>
+        <th *ngIf="item.isFinished" class="collap"><app-portal-statistic></app-portal-statistic></th>
         <!-- <td><button class="btn btn-danger" [attr.data-portal]="item.id">Remove</button></td> -->
       </tr>
     </tbody>
