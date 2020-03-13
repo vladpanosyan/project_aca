@@ -36,7 +36,7 @@ export class UserRegistrationComponent implements OnInit {
       {
         validator: MustMatch("password", "confPassword")
       });
-    this.authService.socialStateCheck();
+    // this.authService.socialStateCheck();`
   }
 
   detectClass(field) {

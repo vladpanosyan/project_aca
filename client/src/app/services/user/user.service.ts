@@ -27,9 +27,9 @@ export class UserService {
     }
   }
 
-  getUserProfile(id: number): Observable<any> {
-    return this.http.get(`api/users/profile/${id}`);
-  }
+  // getUserProfile(id: number): Observable<any> {
+  //   return this.http.get(`api/users/profile/${id}`);
+  // }
 
   sendMail(email: any, url: string): Observable<any> {
     email = email.reduce((arr, item) => {

@@ -39,14 +39,18 @@ export class SubscriberGuard implements CanActivate {
     ) {
       const result = await this.userAuthService.isAuthforGuard().toPromise();
       if (result) {
-        this.userAuthService.isLoggedSubject.next(true);
+        // this.userAuthService.isLoggedSubject.next(true);
+        this.userAuthService.setLogin();
         this.userAuthService.setPortalToUser(true);
         const portal = await this.portalService.getPortalIdFromToken(next.params.token);
         this.portalService.currentPortalSubject.next(portal);
         this.portalService.currentPortalIdSubject.next(portal.id);
         return true;
+      } else {
+        // this.userAuthService.isLoggedSubject.next(false);
+        this.userAuthService.setLogOut();
+        return false;
       }
-      return false;
     } else {
       this.userAuthService.setPortalToUser(false);
       const result = await this.nickService

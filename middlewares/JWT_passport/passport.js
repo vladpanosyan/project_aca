@@ -44,7 +44,7 @@ module.exports = (passport) => (app) => {
                 }
             });
             user = user[0].get({ plain: true });
-            user.access_token = accessToken
+            user.access_token = accessToken;
             done(null, user);
         } catch (error) {
             done(error, false, error.message)

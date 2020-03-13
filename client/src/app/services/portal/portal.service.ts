@@ -93,6 +93,11 @@ export class PortalService {
     );
   }
 
+  getPortalIdFromToken(token): Promise<any> {
+    return this.http
+    .get(`api/portals/${token}`).toPromise();
+  }
+
   getActivePortal(currentUserId): Observable<any> {
     return this.http
     .get(`api/portals/active/${currentUserId}`);
@@ -118,8 +123,4 @@ export class PortalService {
     return isExist;
   }
 
-  getPortalIdFromToken(token): Promise<any> {
-    return this.http
-    .get(`api/portals/${token}`).toPromise();
-  }
 }

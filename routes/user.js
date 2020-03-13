@@ -4,6 +4,7 @@ const logger  = require('./../HELPERS/logger/ErrorLog');
 
 module.exports = (userController, authMiddleware, facebookFuture) => {
   try {
+    router.get('/profile/:id', authMiddleware, userController.getUsersById.bind(userController));
     router.post('/register', userController.createUser.bind(userController));
     router.post('/login', userController.userLogin.bind(userController));
     router.post('/auth/facebook', facebookFuture.facebookAuthCheck(), userController.facebookAuthCheck.bind(userController));
@@ -13,7 +14,6 @@ module.exports = (userController, authMiddleware, facebookFuture) => {
     return router; 
 
   } catch (error) {
-      console.log(error.message, 777)    
       logger(`Connection Error "from -> userRouter", ${error.message}`)
   }
 }

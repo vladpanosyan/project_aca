@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.portalService.startEvent(portal.id, portal.token).subscribe(resp => {
       if (resp) {
         this.chatService.refreshPortalsActivity(portal.id);
-        this.router.navigate([`/portals`, portal.token]); 
+        this.router.navigate([`/portals`, portal.token]);
       }
     });
   }
@@ -108,25 +108,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     const userId = this.userAuthService.currentUserValue.id;
     this.started = false;
     this.portalData = [];
-
     this.portalService.getUserPortals(userId).subscribe(portals => {
       const StartTime = this.extractStartDate(portals);
       this.portalData = this.setupTimes(portals, StartTime);
     });
-
-    this.userService.getUserProfile(userId).subscribe(data => {
-      this.data = data;
-    });
-
-    this.userAuthService.isAuthenticated().then(result => {
-      if (result) {
-        this.userAuthService.setLogin();
-      } else {
-        this.userAuthService.setLogOut();
-      }
-    });
+    this.data = this.userAuthService.currentUserValue;
   }
-
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.complete();

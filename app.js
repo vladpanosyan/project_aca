@@ -40,5 +40,3 @@ module.exports = (async (message) => {
     return app;
   }
 })
-
-

@@ -20,9 +20,14 @@ export class AuthGuard implements CanActivate {
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const isValid = await this.authenticationService.isAuthenticated();
     if (isValid) {
+      // this.authenticationService.isLoggedSubject.next(true)
+      this.authenticationService.setLogin();
       return true;
     } else {
-      this.router.navigate(["/users/login"], { queryParams: { returnUrl: state.url } });
+      this.authenticationService.setLogOut();
+      this.router.navigate(["/users/login"], {
+        queryParams: { returnUrl: state.url }
+      });
       return false;
     }
   }

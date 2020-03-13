@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 // import { UserService } from "src/app/services/user/user.service";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { PortalService } from 'src/app/services/portal/portal.service';
+import { PortalService } from "src/app/services/portal/portal.service";
 
 @Component({
   selector: "app-user-login",
@@ -21,32 +21,23 @@ export class UserLoginComponent implements OnInit {
     private portalService: PortalService
   ) {}
 
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(6)]]
-    });
-    // init social login actions
-    this.userAuthService.socialStateCheck();
-  }
 
   userLogin() {
     const { email, password } = this.loginForm.value;
     this.userAuthService.login(email, password).subscribe(
       user => {
         if (user.activated) {
-          alert(7)
           this.router.navigate(["/users/home"]);
         } else {
-          this.router.navigate(["/users/login"]); 
+          this.router.navigate(["/users/login"]);
         }
-     },
+      },
       error => {
         if (error.status) {
           this.error = error.error.loginData;
         }
       }
-    );
+      );
   }
 
   signInWithFB() {
@@ -68,6 +59,15 @@ export class UserLoginComponent implements OnInit {
   }
 
   resetErrorLoginMessage() {
-    this.error = '';
+    this.error = "";
+  }
+
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(6)]]
+    });
+    // init social login actions
+    // this.userAuthService.socialStateCheck();
   }
 }

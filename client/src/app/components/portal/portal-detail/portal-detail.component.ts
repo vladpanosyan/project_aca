@@ -5,8 +5,8 @@ import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { PortalService } from "src/app/services/portal/portal.service";
 import { QuestionService } from "src/app/services/question/question.service";
 
-import { Subject, Observable } from "rxjs";
-import { takeUntil, map } from "rxjs/operators";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 import { Router } from "@angular/router";
 
 @Component({
@@ -61,15 +61,6 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
       .subscribe(message => {
         this.questionService.msg.next(message);
       });
-    //
-    this.userAuthService.isAuthenticated().then(result => {
-      if (result) {
-        this.userAuthService.setLogin();
-      } else {
-        this.userAuthService.setLogOut();
-      }
-    });
-    //
     this.portalService.portalFinished
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(res => {
@@ -79,10 +70,6 @@ export class PortalDetailComponent implements OnInit, OnDestroy {
           this.router.navigate(["/"]);
         }
       });
-
-    // check subscriber authorization
-    // this.nickService.isSubscriberAuth()
-    // .subscribe(x => this.nickData = x);
   }
   ngOnDestroy() {
     this.unsubscribe$.next();
