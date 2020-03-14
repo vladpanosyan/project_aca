@@ -49,6 +49,20 @@ module.exports = class User {
         return;
     }
 
+    async isExistUser(profile) {
+        const { email, firstName, lastName, photoUrl } = profile;
+        const user = await this.models.Users.findOrCreate({
+            attributes: ['id', 'firstName', 'lastName', 'img', 'time', 'email'],
+            raw: true,
+            where: { email }, defaults: {
+                firstName: firstName,
+                lastName: lastName,
+                img: photoUrl || process.env.USER_DEFAULT_IMAGE,
+            }
+        })
+        return user[0]
+    }
+
     async deleteUser(id) {
         let user = await this.model.destroy({where: {id: id}})
         return user

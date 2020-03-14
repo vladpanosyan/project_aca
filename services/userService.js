@@ -53,6 +53,15 @@ class Users {
         return;
     }
 
+    async isExistUser(profile) {
+        const user = await this.userDal.isExistUser(profile)
+        const payload = {};
+        ({id: payload.id, firstName: payload.firstName, lastName: payload.lastName} = user);
+        const token = this.generateTokenForSocila(payload)
+        user.access_token = token
+        return user;
+    }
+
     // check token for authorization or authentication
     checkTokenValid(access_token) {
         try {

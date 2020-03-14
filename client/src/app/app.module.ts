@@ -4,7 +4,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
 
 // Import social login module
-import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { SocialLoginModule, AuthServiceConfig, LoginOpt, GoogleLoginProvider } from "angularx-social-login";
 // Import login providers
 import { FacebookLoginProvider } from "angularx-social-login";
 
@@ -15,12 +15,20 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
 
 const socketConfig: SocketIoConfig = { url: "http://localhost:3000", options: {} };
+const googleLoginOptions: LoginOpt = {
+  scope: 'profile email'
+}
 const config = new AuthServiceConfig([
   {
     id: FacebookLoginProvider.PROVIDER_ID,
     provider: new FacebookLoginProvider("831828400593240")
+  },
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('698439418678-drrn1p2djkgc9m1gla4p0k39qo96der9.apps.googleusercontent.com', googleLoginOptions)
   }
 ]);
+
 
 export function provideConfig() {
   return config;
