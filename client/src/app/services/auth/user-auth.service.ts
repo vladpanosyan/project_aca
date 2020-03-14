@@ -27,7 +27,8 @@ export class UserAuthService {
     private socialAuthService: AuthService,
     private userService: UserService,
     private portalService: PortalService,
-    private router: Router
+    private router: Router,
+    private googleAuthService: AuthService,
   ) {
     this.currentUserSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem("currentUser"))
@@ -135,6 +136,21 @@ export class UserAuthService {
         this.router.navigate([`/users/home`]);
       });
   }
+
+  signWithSocialGoogle() {
+    this.googleAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      res => {
+        this.signInGoogle(res)
+          .subscribe(response => {
+            if (response) {
+              this.userService.addToken("currentUser", response);
+              this.refresh(response);
+              this.router.navigate([`/users/home`]);
+            }
+        })
+      })
+  }
+
   signOut(): void {
     this.socialAuthService.signOut();
   }

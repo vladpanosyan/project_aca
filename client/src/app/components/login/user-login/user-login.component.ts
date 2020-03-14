@@ -35,7 +35,7 @@ export class UserLoginComponent implements OnInit {
     private userAuthService: UserAuthService,
     private googleAuthService: AuthService,
     private fbAuthService: AuthService,
-    private portalService: PortalService
+    private portalService: PortalService,
   ) {
     this.googleAuthService.authState.subscribe((user) => {
       this.user = user;
@@ -78,21 +78,9 @@ export class UserLoginComponent implements OnInit {
     );
   }
 
-  // signInWithGoogle() {
-  //   this.googleAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
-  //    res => {
-  //      this.userAuthService.signInGoogle(res)
-  //        .subscribe(res => {
-  //          if (res) {
-  //            localStorage.setItem('currentUser', JSON.stringify(res));
-  //            this.authService.setcurrentUserSub(res)
-  //            this.router.navigateByUrl('/home');
-  //            this.dismissModal();
-  //            this.dialogRef.afterClosed().subscribe(() => this.userService.setloggedIn(true))
-  //          }
-  //      })
-  //    })
-  //  }
+  signInWithGoogle() {
+    this.userAuthService.signWithSocialGoogle()
+   }
 
   signInWithFB() {
     this.userAuthService.signInWithFB();
