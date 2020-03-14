@@ -91,7 +91,6 @@ class UserController {
 
     // check FC auth login
     async facebookAuthCheck(request, response, next) {
-        console.log(7777)
         if (!request.user) {
             response.status(404).send('user not found Bro');
         }
