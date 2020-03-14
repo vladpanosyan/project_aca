@@ -4,7 +4,7 @@ import { UserService } from "src/app/services/user/user.service";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MustMatch } from "./../../../HELPERS/mutch";
-import { User } from "./../../../models/user";
+import { PortalService } from "src/app/services/portal/portal.service";
 
 @Component({
   selector: "app-user-registration",
@@ -21,6 +21,7 @@ export class UserRegistrationComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private authService: UserAuthService,
+    private portalService: PortalService,
     private formBuilder: FormBuilder
   ) {}
 
@@ -36,7 +37,7 @@ export class UserRegistrationComponent implements OnInit {
       {
         validator: MustMatch("password", "confPassword")
       });
-    this.authService.socialStateCheck();
+    // this.authService.socialStateCheck();`
   }
 
   detectClass(field) {
@@ -63,10 +64,13 @@ export class UserRegistrationComponent implements OnInit {
 
     this.userService.AddUser(userData).subscribe(
       (data: any) => {
-        if (data.firstName) {
+        if (data.activated) {
           this.userService.addToken("currentUser", data);
           this.authService.refresh(data);
-          this.router.navigate([`/users/profile`, data.id]);
+          this.router.navigate([`/users/home`]);
+        } else {
+          this.portalService.isActivatedPortalSubject.next(true);
+          this.router.navigate([`/users/login`]);
         }
       },
       error => {

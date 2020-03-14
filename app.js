@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const { passport_strategy } = require('./middlewares/JWT_passport');
-const logger = require('./HELPERS/logger/ErrorLog')
+const logger = require('./HELPERS/logger/ErrorLog') 
 
 const app = express();
 passport_strategy(app);
@@ -21,9 +21,9 @@ module.exports = (async (message) => {
   } else {
     const apiRouter = await require('./routes')(logger)
     app.use('/api', apiRouter);
-    app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public1/index.html'))
-    })
+    // app.get('/*', (req, res) => {
+    // res.sendFile(path.join(__dirname, 'public1/index.html'))
+    // })
     
     app.use(function (req, res, next) {
       next(createError(404));
@@ -40,5 +40,3 @@ module.exports = (async (message) => {
     return app;
   }
 })
-
-

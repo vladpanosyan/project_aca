@@ -22,9 +22,9 @@
           <input id="timeOfStart" class="form-control" formControlName="time" name="time" type="time" #time>
         </div>
         <!-- private -->
-        <label for="timeOfStart">Create Private Event</label>
-        <div class="input-group">
-          <input id="checkPrivate" class="" formControlName="private" name="private" type="checkbox" #prcheck>
+        <div class="input-group ch">
+          <input id="checkPrivate" formControlName="private" name="private" type="checkbox" #prcheck>
+          <label for="checkPrivate">Create Private Event</label>
         </div>
       </div>
     </form>
@@ -34,9 +34,6 @@
     <button type="button" class="btn btn-outline-dark" (click)="chekEventDataValid(portalForm) && modal.close(portalForm)">Save</button>
   </div>
 </ng-template>
-<div class="d-flex justify-content-center mt-3">
+<div class="d-flex justify-content-center mt-2 mb-2">
   <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add Portal</button>
 </div>
-
-<hr>
-<pre>{{closeResult}}</pre>

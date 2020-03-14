@@ -1,7 +1,8 @@
-<!-- <h2>To add Portal Click here</h2> -->
-<!-- <ngbd-datepicker-popup></ngbd-datepicker-popup> -->
+<div class="profile m-2">
+  <img [src]="data?.img" alt="" width="100" height="100" class="rounded">
+<h3>{{ data?.firstName}}</h3>
+</div>
 <app-portal-modal></app-portal-modal>
-<!-- <app-send-mail-modal></app-send-mail-modal> -->
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -12,11 +13,10 @@
         <th scope="col">Status</th>
         <th scope="col">Share</th>
         <th scope="col">GO</th>
-        <!-- <th scope="col">Remove</th> -->
       </tr>
-    </thead>
+    </thead> 
     <tbody>
-      <tr *ngFor="let item of portalData; let i = index;" [ngClass]="">
+      <tr *ngFor="let item of portalData; let i = index;" class="ro">
         <th scope="row">{{ i + 1 }}</th>
         <td>{{ item.name }}</td>
         <td>{{ item.start }}</td>

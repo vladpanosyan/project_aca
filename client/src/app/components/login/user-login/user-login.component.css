@@ -49,22 +49,29 @@ form > div > div {
 .card-body {
     position: relative;
 }
-.error {
+.error, .info  {
     position: absolute;
     width: 90%;
     height: 31%;
     display: flex;
-    align-items: center;
-    background: #e07272;
     opacity: .5;
     z-index: 5;
     margin-top: 50%;
     justify-content: center;
     border-radius: 5px
 }
-.error > p {
+.info > p, .error > p  {
     font-size: 18px;
-    color: #fff
+    color: rgb(214, 25, 25);
+    margin-top: -23px;
+}
+
+.info {
+    background: #72e08d;
+}
+.error {
+    background: #e07272;
+
 }
 
 a:not([href]):not([tabindex]) {

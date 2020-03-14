@@ -1,5 +1,5 @@
 const Users = global.UserModel;
-const JwtStrategy = require('passport-jwt').Strategy,
+const JwtStrategy = require('passport-jwt').Strategy, 
       ExtractJwt = require('passport-jwt').ExtractJwt;
 
 const FacebookTokenStrategy = require('passport-facebook-token');
@@ -44,7 +44,7 @@ module.exports = (passport) => (app) => {
                 }
             });
             user = user[0].get({ plain: true });
-            user.access_token = accessToken
+            user.access_token = accessToken;
             done(null, user);
         } catch (error) {
             done(error, false, error.message)

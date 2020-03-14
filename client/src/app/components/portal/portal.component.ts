@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PortalService } from "src/app/services/portal/portal.service";
 import { Router } from "@angular/router";
-import { UserAuthService } from 'src/app/services/auth/user-auth.service';
+import { UserAuthService } from "src/app/services/auth/user-auth.service";
 
 @Component({
   selector: "app-portal",
@@ -29,12 +29,5 @@ export class PortalComponent implements OnInit {
       this.portals = portal;
     });
     this.portalService.getUserPortals(currentUserId).subscribe(portals => portals);
-    this.userAuthService.isAuthenticated().then(result => {
-      if (result) {
-        this.userAuthService.setLogin();
-      } else {
-        this.userAuthService.setLogOut();
-      }
-    });
   }
 }

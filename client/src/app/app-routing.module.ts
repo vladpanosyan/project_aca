@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { NgbdDatepickerPopupModule } from "./datepicker-popup.module";
+import { NgbdDatepickerPopupModule } from "./datepicker-popup.module"; 
 // services
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { UserService } from "./services/user/user.service";
@@ -19,7 +19,6 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 // components
 import { UserRegistrationComponent } from "./components/registration/user-registration/user-registration.component";
 import { UserLoginComponent } from "./components/login/user-login/user-login.component";
-import { ProfileComponent } from "./components/profile/profile.component";
 import { PortalComponent } from "src/app/components/portal/portal.component";
 import { PortalDetailComponent } from "src/app/components/portal/portal-detail/portal-detail.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -36,7 +35,7 @@ import { SettingsComponent } from "./components/portal/portal-detail/settings/se
 import { AuthGuard } from "./guards/auth.guard";
 import { SubscriberGuard } from "./guards/subscriber.guard";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
-import { UserRegisterValidateComponent } from './components/registration/user-register-validate/user-register-validate.component';
+import { UserRegisterValidateComponent } from "./components/registration/user-register-validate/user-register-validate.component";
 
 const routes: Routes = [
   {
@@ -76,11 +75,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "users/profile/:id",
-    component: ProfileComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: "404",
     component: NotFoundComponent
   },
@@ -94,7 +88,6 @@ const routes: Routes = [
   declarations: [
     UserRegistrationComponent,
     UserLoginComponent,
-    ProfileComponent,
     HomeComponent,
     PortalComponent,
     PortalDetailComponent,
@@ -107,7 +100,7 @@ const routes: Routes = [
     QuestionComponent,
     SettingsComponent,
     NotFoundComponent,
-    UserRegisterValidateComponent
+    UserRegisterValidateComponent,
   ],
   imports: [
     NgbdDatepickerPopupModule,

@@ -6,6 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@angular/animations": "^9.0.6",
     "app-root-path": "^3.0.0",
     "bcryptjs": "^2.4.3",
     "ci": "^1.0.0",
@@ -23,6 +24,7 @@
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
     "mysql2": "^2.0.2",
+    "ngx-toastr": "^12.0.0",
     "nodemailer": "^6.4.2",
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",

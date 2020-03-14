@@ -3,6 +3,8 @@ module.exports = async (socketIo) => {
     const { SERVICES } = await require('../../app_init/dal_service_init')();
     socketIo.on('connection', socket => {
         try { 
+            // socket.on('disconnect', (r) => console.log(r))
+
             socket.on('connected', async (nickData) => {
                 const { Portals } = SERVICES;
                 const isAdded = await Portals.addToOnline(nickData.portalId);
@@ -16,7 +18,7 @@ module.exports = async (socketIo) => {
                 const isRemoved = await Portals.AddToOutline(nickData.portalId);
                 if (isRemoved) {
                     socket.leave(nickData.portalId)
-                    socketIo.emit('remove_to_online', nickData.portalId) 
+                    socketIo.emit('remove_to_online', nickData.portalId)  
                 }
             })
     
@@ -63,7 +65,7 @@ module.exports = async (socketIo) => {
             socket.on("fin_portal", async portalId => {
                 const { Portals } = SERVICES;
                 const isFinished = await Portals.finishPortal(portalId);
-                if (isFinished) {
+                if (isFinished) { 
                     socketIo.emit("portal_end", { isFinished, portalId })
                 }
             })

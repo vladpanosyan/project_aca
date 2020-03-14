@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Input, Output } from "@angular/core";
 import { NickNameService } from "src/app/services/nickName/nick-name.service";
 import { PortalService } from "src/app/services/portal/portal.service";
-import { ChatService } from 'src/app/services/chat/chat.service';
+import { ChatService } from "src/app/services/chat/chat.service";
 // import { QuestionService } from 'src/app/services/question/question.service';
 
 @Component({

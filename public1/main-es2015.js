@@ -1100,26 +1100,25 @@ class CoverComponent {
             }
         });
         //
-        this.portalService.showForm().subscribe(result => {
-            if (result && result.state === null) {
-                this.portalService.chekPortalStatus(result.token).subscribe(status => {
-                    if (status.private) {
-                        this.openModal(status, true);
-                    }
-                    else {
-                        this.openModal(status, false);
-                    }
-                });
-            }
-            else if (result) {
-                sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something Went wrong!",
-                    footer: "<a href>Why do I have this issue?</a>"
-                });
-            }
-        });
+        // this.portalService.showForm().subscribe(result => {
+        //     if (result && result.state === null) {
+        //       this.portalService.chekPortalStatus(result.token).subscribe(status => {
+        //         alert(JSON.stringify(status, null, 2))
+        //         if (status.private) {
+        //           this.openModal(status, true);
+        //         } else {
+        //           this.openModal(status, false);
+        //         }
+        //       });
+        //     } else if (result) {
+        //       Swal.fire({
+        //         icon: "error",
+        //         title: "Oops...",
+        //         text: "Something Went wrong!",
+        //         footer: "<a href>Why do I have this issue?</a>"
+        //       });
+        //     }
+        // });
         //
         const userId = this.userAuthService.currentUserValue && this.userAuthService.currentUserValue.id;
         if (userId) {
