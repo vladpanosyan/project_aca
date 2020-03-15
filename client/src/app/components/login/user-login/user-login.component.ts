@@ -3,12 +3,8 @@ import { Router } from "@angular/router";
 // import { UserService } from "src/app/services/user/user.service";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-<<<<<<< HEAD
-import { PortalService } from "src/app/services/portal/portal.service";
-=======
 import { PortalService } from 'src/app/services/portal/portal.service';
 import { SocialUser, GoogleLoginProvider, AuthService } from 'angularx-social-login';
->>>>>>> google-login
 
 @Component({
   selector: "app-user-login",
@@ -19,16 +15,13 @@ export class UserLoginComponent implements OnInit {
   loginForm: FormGroup;
   submited: false;
   error = "";
-<<<<<<< HEAD
   info = true;
   activatedPortal = false;
-=======
 
   signinForm: FormGroup;
   public user: SocialUser;
   public loggedIn: boolean;
   
->>>>>>> google-login
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -47,18 +40,6 @@ export class UserLoginComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
-=======
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(6)]]
-    });
-    // init social login actions
-    // this.userAuthService.socialStateCheck();
-  }
-
->>>>>>> google-login
   userLogin() {
     const { email, password } = this.loginForm.value;
     this.userAuthService.login(email, password).subscribe(

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { AuthService } from "angularx-social-login";
+import { AuthService, GoogleLoginProvider } from "angularx-social-login";
 import { UserService } from "src/app/services/user/user.service";
 import { Router } from "@angular/router";
 
@@ -113,13 +113,10 @@ export class UserAuthService {
     });
   }
 
-<<<<<<< HEAD
-=======
   signInGoogle(res) {
     return this.http.post('api/users/auth/google', res)
   }
  
->>>>>>> google-login
   signInWithFB(): void {
     from(this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID))
       .pipe(
