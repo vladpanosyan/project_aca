@@ -3,6 +3,8 @@ Allows you to organize events with various correspondence groups in real time.
 # Create database
 
 ```
+ng build --configuration="production"
+```
 mysql -u root -p
 CREATE DATABASE <dbname>;
 ```
