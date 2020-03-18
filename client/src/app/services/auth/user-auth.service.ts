@@ -4,7 +4,7 @@ import { AuthService, GoogleLoginProvider } from "angularx-social-login";
 import { UserService } from "src/app/services/user/user.service";
 import { Router } from "@angular/router";
 
-import { BehaviorSubject, Observable, from } from "rxjs";
+import { BehaviorSubject, Observable, from, of } from "rxjs";
 import { map, switchMap } from "rxjs/operators";
 import { EMPTY } from "rxjs";
 import { User } from "./../../models/user";
@@ -73,6 +73,7 @@ export class UserAuthService {
       const res = this.http.post("api/users/checkTokenValid", { accessToken });
       return res;
     }
+    return of(null);
   }
 
   async isAuthenticated(): Promise<any> {

@@ -9,12 +9,6 @@ module.exports = {
             node_port: process.env.PORT_DEV,
             
             database: {
-                mongoDb: {
-                    db_host: process.env. MONGO_DB_HOST,
-                    db_port: process.env.MONGO_DB_PORT,
-                    db_name: process.env.MONGO_DB_NAME,
-                    db_pass: process.env.MONGO_DB_PASS,
-                },
                 mysql: {
                     db_host: process.env.MYSQL_DB_HOST,
                     db_port: process.env.MYSQL_DB_PORT,
@@ -46,8 +40,13 @@ module.exports = {
             config_id: "production",
             node_port: process.env.PORT_PROD,
             database: {
-                mongoDb: process.env.MONGO_DB_PROD,
-                mysql: process.env.MYSQL_DB_PROD
+                mysql: {
+                    db_host: process.env.MYSQL_DB_HOST,
+                    db_port: process.env.MYSQL_DB_PORT,
+                    db_name: process.env.MYSQL_DB_NAME,
+                    db_pass: process.env.MYSQL_DB_PASS,
+                    db_user: process.env.MYSQL_DB_USER_NAME
+                }
             }
         }
 }

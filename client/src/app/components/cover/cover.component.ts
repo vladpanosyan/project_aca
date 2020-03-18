@@ -5,8 +5,8 @@ import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 import { UserAuthService } from "src/app/services/auth/user-auth.service";
 import { ChatService } from "src/app/services/chat/chat.service";
-import { switchMap } from 'rxjs/operators';
-import { EMPTY, fromEvent } from 'rxjs';
+import { switchMap } from "rxjs/operators";
+import { EMPTY, fromEvent } from "rxjs";
 @Component({
   selector: "app-cover",
   templateUrl: "./cover.component.html",
@@ -34,10 +34,15 @@ export class CoverComponent implements OnInit {
   async openModal(item, privatePortal) {
     this.portalService.currentPortalIdSubject.next(item.id);
     this.portalService.currentPortalSubject.next(item);
-    const userId = this.userAuthService.currentUserValue &&  this.userAuthService.currentUserValue.id;
+    const userId =
+      this.userAuthService.currentUserValue &&
+      this.userAuthService.currentUserValue.id;
     const issubLoggedIn = await this.nickNameService.isSubAuth(item.id);
 
-    if (issubLoggedIn && issubLoggedIn.currentNicId || userId === item.userId) {
+    if (
+      (issubLoggedIn && issubLoggedIn.currentNicId) ||
+      userId === item.userId
+    ) {
       this.router.navigate(["portals", item.token]);
     } else if (issubLoggedIn === false) {
       Swal.fire({
@@ -121,10 +126,10 @@ export class CoverComponent implements OnInit {
   ngOnInit() {
     //
     this.chatService.refreshPortals
-    .pipe(switchMap(_ => this.portalService.getAll()))
-    .subscribe(portals => {
-      this.portalData = portals;
-    });
+      .pipe(switchMap(_ => this.portalService.getAll()))
+      .subscribe(portals => {
+        this.portalData = portals;
+      });
     //
     this.portalService.getAll().subscribe(portals => {
       this.portalData = portals;
@@ -138,53 +143,66 @@ export class CoverComponent implements OnInit {
       }
     });
     //
-    this.portalService.showForm()
-    .pipe(switchMap(result => {
-      if (result && result.state === null) {
-        return this.portalService.chekPortalStatus(result.token);
-      } else if (result) {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something Went wrong!",
-          footer: "<a href>Why do I have this issue?</a>"
-        });
-        return EMPTY;
-      } else {
-        return EMPTY;
-      }
-    }))
-    .subscribe(status => {
-      // if (status.private) {
-      //   this.openModal(status, false);
-      // } else {
+    this.portalService
+      .showForm()
+      .pipe(
+        switchMap(result => {
+          if (result && result.state === null) {
+            return this.portalService.chekPortalStatus(result.token);
+          } else if (result) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something Went wrong!",
+              footer: "<a href>Why do I have this issue?</a>"
+            });
+            return EMPTY;
+          } else {
+            return EMPTY;
+          }
+        })
+      )
+      .subscribe(status => {
+        // if (status.private) {
+        //   this.openModal(status, false);
+        // } else {
         this.openModal(status, false);
-      // }
-    });
+        // }
+      });
     //
-    const userId = this.userAuthService.currentUserValue &&  this.userAuthService.currentUserValue.id;
+    const userId =
+      this.userAuthService.currentUserValue &&
+      this.userAuthService.currentUserValue.id;
     if (userId) {
-      this.portalService.getUserPortals(userId)
-      .subscribe(portals => {
+      this.portalService.getUserPortals(userId).subscribe(portals => {
         this.currentUserPortals = portals;
       });
     }
     //
-    this.chatService.addToOnline.subscribe( portalId => {
-      this.portalData.find(item => item.id === portalId && (item.onlineSub += 1));
+    this.chatService.addToOnline.subscribe(portalId => {
+      this.portalData.find(
+        item => item.id === portalId && (item.onlineSub += 1)
+      );
     });
 
     this.chatService.removeToOnline.subscribe(portalId => {
-      this.portalData.find(item => item.id === portalId && (item.onlineSub -= 1));
+      this.portalData.find(
+        item => item.id === portalId && (item.onlineSub -= 1)
+      );
     });
 
     //
     this.chatService.refreshActivePortals.subscribe(portalId => {
-      this.portalData.find(portal => portal.id === portalId && (portal.isStarted = 1));
+      this.portalData.find(
+        portal => portal.id === portalId && (portal.isStarted = 1)
+      );
     });
 
     this.chatService.endOfPortal.subscribe((data: any) => {
-      this.portalData.find((portal, index, portalData) => portal.id === data.portalId && (portalData.splice(index, 1)));
+      this.portalData.find(
+        (portal, index, portalData) =>
+          portal.id === data.portalId && portalData.splice(index, 1)
+      );
     });
     //
     // fromEvent(window, "unload").subscribe(e => alert(e));
