@@ -10,7 +10,7 @@
     "@angular/core": "^9.0.6",
     "@types/node": "^13.9.1",
     "app-root-path": "^3.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "ci": "^1.0.0",
     "cookie-parser": "~1.4.4",
